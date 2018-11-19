@@ -1,1 +1,1177 @@
-/private/var/tmp/_bazel_jingwen/6387d55354406beb34e2bb3e2911dd1e/execroot/io_bazel/bazel-out/darwin-fastbuild/bin/site/site-build/versions/0.17.1/be/python.html
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python Rules - Bazel</title>
+
+    <link rel="canonical" href="/versions/0.17.1/be/python.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Python Rules"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <!--
+ This document is synchronized with Bazel releases.
+ To edit, submit changes to the Bazel source code.
+-->
+
+<!-- Generated by //src/main/java/com/google/devtools/build/docgen:build-encyclopedia.zip -->
+
+<h1>Python Rules</h1>
+
+<div class="toc">
+  <h2>Rules</h2>
+  <ul>
+    <li>
+      <a href="#py_binary">
+        py_binary      </a>
+    </li>
+    <li>
+      <a href="#py_library">
+        py_library      </a>
+    </li>
+    <li>
+      <a href="#py_test">
+        py_test      </a>
+    </li>
+    <li>
+      <a href="#py_runtime">
+        py_runtime      </a>
+    </li>
+  </ul>
+</div>
+
+  <h2 id="py_binary">
+    py_binary
+  </h2>
+
+  <pre class="rule-signature">py_binary(<a href="#py_binary.name">name</a>, <a href="#py_binary.deps">deps</a>, <a href="#py_binary.srcs">srcs</a>, <a href="#py_binary.data">data</a>, <a href="common-definitions.html#binary.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#py_binary.default_python_version">default_python_version</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_binary.imports">imports</a>, <a href="#py_binary.legacy_create_init">legacy_create_init</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#py_binary.main">main</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#py_binary.srcs_version">srcs_version</a>, <a href="#py_binary.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#py_binary.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>
+  A <code>py_binary</code> is an executable Python program consisting
+  of a collection of <code>.py</code> source files (possibly belonging
+  to other <code>py_library</code> rules), a <code>*.runfiles</code>
+  directory tree containing all the code and data needed by the
+  program at run-time, and a stub script that starts up the program with
+  the correct initial environment and data.
+</p>
+
+<h4 id="py_binary_examples">Examples</h4>
+
+<pre class="code">
+py_binary(
+    name = "foo",
+    srcs = ["foo.py"],
+    data = [":transform"],  # a cc_binary which we invoke at run time
+    deps = [
+        "//pyglib",
+        ":foolib",  # a py_library
+    ],
+)
+</pre>
+
+<p>If you want to run a <code>py_binary</code> from within another binary or
+   test (for example, running a python binary to set up some mock resource from
+   within a java_test) then the correct approach is to make the other binary or
+   test depend on the <code>py_binary</code> in its data section. The other
+   binary can then locate the <code>py_binary</code> relative to the source
+   directory.
+</p>
+
+<pre class="code">
+py_binary(
+    name = "test_main",
+    srcs = ["test_main.py"],
+    deps = [":testlib"],
+)
+
+java_library(
+    name = "testing",
+    srcs = glob(["*.java"]),
+    data = [":test_main"]
+)
+</pre>
+
+
+  <h3 id="py_binary_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="py_binary.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this rule.</p>
+              <br/>If <code>main</code> is unspecified, this should be the same as the name
+    of the source file that is the main entry point of the application,
+    minus the extension.  For example, if your entry point is called
+    <code>main.py</code>, then your name should be <code>main</code>.
+
+        </td>
+      </tr>
+                <tr>
+        <td id="py_binary.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of other libraries to be linked in to the binary target.
+          See general comments about <code>deps</code> at
+          <a href="common-definitions.html#common-attributes">
+          Attributes common to all build rules</a>.
+          These can be
+          <a href="python.html#py_binary"><code>py_binary</code></a> rules,
+          <a href="python.html#py_library"><code>py_library</code></a> rules.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_binary.srcs">
+          <code>srcs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                              The list of source files that are processed to create the target.
+          This includes all your checked-in code and any
+          generated source files.  The line between <code>srcs</code> and
+          <code>deps</code> is loose. The <code>.py</code> files
+          probably belong in <code>srcs</code> and library targets probably belong
+          in <code>deps</code>, but don't worry about it too much.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_binary.data">
+          <code>data</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of files needed by this binary at runtime.
+          See general comments about <code>data</code> at
+          <a href="common-definitions.html#common-attributes">
+          Attributes common to all build rules</a>.
+          Also see the <a href="python.html#py_library.data"><code>data</code></a> argument of
+          the <a href="python.html#py_library"><code>py_library</code></a> rule for details.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="py_binary.default_python_version">
+          <code>default_python_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is "PY2"</code></p>
+                              A string specifying the default Python major version to use when building this binary and
+          all of its <code>deps</code>.
+          Valid values are <code>"PY2"</code> (default) or <code>"PY3"</code>.
+          Python 3 support is experimental.
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="py_binary.imports">
+          <code>imports</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of import directories to be added to the <code>PYTHONPATH</code>.
+          <p>
+          Subject to <a href="make-variables.html">"Make variable"</a> substitution. These import
+          directories will be added for this rule and all rules that depend on it (note: not the
+          rules this rule depends on. Each directory will be added to <code>PYTHONPATH</code> by
+          <a href="python.html#py_binary"><code>py_binary</code></a> rules that depend on this rule.
+          </p>
+          <p>
+          Absolute paths (paths that start with <code>/</code>) and paths that references a path
+          above the execution root are not allowed and will result in an error.
+          </p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_binary.legacy_create_init">
+          <code>legacy_create_init</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is 1</code></p>
+                              Whether to implicitly create empty __init__.py files in the runfiles tree.
+          These are created in every directory containing Python source code or
+          shared libraries, and every parent directory of those directories.
+          Default is true for backward compatibility.  If false, the user is responsible
+          for creating __init__.py files (empty or not) and adding them to `srcs` or `deps`
+          of Python targets as required.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="py_binary.main">
+          <code>main</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                              The name of the source file that is the main entry point of the application.
+          This file must also be listed in <code>srcs</code>. If left unspecified,
+          <code>name</code> is used instead (see above). If <code>name</code> does not
+          match any filename in <code>srcs</code>, <code>main</code> must be specified.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="py_binary.srcs_version">
+          <code>srcs_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; default is "PY2AND3"</code></p>
+                              The value set here is for documentation purpose, and it will NOT determine which version
+          of python interpreter to use. Starting with 0.5.3 this attribute has been deprecated and
+          no longer has effect.
+          A string specifying the Python major version(s) that the <code>.py</code> source
+          files listed in the <code>srcs</code> of this rule are compatible with.
+          Please reference to <a href="python.html#py_runtime"><code>py_runtime</code></a> rules for
+          determining the python version.
+          Valid values are:<br/>
+          <code>"PY2ONLY"</code> -
+            Python 2 code that is <b>not</b> suitable for <code>2to3</code> conversion.<br/>
+          <code>"PY2"</code> -
+            Python 2 code that is expected to work when run through <code>2to3</code>.<br/>
+          <code>"PY2AND3"</code> -
+            Code that is compatible with both Python 2 and 3 without
+            <code>2to3</code> conversion.<br/>
+          <code>"PY3ONLY"</code> -
+            Python 3 code that will not run on Python 2.<br/>
+          <code>"PY3"</code> -
+            A synonym for PY3ONLY.<br/>
+          <br/>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_binary.stamp">
+          <code>stamp</code>
+        </td>
+        <td>
+                    <p><code>Integer; optional; default is -1</code></p>
+                              Enable link stamping.
+          Whether to encode build information into the binary. Possible values:
+          <ul>
+            <li><code>stamp = 1</code>: Stamp the build information into the
+              binary. Stamped binaries are only rebuilt when their dependencies
+              change. Use this if there are tests that depend on the build
+              information.</li>
+            <li><code>stamp = 0</code>: Always replace build information by constant
+              values. This gives good build result caching.</li>
+            <li><code>stamp = -1</code>: Embedding of build information is controlled
+              by the <a href="../user-manual.html#flag--stamp">--[no]stamp</a> Bazel
+              flag.</li>
+          </ul>
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="py_binary.toolchains">
+          <code>toolchains</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The set of toolchains that supply <a href="make-variables.html">"Make variables"</a>
+          that this target can use in some of its attributes. Some rules have toolchains whose Make
+          variables they can use by default.
+
+        </td>
+      </tr>
+                        </tbody>
+  </table>
+    <h2 id="py_library">
+    py_library
+  </h2>
+
+  <pre class="rule-signature">py_library(<a href="#py_library.name">name</a>, <a href="#py_library.deps">deps</a>, <a href="#py_library.srcs">srcs</a>, <a href="#py_library.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_library.imports">imports</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#py_library.srcs_version">srcs_version</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+
+
+  <h3 id="py_library_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="py_library.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this rule.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="py_library.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The list of other libraries to be linked in to the library target.
+        See general comments about <code>deps</code> at
+        <a href="common-definitions.html#common-attributes">
+        Attributes common to all build rules</a>.
+        In practice, these arguments are treated like those in <code>srcs</code>;
+        you may move items between these lists willy-nilly.  It's probably more
+        readable to keep your <code>.py</code> files in your <code>srcs</code>.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_library.srcs">
+          <code>srcs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The list of source files that are processed to create the target.
+        This includes all your checked-in code and any generated source files.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_library.data">
+          <code>data</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The list of files needed by this library at runtime.
+        See general comments about <code>data</code> at
+        <a href="common-definitions.html#common-attributes">
+        Attributes common to all build rules</a>.
+
+        </td>
+      </tr>
+                                                              <tr>
+        <td id="py_library.imports">
+          <code>imports</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of import directories to be added to the <code>PYTHONPATH</code>.
+          <p>
+          Subject to <a href="make-variables.html">"Make variable"</a> substitution. These import
+          directories will be added for this rule and all rules that depend on it (note: not the
+          rules this rule depends on. Each directory will be added to <code>PYTHONPATH</code> by
+          <a href="python.html#py_binary"><code>py_binary</code></a> rules that depend on this rule.
+          </p>
+          <p>
+          Absolute paths (paths that start with <code>/</code>) and paths that references a path
+          above the execution root are not allowed and will result in an error.
+          </p>
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="py_library.srcs_version">
+          <code>srcs_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; default is "PY2AND3"</code></p>
+                              The value set here is for documentation purpose, and it will NOT determine which version
+          of python interpreter to use. Starting with 0.5.3 this attribute has been deprecated and
+          no longer has effect.
+          A string specifying the Python major version(s) that the <code>.py</code> source
+          files listed in the <code>srcs</code> of this rule are compatible with.
+          Please reference to <a href="python.html#py_runtime"><code>py_runtime</code></a> rules for
+          determining the python version.
+          Valid values are:<br/>
+          <code>"PY2ONLY"</code> -
+            Python 2 code that is <b>not</b> suitable for <code>2to3</code> conversion.<br/>
+          <code>"PY2"</code> -
+            Python 2 code that is expected to work when run through <code>2to3</code>.<br/>
+          <code>"PY2AND3"</code> -
+            Code that is compatible with both Python 2 and 3 without
+            <code>2to3</code> conversion.<br/>
+          <code>"PY3ONLY"</code> -
+            Python 3 code that will not run on Python 2.<br/>
+          <code>"PY3"</code> -
+            A synonym for PY3ONLY.<br/>
+          <br/>
+
+        </td>
+      </tr>
+                                            </tbody>
+  </table>
+    <h2 id="py_test">
+    py_test
+  </h2>
+
+  <pre class="rule-signature">py_test(<a href="#py_test.name">name</a>, <a href="#py_test.deps">deps</a>, <a href="#py_test.srcs">srcs</a>, <a href="#py_test.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#py_test.default_python_version">default_python_version</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#py_test.imports">imports</a>, <a href="#py_test.legacy_create_init">legacy_create_init</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#py_test.main">main</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#py_test.srcs_version">srcs_version</a>, <a href="#py_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#py_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>
+A <code>py_test()</code> rule compiles a test.  A test is a binary wrapper
+ around some test code.</p>
+
+<h4 id="py_test_examples">Examples</h4>
+
+<p>
+<pre class="code">
+py_test(
+    name = "runtest_test",
+    srcs = ["runtest_test.py"],
+    deps = [
+        "//path/to/a/py/library",
+    ],
+)
+</pre>
+
+<p>It's also possible to specify a main module:</p>
+
+<pre class="code">
+py_test(
+    name = "runtest_test",
+    srcs = [
+        "runtest_main.py",
+        "runtest_lib.py",
+    ],
+    main = "runtest_main.py",
+)
+</pre>
+
+
+
+  <h3 id="py_test_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="py_test.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this rule.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="py_test.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of other libraries to be linked in to the binary target.
+          See general comments about <code>deps</code> at
+          <a href="common-definitions.html#common-attributes">
+          Attributes common to all build rules</a>.
+          These can be
+          <a href="python.html#py_binary"><code>py_binary</code></a> rules,
+          <a href="python.html#py_library"><code>py_library</code></a> rules.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_test.srcs">
+          <code>srcs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                              The list of source files that are processed to create the target.
+          This includes all your checked-in code and any
+          generated source files.  The line between <code>srcs</code> and
+          <code>deps</code> is loose. The <code>.py</code> files
+          probably belong in <code>srcs</code> and library targets probably belong
+          in <code>deps</code>, but don't worry about it too much.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_test.data">
+          <code>data</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of files needed by this binary at runtime.
+          See general comments about <code>data</code> at
+          <a href="common-definitions.html#common-attributes">
+          Attributes common to all build rules</a>.
+          Also see the <a href="python.html#py_library.data"><code>data</code></a> argument of
+          the <a href="python.html#py_library"><code>py_library</code></a> rule for details.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="py_test.default_python_version">
+          <code>default_python_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is "PY2"</code></p>
+                              A string specifying the default Python major version to use when building this binary and
+          all of its <code>deps</code>.
+          Valid values are <code>"PY2"</code> (default) or <code>"PY3"</code>.
+          Python 3 support is experimental.
+
+        </td>
+      </tr>
+                                                              <tr>
+        <td id="py_test.imports">
+          <code>imports</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of import directories to be added to the <code>PYTHONPATH</code>.
+          <p>
+          Subject to <a href="make-variables.html">"Make variable"</a> substitution. These import
+          directories will be added for this rule and all rules that depend on it (note: not the
+          rules this rule depends on. Each directory will be added to <code>PYTHONPATH</code> by
+          <a href="python.html#py_binary"><code>py_binary</code></a> rules that depend on this rule.
+          </p>
+          <p>
+          Absolute paths (paths that start with <code>/</code>) and paths that references a path
+          above the execution root are not allowed and will result in an error.
+          </p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_test.legacy_create_init">
+          <code>legacy_create_init</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is 1</code></p>
+                              Whether to implicitly create empty __init__.py files in the runfiles tree.
+          These are created in every directory containing Python source code or
+          shared libraries, and every parent directory of those directories.
+          Default is true for backward compatibility.  If false, the user is responsible
+          for creating __init__.py files (empty or not) and adding them to `srcs` or `deps`
+          of Python targets as required.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="py_test.main">
+          <code>main</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                              The name of the source file that is the main entry point of the application.
+          This file must also be listed in <code>srcs</code>. If left unspecified,
+          <code>name</code> is used instead (see above). If <code>name</code> does not
+          match any filename in <code>srcs</code>, <code>main</code> must be specified.
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="py_test.srcs_version">
+          <code>srcs_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; default is "PY2AND3"</code></p>
+                              The value set here is for documentation purpose, and it will NOT determine which version
+          of python interpreter to use. Starting with 0.5.3 this attribute has been deprecated and
+          no longer has effect.
+          A string specifying the Python major version(s) that the <code>.py</code> source
+          files listed in the <code>srcs</code> of this rule are compatible with.
+          Please reference to <a href="python.html#py_runtime"><code>py_runtime</code></a> rules for
+          determining the python version.
+          Valid values are:<br/>
+          <code>"PY2ONLY"</code> -
+            Python 2 code that is <b>not</b> suitable for <code>2to3</code> conversion.<br/>
+          <code>"PY2"</code> -
+            Python 2 code that is expected to work when run through <code>2to3</code>.<br/>
+          <code>"PY2AND3"</code> -
+            Code that is compatible with both Python 2 and 3 without
+            <code>2to3</code> conversion.<br/>
+          <code>"PY3ONLY"</code> -
+            Python 3 code that will not run on Python 2.<br/>
+          <code>"PY3"</code> -
+            A synonym for PY3ONLY.<br/>
+          <br/>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_test.stamp">
+          <code>stamp</code>
+        </td>
+        <td>
+                    <p><code>Integer; optional; default is 0</code></p>
+                            See the section on <a href="python.html#py_binary_args">py_binary()</a> arguments, except
+        that the stamp argument is set to 0 by default for tests.
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="py_test.toolchains">
+          <code>toolchains</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The set of toolchains that supply <a href="make-variables.html">"Make variables"</a>
+          that this target can use in some of its attributes. Some rules have toolchains whose Make
+          variables they can use by default.
+
+        </td>
+      </tr>
+                        </tbody>
+  </table>
+    <h2 id="py_runtime">
+    py_runtime
+  </h2>
+
+  <pre class="rule-signature">py_runtime(<a href="#py_runtime.name">name</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_runtime.files">files</a>, <a href="#py_runtime.interpreter">interpreter</a>, <a href="#py_runtime.interpreter_path">interpreter_path</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>
+Specifies the configuration for a Python runtime. This rule can either describe a Python runtime in
+the source tree or one at a well-known absolute path.
+</p>
+
+<h4 id="py_runtime">Example:</h4>
+
+<pre class="code">
+py_runtime(
+    name = "python-2.7.12",
+    files = glob(["python-2.7.12/**"]),
+    interpreter = "python-2.7.12/bin/python",
+)
+
+py_runtime(
+    name = "python-3.6.0",
+    files = [],
+    interpreter_path = "/opt/pyenv/versions/3.6.0/bin/python",
+)
+</pre>
+
+
+
+  <h3 id="py_runtime_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="py_runtime.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this rule.</p>
+
+        </td>
+      </tr>
+                                                        <tr>
+        <td id="py_runtime.files">
+          <code>files</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                            The set of files comprising this Python runtime.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_runtime.interpreter">
+          <code>interpreter</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            The Python interpreter used in this runtime. Binary rules will be executed using this
+        binary.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="py_runtime.interpreter_path">
+          <code>interpreter_path</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The absolute path of a Python interpreter. This attribute and interpreter attribute cannot
+        be set at the same time.
+
+        </td>
+      </tr>
+                                                                </tbody>
+  </table>
+
+<!-- Generated footer -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

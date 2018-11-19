@@ -1,1 +1,663 @@
-/private/var/tmp/_bazel_jingwen/6387d55354406beb34e2bb3e2911dd1e/execroot/io_bazel/bazel-out/darwin-fastbuild/bin/site/site-build/versions/0.17.1/skylark/bzl-style.html
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>.bzl Style Guide - Bazel</title>
+
+    <link rel="canonical" href="/versions/0.17.1/skylark/bzl-style.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content=".bzl Style Guide"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <h1 id="bzl-style-guide">.bzl Style Guide</h1>
+
+<p><a href="language.html">Starlark</a> is a language that defines how software is built, and as
+such it is both a programming and a configuration language.</p>
+
+<p>You will use Starlark to write BUILD files, macros, and build rules. Macros and
+rules are essentially meta-languages - they define how BUILD files are written.
+BUILD files are intended to be simple and repetitive.</p>
+
+<p>All software is read more often than it is written. This is especially true for
+Starlark, as engineers read BUILD files to understand dependencies of their
+targets and details of their builds.This reading will often happen in passing,
+in a hurry, or in parallel to accomplishing some other task. Consequently,
+simplicity and readability are very important so that users can parse and
+comprehend BUILD files quickly.</p>
+
+<p>When a user opens a BUILD file, they quickly want to know the list of targets in
+the file; or review the list of sources of that C++ library; or remove a
+dependency from that Java binary. Each time you add a layer of abstraction, you
+make it harder for a user to do these tasks.</p>
+
+<p>BUILD files are also analyzed and updated by many different tools. Tools may not
+be able to edit your BUILD file if it uses abstractions. Keeping your BUILD
+files simple will allow you to get better tooling. As a code base grows, it
+becomes more and more frequent to do changes across many BUILD files in order to
+update a library or do a cleanup.</p>
+
+<p>Do not create a macro just to avoid some amount of repetition in BUILD files.
+The <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a> principle
+doesn’t really apply here. The goal is not to make the file shorter; the goal is
+to make your files easy to process, both by humans and tools.</p>
+
+<h2 id="general-advice">General advice</h2>
+
+<ul>
+  <li>Use <a href="skylint.html">skylint</a>.</li>
+  <li>Follow <a href="testing.html">testing guidelines</a>.</li>
+</ul>
+
+<h2 id="style">Style</h2>
+
+<ul>
+  <li>
+    <p>When in doubt, follow the <a href="https://www.python.org/dev/peps/pep-0008/">Python style
+guide</a>. In particular, use 4
+spaces for indentation (we previously recommended 2, but we now follow the
+Python convention).</p>
+  </li>
+  <li>
+    <p>Document files and functions using <a href="skylint.html#docstrings">docstrings</a>. Use
+a docstring at the top of each <code class="highlighter-rouge">.bzl</code> file, and a docstring for each public
+function.</p>
+  </li>
+  <li>
+    <p>Rules and aspects, along with their attributes, as well as providers and
+their fields, should be documented using the <code class="highlighter-rouge">doc</code> argument.</p>
+  </li>
+  <li>
+    <p>Variables and function names use lowercase with words separated by
+underscores (<code class="highlighter-rouge">[a-z][a-z0-9_]*</code>), e.g. <code class="highlighter-rouge">cc_library</code>. Top-level private values
+start with one underscore. Bazel enforces that private values cannot be used
+from other files. Local variables should not use the underscore prefix.</p>
+  </li>
+  <li>
+    <p>As in BUILD files, there is no strict line length limit as labels can be
+long. When possible, try to use at most 79 characters per line.</p>
+  </li>
+  <li>
+    <p>In keyword arguments, spaces around the equal sign are optional, but be
+consistent within any given call. In general, we follow the BUILD file
+convention when calling macros and native rules, and the Python convention
+for other functions, e.g.</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fct</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">srcs</span><span class="p">):</span>
+    <span class="n">filtered_srcs</span> <span class="o">=</span> <span class="n">my_filter</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="n">srcs</span><span class="p">)</span>
+    <span class="n">native</span><span class="o">.</span><span class="n">cc_library</span><span class="p">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+        <span class="n">srcs</span> <span class="o">=</span> <span class="n">filtered_srcs</span><span class="p">,</span>
+        <span class="n">testonly</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Prefer values <code class="highlighter-rouge">True</code> and <code class="highlighter-rouge">False</code> instead of <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">1</code> for boolean values
+(e.g. when using a boolean attribute in a rule).</p>
+  </li>
+  <li>
+    <p>Do not use the <code class="highlighter-rouge">print()</code> function in production code; it is only intended
+for debugging, and will spam all direct and indirect users of your <code class="highlighter-rouge">.bzl</code>
+file. The only exception is that you may submit code that uses <code class="highlighter-rouge">print()</code> if
+it is disabled by default and can only be enabled by editing the source –
+for example, if all uses of <code class="highlighter-rouge">print()</code> are guarded by <code class="highlighter-rouge">if DEBUG:</code> where
+<code class="highlighter-rouge">DEBUG</code> is hardcoded to false. Be mindful of whether these statements are
+useful enough to justify their impact on readability.</p>
+  </li>
+</ul>
+
+<h2 id="macros">Macros</h2>
+
+<p>A macro is a function which instantiates one or more rules during the loading
+phase. In general, use rules whenever possible instead of macros. The build
+graph seen by the user is not the same as the one used by Bazel during the
+build - macros are expanded <em>before Bazel does any build graph analysis.</em></p>
+
+<p>Because of this, when something goes wrong, the user will need to understand
+your macro’s implementation to troubleshoot build problems. Additionally, <code class="highlighter-rouge">bazel
+query</code> results can be hard to interpret because targets shown in the results
+come from macro expansion. Finally, aspects are not aware of macros, so tooling
+depending on aspects (IDEs and others) might fail.</p>
+
+<p>A safe use for macros is leaf nodes, such as macros defining test permutations:
+in that case, only the “end users” of those targets need to know about those
+additional nodes, and any build problems introduced by macros are never far from
+their usage.</p>
+
+<p>For macros that define non-leaf nodes, follow these best practices:</p>
+
+<ul>
+  <li>A macro should take a <code class="highlighter-rouge">name</code> argument and define a target with that name.
+That target becomes that macro’s <em>main target</em>.</li>
+  <li>All other targets defined by a macro should have their names preceded with a
+<code class="highlighter-rouge">_</code>, include the <code class="highlighter-rouge">name</code> attribute as a prefix, and have restricted
+visibility.</li>
+  <li>All the targets created in the macro should be coupled in some way to the
+main target.</li>
+  <li>Keep the parameter names in the macro consistent. If a parameter is passed
+as an attribute value to the main target, keep its name the same. If a macro
+parameter serves the same purpose as a common rule attribute, such as
+<code class="highlighter-rouge">deps</code>, name as you would the attribute (see below).</li>
+  <li>When calling a macro, use only keyword arguments. This is consistent with
+rules, and greatly improves readability.</li>
+</ul>
+
+<p>Engineers often write macros when the Starlark API of relevant rules is
+insufficient for their specific use case, regardless of whether the rule is
+defined within Bazel in native code, or in Starlark. If you’re facing this
+problem, ask the rule author if they can extend the API to accomplish your
+goals.</p>
+
+<p>As a rule of thumb, the more macros resemble the rules, the better.</p>
+
+<h2 id="rules">Rules</h2>
+
+<ul>
+  <li>Rules, aspects, and their attributes should use lower_case names (“snake
+case”).</li>
+  <li>Rule names are nouns that describe the main kind of artifact produced by the
+rule, from the point of view of its dependencies (or for leaf rules, the
+user). This is not necessarily a file suffix. For instance, a rule that
+produces C++ artifacts meant to be used as Python extensions might be called
+<code class="highlighter-rouge">py_extension</code>. For most languages, typical rules include:
+    <ul>
+      <li><code class="highlighter-rouge">*_library</code> - a compilation unit or “module”.</li>
+      <li><code class="highlighter-rouge">*_binary</code> - a target producing an executable or a deployment unit.</li>
+      <li><code class="highlighter-rouge">*_test</code> - a test target. This can include multiple tests. Expect all
+tests in a <code class="highlighter-rouge">*_test</code> target to be variations on the same theme, for
+example, testing a single library.</li>
+      <li><code class="highlighter-rouge">*_import</code>: a target encapsulating a pre-compiled artifact, such as a
+<code class="highlighter-rouge">.jar</code>, or a <code class="highlighter-rouge">.dll</code> that is used during compilation.</li>
+    </ul>
+  </li>
+  <li>Use consistent names and types for attributes. Some generally applicable
+attributes include:
+    <ul>
+      <li><code class="highlighter-rouge">srcs</code>: <code class="highlighter-rouge">label_list</code>, allowing files: source files, typically
+human-authored.</li>
+      <li><code class="highlighter-rouge">deps</code>: <code class="highlighter-rouge">label_list</code>, typically <em>not</em> allowing files: compilation
+dependencies.</li>
+      <li><code class="highlighter-rouge">data</code>: <code class="highlighter-rouge">label_list</code>, allowing files: data files, such as test data etc.</li>
+      <li><code class="highlighter-rouge">runtime_deps</code>: <code class="highlighter-rouge">label_list</code>: runtime dependencies that are not needed
+for compilation.</li>
+    </ul>
+  </li>
+  <li>For any attributes with non-obvious behavior (for example, string templates
+with special substitutions, or tools that are invoked with specific
+requirements), provide documentation using the <code class="highlighter-rouge">doc</code> keyword argument to the
+attribute’s declaration (<code class="highlighter-rouge">attr.label_list()</code> or similar).</li>
+  <li>Rule implementation functions should almost always be private functions
+(named with a leading underscore). A common style is to give the
+implementation function for <code class="highlighter-rouge">myrule</code> the name <code class="highlighter-rouge">_myrule_impl</code>.</li>
+  <li>Pass information between your rules using a well-defined
+<a href="rules.html#providers">provider</a> interface. Declare and document provider
+fields.</li>
+  <li>Design your rule with extensibility in mind. Consider that other rules might
+want to interact with your rule, access your providers, and reuse the
+actions you create.</li>
+  <li>Follow <a href="performance.html">performance guidelines</a> in your rules.</li>
+</ul>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

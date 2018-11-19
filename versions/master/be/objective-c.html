@@ -1,1 +1,2332 @@
-/private/var/tmp/_bazel_jingwen/6387d55354406beb34e2bb3e2911dd1e/execroot/io_bazel/bazel-out/darwin-fastbuild/bin/site/site-build/versions/master/be/objective-c.html
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Objective-C Rules - Bazel</title>
+
+    <link rel="canonical" href="/versions/master/be/objective-c.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Objective-C Rules"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <!--
+ This document is synchronized with Bazel releases.
+ To edit, submit changes to the Bazel source code.
+-->
+
+<!-- Generated by //src/main/java/com/google/devtools/build/docgen:build-encyclopedia.zip -->
+
+<h1>Objective-C Rules</h1>
+
+<div class="toc">
+  <h2>Rules</h2>
+  <ul>
+    <li>
+      <a href="#apple_binary">
+        apple_binary      </a>
+    </li>
+    <li>
+      <a href="#apple_static_library">
+        apple_static_library      </a>
+    </li>
+    <li>
+      <a href="#apple_stub_binary">
+        apple_stub_binary      </a>
+    </li>
+    <li>
+      <a href="#j2objc_library">
+        j2objc_library      </a>
+    </li>
+    <li>
+      <a href="#objc_bundle">
+        objc_bundle      </a>
+    </li>
+    <li>
+      <a href="#objc_bundle_library">
+        objc_bundle_library      </a>
+    </li>
+    <li>
+      <a href="#objc_framework">
+        objc_framework      </a>
+    </li>
+    <li>
+      <a href="#objc_import">
+        objc_import      </a>
+    </li>
+    <li>
+      <a href="#objc_library">
+        objc_library      </a>
+    </li>
+    <li>
+      <a href="#objc_proto_library">
+        objc_proto_library      </a>
+    </li>
+  </ul>
+</div>
+
+  <h2 id="apple_binary">
+    apple_binary
+  </h2>
+
+  <pre class="rule-signature">apple_binary(<a href="#apple_binary.name">name</a>, <a href="#apple_binary.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#apple_binary.binary_type">binary_type</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#apple_binary.dylibs">dylibs</a>, <a href="#apple_binary.extension_safe">extension_safe</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#apple_binary.linkopts">linkopts</a>, <a href="#apple_binary.minimum_os_version">minimum_os_version</a>, <a href="#apple_binary.platform_type">platform_type</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#apple_binary.sdk_dylibs">sdk_dylibs</a>, <a href="#apple_binary.sdk_frameworks">sdk_frameworks</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#apple_binary.weak_sdk_frameworks">weak_sdk_frameworks</a>)</pre>
+
+
+<p>This rule produces single- or multi-architecture ("fat") Objective-C libraries and/or binaries,
+typically used in creating apple bundles, such as frameworks, extensions, or applications.</p>
+
+<p>The <code>lipo</code> tool is used to combine files of multiple architectures. One of several
+flags may control which architectures are included in the output, depending on the value of
+the "platform_type" attribute.</p>
+
+<h4 id="apple_binary_implicit_outputs">Implicit output targets</h4>
+        <ul>
+         <li><code><var>name</var>_lipobin</code>: the 'lipo'ed potentially multi-architecture
+             binary. All transitive dependencies and <code>srcs</code> are linked.</li>
+        </ul>
+
+
+
+
+  <h3 id="apple_binary_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="apple_binary.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="apple_binary.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of targets that are linked together to form the final binary.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="apple_binary.binary_type">
+          <code>binary_type</code>
+        </td>
+        <td>
+                    <p><code>String; optional; default is "executable"</code></p>
+                            The type of binary that this target should build.
+
+        Options are:
+        <ul>
+          <li>
+            <code>executable</code> (default): the output binary is an executable and must implement
+            the main() function.
+          </li><li>
+            <code>loadable_bundle</code>: the output binary is a loadable bundle that may be loaded
+            at runtime. When building a bundle, you may also pass a bundle_loader binary that
+            contains symbols referenced but not implemented in the loadable bundle.
+          </li><li>
+            <code>dylib</code>: the output binary is meant to be loaded at load time (when the
+            operating system is loading the binary into memory) and cannot be unloaded. Dylibs
+            are usually consumed in frameworks, which are .framework bundles that contain the
+            dylib as well as well as required resources to run.
+          </li>
+        </ul>
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="apple_binary.dylibs">
+          <code>dylibs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              <p>A list of dynamic library targets to be linked against in this rule and included
+          in the final binary. Libraries which are transitive dependencies of any such dylibs will
+          not be statically linked in this target (even if they are otherwise
+          transitively depended on via the <code>deps</code> attribute) to avoid duplicate symbols.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="apple_binary.extension_safe">
+          <code>extension_safe</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is 0</code></p>
+                            This attribute is deprecated and will be removed soon. It currently has no effect.
+        "Extension-safe" link options may be added using the <code>linkopts</code> attribute.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="apple_binary.linkopts">
+          <code>linkopts</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Extra flags to pass to the linker.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="apple_binary.minimum_os_version">
+          <code>minimum_os_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                              The minimum OS version that this target and its dependencies should be built for.
+
+          This should be a dotted version string such as "7.3".
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="apple_binary.platform_type">
+          <code>platform_type</code>
+        </td>
+        <td>
+                    <p><code>String; required</code></p>
+                              The type of platform for which to create artifacts in this rule.
+
+          This dictates which Apple platform SDK is used for compilation/linking and which flag is
+          used to determine the architectures for which to build. For example, if <code>ios</code>
+          is selected, then the output binaries/libraries will be created combining all
+          architectures specified in <code>--ios_multi_cpus</code>.
+
+          Options are:
+          <ul>
+            <li>
+              <code>ios</code>: architectures gathered from <code>--ios_multi_cpus</code>.
+            </li>
+            <li>
+              <code>macos</code>: architectures gathered from <code>--macos_cpus</code>.
+            </li>
+            <li>
+              <code>tvos</code>: architectures gathered from <code>--tvos_cpus</code>.
+            </li>
+            <li>
+              <code>watchos</code>: architectures gathered from <code>--watchos_cpus</code>.
+            </li>
+          </ul>
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="apple_binary.sdk_dylibs">
+          <code>sdk_dylibs</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK .dylib libraries to link with. For instance, "libz" or
+          "libarchive".
+
+          "libc++" is included automatically if the binary has any C++ or
+          Objective-C++ sources in its dependency tree. When linking a binary,
+          all libraries named in that binary's transitive dependency graph are
+          used.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="apple_binary.sdk_frameworks">
+          <code>sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to link with (e.g. "AddressBook", "QuartzCore"). "UIKit" and
+          "Foundation" are always included when building for the iOS, tvOS and watchOS platforms.
+          For macOS, only "Foundation" is always included.
+
+          <p> When linking a top level binary (e.g. apple_binary), all SDK frameworks listed in that
+          binary's transitive dependency graph are linked.
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="apple_binary.weak_sdk_frameworks">
+          <code>weak_sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to weakly link with. For instance,
+          "MediaAccessibility".
+
+          In difference to regularly linked SDK frameworks, symbols
+          from weakly linked frameworks do not cause an error if they
+          are not present at runtime.
+
+        </td>
+      </tr>
+              </tbody>
+  </table>
+    <h2 id="apple_static_library">
+    apple_static_library
+  </h2>
+
+  <pre class="rule-signature">apple_static_library(<a href="#apple_static_library.name">name</a>, <a href="#apple_static_library.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#apple_static_library.avoid_deps">avoid_deps</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#apple_static_library.linkopts">linkopts</a>, <a href="#apple_static_library.minimum_os_version">minimum_os_version</a>, <a href="#apple_static_library.platform_type">platform_type</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#apple_static_library.sdk_dylibs">sdk_dylibs</a>, <a href="#apple_static_library.sdk_frameworks">sdk_frameworks</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#apple_static_library.weak_sdk_frameworks">weak_sdk_frameworks</a>)</pre>
+
+
+<p>This rule produces single- or multi-architecture ("fat") Objective-C statically-linked libraries,
+typically used in creating static Apple Frameworks for distribution and re-use in
+multiple extensions or applications.</p>
+
+<p>The <code>lipo</code> tool is used to combine files of multiple architectures; a build flag
+controls which architectures are targeted. The build flag examined depends on the
+<code>platform_type</code> attribute for this rule (and is described in its documentation).</p>
+
+<h4 id="apple_static_library_implicit_outputs">Implicit output targets</h4>
+        <ul>
+          <li><code><var>name</var>_lipo.a</code>: a 'lipo'ed archive file. All transitive
+          dependencies and <code>srcs</code> are linked, minus all transitive dependencies
+          specified in <code>avoid_deps</code>.</li>
+        </ul>
+
+
+
+
+  <h3 id="apple_static_library_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="apple_static_library.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="apple_static_library.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of targets that are linked together to form the final binary.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="apple_static_library.avoid_deps">
+          <code>avoid_deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            <p>A list of targets which should not be included (nor their transitive dependencies
+        included) in the outputs of this rule -- even if they are otherwise transitively depended
+        on via the <code>deps</code> attribute.</p>
+
+        <p>This attribute effectively serves to remove portions of the dependency tree from a static
+        library, and is useful most commonly in scenarios where static libraries depend on each
+        other.</p>
+
+        <p>That is, suppose static libraries X and C are typically distributed to consumers
+        separately. C is a very-common base library, and X contains less-common functionality; X
+        depends on C, such that applications seeking to import library X must also import library
+        C. The target describing X would set C's target in <code>avoid_deps</code>. In this way,
+        X can depend on C without also containing C. Without this <code>avoid_deps</code> usage,
+        an application importing both X and C would have duplicate symbols for C.</p>
+
+        </td>
+      </tr>
+                                                                        <tr>
+        <td id="apple_static_library.linkopts">
+          <code>linkopts</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Extra flags to pass to the linker.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="apple_static_library.minimum_os_version">
+          <code>minimum_os_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                              The minimum OS version that this target and its dependencies should be built for.
+
+          This should be a dotted version string such as "7.3".
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="apple_static_library.platform_type">
+          <code>platform_type</code>
+        </td>
+        <td>
+                    <p><code>String; required</code></p>
+                              The type of platform for which to create artifacts in this rule.
+
+          This dictates which Apple platform SDK is used for compilation/linking and which flag is
+          used to determine the architectures for which to build. For example, if <code>ios</code>
+          is selected, then the output binaries/libraries will be created combining all
+          architectures specified in <code>--ios_multi_cpus</code>.
+
+          Options are:
+          <ul>
+            <li>
+              <code>ios</code>: architectures gathered from <code>--ios_multi_cpus</code>.
+            </li>
+            <li>
+              <code>macos</code>: architectures gathered from <code>--macos_cpus</code>.
+            </li>
+            <li>
+              <code>tvos</code>: architectures gathered from <code>--tvos_cpus</code>.
+            </li>
+            <li>
+              <code>watchos</code>: architectures gathered from <code>--watchos_cpus</code>.
+            </li>
+          </ul>
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="apple_static_library.sdk_dylibs">
+          <code>sdk_dylibs</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK .dylib libraries to link with. For instance, "libz" or
+          "libarchive".
+
+          "libc++" is included automatically if the binary has any C++ or
+          Objective-C++ sources in its dependency tree. When linking a binary,
+          all libraries named in that binary's transitive dependency graph are
+          used.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="apple_static_library.sdk_frameworks">
+          <code>sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to link with (e.g. "AddressBook", "QuartzCore"). "UIKit" and
+          "Foundation" are always included when building for the iOS, tvOS and watchOS platforms.
+          For macOS, only "Foundation" is always included.
+
+          <p> When linking a top level binary (e.g. apple_binary), all SDK frameworks listed in that
+          binary's transitive dependency graph are linked.
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="apple_static_library.weak_sdk_frameworks">
+          <code>weak_sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to weakly link with. For instance,
+          "MediaAccessibility".
+
+          In difference to regularly linked SDK frameworks, symbols
+          from weakly linked frameworks do not cause an error if they
+          are not present at runtime.
+
+        </td>
+      </tr>
+              </tbody>
+  </table>
+    <h2 id="apple_stub_binary">
+    apple_stub_binary
+  </h2>
+
+  <pre class="rule-signature">apple_stub_binary(<a href="#apple_stub_binary.name">name</a>, <a href="#apple_stub_binary.deps">deps</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#apple_stub_binary.minimum_os_version">minimum_os_version</a>, <a href="#apple_stub_binary.platform_type">platform_type</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#apple_stub_binary.xcenv_based_path">xcenv_based_path</a>)</pre>
+
+
+<p>This rule copies a stub executable (such as that used by a watchOS application or an iMessage
+sticker pack) from a location in an Xcode platform or SDK bundle to the output.</p>
+
+<p>This rule is meant to be used internally by the Apple bundling rules and does has limited use
+outside of that. Its purpose is to provide target uniformity across all Apple bundles whether they
+contain a user binary or a stub binary and to ensure that the platform transition is still present
+for those stubs so that platform selection works as expected in downstream resource dependencies.
+</p>
+
+<h4 id="apple_stub_binary_implicit_outputs">Implicit output targets</h4>
+        <ul>
+         <li><code><var>name</var></code>: the stub executable copied from the Xcode
+             platform/SDK location.</li>
+        </ul>
+
+
+
+
+  <h3 id="apple_stub_binary_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="apple_stub_binary.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="apple_stub_binary.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The list of targets whose resources will be included in the final bundle.
+
+        </td>
+      </tr>
+                                                                        <tr>
+        <td id="apple_stub_binary.minimum_os_version">
+          <code>minimum_os_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                              The minimum OS version that this target and its dependencies should be built for.
+
+          This should be a dotted version string such as "7.3".
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="apple_stub_binary.platform_type">
+          <code>platform_type</code>
+        </td>
+        <td>
+                    <p><code>String; required</code></p>
+                              The type of platform for which to create artifacts in this rule.
+
+          This dictates which Apple platform SDK is used for compilation/linking and which flag is
+          used to determine the architectures for which to build. For example, if <code>ios</code>
+          is selected, then the output binaries/libraries will be created combining all
+          architectures specified in <code>--ios_multi_cpus</code>.
+
+          Options are:
+          <ul>
+            <li>
+              <code>ios</code>: architectures gathered from <code>--ios_multi_cpus</code>.
+            </li>
+            <li>
+              <code>macos</code>: architectures gathered from <code>--macos_cpus</code>.
+            </li>
+            <li>
+              <code>tvos</code>: architectures gathered from <code>--tvos_cpus</code>.
+            </li>
+            <li>
+              <code>watchos</code>: architectures gathered from <code>--watchos_cpus</code>.
+            </li>
+          </ul>
+
+        </td>
+      </tr>
+                                                              <tr>
+        <td id="apple_stub_binary.xcenv_based_path">
+          <code>xcenv_based_path</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The path to the stub executable within an Xcode platform or SDK bundle. This path must be
+        rooted at either <code>$(SDKROOT)</code> or <code>$(PLATFORM_DIR)</code> (written with
+        parentheses, as they are "Make" variables, not shell variables).
+
+        </td>
+      </tr>
+              </tbody>
+  </table>
+    <h2 id="j2objc_library">
+    j2objc_library
+  </h2>
+
+  <pre class="rule-signature">j2objc_library(<a href="#j2objc_library.name">name</a>, <a href="#j2objc_library.deps">deps</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#j2objc_library.entry_classes">entry_classes</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#j2objc_library.jre_deps">jre_deps</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p> This rule uses <a href="https://github.com/google/j2objc">J2ObjC</a> to translate Java source
+files to Objective-C, which then can be used used as dependencies of objc_library and objc_binary
+rules. Detailed information about J2ObjC itself can be found at  <a href="http://j2objc.org">the
+J2ObjC site</a>
+</p>
+<p>Custom J2ObjC transpilation flags can be specified using the build flag
+<code>--j2objc_translation_flags</code> in the command line.
+</p>
+<p>Please note that the translated files included in a j2objc_library target will be
+compiled using the default compilation configuration, the same configuration as for the sources of
+an objc_library rule with no compilation options specified in attributes.
+</p>
+<p>Plus, generated code is de-duplicated at target level, not source level. If you have two
+different Java targets that include the same Java source files, you may see a duplicate symbol error
+at link time. The correct way to resolve this issue is to move the shared Java source files into a
+separate common target that can be depended upon.
+</p>
+
+
+
+
+  <h3 id="j2objc_library_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="j2objc_library.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="j2objc_library.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            A list of <code>j2objc_library</code>, <code>java_library</code>
+        and <code>java_import</code> targets that contain
+        Java files to be transpiled to Objective-C.
+        <p>All <code>java_library</code> and <code>java_import</code> targets that can be reached
+        transitively through <code>exports</code>, <code>deps</code> and <code>runtime_deps</code>
+        will be translated and compiled. Currently there is no support for files generated by Java
+        annotation processing or <code>java_import</code> targets with no <code>srcjar</code>
+        specified.
+        </p>
+        <p>The J2ObjC translation works differently depending on the type of source Java source
+        files included in the transitive closure. For each .java source files included in
+        <code>srcs</code> of <code>java_library</code>, a corresponding .h and .m source file
+        will be generated. For each source jar included in <code>srcs</code> of
+        <code>java_library</code> or <code>srcjar</code> of <code>java_import</code>, a
+        corresponding .h and .m source file will be generated with all the code for that jar.
+        </p>
+        <p>Users can import the J2ObjC-generated header files in their code. The import paths for
+        these files are the root-relative path of the original Java artifacts. For example,
+        <code>//some/package/foo.java</code> has an import path of <code>some/package/foo.h</code>
+        and <code>//some/package/bar.srcjar</code> has <code>some/package/bar.h</code
+        </p>
+        <p>
+        If proto_library rules are in the transitive closure of this rule, J2ObjC protos will also
+        be generated, compiled and linked-in at the binary level. For proto
+        <code>//some/proto/foo.proto</code>, users can reference the generated code using import
+        path <code>some/proto/foo.j2objc.pb.h</code>.
+        </p>
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="j2objc_library.entry_classes">
+          <code>entry_classes</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            The list of Java classes whose translated ObjC counterparts will be referenced directly
+        by user ObjC code. This attibute is required if flag <code>--j2objc_dead_code_removal
+        </code> is on. The Java classes should be specified in their canonical names as defined by
+        <a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-6.html#jls-6.7">the Java
+        Language Specification.</a>
+        When flag <code>--j2objc_dead_code_removal</code> is specified, the list of entry classes
+        will be collected transitively and used as entry points to perform dead code analysis.
+        Unused classes will then be removed from the final ObjC app bundle.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="j2objc_library.jre_deps">
+          <code>jre_deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The list of additional JRE emulation libraries required by all Java code translated by this
+        <code>j2objc_library</code> rule. Only core JRE functionality is linked by default.
+
+        </td>
+      </tr>
+                                                                </tbody>
+  </table>
+    <h2 id="objc_bundle">
+    objc_bundle
+  </h2>
+
+  <pre class="rule-signature">objc_bundle(<a href="#objc_bundle.name">name</a>, <a href="#objc_bundle.bundle_imports">bundle_imports</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>This rule encapsulates an already-built bundle. It is defined by a list of
+files in one or more <code>.bundle</code> directories.
+
+
+
+  <h3 id="objc_bundle_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="objc_bundle.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="objc_bundle.bundle_imports">
+          <code>bundle_imports</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The list of files under a <code>.bundle</code> directory which are
+        provided to Objective-C targets that depend on this target.
+
+        </td>
+      </tr>
+                                                                                                        </tbody>
+  </table>
+    <h2 id="objc_bundle_library">
+    objc_bundle_library
+  </h2>
+
+  <pre class="rule-signature">objc_bundle_library(<a href="#objc_bundle_library.name">name</a>, <a href="#objc_bundle_library.resources">resources</a>, <a href="#objc_bundle_library.asset_catalogs">asset_catalogs</a>, <a href="#objc_bundle_library.bundles">bundles</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#objc_bundle_library.datamodels">datamodels</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#objc_bundle_library.families">families</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#objc_bundle_library.infoplist">infoplist</a>, <a href="#objc_bundle_library.infoplists">infoplists</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#objc_bundle_library.storyboards">storyboards</a>, <a href="#objc_bundle_library.strings">strings</a>, <a href="#objc_bundle_library.structured_resources">structured_resources</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#objc_bundle_library.xibs">xibs</a>)</pre>
+
+
+<p>This rule encapsulates a library which is provided to dependers as a bundle.
+A <code>objc_bundle_library</code>'s resources are put in a nested bundle in
+the final iOS application.
+
+
+
+  <h3 id="objc_bundle_library_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="objc_bundle_library.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="objc_bundle_library.resources">
+          <code>resources</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files to include in the final application bundle.
+
+          Files that are processable resources, like .xib, .storyboard, .strings, .png, and others,
+          will be processed by the Apple bundling rules that have those files as dependencies. Other
+          file types that are not processed will be copied verbatim.
+
+          These files are placed in the root of the bundle (e.g. Payload/foo.app/...) in most cases.
+          However, if they appear to be localized (i.e. are contained in a
+          directory called *.lproj), they will be placed in a directory of the
+          same name in the app bundle.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_bundle_library.asset_catalogs">
+          <code>asset_catalogs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files that comprise the asset catalogs of the final linked binary.
+
+          Each file must have a containing directory named *.xcassets. This
+          containing directory becomes the root of one of the asset catalogs
+          linked with any binary that depends directly or indirectly on this
+          target.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_bundle_library.bundles">
+          <code>bundles</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of bundle targets that this target requires to be included
+          in the final bundle.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_bundle_library.datamodels">
+          <code>datamodels</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files that comprise the data models of the final linked binary.
+
+          Each file must have a containing directory named *.xcdatamodel, which
+          is usually contained by another *.xcdatamodeld (note the added d)
+          directory.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="objc_bundle_library.families">
+          <code>families</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              The device families to which this bundle or binary is targeted.
+
+          This is known as the <code>TARGETED_DEVICE_FAMILY</code> build setting
+          in Xcode project files. It is a list of one or more of the strings
+          <code>"iphone"</code> and <code>"ipad"</code>.
+
+          <p>By default this is set to <code>"iphone"</code>, if explicitly specified may not be
+          empty.</p>
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_bundle_library.infoplist" class="deprecated">
+          <code>infoplist</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                               The infoplist file. This corresponds to <i>appname</i>-Info.plist in Xcode projects.
+
+           <p>Bazel will perform variable substitution on the plist file for the following values
+           (if they are strings in the top-level <code>dict</code> of the plist):</p>
+
+           <ul>
+             <li><code>${EXECUTABLE_NAME}</code>: The name of the executable generated and included
+                in the bundle by bazel, which can be used as the value for
+                <code>CFBundleExecutable</code> within the plist.
+             <li><code>${BUNDLE_NAME}</code>: This target's name and bundle suffix (.bundle or .app)
+                in the form<code><var>name</var></code>.<code>suffix</code>.
+             <li><code>${PRODUCT_NAME}</code>: This target's name.
+          </ul>
+
+          <p>The key in <code>${}</code> may be suffixed with <code>:rfc1034identifier</code> (for
+          example <code>${PRODUCT_NAME::rfc1034identifier}</code>) in which case Bazel will
+          replicate Xcode's behavior and replace non-RFC1034-compliant characters with
+          <code>-</code>.</p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_bundle_library.infoplists">
+          <code>infoplists</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                               Infoplist files to be merged. The merged output corresponds to <i>appname</i>-Info.plist
+           in Xcode projects.  Duplicate keys between infoplist files will cause an error if
+           and only if the values conflict.  If both <code>infoplist</code> and
+           <code>infoplists</code> are specified, the files defined in both attributes will be used.
+
+           <p>Bazel will perform variable substitution on the plist file for the following values
+           (if they are strings in the top-level <code>dict</code> of the plist):</p>
+
+           <ul>
+             <li><code>${EXECUTABLE_NAME}</code>: The name of the executable generated and included
+                in the bundle by bazel, which can be used as the value for
+                <code>CFBundleExecutable</code> within the plist.
+             <li><code>${BUNDLE_NAME}</code>: This target's name and bundle suffix (.bundle or .app)
+                in the form<code><var>name</var></code>.<code>suffix</code>.
+             <li><code>${PRODUCT_NAME}</code>: This target's name.
+          </ul>
+
+          <p>The key in <code>${}</code> may be suffixed with <code>:rfc1034identifier</code> (for
+          example <code>${PRODUCT_NAME::rfc1034identifier}</code>) in which case Bazel will
+          replicate Xcode's behavior and replace non-RFC1034-compliant characters with
+          <code>-</code>.</p>
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="objc_bundle_library.storyboards">
+          <code>storyboards</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are .storyboard resources, possibly localizable.
+
+          These files are compiled to .storyboardc directories, which are
+          placed in the bundle root of the final package. If the storyboards's
+          immediate containing directory is named *.lproj (e.g. en.lproj,
+          Base.lproj), it will be placed under a directory of that name in the
+          final bundle. This allows for localizable UI.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_bundle_library.strings">
+          <code>strings</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are plists of strings, often localizable.
+
+          These files are converted to binary plists (if they are not already)
+          and placed in the bundle root of the final package. If this file's
+          immediate containing directory is named *.lproj (e.g. en.lproj,
+          Base.lproj), it will be placed under a directory of that name in the
+          final bundle. This allows for localizable strings.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_bundle_library.structured_resources">
+          <code>structured_resources</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files to include in the final application bundle.
+
+          They are not processed or compiled in any way besides the processing
+          done by the rules that actually generate them. In differences to
+          <code>resources</code> these files are placed in the bundle root in
+          the same structure passed to this argument, so
+          <code>["res/foo.png"]</code> will end up in
+          <code>Payload/foo.app/res/foo.png</code>.
+          <p>Note that in the generated Xcode project file, all files in the top directory of
+          the specified files will be included in the Xcode-generated app bundle. So
+          specifying <code>["res/foo.png"]</code> will lead to the inclusion of all files in
+          directory <code>res</code>.
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="objc_bundle_library.xibs">
+          <code>xibs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are .xib resources, possibly localizable.
+
+          These files are compiled to .nib files and placed the bundle root of
+          the final package. If this file's immediate containing directory is
+          named *.lproj (e.g. en.lproj, Base.lproj), it will be placed under a
+          directory of that name in the final bundle. This allows for
+          localizable UI.
+
+        </td>
+      </tr>
+              </tbody>
+  </table>
+    <h2 id="objc_framework">
+    objc_framework
+  </h2>
+
+  <pre class="rule-signature">objc_framework(<a href="#objc_framework.name">name</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#objc_framework.framework_imports">framework_imports</a>, <a href="#objc_framework.is_dynamic">is_dynamic</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#objc_framework.sdk_dylibs">sdk_dylibs</a>, <a href="#objc_framework.sdk_frameworks">sdk_frameworks</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#objc_framework.weak_sdk_frameworks">weak_sdk_frameworks</a>)</pre>
+
+
+<p>This rule encapsulates an already-built framework. It is defined by a list
+of files in one or more <code>.framework</code> directories.
+
+
+
+  <h3 id="objc_framework_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="objc_framework.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                                                        <tr>
+        <td id="objc_framework.framework_imports">
+          <code>framework_imports</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                            The list of files under a <code>.framework</code> directory which are
+        provided to Objective-C targets that depend on this target.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_framework.is_dynamic">
+          <code>is_dynamic</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is 0</code></p>
+                            Indicates whether this framework is linked dynamically. If this attribute is set, the
+        framework will be copied into the final application bundle.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="objc_framework.sdk_dylibs">
+          <code>sdk_dylibs</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK .dylib libraries to link with. For instance, "libz" or
+          "libarchive".
+
+          "libc++" is included automatically if the binary has any C++ or
+          Objective-C++ sources in its dependency tree. When linking a binary,
+          all libraries named in that binary's transitive dependency graph are
+          used.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_framework.sdk_frameworks">
+          <code>sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to link with (e.g. "AddressBook", "QuartzCore"). "UIKit" and
+          "Foundation" are always included when building for the iOS, tvOS and watchOS platforms.
+          For macOS, only "Foundation" is always included.
+
+          <p> When linking a top level binary (e.g. apple_binary), all SDK frameworks listed in that
+          binary's transitive dependency graph are linked.
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="objc_framework.weak_sdk_frameworks">
+          <code>weak_sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to weakly link with. For instance,
+          "MediaAccessibility".
+
+          In difference to regularly linked SDK frameworks, symbols
+          from weakly linked frameworks do not cause an error if they
+          are not present at runtime.
+
+        </td>
+      </tr>
+              </tbody>
+  </table>
+    <h2 id="objc_import">
+    objc_import
+  </h2>
+
+  <pre class="rule-signature">objc_import(<a href="#objc_import.name">name</a>, <a href="#objc_import.resources">resources</a>, <a href="#objc_import.hdrs">hdrs</a>, <a href="#objc_import.alwayslink">alwayslink</a>, <a href="#objc_import.archives">archives</a>, <a href="#objc_import.asset_catalogs">asset_catalogs</a>, <a href="#objc_import.bundles">bundles</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#objc_import.datamodels">datamodels</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#objc_import.includes">includes</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#objc_import.sdk_dylibs">sdk_dylibs</a>, <a href="#objc_import.sdk_frameworks">sdk_frameworks</a>, <a href="#objc_import.sdk_includes">sdk_includes</a>, <a href="#objc_import.storyboards">storyboards</a>, <a href="#objc_import.strings">strings</a>, <a href="#objc_import.structured_resources">structured_resources</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#objc_import.textual_hdrs">textual_hdrs</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#objc_import.weak_sdk_frameworks">weak_sdk_frameworks</a>, <a href="#objc_import.xibs">xibs</a>)</pre>
+
+
+<p>This rule encapsulates an already-compiled static library in the form of an
+<code>.a</code> file. It also allows exporting headers and resources using the same
+attributes supported by <code>objc_library</code>.</p>
+
+
+
+  <h3 id="objc_import_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="objc_import.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="objc_import.resources">
+          <code>resources</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files to include in the final application bundle.
+
+          Files that are processable resources, like .xib, .storyboard, .strings, .png, and others,
+          will be processed by the Apple bundling rules that have those files as dependencies. Other
+          file types that are not processed will be copied verbatim.
+
+          These files are placed in the root of the bundle (e.g. Payload/foo.app/...) in most cases.
+          However, if they appear to be localized (i.e. are contained in a
+          directory called *.lproj), they will be placed in a directory of the
+          same name in the app bundle.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.hdrs">
+          <code>hdrs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of C, C++, Objective-C, and Objective-C++ header files published
+          by this library to be included by sources in dependent rules.
+          <p>
+          These headers describe the public interface for the library and will be
+          made available for inclusion by sources in this rule or in dependent
+          rules. Headers not meant to be included by a client of this library
+          should be listed in the srcs attribute instead.
+          <p>
+          These will be compiled separately from the source if modules are enabled.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.alwayslink">
+          <code>alwayslink</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is 0</code></p>
+                              If 1, any bundle or binary that depends (directly or indirectly) on this
+          library will link in all the object files for the files listed in
+          <code>srcs</code> and <code>non_arc_srcs</code>, even if some contain no
+          symbols referenced by the binary.
+          This is useful if your code isn't explicitly called by code in
+          the binary, e.g., if your code registers to receive some callback
+          provided by some service.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.archives">
+          <code>archives</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                            The list of <code>.a</code> files provided to Objective-C targets that
+        depend on this target.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.asset_catalogs">
+          <code>asset_catalogs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files that comprise the asset catalogs of the final linked binary.
+
+          Each file must have a containing directory named *.xcassets. This
+          containing directory becomes the root of one of the asset catalogs
+          linked with any binary that depends directly or indirectly on this
+          target.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.bundles">
+          <code>bundles</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of bundle targets that this target requires to be included
+          in the final bundle.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_import.datamodels">
+          <code>datamodels</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files that comprise the data models of the final linked binary.
+
+          Each file must have a containing directory named *.xcdatamodel, which
+          is usually contained by another *.xcdatamodeld (note the added d)
+          directory.
+
+        </td>
+      </tr>
+                                                    <tr>
+        <td id="objc_import.includes">
+          <code>includes</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of <code>#include/#import</code> search paths to add to this target
+          and all depending targets.
+
+          This is to support third party and open-sourced libraries that do not
+          specify the entire workspace path in their
+          <code>#import/#include</code> statements.
+          <p>
+          The paths are interpreted relative to the package directory, and the
+          genfiles and bin roots (e.g. <code>bazel-genfiles/pkg/includedir</code>
+          and <code>bazel-out/pkg/includedir</code>) are included in addition to the
+          actual client root.
+          <p>
+          Unlike <a href="objective-c.html#objc_library.copts">COPTS</a>, these flags are added for this rule
+          and every rule that depends on it. (Note: not the rules it depends upon!) Be
+          very careful, since this may have far-reaching effects.  When in doubt, add
+          "-iquote" flags to <a href="objective-c.html#objc_library.copts">COPTS</a> instead.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="objc_import.sdk_dylibs">
+          <code>sdk_dylibs</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK .dylib libraries to link with. For instance, "libz" or
+          "libarchive".
+
+          "libc++" is included automatically if the binary has any C++ or
+          Objective-C++ sources in its dependency tree. When linking a binary,
+          all libraries named in that binary's transitive dependency graph are
+          used.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.sdk_frameworks">
+          <code>sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to link with (e.g. "AddressBook", "QuartzCore"). "UIKit" and
+          "Foundation" are always included when building for the iOS, tvOS and watchOS platforms.
+          For macOS, only "Foundation" is always included.
+
+          <p> When linking a top level binary (e.g. apple_binary), all SDK frameworks listed in that
+          binary's transitive dependency graph are linked.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.sdk_includes">
+          <code>sdk_includes</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of <code>#include/#import</code> search paths to add to this target
+          and all depending targets, where each path is relative to
+          <code>$(SDKROOT)/usr/include</code>.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.storyboards">
+          <code>storyboards</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are .storyboard resources, possibly localizable.
+
+          These files are compiled to .storyboardc directories, which are
+          placed in the bundle root of the final package. If the storyboards's
+          immediate containing directory is named *.lproj (e.g. en.lproj,
+          Base.lproj), it will be placed under a directory of that name in the
+          final bundle. This allows for localizable UI.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.strings">
+          <code>strings</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are plists of strings, often localizable.
+
+          These files are converted to binary plists (if they are not already)
+          and placed in the bundle root of the final package. If this file's
+          immediate containing directory is named *.lproj (e.g. en.lproj,
+          Base.lproj), it will be placed under a directory of that name in the
+          final bundle. This allows for localizable strings.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.structured_resources">
+          <code>structured_resources</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files to include in the final application bundle.
+
+          They are not processed or compiled in any way besides the processing
+          done by the rules that actually generate them. In differences to
+          <code>resources</code> these files are placed in the bundle root in
+          the same structure passed to this argument, so
+          <code>["res/foo.png"]</code> will end up in
+          <code>Payload/foo.app/res/foo.png</code>.
+          <p>Note that in the generated Xcode project file, all files in the top directory of
+          the specified files will be included in the Xcode-generated app bundle. So
+          specifying <code>["res/foo.png"]</code> will lead to the inclusion of all files in
+          directory <code>res</code>.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="objc_import.textual_hdrs">
+          <code>textual_hdrs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of C, C++, Objective-C, and Objective-C++ files that are
+          included as headers by source files in this rule or by users of this
+          library. Unlike hdrs, these will not be compiled separately from the
+          sources.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_import.weak_sdk_frameworks">
+          <code>weak_sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to weakly link with. For instance,
+          "MediaAccessibility".
+
+          In difference to regularly linked SDK frameworks, symbols
+          from weakly linked frameworks do not cause an error if they
+          are not present at runtime.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_import.xibs">
+          <code>xibs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are .xib resources, possibly localizable.
+
+          These files are compiled to .nib files and placed the bundle root of
+          the final package. If this file's immediate containing directory is
+          named *.lproj (e.g. en.lproj, Base.lproj), it will be placed under a
+          directory of that name in the final bundle. This allows for
+          localizable UI.
+
+        </td>
+      </tr>
+              </tbody>
+  </table>
+    <h2 id="objc_library">
+    objc_library
+  </h2>
+
+  <pre class="rule-signature">objc_library(<a href="#objc_library.name">name</a>, <a href="#objc_library.deps">deps</a>, <a href="#objc_library.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#objc_library.resources">resources</a>, <a href="#objc_library.hdrs">hdrs</a>, <a href="#objc_library.alwayslink">alwayslink</a>, <a href="#objc_library.asset_catalogs">asset_catalogs</a>, <a href="#objc_library.bundles">bundles</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#objc_library.copts">copts</a>, <a href="#objc_library.datamodels">datamodels</a>, <a href="#objc_library.defines">defines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#objc_library.enable_modules">enable_modules</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#objc_library.includes">includes</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#objc_library.module_map">module_map</a>, <a href="#objc_library.module_name">module_name</a>, <a href="#objc_library.non_arc_srcs">non_arc_srcs</a>, <a href="#objc_library.pch">pch</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#objc_library.runtime_deps">runtime_deps</a>, <a href="#objc_library.sdk_dylibs">sdk_dylibs</a>, <a href="#objc_library.sdk_frameworks">sdk_frameworks</a>, <a href="#objc_library.sdk_includes">sdk_includes</a>, <a href="#objc_library.storyboards">storyboards</a>, <a href="#objc_library.strings">strings</a>, <a href="#objc_library.structured_resources">structured_resources</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#objc_library.textual_hdrs">textual_hdrs</a>, <a href="#objc_library.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#objc_library.weak_sdk_frameworks">weak_sdk_frameworks</a>, <a href="#objc_library.xibs">xibs</a>)</pre>
+
+
+<p>This rule produces a static library from the given Objective-C source files.</p>
+
+<h4 id="objc_library_implicit_outputs">Implicit output targets</h4>
+        <ul>
+         <li><code><var>name</var>_fully_linked.a</code>: A fully linked static library that
+             contains the full transitive closure of library dependencies.</li>
+        </ul>
+
+
+
+
+  <h3 id="objc_library_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="objc_library.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="objc_library.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of targets that are linked together to form the final bundle.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.srcs">
+          <code>srcs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of C, C++, Objective-C, and Objective-C++ source and header
+          files that are processed to create the library target.
+          These are your checked-in files, plus any generated files.
+          Source files are compiled into .o files with Clang. Header files
+          may be included/imported by any source or header in the srcs attribute
+          of this target, but not by headers in hdrs or any targets that depend
+          on this rule.
+          Additionally, precompiled .o files may be given as srcs.  Be careful to
+          ensure consistency in the architecture of provided .o files and that of the
+          build to avoid missing symbol linker errors.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_library.resources">
+          <code>resources</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files to include in the final application bundle.
+
+          Files that are processable resources, like .xib, .storyboard, .strings, .png, and others,
+          will be processed by the Apple bundling rules that have those files as dependencies. Other
+          file types that are not processed will be copied verbatim.
+
+          These files are placed in the root of the bundle (e.g. Payload/foo.app/...) in most cases.
+          However, if they appear to be localized (i.e. are contained in a
+          directory called *.lproj), they will be placed in a directory of the
+          same name in the app bundle.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.hdrs">
+          <code>hdrs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of C, C++, Objective-C, and Objective-C++ header files published
+          by this library to be included by sources in dependent rules.
+          <p>
+          These headers describe the public interface for the library and will be
+          made available for inclusion by sources in this rule or in dependent
+          rules. Headers not meant to be included by a client of this library
+          should be listed in the srcs attribute instead.
+          <p>
+          These will be compiled separately from the source if modules are enabled.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.alwayslink">
+          <code>alwayslink</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is 0</code></p>
+                              If 1, any bundle or binary that depends (directly or indirectly) on this
+          library will link in all the object files for the files listed in
+          <code>srcs</code> and <code>non_arc_srcs</code>, even if some contain no
+          symbols referenced by the binary.
+          This is useful if your code isn't explicitly called by code in
+          the binary, e.g., if your code registers to receive some callback
+          provided by some service.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.asset_catalogs">
+          <code>asset_catalogs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files that comprise the asset catalogs of the final linked binary.
+
+          Each file must have a containing directory named *.xcassets. This
+          containing directory becomes the root of one of the asset catalogs
+          linked with any binary that depends directly or indirectly on this
+          target.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.bundles">
+          <code>bundles</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of bundle targets that this target requires to be included
+          in the final bundle.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_library.copts">
+          <code>copts</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Extra flags to pass to the compiler.
+          Subject to <a href="make-variables.html">"Make variable"</a> substitution and
+          <a href="common-definitions.html#sh-tokenization">Bourne shell tokenization</a>.
+          These flags will only apply to this target, and not those upon which
+          it depends, or those which depend on it.
+          <p>
+          Note that for the generated Xcode project, directory paths specified using "-I" flags in
+          copts are parsed out, prepended with "$(WORKSPACE_ROOT)/" if they are relative paths, and
+          added to the header search paths for the associated Xcode target.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.datamodels">
+          <code>datamodels</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files that comprise the data models of the final linked binary.
+
+          Each file must have a containing directory named *.xcdatamodel, which
+          is usually contained by another *.xcdatamodeld (note the added d)
+          directory.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.defines">
+          <code>defines</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Extra <code>-D</code> flags to pass to the compiler. They should be in
+          the form <code>KEY=VALUE</code> or simply <code>KEY</code> and are
+          passed not only to the compiler for this target (as <code>copts</code>
+          are) but also to all <code>objc_</code> dependers of this target.
+          Subject to <a href="make-variables.html">"Make variable"</a> substitution and
+          <a href="common-definitions.html#sh-tokenization">Bourne shell tokenization</a>.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="objc_library.enable_modules">
+          <code>enable_modules</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is 0</code></p>
+                              Enables clang module support (via -fmodules).
+          Setting this to 1 will allow you to @import system headers and other targets:
+          @import UIKit;
+          @import path_to_package_target;
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_library.includes">
+          <code>includes</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of <code>#include/#import</code> search paths to add to this target
+          and all depending targets.
+
+          This is to support third party and open-sourced libraries that do not
+          specify the entire workspace path in their
+          <code>#import/#include</code> statements.
+          <p>
+          The paths are interpreted relative to the package directory, and the
+          genfiles and bin roots (e.g. <code>bazel-genfiles/pkg/includedir</code>
+          and <code>bazel-out/pkg/includedir</code>) are included in addition to the
+          actual client root.
+          <p>
+          Unlike <a href="objective-c.html#objc_library.copts">COPTS</a>, these flags are added for this rule
+          and every rule that depends on it. (Note: not the rules it depends upon!) Be
+          very careful, since this may have far-reaching effects.  When in doubt, add
+          "-iquote" flags to <a href="objective-c.html#objc_library.copts">COPTS</a> instead.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_library.module_map">
+          <code>module_map</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                              A custom Clang module map for this target. Use of a custom module map is discouraged. Most
+          users should use module maps generated by Bazel.
+          If specified, Bazel will not generate a module map for this target, but will pass the
+          provided module map to the compiler.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.module_name">
+          <code>module_name</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                              Sets the module name for this target. By default the module name is the target path with
+          all special symbols replaced by _, e.g. //foo/baz:bar can be imported as foo_baz_bar.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.non_arc_srcs">
+          <code>non_arc_srcs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of Objective-C files that are processed to create the
+          library target that DO NOT use ARC.
+          The files in this attribute are treated very similar to those in the
+          srcs attribute, but are compiled without ARC enabled.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.pch">
+          <code>pch</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                              Header file to prepend to every source file being compiled (both arc
+          and non-arc).
+          Use of pch files is actively discouraged in BUILD files, and this should be
+          considered deprecated. Since pch files are not actually precompiled this is not
+          a build-speed enhancement, and instead is just a global dependency. From a build
+          efficiency point of view you are actually better including what you need directly
+          in your sources where you need it.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_library.runtime_deps">
+          <code>runtime_deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of framework targets that are late loaded at runtime.  They are included in the
+          app bundle but not linked against at build time.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.sdk_dylibs">
+          <code>sdk_dylibs</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK .dylib libraries to link with. For instance, "libz" or
+          "libarchive".
+
+          "libc++" is included automatically if the binary has any C++ or
+          Objective-C++ sources in its dependency tree. When linking a binary,
+          all libraries named in that binary's transitive dependency graph are
+          used.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.sdk_frameworks">
+          <code>sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to link with (e.g. "AddressBook", "QuartzCore"). "UIKit" and
+          "Foundation" are always included when building for the iOS, tvOS and watchOS platforms.
+          For macOS, only "Foundation" is always included.
+
+          <p> When linking a top level binary (e.g. apple_binary), all SDK frameworks listed in that
+          binary's transitive dependency graph are linked.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.sdk_includes">
+          <code>sdk_includes</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of <code>#include/#import</code> search paths to add to this target
+          and all depending targets, where each path is relative to
+          <code>$(SDKROOT)/usr/include</code>.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.storyboards">
+          <code>storyboards</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are .storyboard resources, possibly localizable.
+
+          These files are compiled to .storyboardc directories, which are
+          placed in the bundle root of the final package. If the storyboards's
+          immediate containing directory is named *.lproj (e.g. en.lproj,
+          Base.lproj), it will be placed under a directory of that name in the
+          final bundle. This allows for localizable UI.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.strings">
+          <code>strings</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are plists of strings, often localizable.
+
+          These files are converted to binary plists (if they are not already)
+          and placed in the bundle root of the final package. If this file's
+          immediate containing directory is named *.lproj (e.g. en.lproj,
+          Base.lproj), it will be placed under a directory of that name in the
+          final bundle. This allows for localizable strings.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.structured_resources">
+          <code>structured_resources</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files to include in the final application bundle.
+
+          They are not processed or compiled in any way besides the processing
+          done by the rules that actually generate them. In differences to
+          <code>resources</code> these files are placed in the bundle root in
+          the same structure passed to this argument, so
+          <code>["res/foo.png"]</code> will end up in
+          <code>Payload/foo.app/res/foo.png</code>.
+          <p>Note that in the generated Xcode project file, all files in the top directory of
+          the specified files will be included in the Xcode-generated app bundle. So
+          specifying <code>["res/foo.png"]</code> will lead to the inclusion of all files in
+          directory <code>res</code>.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="objc_library.textual_hdrs">
+          <code>textual_hdrs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The list of C, C++, Objective-C, and Objective-C++ files that are
+          included as headers by source files in this rule or by users of this
+          library. Unlike hdrs, these will not be compiled separately from the
+          sources.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.toolchains">
+          <code>toolchains</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              The set of toolchains that supply <a href="make-variables.html">"Make variables"</a>
+          that this target can use in some of its attributes. Some rules have toolchains whose Make
+          variables they can use by default.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="objc_library.weak_sdk_frameworks">
+          <code>weak_sdk_frameworks</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              Names of SDK frameworks to weakly link with. For instance,
+          "MediaAccessibility".
+
+          In difference to regularly linked SDK frameworks, symbols
+          from weakly linked frameworks do not cause an error if they
+          are not present at runtime.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="objc_library.xibs">
+          <code>xibs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                              Files which are .xib resources, possibly localizable.
+
+          These files are compiled to .nib files and placed the bundle root of
+          the final package. If this file's immediate containing directory is
+          named *.lproj (e.g. en.lproj, Base.lproj), it will be placed under a
+          directory of that name in the final bundle. This allows for
+          localizable UI.
+
+        </td>
+      </tr>
+              </tbody>
+  </table>
+    <h2 id="objc_proto_library">
+    objc_proto_library
+  </h2>
+
+  <pre class="rule-signature">objc_proto_library(<a href="#objc_proto_library.name">name</a>, <a href="#objc_proto_library.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#objc_proto_library.portable_proto_filters">portable_proto_filters</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>This rule generates ObjC headers for the proto files given through the proto_library and
+objc_proto_library dependencies.</p>
+
+
+
+  <h3 id="objc_proto_library_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="objc_proto_library.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="objc_proto_library.deps">
+          <code>deps</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The directly depended upon proto_library and objc_proto_library rules.
+
+        </td>
+      </tr>
+                                                                                  <tr>
+        <td id="objc_proto_library.portable_proto_filters">
+          <code>portable_proto_filters</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            List of portable proto filters to be passed on to the protobuf compiler. If no filter files
+        are passed, one will be generated that whitelists every proto file listed in the
+        proto_library dependencies (i.e. proto files depended through other objc_proto_library
+        won't be automatically whitelisted).
+
+        </td>
+      </tr>
+                                                      </tbody>
+  </table>
+
+<!-- Generated footer -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

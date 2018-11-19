@@ -1,1 +1,738 @@
-/private/var/tmp/_bazel_jingwen/6387d55354406beb34e2bb3e2911dd1e/execroot/io_bazel/bazel-out/darwin-fastbuild/bin/site/site-build/versions/master/build-event-protocol.html
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build Event Protocol - Bazel</title>
+
+    <link rel="canonical" href="/versions/master/build-event-protocol.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Build Event Protocol"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <h1 id="build-event-protocol">Build Event Protocol</h1>
+
+<p>The [Build Event Protocol] allows third party programs to gain insight into a
+Bazel invocation. For example, you could use the Build Event Protocol to gather
+information for an IDE plugin or a dashboard that displays build results.</p>
+
+<p>The protocol is a set of <a href="https://developers.google.com/protocol-buffers/">protocol buffer</a> messages with some semantics defined
+on top of it. It includes information about build and test results, build
+progress, the build configuration and much more. The Build Event Protocol is
+intended to be consumed programmatically and makes parsing Bazel’s command line
+output a thing of the past.</p>
+
+<h2 id="contents">Contents</h2>
+
+<ul>
+  <li><a href="#build-event-protocol-overview">Build Event Protocol Overview</a>
+    <ul>
+      <li><a href="#build-event-graph">Build Event Graph</a></li>
+      <li><a href="#the-build-event-protocol-by-example">The Build Event Protocol by Example</a></li>
+    </ul>
+  </li>
+  <li><a href="#consuming-the-build-event-protocol">Consuming the Build Event Protocol</a>
+    <ul>
+      <li><a href="#consume-in-a-binary-format">Consume in a Binary Format</a></li>
+      <li><a href="#consume-in-text-formats">Consume in Text Formats</a></li>
+    </ul>
+  </li>
+  <li><a href="#the-build-event-service">The Build Event Service</a>
+    <ul>
+      <li><a href="#build-event-service-flags">Build Event Service Flags</a></li>
+      <li><a href="#authentication-and-security">Authentication and Security</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="build-event-protocol-overview">Build Event Protocol Overview</h2>
+
+<p>The [Build Event Protocol] represents information about a build as events. A
+build event is a protocol buffer message consisting of a build event identifier,
+a set of child event identifiers, and a payload.</p>
+
+<ul>
+  <li>
+    <p><strong>Build Event Identifier:</strong> Depending on the kind of build event, it might be
+an [opaque string] or [structured information] revealing more about the build
+event. A build event identifier is unique within a build.</p>
+  </li>
+  <li>
+    <p><strong>Children:</strong> A build event may announce other build events, by including
+their build event identifiers in its [children field]. For example, the
+<code class="highlighter-rouge">PatternExpanded</code> build event announces the targets it expands to as children.
+The protocol guarantees that all events, except for the first event, are
+announced by a previous event.</p>
+  </li>
+  <li>
+    <p><strong>Payload:</strong> The payload contains structured information about a build event,
+encoded as a protocol buffer message specific to that event. Note, that the
+payload might not be the expected type, but could be an <code class="highlighter-rouge">Aborted</code> message e.g.
+if the build aborted prematurely.</p>
+  </li>
+</ul>
+
+<h3 id="build-event-graph">Build Event Graph</h3>
+<p>All build events form a directed acyclic graph through their parent and child
+relationship. Every build event except for the initial build event has one or
+more parent events. Please note that not all parent events of a child event must
+necessarily be posted before it. When a build is complete (succeeded or failed)
+all announced events will have been posted. In case of a Bazel crash or a failed
+network transport, some announced build events may never be posted.</p>
+
+<h2 id="the-build-event-protocol-by-example">The Build Event Protocol by Example</h2>
+<p>The full specification of the [Build Event Protocol] can be found in its
+protocol buffer definition and describing it here is beyond the scope of this
+document. However, it might be helpful to build up some intuition before looking
+at the specification.</p>
+
+<p>Consider a simple Bazel workspace that consists of two empty shell scripts
+<code class="highlighter-rouge">foo.sh</code> and <code class="highlighter-rouge">foo_test.sh</code> and the following BUILD file:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh_binary<span class="o">(</span>
+    name <span class="o">=</span> <span class="s2">"foo"</span>,
+    srcs <span class="o">=</span> <span class="o">[</span><span class="s2">"foo.sh"</span><span class="o">]</span>,
+<span class="o">)</span>
+
+sh_library<span class="o">(</span>
+    name <span class="o">=</span> <span class="s2">"foo_lib"</span>,
+    data <span class="o">=</span> <span class="o">[</span><span class="s2">":foo"</span><span class="o">]</span>,
+<span class="o">)</span>
+
+sh_test<span class="o">(</span>
+    name <span class="o">=</span> <span class="s2">"foo_test"</span>,
+    srcs <span class="o">=</span> <span class="o">[</span><span class="s2">"foo_test.sh"</span><span class="o">]</span>,
+    deps <span class="o">=</span> <span class="o">[</span><span class="s2">":foo_lib"</span><span class="o">]</span>,
+<span class="o">)</span>
+</code></pre></div></div>
+
+<p>When running <code class="highlighter-rouge">bazel test ...</code> on this project the build graph of the generated
+build events will resemble the graph below. The arrows indicate the
+aforementioned parent and child relationship. Note that some build events and
+most fields have been omitted for brevity.</p>
+
+<p><img src="/assets/bep-graph.svg" alt="bep-graph" /></p>
+
+<p>Initially, a <code class="highlighter-rouge">BuildStarted</code> event is published. The event informs us that the
+build was invoked through the <code class="highlighter-rouge">bazel test</code> command and it also announces five
+child events: <code class="highlighter-rouge">OptionsParsed</code>, <code class="highlighter-rouge">WorkspaceStatus</code>, <code class="highlighter-rouge">CommandLine</code>,
+<code class="highlighter-rouge">PatternExpanded</code> and <code class="highlighter-rouge">Progress</code>. The first three events provide information
+about how Bazel was invoked. The <code class="highlighter-rouge">PatternExpanded</code> build event provides insight
+into which specific targets the <code class="highlighter-rouge">...</code> pattern expanded to: <code class="highlighter-rouge">//:foo</code>, <code class="highlighter-rouge">//:foo_lib</code>
+and <code class="highlighter-rouge">//:foo_test</code>. It does so by declaring three <code class="highlighter-rouge">TargetConfigured</code> events as
+children.</p>
+
+<p>Note that the <code class="highlighter-rouge">TargetConfigured</code> event declares the <code class="highlighter-rouge">Configuration</code> event as a
+child event, even though <code class="highlighter-rouge">Configuration</code> has been posted before the
+<code class="highlighter-rouge">TargetConfigured</code> event.</p>
+
+<p>Besides the parent and child relationship, events may also refer to each other
+using their build event identifiers. For example, in the above graph the
+<code class="highlighter-rouge">TargetComplete</code> event refers to the <code class="highlighter-rouge">NamedSetOfFiles</code> event in its <code class="highlighter-rouge">fileSets</code>
+field.</p>
+
+<p>Build events that refer to files (i.e. outputs) usually don’t embed the file
+names and paths in the event. Instead, they contain the build event identifier
+of a <code class="highlighter-rouge">NamedSetOfFiles</code> event, which will then contain the actual file names and
+paths. The <code class="highlighter-rouge">NamedSetOfFiles</code> event allows a set of files to be reported once and
+referred to by many targets. This structure is necessary because otherwise in
+some cases the Build Event Protocol output size would grow quadratically with
+the number of files. A <code class="highlighter-rouge">NamedSetOfFiles</code> event may also not have all its files
+embedded, but instead refer to other <code class="highlighter-rouge">NamedSetOfFiles</code> events through their
+build event identifiers.</p>
+
+<p>Below is an instance of the <code class="highlighter-rouge">TargetComplete</code> event for the <code class="highlighter-rouge">//:foo_lib</code> target
+from the above graph, printed in protocol buffer’s JSON representation. The
+build event identifier contains the target as an opaque string and refers to the
+<code class="highlighter-rouge">Configuration</code> event using its build event identifier. The event does not
+announce any child events. The payload contains information about whether the
+target was built successfully, the set of output files, and the kind of target
+built.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"targetCompleted"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//:foo_lib"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"configuration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"544e39a7f0abdb3efdd29d675a48bc6a"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outputGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fileSets"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"targetKind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sh_library rule"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="consuming-the-build-event-protocol">Consuming the Build Event Protocol</h2>
+
+<h3 id="consume-in-a-binary-format">Consume in a Binary Format</h3>
+
+<p>To consume the Build Event Protocol in a binary format:</p>
+
+<ol>
+  <li>
+    <p>Have Bazel serialize the protocol buffer messages to a file by specifying the
+option <code class="highlighter-rouge">--build_event_binary_file=/path/to/file</code>. The file will contain
+serialized protocol buffer messages with each message being length delimited.
+Each message is prefixed with its length encoded as a variable length integer.
+This format can be read using the protocol buffer library’s
+[parseDelimitedFrom(InputStream)] method.</p>
+  </li>
+  <li>
+    <p>Then, write a program that extracts the relevant information from the
+serialized protocol buffer message.</p>
+  </li>
+</ol>
+
+<h3 id="consume-in-text-formats">Consume in Text Formats</h3>
+
+<p>The following Bazel command line flags will output the Build Event Protocol in a
+human-readable formats:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--build_event_text_file
+--build_event_json_file
+</code></pre></div></div>
+
+<h2 id="the-build-event-service">The Build Event Service</h2>
+
+<p>The [Build Event Service] Protocol is a generic <a href="https://www.grpc.io">gRPC</a> service for transmitting
+build events. The Build Event Service protocol is independent of the Build Event
+Protocol and treats the Build Event Protocol events as opaque bytes. Bazel ships
+with a gRPC client implementation of the Build Event Service protocol that
+transmits Build Event Protocol events. One can specify the endpoint to send the
+events to using the <code class="highlighter-rouge">--bes_backend=HOST:PORT flag</code>. Bazel’s implementation also
+supports TLS which can be enabled by specifying the <code class="highlighter-rouge">--tls_enabled flag</code>.</p>
+
+<p>There is currently no open source server-side Build Event Service implementation
+that we know of.</p>
+
+<h3 id="build-event-service-flags">Build Event Service Flags</h3>
+
+<p>Bazel has several flags related to the [Build Event Service] protocol:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--bes_backend</code></li>
+  <li><code class="highlighter-rouge">--[no]bes_best_effort</code></li>
+  <li><code class="highlighter-rouge">--[no]bes_lifecycle_events</code></li>
+  <li><code class="highlighter-rouge">--bes_timeout</code></li>
+  <li><code class="highlighter-rouge">--project_id</code></li>
+</ul>
+
+<p>For a description of each of these flags, see the
+<a href="command-line-reference.html">Command-Line Reference</a>.</p>
+
+<h3 id="authentication-and-security">Authentication and Security</h3>
+
+<p>Bazel’s [Build Event Service] implementation also supports authentication and
+TLS. These settings can be controlled using the below flags. Please note that
+these flags are also used for Bazel’s Remote Execution. This implies that the
+Build Event Service and Remote Execution Endpoints need to share the same
+authentication and TLS infrastructure.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--[no]google_default_credentials</code></li>
+  <li><code class="highlighter-rouge">--google_credentials</code></li>
+  <li><code class="highlighter-rouge">--google_auth_scopes</code></li>
+  <li><code class="highlighter-rouge">--tls_certificate</code></li>
+  <li><code class="highlighter-rouge">--[no]tls_enabled</code></li>
+</ul>
+
+<p>For a description of each of these flags, see the
+<a href="command-line-reference.html">Command-Line Reference</a>.</p>
+
+<h3 id="build-event-service-and-remote-caching">Build Event Service and Remote Caching</h3>
+
+<p>The BEP typically contains many references to log files (test.log, test.xml,
+etc. ) stored on the machine where Bazel is running. A remote BES server
+typically can’t access these files as they are on different machines. A way
+to work around this issue is to use Bazel with <a href="https://github.com/bazelbuild/bazel/blob/master/src/main/java/com/google/devtools/build/lib/remote/README.html">remote caching</a>. Bazel will
+upload all output files to the remote cache (including files referenced in
+the BEP) and the BES server can then fetch the referenced files from the
+cache.</p>
+
+<p>See <a href="https://github.com/bazelbuild/bazel/issues/3689">GitHub issue 3689</a> for more details.</p>
+
+<p>[Build Event Protocol]:
+https://github.com/bazelbuild/bazel/blob/master/src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.proto</p>
+
+<p>[Build Event Service]:
+https://github.com/googleapis/googleapis/blob/master/google/devtools/build/v1/publish_build_event.proto</p>
+
+<p>[parseDelimitedFrom(InputStream)]:
+https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/AbstractParser#parseDelimitedFrom-java.io.InputStream-</p>
+
+<p>[opaque string]:
+https://github.com/bazelbuild/bazel/blob/16a107d/src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.proto#L91</p>
+
+<p>[structured information]:
+https://github.com/bazelbuild/bazel/blob/16a107d/src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.proto#L123</p>
+
+<p>[children field]:
+https://github.com/bazelbuild/bazel/blob/16a107d/src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.proto#L469</p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

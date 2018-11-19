@@ -1,1 +1,12 @@
-/private/var/tmp/_bazel_jingwen/6387d55354406beb34e2bb3e2911dd1e/execroot/io_bazel/bazel-out/darwin-fastbuild/bin/site/site-build/blog/2015/06/25/ErrorProne.html
+<p>We recently open-sourced our support for <a href="https://errorprone.info">Error Prone</a>.
+<a href="https://errorprone.info">Error Prone</a> checks for common mistakes in Java code
+that will not be caught by the compiler.</p>
+
+<p>We turned <a href="https://errorprone.info">Error Prone</a> on by default but you can easily
+turn it off by using the Javac option <code class="highlighter-rouge">-XepDisableAllChecks</code>. To do so, simply
+specify <code class="highlighter-rouge">--javacopt='XepDisableAllChecks</code> to the list of Bazel’s options. You
+can also tune the checks error-prone will perform by using the <a href="https://errorprone.info/docs/flags"><code class="highlighter-rouge">-Xep:</code>
+flags</a>.</p>
+
+<p>See the <a href="https://errorprone.info/docs/installation">documentation of Error Prone</a> for more
+on Error Prone.</p>

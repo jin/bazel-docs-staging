@@ -1,1 +1,744 @@
-/private/var/tmp/_bazel_jingwen/6387d55354406beb34e2bb3e2911dd1e/execroot/io_bazel/bazel-out/darwin-fastbuild/bin/site/site-build/versions/0.17.1/skylark/performance.html
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Optimizing Performance - Bazel</title>
+
+    <link rel="canonical" href="/versions/0.17.1/skylark/performance.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Optimizing Performance"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <h1 id="optimizing-performance">Optimizing Performance</h1>
+
+<!-- [TOC] -->
+
+<p>When writing rules, the most common performance pitfall is to traverse or copy
+data that is accumulated from dependencies. When aggregated over the whole
+build, these operations can easily take O(N^2) time or space. To avoid this, it
+is crucial to understand how to use depsets effectively.</p>
+
+<p>This can be hard to get right, so Bazel also provides a memory profiler that
+assists you in finding spots where you might have made a mistake. Be warned:
+The cost of writing an inefficient rule may not be evident until it is in
+widespread use.</p>
+
+<h2 id="use-depsets">Use depsets</h2>
+
+<p>Whenever you are rolling up information from rule dependencies you should use
+<a href="lib/depset.html">depsets</a>. Only use plain lists or dicts to publish information
+local to the current rule.</p>
+
+<p>A depset represents information as a nested graph which enables sharing.</p>
+
+<p>Consider the following graph:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C -&gt; B -&gt; A
+D ---^
+</code></pre></div></div>
+
+<p>Each node publishes a single string. With depsets the data looks like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = depset(direct=['a'])
+b = depset(direct=['b'], transitive=[a])
+c = depset(direct=['c'], transitive=[b])
+d = depset(direct=['d'], transitive=[b])
+</code></pre></div></div>
+
+<p>Note that each item is only mentioned once. With lists you would get this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = ['a']
+b = ['b', 'a']
+c = ['c', 'b', 'a']
+d = ['d', 'b', 'a']
+</code></pre></div></div>
+
+<p>Note that in this case <code class="highlighter-rouge">'a'</code> is mentioned four times! With larger graphs this
+problem will only get worse.</p>
+
+<p>Here is an example of a rule implementation that uses depsets correctly to
+publish transitive information. Note that it is OK to publish rule-local
+information using lists if you want since this is not O(N^2).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MyProvider = provider()
+
+def _impl(ctx):
+  my_things = ctx.attr.things
+  all_things = depset(
+      direct=my_things,
+      transitive=[dep[MyProvider].all_things for dep in ctx.attr.deps]
+  )
+  ...
+  return [MyProvider(
+    my_things=my_things,  # OK, a flat list of rule-local things only
+    all_things=all_things,  # OK, a depset containing dependencies
+  )]
+</code></pre></div></div>
+
+<p>See the <a href="depsets.html">depset overview</a> page for more information.</p>
+
+<h3 id="never-call-depsetto_list">Never call <code class="highlighter-rouge">depset#to_list</code></h3>
+
+<p>You can coerce a depset to a flat list using <a href="lib/depset.html#to_list">to_list</a>.
+This should be considered debugging functionality. Any flattening of a depset in
+a rule implementation is almost always O(N^2).</p>
+
+<p>A common misconception is that you can freely flatten at the very top level,
+eg. at the <code class="highlighter-rouge">xx_binary</code> level. This is <em>still</em> O(N^2) when you build a set
+of overlapping targets. This happens when building your tests
+<code class="highlighter-rouge">//foo/tests/...</code>, or when importing an IDE project.</p>
+
+<p><strong>Note</strong>: Today it is possible to flatten depsets implicitly. Anywhere you
+iterate a depset (explicitly or implicitly), or take its size, you are
+effectively calling <code class="highlighter-rouge">to_list</code>. This functionality will soon be removed.</p>
+
+<h3 id="never-call-lendepset">Never call <code class="highlighter-rouge">len(depset)</code></h3>
+
+<p>It is O(N) to get the number of items in a depset. It is however
+O(1) to check if a depset is empty. This includes checking the truthiness
+of a depset:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def _impl(ctx):
+  args = ctx.actions.args()
+  files = depset(...)
+
+  # Bad, has to iterate over entire depset to get length
+  if len(files) == 0:
+    args.add("--files")
+    args.add_all(files)
+
+  # Good, O(1)
+  if files:
+    args.add("--files")
+    args.add_all(files)
+</code></pre></div></div>
+
+<h2 id="use-ctxactionsargs-for-command-lines">Use <code class="highlighter-rouge">ctx.actions.args()</code> for command lines</h2>
+
+<p>When building command lines you should use <a href="lib/Args.html">ctx.actions.args()</a>.
+This defers expansion of any depsets to the execution phase.</p>
+
+<p>Apart from being strictly faster, this will reduce the memory consumption of
+your rules – sometimes by 90% or more.</p>
+
+<p>Here are some tricks:</p>
+
+<ul>
+  <li>
+    <p>Pass depsets and lists directly as arguments, instead of flattening them
+yourself. They will get expanded by <code class="highlighter-rouge">ctx.actions.args()</code> for you.
+If you need any transformations on the depset contents, look at
+<a href="lib/Args.html#add">ctx.actions.args#add</a> to see if anything fits the bill.</p>
+  </li>
+  <li>
+    <p>Are you passing <code class="highlighter-rouge">File#path</code> as arguments? No need. Any
+<a href="lib/File.html">File</a> is automatically turned into its
+<a href="lib/File.html#path">path</a>, deferred to expansion time.</p>
+  </li>
+  <li>
+    <p>Avoid constructing strings by concatenating them together.
+The best string argument is a constant as its memory will be shared between
+all instances of your rule.</p>
+  </li>
+  <li>
+    <p>If the args are too long for the command line an <code class="highlighter-rouge">ctx.actions.args()</code> object
+can be conditionally or unconditionally written to a param file using
+<a href="lib/Args.html#use_param_file"><code class="highlighter-rouge">ctx.actions.args#use_param_file</code></a>. This is
+done behind the scenes when the action is executed. If you need to explictly
+control the params file you can write it manually using
+<a href="lib/actions.html#write"><code class="highlighter-rouge">ctx.actions.write</code></a>.</p>
+  </li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def _impl(ctx):
+  ...
+  args = ctx.actions.Args()
+  file = ctx.declare_file(...)
+  files = depset(...)
+
+  # Bad, constructs a full string "--foo=&lt;file path&gt;" for each rule instance
+  args.add("--foo=" + file.path)
+
+  # Good, shares "-foo" among all rule instances, and defers file.path to later
+  args.add("--foo")
+  args.add(file)
+
+  # Use format if you prefer ["--foo=&lt;file path&gt;"] to ["--foo", &lt;file path&gt;]
+  args.add(format="--foo=%s", value=file)
+
+  # Bad, makes a giant string of a whole depset
+  args.add(" ".join(["-I%s" % file.short_path for file in files])
+
+  # Good, only stores a reference to the depset
+  args.add_all(files, format_each="-I%s", map_each=_to_short_path)
+
+# Function passed to map_each above
+def _to_short_path(f):
+  return f.short_path
+</code></pre></div></div>
+
+<h2 id="transitive-action-inputs-should-be-depsets">Transitive action inputs should be depsets</h2>
+
+<p>When building an action using <a href="lib/actions.html?#run">ctx.actions.run</a>, do not
+forget that the <code class="highlighter-rouge">inputs</code> field accepts a depset. Use this whenever inputs are
+collected from dependencies transitively.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>inputs = depset(...)
+ctx.actions.run(
+  inputs = inputs,  # Do *not* turn inputs into a list
+  ...
+)
+</code></pre></div></div>
+
+<h2 id="performance-profiling">Performance profiling</h2>
+
+<p>To profile your code and analyze the performance, use the <code class="highlighter-rouge">--profile</code> flag:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bazel build --nobuild --profile=/tmp/prof //path/to:target
+$ bazel analyze-profile /tmp/prof --html --html_details
+</code></pre></div></div>
+
+<p>Then, open the generated HTML file (<code class="highlighter-rouge">/tmp/prof.html</code> in the example).</p>
+
+<h2 id="memory-profiling">Memory Profiling</h2>
+
+<p>Bazel comes with a built-in memory profiler that can help you check your rule’s
+memory use. If there is a problem you can dump the heap to find the
+exact line of code that is causing the problem.</p>
+
+<h3 id="enabling-memory-tracking">Enabling Memory Tracking</h3>
+
+<p>You must pass these two startup flags to <em>every</em> Bazel invocation:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  STARTUP_FLAGS=\
+  --host_jvm_args=-javaagent:$(BAZEL)/third_party/allocation_instrumenter/java-allocation-instrumenter-3.0.1.jar \
+  --host_jvm_args=-DRULE_MEMORY_TRACKER=1
+</code></pre></div></div>
+<p><strong>NOTE</strong>: The bazel repository comes with an allocation instrumenter.
+  Make sure to adjust ‘$(BAZEL)’ for your repository location.</p>
+
+<p>These start the server in memory tracking mode. If you forget these for even
+one Bazel invocation the server will restart and you will have to start over.</p>
+
+<h3 id="using-the-memory-tracker">Using the Memory Tracker</h3>
+
+<p>Let’s have a look at the target <code class="highlighter-rouge">foo</code> and see what it’s up to. We add
+<code class="highlighter-rouge">--nobuild</code> since it doesn’t matter to memory consumption if we actually build
+or not, we just have to run the analysis phase.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bazel $(STARTUP_FLAGS) build --nobuild //foo:foo
+</code></pre></div></div>
+
+<p>Let’s see how much memory the whole Bazel instance consumes:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bazel $(STARTUP_FLAGS) info used-heap-size-after-gc
+&gt; 2594MB
+</code></pre></div></div>
+
+<p>Let’s break it down by rule class by using <code class="highlighter-rouge">bazel dump --rules</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bazel $(STARTUP_FLAGS) dump --rules
+&gt;
+
+RULE                                 COUNT     ACTIONS          BYTES         EACH
+genrule                             33,762      33,801    291,538,824        8,635
+config_setting                      25,374           0     24,897,336          981
+filegroup                           25,369      25,369     97,496,272        3,843
+cc_library                           5,372      73,235    182,214,456       33,919
+proto_library                        4,140     110,409    186,776,864       45,115
+android_library                      2,621      36,921    218,504,848       83,366
+java_library                         2,371      12,459     38,841,000       16,381
+_gen_source                            719       2,157      9,195,312       12,789
+_check_proto_library_deps              719         668      1,835,288        2,552
+... (more output)
+</code></pre></div></div>
+
+<p>And finally let’s have a look at where the memory is going by producing a
+<code class="highlighter-rouge">pprof</code> file using <code class="highlighter-rouge">bazel dump --skylark_memory</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bazel $(STARTUP_FLAGS) dump --skylark_memory=$HOME/prof.gz
+&gt; Dumping skylark heap to: /usr/local/google/home/$USER/prof.gz
+</code></pre></div></div>
+
+<p>Next, we use the <code class="highlighter-rouge">pprof</code> tool to investigate the heap. A good starting point is
+getting a flame graph by using <code class="highlighter-rouge">pprof -flame $HOME/prof.gz</code>.</p>
+
+<p>You can get <code class="highlighter-rouge">pprof</code> from https://github.com/google/pprof.</p>
+
+<p>In this case we get a text dump of the hottest call sites annotated with lines:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pprof -text -lines $HOME/prof.gz
+&gt;
+      flat  flat%   sum%        cum   cum%
+  146.11MB 19.64% 19.64%   146.11MB 19.64%  android_library &lt;native&gt;:-1
+  113.02MB 15.19% 34.83%   113.02MB 15.19%  genrule &lt;native&gt;:-1
+   74.11MB  9.96% 44.80%    74.11MB  9.96%  glob &lt;native&gt;:-1
+   55.98MB  7.53% 52.32%    55.98MB  7.53%  filegroup &lt;native&gt;:-1
+   53.44MB  7.18% 59.51%    53.44MB  7.18%  sh_test &lt;native&gt;:-1
+   26.55MB  3.57% 63.07%    26.55MB  3.57%  _generate_foo_files /foo/tc/tc.bzl:491
+   26.01MB  3.50% 66.57%    26.01MB  3.50%  _build_foo_impl /foo/build_test.bzl:78
+   22.01MB  2.96% 69.53%    22.01MB  2.96%  _build_foo_impl /foo/build_test.bzl:73
+   ... (more output)
+</code></pre></div></div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+
