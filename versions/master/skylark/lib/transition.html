@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/transition.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/transition.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/transition.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.transition">transition</h1>
 
 <b>Experimental. This type is experimental and subject to change at any time. Do not depend on it.</b><p> Represents a configuration transition across a dependency edge. For example, if <code>//package:foo</code> depends on <code>//package:bar</code> with a configuration transition, then the configuration of these two targets will differ: <code>//package:bar</code>'s transition will be determined by that of <code>//package:foo</code>, as subject to the function defined by a transition object.

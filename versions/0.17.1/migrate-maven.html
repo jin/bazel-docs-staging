@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.17.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/migrate-maven.html">master</option>
+              
+              <option value="/versions/0.19.1/migrate-maven.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/migrate-maven.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="migrating-from-maven-to-bazel">Migrating from Maven to Bazel</h1>
 
 <p>When migrating from any build tool to Bazel, it’s best to have both build

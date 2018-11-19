@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/attr.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/attr.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/attr.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.attr">attr</h1>
 
 This is a top-level module for defining the attribute schemas of a rule or aspect. Each function returns an object representing the schema of a single attribute. These objects are used as the values of the <code>attrs</code> dictionary argument of <a href="globals.html#rule"><code>rule()</code></a> and <a href="globals.html#aspect"><code>aspect()</code></a>.<p>See the Rules page for more on <a href='../rules.html#attributes'>defining</a> and <a href='../rules.html#implementation-function'>using</a> attributes.

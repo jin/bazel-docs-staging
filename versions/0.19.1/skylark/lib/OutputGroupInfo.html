@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/OutputGroupInfo.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/OutputGroupInfo.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/OutputGroupInfo.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.OutputGroupInfo">OutputGroupInfo</h1>
 
 A provider that indicates what output groups a rule has.<br>See <a href="../rules.html#requesting-output-files">Requesting output files</a> for more information.

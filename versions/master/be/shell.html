@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/be/shell.html">master</option>
+              
+              <option value="/versions/0.19.1/be/shell.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/be/shell.html">0.17.1</option>
+              
+          </select>
+
           <!--
  This document is synchronized with Bazel releases.
  To edit, submit changes to the Bazel source code.

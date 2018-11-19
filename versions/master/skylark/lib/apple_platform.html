@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/apple_platform.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/apple_platform.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/apple_platform.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.apple_platform">apple_platform</h1>
 
 Corresponds to Xcode's notion of a platform as would be found in <code>Xcode.app/Contents/Developer/Platforms</code>. Each platform represents an Apple platform type (such as iOS or tvOS) combined with one or more related CPU architectures. For example, the iOS simulator platform supports <code>x86_64</code> and <code>i386</code> architectures.<p>Specific instances of this type can be retrieved from the fields of the <a href='apple_common.html#platform'>apple_common.platform</a> struct:<br><ul><li><code>apple_common.platform.ios_device</code></li><li><code>apple_common.platform.ios_simulator</code></li><li><code>apple_common.platform.macos</code></li><li><code>apple_common.platform.tvos_device</code></li><li><code>apple_common.platform.tvos_simulator</code></li><li><code>apple_common.platform.watchos_device</code></li><li><code>apple_common.platform.watchos_simulator</code></li></ul><p>More commonly, however, the <a href='apple.html'>apple</a> configuration fragment has fields/methods that allow rules to determine the platform for which a target is being built.<p>Example:<br><pre class='language-python'>

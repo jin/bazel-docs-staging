@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.17.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/remote-execution-rules.html">master</option>
+              
+              <option value="/versions/0.19.1/remote-execution-rules.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/remote-execution-rules.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="adapting-bazel-rules-for-remote-execution">Adapting Bazel Rules for Remote Execution</h1>
 
 <p>Remote execution allows Bazel to execute actions on a separate platform, such as

@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/CcToolchainConfigInfo.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/CcToolchainConfigInfo.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/CcToolchainConfigInfo.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.CcToolchainConfigInfo">CcToolchainConfigInfo</h1>
 
 Additional layer of configurability for C++ rules. Encapsulates platform-dependent specifics of C++ actions through features and action configs. It is used to configure the C++ toolchain, and later on for command line construction. Replaces the functionality of CROSSTOOL file.

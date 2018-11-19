@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.17.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/DefaultInfo.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/DefaultInfo.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/DefaultInfo.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.DefaultInfo">DefaultInfo</h1>
 
 A provider that gives general information about a target's direct and transitive files. Every rule type has this provider, even if it is not returned explicitly by the rule's implementation function.Each <code>DefaultInfo</code> instance has the following fields: <ul><li><code>files</code><li><code>files_to_run</code><li><code>data_runfiles</code><li><code>default_runfiles</code></ul>See the <a href='../rules.html'>rules</a> page for more information.

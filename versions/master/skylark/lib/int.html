@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/int.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/int.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/int.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.int">int</h1>
 
 A type to represent integers. It can represent any number between -2147483648 and 2147483647 (included). Examples of int values:<br><pre class="language-python">153

@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/list.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/list.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/list.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.list">list</h1>
 
 A language built-in type to support lists. Example of list literal:<br><pre class=language-python>x = [1, 2, 3]</pre>Accessing elements is possible using indexing (starts from <code>0</code>):<br><pre class=language-python>e = x[1]   # e == 2</pre>Lists support the <code>+</code> operator to concatenate two lists. Example:<br><pre class=language-python>x = [1, 2] + [3, 4]   # x == [1, 2, 3, 4]

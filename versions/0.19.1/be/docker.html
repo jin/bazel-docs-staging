@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/be/docker.html">master</option>
+              
+              <option value="/versions/0.19.1/be/docker.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/be/docker.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="docker-support-for-bazel">Docker support for Bazel</h1>
 
 <p>The definition of these rules has moved to <a href="https://github.com/bazelbuild/rules_docker">bazelbuild/rules_docker</a>, please update your links and

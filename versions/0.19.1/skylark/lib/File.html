@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/File.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/File.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/File.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.File">File</h1>
 
 This object is created during the analysis phase to represent a file or directory that will be read or written during the execution phase. It is not an open file handle, and cannot be used to directly read or write file contents. Rather, you use it to construct the action graph in a rule implementation function by passing it to action-creating functions. See the <a href='../rules.html#files'>Rules page</a> for more information.<p>When a <code>File</code> is passed to an <a href='Args.html'><code>Args</code></a> object without using a <code>map_each</code> function, it is converted to a string by taking the value of its <code>path</code> field.

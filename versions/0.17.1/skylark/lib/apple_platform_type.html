@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.17.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/apple_platform_type.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/apple_platform_type.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/apple_platform_type.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.apple_platform_type">apple_platform_type</h1>
 
 Describes an Apple "platform type", such as iOS, macOS, tvOS, or watchOS. This is distinct from a "platform", which is the platform type combined with one or more CPU architectures.<p>Specific instances of this type can be retrieved by accessing the fields of the <a href='apple_common.html#platform_type'>apple_common.platform_type</a>:<br><ul><li><code>apple_common.platform_type.ios</code></li><li><code>apple_common.platform_type.macos</code></li><li><code>apple_common.platform_type.tvos</code></li><li><code>apple_common.platform_type.watchos</code></li></ul><p>Likewise, the platform type of an existing platform value can be retrieved using its <code>platform_type</code> field.<p>Platform types can be converted to a lowercase string (e.g., <code>ios</code> or <code>macos</code>) using the <a href='globals.html#str'>str</a> function.

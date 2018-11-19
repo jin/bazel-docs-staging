@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.17.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/bool.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/bool.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/bool.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.bool">bool</h1>
 
 A type to represent booleans. There are only two possible values: <a href="globals.html#True">True</a> and <a href="globals.html#False">False</a>. Any value can be converted to a boolean using the <a href="globals.html#bool">bool</a> function.

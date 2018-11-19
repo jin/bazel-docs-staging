@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/dict.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/dict.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/dict.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.dict">dict</h1>
 
 A language built-in type representating a dictionary (associative mapping). Dictionaries may be constructed with a special literal syntax:<br><pre class="language-python">d = {"a": 2, "b": 5}</pre>See also the <a href="globals.html#dict">dict()</a> constructor function. When using the literal syntax, it is an error to have duplicated keys. Use square brackets to access elements:<br><pre class="language-python">e = d["a"]   # e == 2</pre>Like lists, they can also be constructed using a comprehension syntax:<br><pre class="language-python">d = {i: 2*i for i in range(20)}

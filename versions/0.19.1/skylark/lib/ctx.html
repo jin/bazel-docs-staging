@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/ctx.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/ctx.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/ctx.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.ctx">ctx</h1>
 
 A context object that is passed to the implementation function for a rule or aspect. It provides access to the information and methods needed to analyze the current target.<p>In particular, it lets the implementation function access the current target's label, attributes, configuration, and the providers of its dependencies. It has methods for declaring output files and the actions that produce them.<p>Context objects essentially live for the duration of the call to the implementation function. It is not useful to access these objects outside of their associated function.See the <a href='../rules.html#implementation-function'>Rules page</a> for more information.

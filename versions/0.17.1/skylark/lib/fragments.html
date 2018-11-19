@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.17.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/fragments.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/fragments.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/fragments.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.fragments">fragments</h1>
 
 Possible fields are <a href="android.html">android</a>, <a href="apple.html">apple</a>, <a href="cpp.html">cpp</a>, <a href="java.html">java</a>, <a href="jvm.html">jvm</a>, and <a href="objc.html">objc</a>. Access a specific fragment by its field name ex:</p><code>ctx.fragments.apple</code></p>Note that rules have to declare their required fragments in order to access them (see <a href="../rules.html#fragments">here</a>).

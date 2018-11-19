@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/bzl-style.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/bzl-style.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/bzl-style.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="bzl-style-guide">.bzl Style Guide</h1>
 
 <p><a href="language.html">Starlark</a> is a language that defines how software is built, and as

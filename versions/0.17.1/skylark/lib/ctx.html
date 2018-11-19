@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.17.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/ctx.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/ctx.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/ctx.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.ctx">ctx</h1>
 
 The context of the rule containing helper functions and information about attributes, depending targets and outputs. You get a ctx object as an argument to the <code>implementation</code> function when you create a rule.

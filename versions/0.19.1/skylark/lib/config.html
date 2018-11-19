@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/config.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/config.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/config.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.config">config</h1>
 
 Note: This API is experimental and may change at any time.<p>This is a top-level module for creating build setting descriptors which describe what kind of build setting (if any) a skylark rule is. <p>ex: the following rule is marked as a build setting by setting the <code>build_setting</code> parameter of the <code>rule()</code> function. Specifically it is a build setting of type <code>int</code> and is a <code>flag</code> which means this build setting is callable on the command line.<br><pre class=language-python>  my_rule = rule(

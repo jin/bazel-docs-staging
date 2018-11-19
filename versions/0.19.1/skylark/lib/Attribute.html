@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/Attribute.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/Attribute.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/Attribute.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.Attribute">Attribute</h1>
 
 Representation of a definition of an attribute. Use the <a href="attr.html">attr</a> module to create an Attribute. They are only for use with a <a href="globals.html#rule">rule</a> or an <a href="globals.html#aspect">aspect</a>.

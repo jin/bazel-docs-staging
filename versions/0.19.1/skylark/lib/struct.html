@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/struct.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/struct.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/struct.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.struct">struct</h1>
 
 A generic object with fields. See the global <a href="globals.html#struct"><code>struct</code></a> function for more details.<p>Structs fields cannot be reassigned once the struct is created. Two structs are equal if they have the same fields and if corresponding field values are equal.

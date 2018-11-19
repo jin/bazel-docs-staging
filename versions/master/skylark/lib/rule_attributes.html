@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/rule_attributes.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/rule_attributes.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/rule_attributes.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.rule_attributes">rule_attributes</h1>
 
 Information about attributes of a rule an aspect is applied to.

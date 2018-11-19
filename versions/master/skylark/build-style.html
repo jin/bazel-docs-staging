@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/build-style.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/build-style.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/build-style.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="build-style-guide">BUILD Style Guide</h1>
 
 <p>In <code class="highlighter-rouge">BUILD</code> files, we take the same approach as in Go: We let the machine take care

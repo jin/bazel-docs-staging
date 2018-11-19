@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/ide.html">master</option>
+              
+              <option value="/versions/0.19.1/ide.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/ide.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="integrating-bazel-with-ides">Integrating Bazel with IDEs</h1>
 
 <p>IDEs integrate with Bazel in a variety of ways, from features that allow Bazel executions from within the IDE, to awareness of Bazel structures such as syntax highlighting of the BUILD files.</p>

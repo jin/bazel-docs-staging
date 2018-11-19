@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel master</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/repository_ctx.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/repository_ctx.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/repository_ctx.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.repository_ctx">repository_ctx</h1>
 
 The context of the repository rule containing helper functions and information about attributes. You get a repository_ctx object as an argument to the <code>implementation</code> function when you create a repository rule.

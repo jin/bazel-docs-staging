@@ -341,6 +341,22 @@
             }
           </script>
 
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/lib/TemplateVariableInfo.html">master</option>
+              
+              <option value="/versions/0.19.1/skylark/lib/TemplateVariableInfo.html">0.19.1</option>
+              
+              <option value="/versions/0.17.1/skylark/lib/TemplateVariableInfo.html">0.17.1</option>
+              
+          </select>
+
           <h1 id="modules.TemplateVariableInfo">TemplateVariableInfo</h1>
 
 <b>WARNING</b>: The constructor of this provider is experimental and may go away at any time.<p>Encapsulates template variables, that is, variables that can be referenced by strings like <code>$(VARIABLE)</code> in BUILD files and expanded by <code>ctx.expand_make_variables</code> and implicitly in certain attributes of built-in rules.</p><p><code>TemplateVariableInfo</code> can be created by calling its eponymous constructor with a string-to-string dict as an argument that specifies the variables provided.</p><p>Example: <code>platform_common.TemplateVariableInfo({'FOO': 'bar'})</code></p>
