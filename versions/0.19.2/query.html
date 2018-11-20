@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Query Language - Bazel</title>
+
+    <link rel="canonical" href="/versions/0.19.2/query.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Query Language"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.2</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/query.html">master</option>
+              
+              <option value="/versions/0.19.2/query.html">0.19.2</option>
+              
+              <option value="/versions/0.19.1/query.html">0.19.1</option>
+              
+              <option value="/versions/0.18.1/query.html">0.18.1</option>
+              
+              <option value="/versions/0.17.2/query.html">0.17.2</option>
+              
+              <option value="/versions/0.17.1/query.html">0.17.1</option>
+              
+          </select>
+
+          <h1>The Bazel Query Reference</h1>
+
+
+<ul class="toc">
+  <li><a href="query.html#examples">Examples</a></li>
+  <li><a href="query.html#tokens">Tokens: The Lexical Syntax</a></li>
+  <li><a href="query.html#concepts">Bazel Query Language Concepts</a></li>
+  <li><a href="query.html#expressions">Expressions: Syntax and Semantics of the Grammar</a></li>
+  <li><a href="query.html#functions">Functions</a></li>
+  <li><a href="query.html#output-formats">Output Formats</a></li>
+</ul>
+
+<p>
+  When you use <code>bazel query</code> to analyze build
+  dependencies, you use a little language, the <em>Bazel Query
+  Language</em>.  This document is the reference manual for that
+  language.  This document also describes the output
+  formats <code>bazel query</code> supports.
+</p>
+
+<p>
+  If you were looking for a how-to, please see the <a href='query-how-to.html'>Bazel Query How-To</a>.
+</p>
+<h3> bazel cquery </h3>
+<p>Traditional bazel query runs on the post-loading phase target graph and therefore
+  has no concept of configurations and their related concepts. Notably, this means it does not
+  correctly resolve
+  <a href = "https://docs.bazel.build/versions/master/be/functions.html#select">select statements</a>
+  and rather returns all possible resolutions of selects. A newer query environment, cquery,
+  properly handles configurations but doesn't provide all of the functionality of this original
+  query. For more information, see the <a href="cquery.html">Bazel cquery reference</a>.
+</p>
+<h2 id='examples'>Examples</h2>
+
+<p>
+  How do people use <code>bazel query</code>?  Here are typical examples:
+</p>
+
+<p>
+  Why does the <code>//foo</code> tree depend on <code>//bar/baz</code>?
+  Show a path:</p>
+  <pre>somepath(foo/..., //bar/baz:all)</pre>
+
+
+<p>
+  What C++ libraries do all the <code>foo</code> tests depend on that
+  the <code>foo_bin</code> target does not?</p>
+  <pre>kind("cc_library", deps(kind(".*test rule", foo/...)) except deps(//foo:foo_bin))</pre>
+
+
+<h2 id='tokens'>Tokens: The Lexical Syntax</h2>
+
+<p>
+  Expressions in the query language are composed of the following
+  tokens:</p>
+  <ul>
+    <li>
+      <p>
+        <b>Keywords</b>, such as <code>let</code>.  Keywords are the reserved words of the
+        language, and each of them is described below.  The complete set
+        of keywords is:
+      </p>
+
+<code><!-- keep this alphabetically sorted -->
+<a href="#set-operations">except</a><br/>
+<a href="#variables">in</a><br/>
+<a href="#set-operations">intersect</a><br/>
+<a href="#variables">let</a><br/>
+<a href="#set">set</a><br/>
+<a href="#set-operations">union</a><br/>
+</code>
+    </li>
+
+    <li>
+      <p>
+        <b>Words</b>, such as <code>foo/...</code> or
+        <code>".*test rule"</code> or
+        <code>//bar/baz:all</code>.
+        If a character sequence is "quoted" (begins and ends with a
+        single-quote <code>'</code>, or begins and ends with a
+        double-quote <code>&quot;</code>), it is a word.
+        If a character sequence is not quoted, it may still be parsed as a word.
+        Unquoted words are sequences of characters drawn from
+        the set of alphabet characters, numerals, slash <code>/</code>,
+        hyphen <code>-</code>, underscore <code>_</code>, star <code>*</code>, and
+        period <code>.</code>. Unquoted words may not start with a
+        hyphen or period.
+      </p>
+
+    <p>We chose this syntax so that quote marks aren't needed in most cases.
+      The (unusual) <code>".*test rule"</code> example needs quotes: it
+      starts with a period and contains a space.
+      Quoting <code>"cc_library"</code> is unnecessary but harmless.
+    </p>
+
+    <p>
+      Quoting <em>is</em> necessary when writing scripts that
+      construct Bazel query expressions from user-supplied values.
+
+    </p>
+    <pre>
+      //foo:bar+wiz    # WRONG: scanned as //foo:bar + wiz.
+      //foo:bar=wiz    # WRONG: scanned as //foo:bar = wiz.
+      "//foo:bar+wiz"  # ok.
+      "//foo:bar=wiz"  # ok.
+    </pre>
+    <p>
+      Note that this quoting is in addition to any quoting that may
+      be required by your shell. e.g.
+    </p>
+    <pre>bazel query ' "//foo:bar=wiz" '     # single-quotes for shell, double-quotes for Bazel.</pre>
+
+    <p>
+      Keywords, when quoted, are treated as ordinary words, thus
+      <code>some</code> is a keyword but <code>"some"</code> is a word.
+      Both <code>foo</code> and <code>"foo"</code> are words.
+    </p>
+
+    <li><b>Punctuation</b>, such as parens <code>()</code>, period
+    <code>.</code> and comma <code>,</code>, etc.  Words containing
+    punctuation (other than the exceptions listed above) must be quoted.
+  </ul>
+
+<p>
+  Whitespace characters outside of a quoted word are ignored.
+</p>
+
+<h2 id='concepts'>Bazel Query Language Concepts</h2>
+<p>
+  The Bazel query language is a language of expressions.  Every
+  expression evaluates to a <b>partially-ordered set</b> of targets,
+  or equivalently, a <b>graph</b> (DAG) of targets.  This is the only
+  datatype.
+</p>
+<p>
+  In some expressions, the partial order of the graph is
+  not interesting; In this case, we call the values
+  "sets". In cases where the partial order of elements
+  is significant, we call values "graphs".  Note
+  that both terms refer to the same datatype, but merely emphasize
+  different aspects of it.
+</p>
+
+<h3>Cycles in the dependency graph</h3>
+<p>
+  Build dependency graphs should be acyclic.
+
+  The algorithms used by the query language are intended for use in
+  acyclic graphs, but are robust against cycles.  The details of how
+  cycles are treated are not specified and should not be relied upon.
+</p>
+
+<h3 id='implicit_deps'>Implicit dependencies</h3>
+
+<p>
+  In addition to build dependencies that are defined explicitly in BUILD files,
+  Bazel adds additional <em>implicit</em> dependencies to rules. For example
+  every Java rule implicitly depends on the JavaBuilder. Implicit dependencies
+  are established using attributes that start with <code>$</code> and they
+  cannot be overridden in BUILD files.
+
+</p>
+
+<p>
+  Per default <code>bazel query</code> takes implicit dependencies into account
+  when computing the query result. This behavior can be changed with
+  the <code>--[no]implicit_deps</code> option.
+</p>
+
+<h3 id='soundness'>Soundness</h3>
+
+<p>
+  Bazel query language expressions operate over the build
+  dependency graph, which is the graph implicitly defined by all
+  rule declarations in all BUILD files.  It is important to understand
+  that this graph is somewhat abstract, and does not constitute a
+  complete description of how to perform all the steps of a build.  In
+  order to perform a build, a <em>configuration</em> is required too;
+  see the <a href='user-manual.html#configurations'>configurations</a>
+  section of the User's Guide for more detail.
+</p>
+
+<p>
+  The result of evaluating an expression in the Bazel query language
+  is true <em>for all configurations</em>, which means that it may be
+  a conservative over-approximation, and not exactly precise.  If you
+  use the query tool to compute the set of all source files needed
+  during a build, it may report more than are actually necessary
+  because, for example, the query tool will include all the files
+  needed to support message translation, even though you don't intend
+  to use that feature in your build.
+</p>
+
+<h3 id='graph-order'>On the preservation of graph order</h3>
+
+<p>
+  Operations preserve any ordering
+  constraints inherited from their subexpressions.  You can think of
+  this as "the law of conservation of partial order".  Consider an
+  example: if you issue a query to determine the transitive closure of
+  dependencies of a particular target, the resulting set is ordered
+  according to the dependency graph.  If you filter that set to
+  include only the targets of <code>file</code> kind, the same
+  <em>transitive</em> partial ordering relation holds between every
+  pair of targets in the resulting subset&mdash;even though none of
+  these pairs is actually directly connected in the original graph.
+  (There are no file&ndash;file edges in the build dependency graph).
+</p>
+
+<p>
+  However, while all operators <em>preserve</em> order, some
+  operations, such as the <a href='#set-operations'>set operations</a>
+  don't <em>introduce</em> any ordering constraints of their own.
+  Consider this expression:
+</p>
+
+<pre>deps(x) union y</pre>
+
+<p>
+  The order of the final result set is guaranteed to preserve all the
+  ordering constraints of its subexpressions, namely, that all the
+  transitive dependencies of <code>x</code> are correctly ordered with
+  respect to each other.  However, the query guarantees nothing about
+  the ordering of the targets in <code>y</code>, nor about the
+  ordering of the targets in <code>deps(x)</code> relative to those in
+  <code>y</code> (except for those targets in
+  <code>y</code> that also happen to be in <code>deps(x)</code>).
+</p>
+
+<p>
+  Operators that introduce ordering constraints include:
+  <code>allpaths</code>,
+  <code>deps</code>,
+  <code>rdeps</code>,
+  <code>somepath</code>,
+  and the target pattern wildcards
+  <code>package:*</code>,
+  <code>dir/...</code>, etc.
+</p>
+
+<h3 id='sky-query'>Sky Query</h3>
+
+<p>
+  Query has two different implementations, with slightly different features. The alternative one is
+  called "Sky Query", and is activated by passing the following two flags:
+  <code>--universe_scope</code> and <code>--order_output=no</code>.
+  <code>--universe_scope=&lt;target_pattern1&gt;,...,&lt;target_patternN&gt;</code> tells query to
+  preload the transitive closure of the target pattern specified by the target patterns, which can
+  be both additive and subtractive. All queries are then evaluated in this "scope". In particular,
+  the <a href='#allrdeps'><code>allrdeps</code></a> and
+  <a href='#rbuildfiles'><code>rbuildfiles</code></a> operators only return results from this scope.
+</p>
+
+<p>
+  Sky Query has some advantages and disadvantages compared to the default query. The main
+  disadvantage is that it cannot order its output according to graph order, and thus certain
+  <a href='#output-formats'>output formats</a> are forbidden. Its advantages are that it provides
+  two operators (<a href='#allrdeps'><code>allrdeps</code></a> and
+  <a href='#rbuildfiles'><code>rbuildfiles</code></a>) that are not available in the default query.
+  As well, Sky Query does its work by introspecting the
+  <a href='https://bazel.build/designs/skyframe.html'>Skyframe</a> graph, rather than creating a new
+  graph, which is what the default implementation does. Thus, there are some circumstances in which
+  it is faster and uses less memory.
+</p>
+
+<h2 id='expressions'>Expressions: Syntax and Semantics of the Grammar</h2>
+
+<p>
+  This is the grammar of the Bazel query language, expressed in EBNF
+  notation:
+</p>
+
+
+<pre>expr ::= <var>word</var>
+       | let <var>name</var> = <var>expr</var> in <var>expr</var>
+       | (<var>expr</var>)
+       | <var>expr</var> intersect <var>expr</var>
+       | <var>expr</var> ^ <var>expr</var>
+       | <var>expr</var> union <var>expr</var>
+       | <var>expr</var> + <var>expr</var>
+       | <var>expr</var> except <var>expr</var>
+       | <var>expr</var> - <var>expr</var>
+       | set(<var>word</var> *)
+       | <var>word</var> '(' <var>int</var> | <var>word</var> | <var>expr</var> ... ')'
+</pre>
+
+<p>
+  We will examine each of the productions of this grammar in order.
+</p>
+
+<h3 id="target-patterns">Target patterns</h3>
+<pre>expr ::= <var>word</var></pre>
+<p>
+  Syntactically, a <em>target pattern</em> is just a word. It
+  is interpreted as an (unordered) set of targets.  The simplest
+  target pattern is a label,
+  which identifies a single target (file or rule).  For example, the
+  target pattern <code>//foo:bar</code> evaluates to a set
+  containing one element, the target, the <code>bar</code>
+  rule.
+</p>
+
+<p>
+  Target patterns generalize labels to include wildcards over packages
+  and targets.  For example, <code>foo/...:all</code> (or
+  just <code>foo/...</code>) is a target pattern that evaluates to a
+  set containing all <em>rules</em> in every package recursively
+  beneath the <code>foo</code> directory;
+  <code>bar/baz:all</code> is a target pattern that
+  evaluates to a set containing all the rules in the
+  <code>bar/baz</code> package, but not its subpackages.
+</p>
+
+<p>
+  Similarly, <code>foo/...:*</code> is a target pattern that evaluates
+  to a set containing all <em>targets</em> (rules <em>and</em> files) in
+  every package recursively beneath the <code>foo</code> directory;
+  <code>bar/baz:*</code> evaluates to a set containing
+  all the targets in the
+  <code>bar/baz</code> package, but not its subpackages.
+</p>
+
+<p>
+  Because the <code>:*</code> wildcard matches files as well as rules,
+  it is often more useful than <code>:all</code> for queries.
+  Conversely, the <code>:all</code> wildcard (implicit in target
+  patterns like <code>foo/...</code>) is typically more useful for
+  builds.
+</p>
+
+<p>
+  <code>bazel query</code> target patterns work the same as
+  <code>bazel build</code> build targets do;
+  refer to <a href='bazel-user-manual.html#target-patterns'>Target Patterns</a>
+  in the Bazel User Manual for further details, or type <code>bazel
+  help target-syntax</code>.
+
+</p>
+
+<p>
+  Target patterns may evaluate to a singleton set (in the case of a
+  label), to a set containing many elements (as in the case of
+  <code>foo/...</code>, which has thousands of elements) or to the
+  empty set, if the target pattern matches no targets.
+</p>
+
+<p>
+  All nodes in the result of a target pattern expression are correctly
+  ordered relative to each other according to the dependency relation.
+  So, the result of <code>foo:*</code> is not just the set of targets
+  in package <code>foo</code>, it is also the <em>graph</em> over
+  those targets.  (No guarantees are made about the relative ordering
+  of the result nodes against other nodes.)  See the section
+  on <a href='#graph-order'>graph order</a> for more details.
+</p>
+
+<h3 id="variables">Variables</h3>
+<pre>expr ::= let <var>name</var> = <var>expr</var><sub>1</sub> in <var>expr</var><sub>2</sub>
+       | <var>$name</var></pre>
+<p>
+  The Bazel query language allows definitions of and references to
+  variables.  The
+  result of evaluation of a <code>let</code> expression is the same as
+  that of <var>expr</var><sub>2</sub>, with all free occurrences of
+  variable <var>name</var> replaced by the value of
+  <var>expr</var><sub>1</sub>.
+</p>
+
+<p>
+  For example, <code>let v = foo/... in allpaths($v, //common)
+  intersect $v</code> is equivalent to the <code>allpaths(foo/...,
+  //common) intersect foo/...</code>.
+</p>
+
+<p>
+  An occurrence of a variable reference <code>name</code> other than in
+  an enclosing <code>let <var>name</var> = ...</code> expression is an
+  error.  In other words, toplevel query expressions cannot have free
+  variables.
+</p>
+
+<p>
+  In the above grammar productions, <code>name</code> is like
+  <em>word</em>, but with the additional constraint that it be a legal
+  identifier in the C programming language. References to the variable
+  must be prepended with the "$" character.
+</p>
+
+<p>
+  Each <code>let</code> expression defines only a single variable,
+  but you can nest them.
+</p>
+
+<p>
+  (Both <a
+  href='#target-patterns'>target patterns</a> and variable references
+  consist of just a single token, a word, creating a syntactic
+  ambiguity.  However, there is no semantic ambiguity, because the
+  subset of words that are legal variable names is disjoint from the
+  subset of words that are legal target patterns.)
+</p>
+
+<p>
+  (Technically speaking, <code>let</code> expressions do not increase
+  the expressiveness of the query language: any query expressible in
+  the language can also be expressed without them.  However, they
+  improve the conciseness of many queries, and may also lead to more
+  efficient query evaluation.)
+</p>
+
+<h3 id="parentheses">Parenthesized expressions</h3>
+<pre>expr ::= (<var>expr</var>)</pre>
+
+<p>
+  Parentheses associate subexpressions to force an
+  order of evaluation.
+  A parenthesized expression evaluates
+  to the value of its argument.
+</p>
+
+<h3 id="set-operations">Algebraic set operations:
+                        intersection, union, set difference</h3>
+
+<pre>expr ::= <var>expr</var> intersect <var>expr</var>
+       | <var>expr</var> ^ <var>expr</var>
+       | <var>expr</var> union <var>expr</var>
+       | <var>expr</var> + <var>expr</var>
+       | <var>expr</var> except <var>expr</var>
+       | <var>expr</var> - <var>expr</var>
+</pre>
+
+<p>
+  These three operators compute the usual set operations over their
+  arguments.  Each operator has two forms, a nominal form such
+  as <code>intersect</code> and a symbolic form such
+  as <code>^</code>.  Both forms are equivalent;
+  the symbolic forms are quicker to type.  (For clarity, the rest of
+  this manual uses the nominal forms.)  For example,
+</p>
+
+<pre>foo/... except foo/bar/...</pre>
+
+  evaluates to the set of targets that match
+  <code>foo/...</code> but not
+  <code>foo/bar/...</code>&nbsp;.  Equivalently:
+
+<pre>foo/... - foo/bar/...</pre>
+
+  The <code>intersect</code> (<code>^</code>)
+  and <code>union</code> (<code>+</code>) operations are commutative
+  (symmetric); <code>except</code> (<code>-</code>) is
+  asymmetric.  The parser treats all three operators as
+  left-associative and of equal precedence, so you might want parentheses.
+  For example, the first two of these expressions are
+  equivalent, but the third is not:
+
+<pre>x intersect y union z
+(x intersect y) union z
+x intersect (y union z)</pre>
+
+<p>
+  (We strongly recommend that you use parentheses where there is
+  any danger of ambiguity in reading a query expression.)
+</p>
+
+<h3 id="set">Read targets from an external source: set</h3>
+<pre>expr ::= set(<var>word</var> *) </pre>
+<p>
+  The <code>set(<var>a</var> <var>b</var> <var>c</var> ...)</code>
+  operator computes the union of a set of zero or
+  more <a href='#target-patterns'>target patterns</a>, separated by
+  whitespace (no commas).
+</p>
+
+<p>
+  In conjunction with the Bourne shell's <code>$(...)</code>
+  feature, <code>set()</code> provides a means of saving the results
+  of one query in a regular text file, manipulating that text file
+  using other programs (e.g. standard UNIX shell tools), and then
+  introducing the result back into the query tool as a value for
+  further processing.  For example:
+</p>
+<pre>
+  bazel query deps(//my:target) --output=label | grep ... | sed ... | awk ... &gt; foo
+  bazel query "kind(cc_binary, set($(&lt;foo)))"
+</pre>
+<p>
+  In the next example, <code>kind(cc_library,
+  deps(//some_dir/foo:main, 5))</code> is effectively computed
+  by filtering on the <code>maxrank</code> values using
+  an <code>awk</code> program.
+</p>
+<pre>
+  bazel query 'deps(//some_dir/foo:main)' --output maxrank |
+        awk '($1 &lt; 5) { print $2;} ' &gt; foo
+  bazel query "kind(cc_library, set($(&lt;foo)))"
+</pre>
+<p>
+  In these examples, <code>$(&lt;foo)</code> is a shorthand
+  for <code>$(cat foo)</code>, but shell commands other
+  than <code>cat</code> may be used too&mdash;such as
+  the previous <code>awk</code> command.
+</p>
+
+<p>
+  Note, <code>set()</code> introduces no graph ordering constraints,
+  so path information may be lost when saving and reloading sets of
+  nodes using it.  See the <a href='#graph-order'>graph order</a>
+  section below for more detail.
+</p>
+
+<h2 id="functions">Functions</h2>
+<pre>expr ::= <var>word</var> '(' <var>int</var> | <var>word</var> | <var>expr</var> ... ')'</pre>
+<p>
+  The query language defines several functions. The name of the function
+  determines the number and type of arguments it requires. The following
+  functions are available:
+</p>
+
+<code><!-- keep this alphabetically sorted -->
+<a href="#path-operators">allpaths</a><br/>
+<a href="#attr">attr</a><br/>
+
+<a href="#buildfiles">buildfiles</a><br/>
+<a href="#rbuildfiles">rbuildfiles</a><br/>
+
+<a href="#deps">deps</a><br/>
+<a href="#filter">filter</a><br/>
+<a href="#kind">kind</a><br/>
+<a href="#labels">labels</a><br/>
+<a href="#loadfiles">loadfiles</a><br/>
+<a href="#rdeps">rdeps</a><br/>
+<a href="#allrdeps">allrdeps</a><br/>
+<a href="#same_pkg_direct_rdeps">same_pkg_direct_rdeps</a><br/>
+<a href="#siblings">siblings</a><br/>
+<a href="#some">some</a><br/>
+<a href="#path-operators">somepath</a><br/>
+<a href="#tests">tests</a><br/>
+<a href="#visible">visible</a><br/>
+</code>
+
+<h3 id="deps">Transitive closure of dependencies: deps</h3>
+<pre>expr ::= deps(<var>expr</var>)
+       | deps(<var>expr</var>, <var>depth</var>)</pre>
+<p>
+  The <code>deps(<var>x</var>)</code> operator evaluates to the graph
+  formed by the transitive closure of dependencies of its argument set
+  <var>x</var>. For example, the value of <code>deps(//foo)</code> is
+  the dependency graph rooted at the single node <code>foo</code>,
+  including all its dependencies. The value of
+  <code>deps(foo/...)</code> is the dependency graphs whose roots are
+  all rules in every package beneath the <code>foo</code> directory.
+  Please note that 'dependencies' means only rule and file targets
+  in this context, therefore the BUILD and Skylark files needed to
+  create these targets are not included here. For that you should use the
+  <a href="#buildfiles"><code>buildfiles</code></a> operator.
+</p>
+
+<p>
+  The resulting graph is ordered according to the dependency relation.
+  See the section on <a href='#graph-order'>graph order</a> for more
+  details.
+</p>
+
+<p>
+  The <code>deps</code> operator accepts an optional second argument,
+  which is an integer literal specifying an upper bound on the depth
+  of the search.  So <code>deps(foo:*, 1)</code> evaluates to all the
+  direct prerequisites of any target in the <code>foo</code> package,
+  and <code>deps(foo:*, 2)</code> further includes the nodes directly
+  reachable from the nodes in <code>deps(foo:*, 1)</code>, and so on.
+  (These numbers correspond to the ranks shown in
+  the <a href='#output-ranked'><code>minrank</code></a> output
+  format.)  If the <var>depth</var> parameter is omitted, the search
+  is unbounded, i.e. it computes the reflexive transitive closure of
+  prerequsites.
+</p>
+
+<h3 id="rdeps">Transitive closure of reverse dependencies: rdeps</h3>
+<pre>expr ::= rdeps(<var>expr</var>, <var>expr</var>)
+       | rdeps(<var>expr</var>, <var>expr</var>, <var>depth</var>)</pre>
+<p>
+  The <code>rdeps(<var>u</var>, <var>x</var>)</code> operator evaluates
+  to the reverse dependencies of the argument set <var>x</var> within the
+  transitive closure of the universe set <var>u</var>.
+</p>
+
+<p>
+  The resulting graph is ordered according to the dependency relation.  See the
+  section on <a href='#graph-order'>graph order</a> for more details.
+</p>
+
+<p>
+  The <code>rdeps</code> operator accepts an optional third argument,
+  which is an integer literal specifying an upper bound on the depth of the
+  search.  The resulting graph will only include nodes within a distance of the
+  specified depth from any node in the argument set.  So
+  <code>rdeps(//foo, //common, 1)</code> evaluates to all nodes in the
+  transitive closure of <code>//foo</code> that directly depend on
+  <code>//common</code>.  (These numbers correspond to the ranks shown in the
+  <a href='#output-ranked'><code>minrank</code></a> output format.)  If the
+  <var>depth</var> parameter is omitted, the search is unbounded.
+</p>
+
+<h3 id="allrdeps">Transitive closure of all reverse dependencies: allrdeps</h3>
+<pre>expr ::= allrdeps(<var>expr</var>)
+       | allrdeps(<var>expr</var>, <var>depth</var>)</pre>
+<b>Only available with <a href='#sky-query'>Sky Query</a></b><br/>
+<p>
+  The <code>allrdeps</code> operator behaves just like the <a href='#rdeps'><code>rdeps</code></a>
+  operator, except that the "universe set" is whatever the <code>--universe_scope</code> flag
+  evaluated to, instead of being separately specified. Thus, if
+  <code>--universe_scope=//foo/...</code> was passed, then <code>allrdeps(//bar)</code> is
+  equivalent to <code>rdeps(//foo/..., //bar)</code>.
+</p>
+
+<h3 id="same_pkg_direct_rdeps">Direct reverse dependencies in the same package: same_pkg_direct_rdeps</h3>
+<pre>expr ::= same_pkg_direct_rdeps(<var>expr</var>)</pre>
+<p>
+  The <code>same_pkg_direct_rdeps(<var>x</var>)</code> operator evalutes to the full set of targets
+  that are in the same package as a target in the argument set, and which directly depend on it.
+</p>
+
+<h3 id="siblings">Dealing with a target's package: siblings</h3>
+<pre>expr ::= siblings(<var>expr</var>)</pre>
+<p>
+  The <code>siblings(<var>x</var>)</code> operator evalutes to the full set of targets that are in
+  the same package as a target in the argument set.
+</p>
+
+<h3 id="some">Arbitrary choice: some</h3>
+<pre>expr ::= some(<var>expr</var>)</pre>
+<p>
+  The <code>some(<var>x</var>)</code> operator selects one target
+  arbitrarily from its argument set <var>x</var>, and evaluates to a
+  singleton set containing only that target.  For example, the
+  expression <code>some(//foo:main union //bar:baz)</code>
+  evaluates to a set containing either <code>//foo:main</code> or
+  <code>//bar:baz</code>&mdash;though which one is not defined.
+</p>
+
+<p>
+  If the argument is a singleton, then <code>some</code>
+  computes the identity function: <code>some(//foo:main)</code> is
+  equivalent to <code>//foo:main</code>.
+
+  It is an error if the specified argument set is empty, as in the
+  expression <code>some(//foo:main intersect //bar:baz)</code>.
+</p>
+
+<h3 id="path-operators">Path operators: somepath, allpaths</h3>
+<pre>expr ::= somepath(<var>expr</var>, <var>expr</var>)
+       | allpaths(<var>expr</var>, <var>expr</var>)</pre>
+<p>
+  The <code>somepath(<var>S</var>, <var>E</var>)</code> and
+  <code>allpaths(<var>S</var>, <var>E</var>)</code> operators compute
+  paths between two sets of targets.  Both queries accept two
+  arguments, a set <var>S</var> of starting points and a set
+  <var>E</var> of ending points.  <code>somepath</code> returns the
+  graph of nodes on <em>some</em> arbitrary path from a target in
+  <var>S</var> to a target in <var>E</var>; <code>allpaths</code>
+  returns the graph of nodes on <em>all</em> paths from any target in
+  <var>S</var> to any target in <var>E</var>.
+</p>
+
+<p>
+  The resulting graphs are ordered according to the dependency relation.
+  See the section on <a href='#graph-order'>graph order</a> for more
+  details.
+</p>
+
+<table style='margin: auto'><tr>
+<td style='text-align: center'>
+<svg width="151pt" height="288pt"
+ viewBox="0.00 0.00 151.29 288.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(.8526 .8526) rotate(0) translate(4 333.7875)">
+<title>somepath1</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-333.7875 173.4469,-333.7875 173.4469,4 -4,4"/>
+<!-- n1 -->
+<g id="node1" class="node">
+<title>n1</title>
+<ellipse fill="none" stroke="#000000" cx="40" cy="-310.3406" rx="18" ry="18"/>
+</g>
+<!-- n2 -->
+<g id="node2" class="node">
+<title>n2</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="41" cy="-235.4469" rx="18" ry="18"/>
+</g>
+<!-- n1&#45;&gt;n2 -->
+<g id="edge1" class="edge">
+<title>n1&#45;&gt;n2</title>
+<path fill="none" stroke="#000000" d="M40.2421,-292.2109C40.3555,-283.7184 40.4932,-273.4006 40.62,-263.9029"/>
+<polygon fill="#000000" stroke="#000000" points="44.1228,-263.715 40.7567,-253.6692 37.1234,-263.6215 44.1228,-263.715"/>
+</g>
+<!-- n3 -->
+<g id="node3" class="node">
+<title>n3</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="18" cy="-162" rx="18" ry="18"/>
+</g>
+<!-- n2&#45;&gt;n3 -->
+<g id="edge2" class="edge">
+<title>n2&#45;&gt;n3</title>
+<path fill="none" stroke="#000000" d="M35.5493,-218.041C32.8282,-209.3514 29.4753,-198.6446 26.4318,-188.9256"/>
+<polygon fill="#000000" stroke="#000000" points="29.7401,-187.778 23.4116,-179.2809 23.06,-189.8699 29.7401,-187.778"/>
+</g>
+<!-- n10 -->
+<g id="node10" class="node">
+<title>n10</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="22" cy="-90" rx="18" ry="18"/>
+</g>
+<!-- n2&#45;&gt;n10 -->
+<g id="edge9" class="edge">
+<title>n2&#45;&gt;n10</title>
+<path fill="none" stroke="#000000" d="M44.3041,-217.7155C47.1788,-199.144 50.148,-169.224 45,-144 42.9948,-134.175 39.1326,-123.9242 35.1375,-115.0268"/>
+<polygon fill="#000000" stroke="#000000" points="38.292,-113.5104 30.8316,-105.9875 31.9723,-116.5208 38.292,-113.5104"/>
+</g>
+<!-- n3&#45;&gt;n10 -->
+<g id="edge10" class="edge">
+<title>n3&#45;&gt;n10</title>
+<path fill="none" stroke="#000000" d="M19.0094,-143.8314C19.4372,-136.131 19.9459,-126.9743 20.4213,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="23.9169,-118.592 20.977,-108.4133 16.9276,-118.2037 23.9169,-118.592"/>
+</g>
+<!-- n4 -->
+<g id="node4" class="node">
+<title>n4</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="73" cy="-18" rx="18" ry="18"/>
+<text text-anchor="middle" x="73" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">E</text>
+</g>
+<!-- n5 -->
+<g id="node5" class="node">
+<title>n5</title>
+<ellipse fill="none" stroke="#000000" cx="95" cy="-235.4469" rx="18" ry="18"/>
+</g>
+<!-- n6 -->
+<g id="node6" class="node">
+<title>n6</title>
+<ellipse fill="none" stroke="#000000" cx="113" cy="-162" rx="18" ry="18"/>
+</g>
+<!-- n5&#45;&gt;n6 -->
+<g id="edge5" class="edge">
+<title>n5&#45;&gt;n6</title>
+<path fill="none" stroke="#000000" d="M99.3573,-217.6674C101.4356,-209.1871 103.9688,-198.8508 106.2856,-189.3974"/>
+<polygon fill="#000000" stroke="#000000" points="109.7018,-190.1614 108.6828,-179.6157 102.903,-188.4951 109.7018,-190.1614"/>
+</g>
+<!-- n6&#45;&gt;n4 -->
+<g id="edge6" class="edge">
+<title>n6&#45;&gt;n4</title>
+<path fill="none" stroke="#000000" d="M105.6597,-145.2221C101.2549,-134.6847 95.7901,-120.7254 92,-108 85.8937,-87.4979 80.9754,-63.8091 77.6739,-45.8822"/>
+<polygon fill="#000000" stroke="#000000" points="81.0777,-45.033 75.8756,-35.8032 74.1866,-46.2626 81.0777,-45.033"/>
+</g>
+<!-- n9 -->
+<g id="node9" class="node">
+<title>n9</title>
+<ellipse fill="none" stroke="#000000" cx="119" cy="-90" rx="18" ry="18"/>
+</g>
+<!-- n6&#45;&gt;n9 -->
+<g id="edge8" class="edge">
+<title>n6&#45;&gt;n9</title>
+<path fill="none" stroke="#000000" d="M114.5141,-143.8314C115.1558,-136.131 115.9188,-126.9743 116.6319,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="120.1229,-118.6694 117.4656,-108.4133 113.1471,-118.088 120.1229,-118.6694"/>
+</g>
+<!-- n7 -->
+<g id="node7" class="node">
+<title>n7</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="95" cy="-310.3406" rx="19.3939" ry="19.3939"/>
+<text text-anchor="middle" x="95" y="-306.1406" font-family="Times,serif" font-size="14.00" fill="#000000">S1</text>
+</g>
+<!-- n7&#45;&gt;n2 -->
+<g id="edge4" class="edge">
+<title>n7&#45;&gt;n2</title>
+<path fill="none" stroke="#000000" d="M83.548,-294.4576C76.0481,-284.0558 66.1202,-270.2866 57.7409,-258.6652"/>
+<polygon fill="#000000" stroke="#000000" points="60.3885,-256.3526 51.7009,-250.2882 54.7105,-260.4466 60.3885,-256.3526"/>
+</g>
+<!-- n7&#45;&gt;n5 -->
+<g id="edge3" class="edge">
+<title>n7&#45;&gt;n5</title>
+<path fill="none" stroke="#000000" d="M95,-290.6632C95,-282.3772 95,-272.5802 95,-263.556"/>
+<polygon fill="#000000" stroke="#000000" points="98.5001,-263.4542 95,-253.4543 91.5001,-263.4543 98.5001,-263.4542"/>
+</g>
+<!-- n8 -->
+<g id="node8" class="node">
+<title>n8</title>
+<ellipse fill="none" stroke="#000000" cx="150" cy="-235.4469" rx="19.3939" ry="19.3939"/>
+<text text-anchor="middle" x="150" y="-231.2469" font-family="Times,serif" font-size="14.00" fill="#000000">S2</text>
+</g>
+<!-- n8&#45;&gt;n6 -->
+<g id="edge7" class="edge">
+<title>n8&#45;&gt;n6</title>
+<path fill="none" stroke="#000000" d="M141.2315,-218.041C136.6323,-208.9113 130.9113,-197.5549 125.8243,-187.4569"/>
+<polygon fill="#000000" stroke="#000000" points="128.8234,-185.6307 121.1986,-178.2746 122.5719,-188.7801 128.8234,-185.6307"/>
+</g>
+<!-- n10&#45;&gt;n4 -->
+<g id="edge11" class="edge">
+<title>n10&#45;&gt;n4</title>
+<path fill="none" stroke="#000000" d="M32.5672,-75.0816C39.4738,-65.3311 48.6369,-52.395 56.4935,-41.3032"/>
+<polygon fill="#000000" stroke="#000000" points="59.5222,-43.0827 62.4463,-32.8993 53.81,-39.0365 59.5222,-43.0827"/>
+</g>
+<!-- n11 -->
+<g id="node11" class="node">
+<title>n11</title>
+<ellipse fill="none" stroke="#000000" cx="19" cy="-18" rx="18" ry="18"/>
+</g>
+<!-- n10&#45;&gt;n11 -->
+<g id="edge12" class="edge">
+<title>n10&#45;&gt;n11</title>
+<path fill="none" stroke="#000000" d="M21.243,-71.8314C20.9221,-64.131 20.5406,-54.9743 20.184,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="23.6806,-46.2589 19.7672,-36.4133 16.6867,-46.5503 23.6806,-46.2589"/>
+</g>
+</g>
+</svg>
+<p><code>somepath(S1 + S2, E)</code>,<br/>one possible result.</p>
+</td>
+<td style='padding: 40px; text-align: center'>
+<svg width="151pt" height="288pt"
+ viewBox="0.00 0.00 151.29 288.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(.8526 .8526) rotate(0) translate(4 333.7875)">
+<title>somepath2</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-333.7875 173.4469,-333.7875 173.4469,4 -4,4"/>
+<!-- n1 -->
+<g id="node1" class="node">
+<title>n1</title>
+<ellipse fill="none" stroke="#000000" cx="40" cy="-310.3406" rx="18" ry="18"/>
+</g>
+<!-- n2 -->
+<g id="node2" class="node">
+<title>n2</title>
+<ellipse fill="none" stroke="#000000" cx="41" cy="-235.4469" rx="18" ry="18"/>
+</g>
+<!-- n1&#45;&gt;n2 -->
+<g id="edge1" class="edge">
+<title>n1&#45;&gt;n2</title>
+<path fill="none" stroke="#000000" d="M40.2421,-292.2109C40.3555,-283.7184 40.4932,-273.4006 40.62,-263.9029"/>
+<polygon fill="#000000" stroke="#000000" points="44.1228,-263.715 40.7567,-253.6692 37.1234,-263.6215 44.1228,-263.715"/>
+</g>
+<!-- n3 -->
+<g id="node3" class="node">
+<title>n3</title>
+<ellipse fill="none" stroke="#000000" cx="18" cy="-162" rx="18" ry="18"/>
+</g>
+<!-- n2&#45;&gt;n3 -->
+<g id="edge2" class="edge">
+<title>n2&#45;&gt;n3</title>
+<path fill="none" stroke="#000000" d="M35.5493,-218.041C32.8282,-209.3514 29.4753,-198.6446 26.4318,-188.9256"/>
+<polygon fill="#000000" stroke="#000000" points="29.7401,-187.778 23.4116,-179.2809 23.06,-189.8699 29.7401,-187.778"/>
+</g>
+<!-- n10 -->
+<g id="node10" class="node">
+<title>n10</title>
+<ellipse fill="none" stroke="#000000" cx="22" cy="-90" rx="18" ry="18"/>
+</g>
+<!-- n2&#45;&gt;n10 -->
+<g id="edge9" class="edge">
+<title>n2&#45;&gt;n10</title>
+<path fill="none" stroke="#000000" d="M44.3041,-217.7155C47.1788,-199.144 50.148,-169.224 45,-144 42.9948,-134.175 39.1326,-123.9242 35.1375,-115.0268"/>
+<polygon fill="#000000" stroke="#000000" points="38.292,-113.5104 30.8316,-105.9875 31.9723,-116.5208 38.292,-113.5104"/>
+</g>
+<!-- n3&#45;&gt;n10 -->
+<g id="edge10" class="edge">
+<title>n3&#45;&gt;n10</title>
+<path fill="none" stroke="#000000" d="M19.0094,-143.8314C19.4372,-136.131 19.9459,-126.9743 20.4213,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="23.9169,-118.592 20.977,-108.4133 16.9276,-118.2037 23.9169,-118.592"/>
+</g>
+<!-- n4 -->
+<g id="node4" class="node">
+<title>n4</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="73" cy="-18" rx="18" ry="18"/>
+<text text-anchor="middle" x="73" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">E</text>
+</g>
+<!-- n5 -->
+<g id="node5" class="node">
+<title>n5</title>
+<ellipse fill="none" stroke="#000000" cx="95" cy="-235.4469" rx="18" ry="18"/>
+</g>
+<!-- n6 -->
+<g id="node6" class="node">
+<title>n6</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="113" cy="-162" rx="18" ry="18"/>
+</g>
+<!-- n5&#45;&gt;n6 -->
+<g id="edge5" class="edge">
+<title>n5&#45;&gt;n6</title>
+<path fill="none" stroke="#000000" d="M99.3573,-217.6674C101.4356,-209.1871 103.9688,-198.8508 106.2856,-189.3974"/>
+<polygon fill="#000000" stroke="#000000" points="109.7018,-190.1614 108.6828,-179.6157 102.903,-188.4951 109.7018,-190.1614"/>
+</g>
+<!-- n6&#45;&gt;n4 -->
+<g id="edge6" class="edge">
+<title>n6&#45;&gt;n4</title>
+<path fill="none" stroke="#000000" d="M105.6597,-145.2221C101.2549,-134.6847 95.7901,-120.7254 92,-108 85.8937,-87.4979 80.9754,-63.8091 77.6739,-45.8822"/>
+<polygon fill="#000000" stroke="#000000" points="81.0777,-45.033 75.8756,-35.8032 74.1866,-46.2626 81.0777,-45.033"/>
+</g>
+<!-- n9 -->
+<g id="node9" class="node">
+<title>n9</title>
+<ellipse fill="none" stroke="#000000" cx="119" cy="-90" rx="18" ry="18"/>
+</g>
+<!-- n6&#45;&gt;n9 -->
+<g id="edge8" class="edge">
+<title>n6&#45;&gt;n9</title>
+<path fill="none" stroke="#000000" d="M114.5141,-143.8314C115.1558,-136.131 115.9188,-126.9743 116.6319,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="120.1229,-118.6694 117.4656,-108.4133 113.1471,-118.088 120.1229,-118.6694"/>
+</g>
+<!-- n7 -->
+<g id="node7" class="node">
+<title>n7</title>
+<ellipse fill="none" stroke="#000000" cx="95" cy="-310.3406" rx="19.3939" ry="19.3939"/>
+<text text-anchor="middle" x="95" y="-306.1406" font-family="Times,serif" font-size="14.00" fill="#000000">S1</text>
+</g>
+<!-- n7&#45;&gt;n2 -->
+<g id="edge4" class="edge">
+<title>n7&#45;&gt;n2</title>
+<path fill="none" stroke="#000000" d="M83.548,-294.4576C76.0481,-284.0558 66.1202,-270.2866 57.7409,-258.6652"/>
+<polygon fill="#000000" stroke="#000000" points="60.3885,-256.3526 51.7009,-250.2882 54.7105,-260.4466 60.3885,-256.3526"/>
+</g>
+<!-- n7&#45;&gt;n5 -->
+<g id="edge3" class="edge">
+<title>n7&#45;&gt;n5</title>
+<path fill="none" stroke="#000000" d="M95,-290.6632C95,-282.3772 95,-272.5802 95,-263.556"/>
+<polygon fill="#000000" stroke="#000000" points="98.5001,-263.4542 95,-253.4543 91.5001,-263.4543 98.5001,-263.4542"/>
+</g>
+<!-- n8 -->
+<g id="node8" class="node">
+<title>n8</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="150" cy="-235.4469" rx="19.3939" ry="19.3939"/>
+<text text-anchor="middle" x="150" y="-231.2469" font-family="Times,serif" font-size="14.00" fill="#000000">S2</text>
+</g>
+<!-- n8&#45;&gt;n6 -->
+<g id="edge7" class="edge">
+<title>n8&#45;&gt;n6</title>
+<path fill="none" stroke="#000000" d="M141.2315,-218.041C136.6323,-208.9113 130.9113,-197.5549 125.8243,-187.4569"/>
+<polygon fill="#000000" stroke="#000000" points="128.8234,-185.6307 121.1986,-178.2746 122.5719,-188.7801 128.8234,-185.6307"/>
+</g>
+<!-- n10&#45;&gt;n4 -->
+<g id="edge11" class="edge">
+<title>n10&#45;&gt;n4</title>
+<path fill="none" stroke="#000000" d="M32.5672,-75.0816C39.4738,-65.3311 48.6369,-52.395 56.4935,-41.3032"/>
+<polygon fill="#000000" stroke="#000000" points="59.5222,-43.0827 62.4463,-32.8993 53.81,-39.0365 59.5222,-43.0827"/>
+</g>
+<!-- n11 -->
+<g id="node11" class="node">
+<title>n11</title>
+<ellipse fill="none" stroke="#000000" cx="19" cy="-18" rx="18" ry="18"/>
+</g>
+<!-- n10&#45;&gt;n11 -->
+<g id="edge12" class="edge">
+<title>n10&#45;&gt;n11</title>
+<path fill="none" stroke="#000000" d="M21.243,-71.8314C20.9221,-64.131 20.5406,-54.9743 20.184,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="23.6806,-46.2589 19.7672,-36.4133 16.6867,-46.5503 23.6806,-46.2589"/>
+</g>
+</g>
+</svg>
+<p><code>somepath(S1 + S2, E)</code>,<br/>another possible result.</p>
+</td>
+<td style='text-align: center'>
+<svg width="151pt" height="288pt"
+ viewBox="0.00 0.00 151.29 288.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(.8526 .8526) rotate(0) translate(4 333.7875)">
+<title>allpaths</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-333.7875 173.4469,-333.7875 173.4469,4 -4,4"/>
+<!-- n1 -->
+<g id="node1" class="node">
+<title>n1</title>
+<ellipse fill="none" stroke="#000000" cx="40" cy="-310.3406" rx="18" ry="18"/>
+</g>
+<!-- n2 -->
+<g id="node2" class="node">
+<title>n2</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="41" cy="-235.4469" rx="18" ry="18"/>
+</g>
+<!-- n1&#45;&gt;n2 -->
+<g id="edge1" class="edge">
+<title>n1&#45;&gt;n2</title>
+<path fill="none" stroke="#000000" d="M40.2421,-292.2109C40.3555,-283.7184 40.4932,-273.4006 40.62,-263.9029"/>
+<polygon fill="#000000" stroke="#000000" points="44.1228,-263.715 40.7567,-253.6692 37.1234,-263.6215 44.1228,-263.715"/>
+</g>
+<!-- n3 -->
+<g id="node3" class="node">
+<title>n3</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="18" cy="-162" rx="18" ry="18"/>
+</g>
+<!-- n2&#45;&gt;n3 -->
+<g id="edge2" class="edge">
+<title>n2&#45;&gt;n3</title>
+<path fill="none" stroke="#000000" d="M35.5493,-218.041C32.8282,-209.3514 29.4753,-198.6446 26.4318,-188.9256"/>
+<polygon fill="#000000" stroke="#000000" points="29.7401,-187.778 23.4116,-179.2809 23.06,-189.8699 29.7401,-187.778"/>
+</g>
+<!-- n10 -->
+<g id="node10" class="node">
+<title>n10</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="22" cy="-90" rx="18" ry="18"/>
+</g>
+<!-- n2&#45;&gt;n10 -->
+<g id="edge9" class="edge">
+<title>n2&#45;&gt;n10</title>
+<path fill="none" stroke="#000000" d="M44.3041,-217.7155C47.1788,-199.144 50.148,-169.224 45,-144 42.9948,-134.175 39.1326,-123.9242 35.1375,-115.0268"/>
+<polygon fill="#000000" stroke="#000000" points="38.292,-113.5104 30.8316,-105.9875 31.9723,-116.5208 38.292,-113.5104"/>
+</g>
+<!-- n3&#45;&gt;n10 -->
+<g id="edge10" class="edge">
+<title>n3&#45;&gt;n10</title>
+<path fill="none" stroke="#000000" d="M19.0094,-143.8314C19.4372,-136.131 19.9459,-126.9743 20.4213,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="23.9169,-118.592 20.977,-108.4133 16.9276,-118.2037 23.9169,-118.592"/>
+</g>
+<!-- n4 -->
+<g id="node4" class="node">
+<title>n4</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="73" cy="-18" rx="18" ry="18"/>
+<text text-anchor="middle" x="73" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">E</text>
+</g>
+<!-- n5 -->
+<g id="node5" class="node">
+<title>n5</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="95" cy="-235.4469" rx="18" ry="18"/>
+</g>
+<!-- n6 -->
+<g id="node6" class="node">
+<title>n6</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="113" cy="-162" rx="18" ry="18"/>
+</g>
+<!-- n5&#45;&gt;n6 -->
+<g id="edge5" class="edge">
+<title>n5&#45;&gt;n6</title>
+<path fill="none" stroke="#000000" d="M99.3573,-217.6674C101.4356,-209.1871 103.9688,-198.8508 106.2856,-189.3974"/>
+<polygon fill="#000000" stroke="#000000" points="109.7018,-190.1614 108.6828,-179.6157 102.903,-188.4951 109.7018,-190.1614"/>
+</g>
+<!-- n6&#45;&gt;n4 -->
+<g id="edge6" class="edge">
+<title>n6&#45;&gt;n4</title>
+<path fill="none" stroke="#000000" d="M105.6597,-145.2221C101.2549,-134.6847 95.7901,-120.7254 92,-108 85.8937,-87.4979 80.9754,-63.8091 77.6739,-45.8822"/>
+<polygon fill="#000000" stroke="#000000" points="81.0777,-45.033 75.8756,-35.8032 74.1866,-46.2626 81.0777,-45.033"/>
+</g>
+<!-- n9 -->
+<g id="node9" class="node">
+<title>n9</title>
+<ellipse fill="none" stroke="#000000" cx="119" cy="-90" rx="18" ry="18"/>
+</g>
+<!-- n6&#45;&gt;n9 -->
+<g id="edge8" class="edge">
+<title>n6&#45;&gt;n9</title>
+<path fill="none" stroke="#000000" d="M114.5141,-143.8314C115.1558,-136.131 115.9188,-126.9743 116.6319,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="120.1229,-118.6694 117.4656,-108.4133 113.1471,-118.088 120.1229,-118.6694"/>
+</g>
+<!-- n7 -->
+<g id="node7" class="node">
+<title>n7</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="95" cy="-310.3406" rx="19.3939" ry="19.3939"/>
+<text text-anchor="middle" x="95" y="-306.1406" font-family="Times,serif" font-size="14.00" fill="#000000">S1</text>
+</g>
+<!-- n7&#45;&gt;n2 -->
+<g id="edge4" class="edge">
+<title>n7&#45;&gt;n2</title>
+<path fill="none" stroke="#000000" d="M83.548,-294.4576C76.0481,-284.0558 66.1202,-270.2866 57.7409,-258.6652"/>
+<polygon fill="#000000" stroke="#000000" points="60.3885,-256.3526 51.7009,-250.2882 54.7105,-260.4466 60.3885,-256.3526"/>
+</g>
+<!-- n7&#45;&gt;n5 -->
+<g id="edge3" class="edge">
+<title>n7&#45;&gt;n5</title>
+<path fill="none" stroke="#000000" d="M95,-290.6632C95,-282.3772 95,-272.5802 95,-263.556"/>
+<polygon fill="#000000" stroke="#000000" points="98.5001,-263.4542 95,-253.4543 91.5001,-263.4543 98.5001,-263.4542"/>
+</g>
+<!-- n8 -->
+<g id="node8" class="node">
+<title>n8</title>
+<ellipse fill="#ffc0cb" stroke="#000000" cx="150" cy="-235.4469" rx="19.3939" ry="19.3939"/>
+<text text-anchor="middle" x="150" y="-231.2469" font-family="Times,serif" font-size="14.00" fill="#000000">S2</text>
+</g>
+<!-- n8&#45;&gt;n6 -->
+<g id="edge7" class="edge">
+<title>n8&#45;&gt;n6</title>
+<path fill="none" stroke="#000000" d="M141.2315,-218.041C136.6323,-208.9113 130.9113,-197.5549 125.8243,-187.4569"/>
+<polygon fill="#000000" stroke="#000000" points="128.8234,-185.6307 121.1986,-178.2746 122.5719,-188.7801 128.8234,-185.6307"/>
+</g>
+<!-- n10&#45;&gt;n4 -->
+<g id="edge11" class="edge">
+<title>n10&#45;&gt;n4</title>
+<path fill="none" stroke="#000000" d="M32.5672,-75.0816C39.4738,-65.3311 48.6369,-52.395 56.4935,-41.3032"/>
+<polygon fill="#000000" stroke="#000000" points="59.5222,-43.0827 62.4463,-32.8993 53.81,-39.0365 59.5222,-43.0827"/>
+</g>
+<!-- n11 -->
+<g id="node11" class="node">
+<title>n11</title>
+<ellipse fill="none" stroke="#000000" cx="19" cy="-18" rx="18" ry="18"/>
+</g>
+<!-- n10&#45;&gt;n11 -->
+<g id="edge12" class="edge">
+<title>n10&#45;&gt;n11</title>
+<path fill="none" stroke="#000000" d="M21.243,-71.8314C20.9221,-64.131 20.5406,-54.9743 20.184,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="23.6806,-46.2589 19.7672,-36.4133 16.6867,-46.5503 23.6806,-46.2589"/>
+</g>
+</g>
+</svg>
+<p><code>allpaths(S1 + S2, E)</code>.</p>
+</td>
+</tr></table>
+
+<h3 id="kind">Target kind filtering: kind</h3>
+<pre>expr ::= kind(<var>word</var>, <var>expr</var>) </pre>
+<p>
+  The <code>kind(<var>pattern</var>, <var>input</var>)</code> operator
+  applies a filter to a set of targets, and discards those targets
+  that are not of the expected kind. The <var>pattern</var> parameter specifies
+  what kind of target to match.
+</p>
+<ul>
+<li><b>file</b> patterns can be one of:
+  <ul>
+    <li><code>source file</code>
+    <li><code>generated file</code>
+  </ul>
+<li><b>rule</b> patterns can be one of:
+  <ul>
+    <li><code><var>ruletype</var> rule</code>
+    <li><code><var>ruletype</var></code><br>
+    Where <var>ruletype</var> is a build rule.  The difference between these
+    forms is that including "rule" causes the regular expression match for
+    <var>ruletype</var> to be anchored.
+  </ul>
+<li><b>package group</b> patterns should simply be:
+  <ul>
+    <li><code>package group</code>
+  </ul>
+</ul>
+<p>
+  For example, the kinds for the four targets defined by the BUILD file
+  (for package <code>p</code>) shown below are illustrated in the
+  table:
+</p>
+
+<table style='margin: auto'><tr><td style='padding-right:10px'>
+<pre style='margin-left: 0em;'>
+genrule(
+    name = "a",
+    srcs = ["a.in"],
+    outs = ["a.out"],
+    cmd = "...",
+)
+</pre>
+</td><td>
+   <table class="grid">
+     <tr><th>Target</th><th>Kind</th></tr>
+     <tr class='tt'><td>//p:a</td><td>genrule rule</td></tr>
+     <tr class='tt'><td>//p:a.in</td><td>source file</td></tr>
+     <tr class='tt'><td>//p:a.out</td><td>generated file</td></tr>
+     <tr class='tt'><td>//p:BUILD</td><td>source file</td></tr>
+   </table>
+</td></tr></table>
+
+<p>
+  Thus, <code>kind("cc_.* rule", foo/...)</code> evaluates to the set
+  of all <code>cc_library</code>, <code>cc_binary</code>, etc,
+  rule targets beneath
+  <code>foo</code>, and <code>kind("source file", deps(//foo))</code>
+  evaluates to the set of all source files in the transitive closure
+  of dependencies of the <code>//foo</code> target.
+</p>
+
+<p>
+  Quotation of the <var>pattern</var> argument is often required
+  because without it, many regular expressions, such as <code>source
+  file</code> and <code>.*_test</code>, are not considered words by
+  the parser.
+</p>
+
+<p>
+  When matching for <code>package group</code>, targets ending in
+  <code>:all</code> may not yield any results.
+  Use <code>:all-targets</code> instead.
+</p>
+
+<h3 id="filter">Target name filtering: filter</h3>
+<pre>expr ::= filter(<var>word</var>, <var>expr</var>) </pre>
+<p>
+  The <code>filter(<var>pattern</var>, <var>input</var>)</code> operator
+  applies a filter to a set of targets, and discards targets whose
+  labels (in absolute form) do not match the pattern; it
+  evaluates to a subset of its input.
+</p>
+
+<p>
+  The first argument, <var>pattern</var> is a word containing a
+  regular expression over target names.  A <code>filter</code> expression
+  evaluates to the set containing all targets <var>x</var> such that
+  <var>x</var> is a member of the set <var>input</var> and the
+  label (in absolute form, e.g. <code>//foo:bar</code>)
+  of <var>x</var> contains an (unanchored) match
+  for the regular expression <var>pattern</var>.  Since all
+  target names start with <code>//</code>, it may be used as an alternative
+  to the <code>^</code> regular expression anchor.
+</p>
+
+<p>
+  This operator often provides a much faster and more robust alternative to the
+  <code>intersect</code> operator. For example, in order to see all
+  <code>bar</code> dependencies of the <code>//foo:foo</code> target, one could
+  evaluate
+</p>
+<pre>deps(//foo) intersect //bar/...</pre>
+<p>
+  This statement, however, will require parsing of all BUILD files in the
+  <code>bar</code> tree, which will be slow and prone to errors in
+  irrelevant BUILD files. An alternative would be:
+</p>
+<pre>filter(//bar, deps(//foo))</pre>
+<p>
+  which would first calculate the set of <code>//foo</code> dependencies and
+  then would filter only targets matching the provided pattern&mdash;in other
+  words, targets with names containing <code>//bar</code> as a
+  substring.
+</p>
+
+<p>
+  Another common use of the <code>filter(<var>pattern</var>,
+  <var>expr</var>)</code> operator is to filter specific files by their
+  name or extension. For example,
+</p>
+<pre>filter("\.cc$", deps(//foo))</pre>
+<p>
+  will provide a list of all <code>.cc</code> files used to build
+  <code>//foo</code>.
+</p>
+
+<h3 id="attr">Rule attribute filtering: attr</h3>
+<pre>expr ::= attr(<var>word</var>, <var>word</var>, <var>expr</var>) </pre>
+<p>
+  The <code>attr(<var>name</var>, <var>pattern</var>, <var>input</var>)</code>
+  operator applies a filter to a set of targets, and discards targets that
+  are not rules, rule targets that do not have attribute <var>name</var>
+  defined or rule targets where the attribute value does not match the provided
+  regular expression <var>pattern</var>; it evaluates to a subset of its input.
+</p>
+
+<p>
+  The first argument, <var>name</var> is the name of the rule attribute that
+  should be matched against the provided regular expression pattern. The second
+  argument, <var>pattern</var> is a regular expression over the attribute
+  values. An <code>attr</code> expression evaluates to the set containing all
+  targets <var>x</var> such that  <var>x</var> is a member of the set
+  <var>input</var>, is a rule with the defined attribute <var>name</var> and
+  the attribute value contains an (unanchored) match for the regular expression
+  <var>pattern</var>. Please note, that if <var>name</var> is an optional
+  attribute and rule does not specify it explicitly then default attribute
+  value will be used for comparison. For example,
+</p>
+<pre>attr(linkshared, 0, deps(//foo))</pre>
+<p>
+  will select all <code>//foo</code> dependencies that are allowed to have a
+  linkshared attribute (e.g., <code>cc_binary</code> rule) and have it either
+  explicitly set to 0 or do not set it at all but default value is 0 (e.g. for
+  <code>cc_binary</code> rules).
+</p>
+
+<p>
+  List-type attributes (such as <code>srcs</code>, <code>data</code>, etc) are
+  converted to strings of the form <code>[value<sub>1</sub>, ..., value<sub>n</sub>]</code>,
+  starting with a <code>[</code> bracket, ending with a <code>]</code> bracket
+  and using "<code>, </code>" (comma, space) to delimit multiple values.
+  Labels are converted to strings by using the absolute form of the
+  label.  For example, an attribute <code>deps=[":foo",
+  "//otherpkg:bar", "wiz"]</code> would be converted to the
+  string <code>[//thispkg:foo, //otherpkg:bar, //thispkg:wiz]</code>.
+  Brackets
+  are always present, so the empty list would use string value <code>[]</code>
+  for matching purposes. For example,
+</p>
+<pre>attr("srcs", "\[\]", deps(//foo))</pre>
+<p>
+  will select all rules among <code>//foo</code> dependencies that have an
+  empty <code>srcs</code> attribute, while
+</p>
+<pre>attr("data", ".{3,}", deps(//foo))</pre>
+<p>
+  will select all rules among <code>//foo</code> dependencies that specify at
+  least one value in the <code>data</code> attribute (every label is at least
+  3 characters long due to the <code>//</code> and <code>:</code>).
+</p>
+
+<h3 id="visible">Rule visibility filtering: visible</h3>
+<pre>expr ::= visible(<var>expr</var>, <var>expr</var>) </pre>
+<p>
+  The <code>visible(<var>predicate</var>, <var>input</var>)</code> operator
+  applies a filter to a set of targets, and discards targets without the
+  required visibility.
+</p>
+
+<p>
+  The first argument, <var>predicate</var>, is a set of targets that all targets
+  in the output must be visible to. A <var>visible</var> expression
+  evaluates to the set containing all targets <var>x</var> such that <var>x</var>
+  is a member of the set <var>input</var>, and for all targets <var>y</var> in
+  <var>predicate</var> <var>x</var> is visible to <var>y</var>. For example:
+</p>
+<pre>visible(//foo, //bar:*)</pre>
+<p>
+  will select all targets in the package <code>//bar</code> that <code>//foo</code>
+  can depend on without violating visibility restrictions.
+</p>
+
+<h3 id="labels">Evaluation of rule attributes of type label: labels</h3>
+<pre>expr ::= labels(<var>word</var>, <var>expr</var>) </pre>
+<p>
+  The <code>labels(<var>attr_name</var>, <var>inputs</var>)</code>
+  operator returns the set of targets specified in the
+  attribute <var>attr_name</var> of type "label" or "list of label" in
+  some rule in set <var>inputs</var>.
+</p>
+
+<p>
+  For example, <code>labels(srcs, //foo)</code> returns the set of
+  targets appearing in the <code>srcs</code> attribute of
+  the <code>//foo</code> rule.  If there are multiple rules
+  with <code>srcs</code> attributes in the <var>inputs</var> set, the
+  union of their <code>srcs</code> is returned.
+</p>
+
+<h3 id="tests">Expand and filter test_suites: tests</h3>
+<pre>expr ::= tests(<var>expr</var>)</pre>
+<p>
+  The <code>tests(<var>x</var>)</code> operator returns the set of all test
+  rules in set <var>x</var>, expanding any <code>test_suite</code> rules into
+  the set of individual tests that they refer to, and applying filtering by
+  <code>tag</code> and <code>size</code>.
+
+  By default, query evaluation
+  ignores any non-test targets in all <code>test_suite</code> rules. This can be
+  changed to errors with the <code>--strict_test_suite</code> option.
+</p>
+
+<p>
+  For example, the query <code>kind(test, foo:*)</code> lists all
+  the <code>*_test</code> and <code>test_suite</code> rules
+  in the <code>foo</code> package.  All the results are (by
+  definition) members of the <code>foo</code> package.  In contrast,
+  the query <code>tests(foo:*)</code> will return all of the
+  individual tests that would be executed by <code>bazel test
+  foo:*</code>: this may include tests belonging to other packages,
+  that are referenced directly or indirectly
+  via <code>test_suite</code> rules.
+</p>
+
+
+<h3 id="buildfiles">Package definition files: buildfiles</h3>
+<pre>expr ::= buildfiles(<var>expr</var>)</pre>
+<p>
+  The <code>buildfiles(<var>x</var>)</code> operator returns the set
+  of files that define the packages of each target in
+  set <var>x</var>; in other words, for each package, its BUILD file,
+  plus any files it references via <code>load</code>.  Note that this also returns the BUILD files
+  of the packages containing these <code>load</code>ed files.
+</p>
+
+<p>
+  This operator is typically used when determining what files or
+  packages are required to build a specified target, often in conjunction with
+  the <a href='#output-package'><code>--output package</code></a>
+  option, below).  For example,
+</p>
+<pre>bazel query 'buildfiles(deps(//foo))' --output package</pre>
+<p>
+  returns the set of all packages on which <code>//foo</code> transitively
+  depends.
+</p>
+
+<p>
+  (Note: a naive attempt at the above query would omit
+  the <code>buildfiles</code> operator and use only <code>deps</code>,
+  but this yields an incorrect result: while the result contains the
+  majority of needed packages, those packages that contain only files
+  that are <code>load()</code>'ed will be missing.
+</p>
+
+<h3 id="rbuildfiles">Package definition files: rbuildfiles</h3>
+<pre>expr ::= rbuildfiles(<var>word</var>, ...)</pre>
+<b>Only available with <a href='#sky-query'>Sky Query</a></b><br/>
+<p>
+  The <code>rbuildfiles</code> operator takes a comma-separated list of path fragments and returns
+  the set of BUILD files that transitively depend on these path fragments. For instance, if
+  <code>//foo</code> is a package, then <code>rbuildfiles(foo/BUILD)</code> will return the
+  <code>//foo:BUILD</code> target. If the <code>foo/BUILD</code> file has
+  <code>load('//bar:file.bzl'...</code> in it, then <code>rbuildfiles(bar/file.bzl)</code> will
+  return the <code>//foo:BUILD</code> target, as well as the targets for any other BUILD files that
+  load <code>//bar:file.bzl</code>
+</p>
+
+<p>
+  The scope of the <scope>rbuildfiles</scope> operator is the universe specified by the
+  <code>--universe_scope</code> flag. Files that do not correspond directly to BUILD files and .bzl
+  files do not affect the results. For instance, source files (like <code>foo.cc</code>) are ignored,
+  even if they are explicitly mentioned in the BUILD file. Symlinks, however, are respected, so that
+  if <code>foo/BUILD</code> is a symlink to <code>bar/BUILD</code>, then
+  <code>rbuildfiles(bar/BUILD)</code> will include <code>//foo:BUILD</code> in its results.
+</p>
+
+<p>
+  The <code>rbuildfiles</code> operator is almost morally the inverse of the
+  <a href='#buildfiles'><code>buildfiles</code></a> operator. However, this moral inversion
+  holds more strongly in one direction: the outputs of <code>rbuildfiles</code> are just like the
+  inputs of <code>buildfiles</code>; the former will only contain BUILD file targets in packages,
+  and the latter may contain such targets. In the other direction, the correspondence is weaker. The
+  outputs of the <code>buildfiles</code> operator are targets corresponding to all packages and .bzl
+  files needed by a given input. However, the inputs of the <code>rbuildfiles</code> operator are
+  not those targets, but rather the path fragments that correspond to those targets.
+</p>
+
+<h3 id="loadfiles">Package definition files: loadfiles</h3>
+<pre>expr ::= loadfiles(<var>expr</var>)</pre>
+<p>
+  The <code>loadfiles(<var>x</var>)</code> operator returns the set of
+  Skylark files that are needed to load the packages of each target in
+  set <var>x</var>. In other words, for each package, it returns the
+  .bzl files that are referenced from its BUILD files.
+</p>
+
+<h2 id='output-formats'>Output Formats</h2>
+
+<p>
+  <code>bazel query</code> generates a graph.
+  You specify the content, format, and ordering by which
+  <code>bazel query</code> presents this graph
+  by means of the <code>--output</code>
+  command-line option.
+ </p>
+
+<p>
+  When running with <a href='#sky-query'>Sky Query</a>, only output formats that are compatible with
+  unordered output are allowed. Specifically, <code>graph</code>, <code>minrank</code>, and
+  <code>maxrank</code> output formats are forbidden.
+</p>
+
+<p>
+  Some of the output formats accept additional options.  The name of
+  each output option is prefixed with the output format to which it
+  applies, so <code>--graph:factored</code> applies only
+  when <code>--output=graph</code> is being used; it has no effect if
+  an output format other than <code>graph</code> is used. Similarly,
+  <code>--xml:line_numbers</code> applies only when <code>--output=xml</code>
+  is being used.
+</p>
+
+<h3 id='result-order'>On the ordering of results</h3>
+
+<p>
+  Although query expressions always follow the "<a href='#graph-order'>law of
+  conservation of graph order</a>", <i>presenting</i> the results may be done
+  in either a dependency-ordered or unordered manner. This does <b>not</b>
+  influence the targets in the result set or how the query is computed. It only
+  affects how the results are printed to stdout. Moreover, nodes that are
+  equivalent in the dependency order may or may not be ordered alphabetically.
+  The <code>--order_output</code> flag can be used to control this behavior.
+  (The <code>--[no]order_results</code> flag has a subset of the functionality
+  of the <code>--order_output</code> flag and is deprecated.)
+</p>
+<p>
+  The default value of this flag is <code>auto</code>, which is equivalent to
+  <code>full</code> for every output format except for <code>proto</code>,
+  <code>graph</code>, <code>minrank</code>, and <code>maxrank</code>, for which
+  it is equivalent to <code>deps</code>.
+</p>
+<p>
+  When this flag is <code>no</code> and <code>--output</code> is one of
+  <code>build</code>, <code>label</code>, <code>label_kind</code>,
+  <code>location</code>, <code>package</code>, <code>proto</code>,
+  <code>record</code> or <code>xml</code>, the outputs will be printed in
+  arbitrary order. <b>This is generally the fastest option</b>. It is not
+  supported though when <code>--output</code> is one of <code>graph</code>,
+  <code>minrank</code> or <code>maxrank</code>: with these formats, bazel will
+  always print results ordered by the dependency order or rank.
+</p>
+<p>
+  When this flag is <code>deps</code>, bazel will print results ordered by the
+  dependency order. However, nodes that are unordered by the dependency order
+  (because there is no path from either one to the other) may be printed in any
+  order.
+</p>
+<p>
+  When this flag is <code>full</code>, bazel will print results ordered by the
+  dependency order, with unordered nodes ordered alphabetically or reverse
+  alphabetically, depending on the output format. This may be slower than the
+  other options, and so should only be used when deterministic results are
+  important &mdash; it is guaranteed with this option that running the same query
+  multiple times will always produce the same output.
+</p>
+
+<h3 id="output-build">Print the source form of targets as they would appear in BUILD</h3>
+<pre>--output build</pre>
+<p>
+  With this option, the representation of each target is as if it were
+  hand-written in the BUILD language. All variables and function calls
+  (e.g. glob, macros) are expanded, which is useful for seeing the effect
+  of Skylark macros. Additionally, each effective rule is annotated with
+  the name of the macro (if any, see <code>generator_name</code> and
+  <code>generator_function</code>) that produced it.
+</p>
+<p>
+  Although the output uses the same syntax as BUILD files, it is not
+  guaranteed to produce a valid BUILD file.
+</p>
+
+<h3 id="output-label">Print the label of each target</h3>
+<pre>--output label</pre>
+<p>
+  With this option, the set of names (or <em>labels</em>) of each target
+  in the resulting graph is printed, one label per line, in
+  topological order (unless <code>--noorder_results</code> is specified, see
+  <a href='#result-order'>notes on the ordering of results</a>).
+  (A topological ordering is one in which a graph
+  node appears earlier than all of its successors.)  Of course there
+  are many possible topological orderings of a graph (<em>reverse
+  postorder</em> is just one); which one is chosen is not specified.
+
+  When printing the output of a <code>somepath</code> query, the order
+  in which the nodes are printed is the order of the path.
+</p>
+
+<p>
+  Caveat: in some corner cases, there may be two distinct targets with
+  the same label; for example, a <code>sh_binary</code> rule and its
+  sole (implicit) <code>srcs</code> file may both be called
+  <code>foo.sh</code>.  If the result of a query contains both of
+  these targets, the output (in <code>label</code> format) will appear
+  to contain a duplicate.  When using the <code>label_kind</code> (see
+  below) format, the distinction becomes clear: the two targets have
+  the same name, but one has kind <code>sh_binary rule</code> and the
+  other kind <code>source file</code>.
+</p>
+
+<h3 id="output-label_kind">Print the label and kind of each target</h3>
+<pre>--output label_kind</pre>
+<p>
+  Like <code>label</code>, this output format prints the labels of
+  each target in the resulting graph, in topological order, but it
+  additionally precedes the label by
+  the <a href='#kind'><em>kind</em></a> of the target.
+</p>
+
+<h3 id="output-ranked">Print the label of each target, in rank order</h3>
+<pre>--output minrank
+--output maxrank</pre>
+<p>
+  Like <code>label</code>, the <code>minrank</code>
+  and <code>maxrank</code> output formats print the labels of each
+  target in the resulting graph, but instead of appearing in
+  topological order, they appear in rank order, preceded by their
+  rank number. These are unaffected by the result ordering
+  <code>--[no]order_results</code> flag (see <a href='#result-order'>notes on
+  the ordering of results</a>).
+</p>
+
+<p>
+  There are two variants of this format: <code>minrank</code> ranks
+  each node by the length of the shortest path from a root node to it.
+  "Root" nodes (those which have no incoming edges) are of rank 0,
+  their successors are of rank 1, etc.  (As always, edges point from a
+  target to its prerequisites: the targets it depends upon.)
+</p>
+
+<p>
+  <code>maxrank</code> ranks each node by the length of the longest
+  path from a root node to it.  Again, "roots" have rank 0, all other
+  nodes have a rank which is one greater than the maximum rank of all
+  their predecessors.
+</p>
+
+<p>
+  All nodes in a cycle are considered of equal rank.  (Most graphs are
+  acyclic, but cycles do occur
+  simply because BUILD files contain erroneous cycles.)
+</p>
+
+<p>
+  These output formats are useful for discovering how deep a graph is.
+  If used for the result of a <code>deps(x)</code>, <code>rdeps(x)</code>,
+  or <code>allpaths</code> query, then the rank number is equal to the
+  length of the shortest (with <code>minrank</code>) or longest
+  (with <code>maxrank</code>) path from <code>x</code> to a node in
+  that rank.  <code>maxrank</code> can be used to determine the
+  longest sequence of build steps required to build a target.
+</p>
+
+<p>
+  Please note, the ranked output of a <code>somepath</code> query is
+  basically meaningless because <code>somepath</code> doesn't
+  guarantee to return either a shortest or a longest path, and it may
+  include "transitive" edges from one path node to another that are
+  not direct edges in original graph.
+</p>
+
+<p>
+  For example, the graph on the left yields the outputs on the right
+  when <code>--output minrank</code> and <code>--output maxrank</code>
+  are specified, respectively.
+</p>
+
+<table style='margin: auto'><tr><td>
+<svg width="139pt" height="260pt"
+ viewBox="0.00 0.00 138.81 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>mygraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-256 134.8105,-256 134.8105,4 -4,4"/>
+<!-- //a:a -->
+<g id="node1" class="node">
+<title>//a:a</title>
+<polygon fill="none" stroke="#000000" points="55.0122,-108 1.0122,-108 1.0122,-72 55.0122,-72 55.0122,-108"/>
+<text text-anchor="middle" x="28.0122" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">//a:a</text>
+</g>
+<!-- //a:a.cc -->
+<g id="node2" class="node">
+<title>//a:a.cc</title>
+<polygon fill="none" stroke="#000000" points="56.0366,-36 -.0122,-36 -.0122,0 56.0366,0 56.0366,-36"/>
+<text text-anchor="middle" x="28.0122" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">//a:a.cc</text>
+</g>
+<!-- //a:a&#45;&gt;//a:a.cc -->
+<g id="edge1" class="edge">
+<title>//a:a&#45;&gt;//a:a.cc</title>
+<path fill="none" stroke="#000000" d="M28.0122,-71.8314C28.0122,-64.131 28.0122,-54.9743 28.0122,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="31.5123,-46.4132 28.0122,-36.4133 24.5123,-46.4133 31.5123,-46.4132"/>
+</g>
+<!-- //b:b -->
+<g id="node3" class="node">
+<title>//b:b</title>
+<polygon fill="none" stroke="#000000" points="110.0122,-180 56.0122,-180 56.0122,-144 110.0122,-144 110.0122,-180"/>
+<text text-anchor="middle" x="83.0122" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">//b:b</text>
+</g>
+<!-- //b:b&#45;&gt;//a:a -->
+<g id="edge2" class="edge">
+<title>//b:b&#45;&gt;//a:a</title>
+<path fill="none" stroke="#000000" d="M69.1334,-143.8314C62.7986,-135.5386 55.1738,-125.557 48.2196,-116.4533"/>
+<polygon fill="#000000" stroke="#000000" points="50.9297,-114.2353 42.0779,-108.4133 45.367,-118.4847 50.9297,-114.2353"/>
+</g>
+<!-- //b:b.cc -->
+<g id="node4" class="node">
+<title>//b:b.cc</title>
+<polygon fill="none" stroke="#000000" points="130.6103,-108 73.4141,-108 73.4141,-72 130.6103,-72 130.6103,-108"/>
+<text text-anchor="middle" x="102.0122" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">//b:b.cc</text>
+</g>
+<!-- //b:b&#45;&gt;//b:b.cc -->
+<g id="edge3" class="edge">
+<title>//b:b&#45;&gt;//b:b.cc</title>
+<path fill="none" stroke="#000000" d="M87.8067,-143.8314C89.8611,-136.0463 92.3082,-126.7729 94.5878,-118.1347"/>
+<polygon fill="#000000" stroke="#000000" points="97.9857,-118.9753 97.1532,-108.4133 91.2174,-117.1892 97.9857,-118.9753"/>
+</g>
+<!-- //c:c -->
+<g id="node5" class="node">
+<title>//c:c</title>
+<polygon fill="none" stroke="#000000" points="82.0122,-252 28.0122,-252 28.0122,-216 82.0122,-216 82.0122,-252"/>
+<text text-anchor="middle" x="55.0122" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">//c:c</text>
+</g>
+<!-- //c:c&#45;&gt;//a:a -->
+<g id="edge5" class="edge">
+<title>//c:c&#45;&gt;//a:a</title>
+<path fill="none" stroke="#000000" d="M51.5926,-215.7623C46.9671,-191.0928 38.6734,-146.8598 33.2572,-117.9731"/>
+<polygon fill="#000000" stroke="#000000" points="36.687,-117.2733 31.404,-108.0896 29.8069,-118.5634 36.687,-117.2733"/>
+</g>
+<!-- //c:c&#45;&gt;//b:b -->
+<g id="edge4" class="edge">
+<title>//c:c&#45;&gt;//b:b</title>
+<path fill="none" stroke="#000000" d="M62.0778,-215.8314C65.1382,-207.9617 68.7901,-198.5712 72.1804,-189.8533"/>
+<polygon fill="#000000" stroke="#000000" points="75.489,-191.0019 75.8515,-180.4133 68.9649,-188.4647 75.489,-191.0019"/>
+</g>
+</g>
+</svg>
+</td><td>
+<pre>
+minrank
+
+0 //c:c
+1 //b:b
+1 //a:a
+2 //b:b.cc
+2 //a:a.cc
+</pre>
+</td><td>
+<pre>
+maxrank
+
+0 //c:c
+1 //b:b
+2 //a:a
+2 //b:b.cc
+3 //a:a.cc
+</pre>
+</td></tr></table>
+
+<h3 id="output-location">Print the location of each target</h3>
+<pre>--output location</pre>
+<p>
+  Like <code>label_kind</code>, this option prints out, for each
+  target in the result, the target's kind and label, but it is
+  prefixed by a string describing the location of that target, as a
+  filename and line number.  The format resembles the output of
+  <code>grep</code>. Thus, tools that can parse the latter (such as Emacs
+  or vi) can also use the query output to step through a series of
+  matches, allowing the Bazel query tool to be used as a
+  dependency-graph-aware "grep for BUILD files".
+</p>
+
+<p>
+  The location information varies by target kind (see the <a
+  href='#kind'>kind</a> operator).  For rules, the
+  location of the rule's declaration within the BUILD file is printed.
+  For source files, the location of line 1 of the actual file is
+  printed.  For a generated file, the location of the rule that
+  generates it is printed.  (The query tool does not have sufficient
+  information to find the actual location of the generated file, and
+  in any case, it might not exist if a build has not yet been
+  performed.)
+</p>
+
+<h3 id="output-package">Print the set of packages</h3>
+<pre>--output package</pre>
+<p>
+  This option prints the name of all packages to which
+  some target in the result set belongs.  The names are printed in
+  lexicographical order; duplicates are excluded.  Formally, this
+  is a <em>projection</em> from the set of labels (package, target) onto
+  packages.
+</p>
+
+<p>
+  Packages in external repositories are formatted as
+  <code>@repo//foo/bar</code> while packages in the main repository are
+  formatted as <code>foo/bar</code>.
+</p>
+<p>
+  In conjunction with the <code>deps(...)</code> query, this output
+  option can be used to find the set of packages that must be checked
+  out in order to build a given set of targets.
+</p>
+
+<h3 id="output-graph">Display a graph of the result</h3>
+<pre>--output graph</pre>
+<p>
+  This option causes the query result to be printed as a directed
+  graph in the popular AT&amp;T GraphViz format.  Typically the
+  result is saved to a file, such as <code>.png</code> or <code>.svg</code>.
+  (If the <code>dot</code> program is not installed on your workstation, you
+  can install it using the command <code>sudo apt-get install graphviz</code>.)
+  See the example section below for a sample invocation.
+</p>
+
+<p>
+  This output format is particularly useful for <code>allpaths</code>,
+  <code>deps</code>, or <code>rdeps</code> queries, where the result
+  includes a <em>set of paths</em> that cannot be easily visualized when
+  rendered in a linear form, such as with <code>--output label</code>.
+</p>
+
+<p>
+  By default, the graph is rendered in a <em>factored</em> form.  That is,
+  topologically-equivalent nodes are merged together into a single
+  node with multiple labels.  This makes the graph more compact
+  and readable, because typical result graphs contain highly
+  repetitive patterns.  For example, a <code>java_library</code> rule
+  may depend on hundreds of Java source files all generated by the
+  same <code>genrule</code>; in the factored graph, all these files
+  are represented by a single node.  This behavior may be disabled
+  with the <code>--nograph:factored</code> option.
+</p>
+
+<h4><code>--graph:node_limit <var>n</var></code></h4>
+<p>
+  The option specifies the maximum length of the label string for a
+  graph node in the output.  Longer labels will be truncated; -1
+  disables truncation.  Due to the factored form in which graphs are
+  usually printed, the node labels may be very long.  GraphViz cannot
+  handle labels exceeding 1024 characters, which is the default value
+  of this option.  This option has no effect unless
+  <code>--output=graph</code> is being used.
+</p>
+
+<h4><code>--[no]graph:factored</code></h4>
+<p>
+  By default, graphs are displayed in factored form, as explained
+  <a href='#output-graph'>above</a>.
+  When <code>--nograph:factored</code> is specified, graphs are
+  printed without factoring.  This makes visualization using GraphViz
+  impractical, but the simpler format may ease processing by other
+  tools (e.g. grep).  This option has no effect
+  unless <code>--output=graph</code> is being used.
+</p>
+
+<h3 id="output-xml">XML</h3>
+<pre>--output xml</pre>
+<p>
+  This option causes the resulting targets to be printed in an XML
+  form.  The output starts with an XML header such as this
+</p>
+<pre>
+  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;query version="2"&gt;
+</pre>
+<!-- The docs should continue to document version 2 into perpetuity,
+     even if we add new formats, to handle clients synced to old CLs. -->
+<p>
+  and then continues with an XML element for each target
+  in the result graph, in topological order (unless
+  <a href='#result-order'>unordered results</a> are requested),
+  and then finishes with a terminating
+</p>
+<pre>
+&lt;/query&gt;
+</pre>
+<p>
+  Simple entries are emitted for targets of <code>file</code>
+  kind:
+</p>
+<pre>
+  &lt;source-file name='//foo:foo_main.cc' .../&gt;
+  &lt;generated-file name='//foo:libfoo.so' .../&gt;
+</pre>
+<p>
+  But for rules, the XML is structured and contains definitions of all
+  the attributes of the rule, including those whose value was not
+  explicitly specified in the rule's BUILD file.
+</p>
+<p>
+  Additionally, the result includes <code>rule-input</code> and
+  <code>rule-output</code> elements so that the topology of the
+  dependency graph can be reconstructed without having to know that,
+  for example, the elements of the <code>srcs</code> attribute are
+  forward dependencies (prerequisites) and the contents of the
+  <code>outs</code> attribute are backward dependencies (consumers).
+
+  <code>rule-input</code> elements for <a
+  href='#implicit_deps'>implicit dependencies</a> are suppressed if
+  <code>--noimplicit_deps</code> is specified.
+</p>
+<pre>
+  &lt;rule class='cc_binary rule' name='//foo:foo' ...&gt;
+    &lt;list name='srcs'&gt;
+      &lt;label value='//foo:foo_main.cc'/&gt;
+      &lt;label value='//foo:bar.cc'/&gt;
+      ...
+    &lt;/list&gt;
+    &lt;list name='deps'&gt;
+      &lt;label value='//common:common'/&gt;
+      &lt;label value='//collections:collections'/&gt;
+      ...
+    &lt;/list&gt;
+    &lt;list name='data'&gt;
+      ...
+    &lt;/list&gt;
+    &lt;int name='linkstatic' value='0'/&gt;
+    &lt;int name='linkshared' value='0'/&gt;
+    &lt;list name='licenses'/&gt;
+    &lt;list name='distribs'&gt;
+      &lt;distribution value="INTERNAL" /&gt;
+    &lt;/list&gt;
+    &lt;rule-input name="//common:common" /&gt;
+    &lt;rule-input name="//collections:collections" /&gt;
+    &lt;rule-input name="//foo:foo_main.cc" /&gt;
+    &lt;rule-input name="//foo:bar.cc" /&gt;
+    ...
+  &lt;/rule&gt;
+</pre>
+
+<p>
+  Every XML element for a target contains a <code>name</code>
+  attribute, whose value is the target's label, and
+  a <code>location</code> attribute, whose value is the target's
+  location as printed by the <a href='output-location'><code>--output
+  location</code></a>.
+</p>
+
+<h4><code>--[no]xml:line_numbers</code></h4>
+<p>
+  By default, the locations displayed in the XML output contain line numbers.
+  When <code>--noxml:line_numbers</code> is specified, line numbers are not
+  printed.
+</p>
+
+<h4><code>--[no]xml:default_values</code></h4>
+<p>
+  By default, XML output does not include rule attribute whose value
+  is the default value for that kind of attribute (e.g. because it
+  were not specified in the BUILD file, or the default value was
+  provided explicitly).  This option causes such attribute values to
+  be included in the XML output.
+</p>
+
+
+<h3 id="external-repos">Querying with external repositories</h3>
+
+<p>
+  If the build depends on rules from external repositories (defined in the
+  WORKSPACE file) then query results will include these dependencies. For
+  example, if <code>//foo:bar</code> depends on <code>//external:some-lib</code>
+  and <code>//external:some-lib</code> is bound to
+  <code>@other-repo//baz:lib</code>, then
+  <code>bazel query 'deps(//foo:bar)'</code>
+  will list both <code>@other-repo//baz:lib</code> and
+  <code>//external:some-lib</code> as dependencies.
+</p>
+
+<p>
+  External repositories themselves are not dependencies of a build. That is, in
+  the example above, <code>//external:other-repo</code> is not a dependency. It
+  can be queried for as a member of the <code>//external</code> package, though,
+  for example:
+<p>
+
+<pre>
+  # Querying over all members of //external returns the repository.
+  bazel query 'kind(maven_jar, //external:*)'
+  //external:other-repo
+
+  # ...but the repository is not a dependency.
+  bazel query 'kind(maven_jar, deps(//foo:bar))'
+  INFO: Empty results
+</pre>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toolchains - Bazel</title>
+
+    <link rel="canonical" href="/versions/0.18.1/toolchains.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Toolchains"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.18.1</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/toolchains.html">master</option>
+              
+              <option value="/versions/0.19.2/toolchains.html">0.19.2</option>
+              
+              <option value="/versions/0.19.1/toolchains.html">0.19.1</option>
+              
+              <option value="/versions/0.18.1/toolchains.html">0.18.1</option>
+              
+              <option value="/versions/0.17.2/toolchains.html">0.17.2</option>
+              
+              <option value="/versions/0.17.1/toolchains.html">0.17.1</option>
+              
+          </select>
+
+          <h1 id="toolchains">Toolchains</h1>
+
+<ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#toolchain-resolution">Toolchain Resolution</a></li>
+  <li><a href="#defining-a-toolchain">Defining a toolchain</a>
+    <ul>
+      <li><a href="#creating-a-toolchain-rule">Creating a toolchain rule</a></li>
+      <li><a href="#creating-a-toolchain-definition">Creating a toolchain definition</a></li>
+      <li><a href="#registering-a-toolchain">Registering a toolchain</a></li>
+    </ul>
+  </li>
+  <li><a href="#using-a-toolchain-in-a-rule">Using a toolchain in a new rule</a></li>
+  <li><a href="#debugging-a-toolchain">Debugging a toolchain</a></li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>A <em>Bazel toolchain</em> is a configuration
+<a href="skylark/rules.html#providers">provider</a>
+that tells a build rule what build tools, such as compilers and linkers, to use
+and how to configure them using parameters defined by the rule’s creator.</p>
+
+<p>When a build runs, Bazel performs toolchain resolution based on the specified
+<a href="platforms.html">execution and target platforms</a>
+to determine and apply the
+toolchain most appropriate to that build. It does so by matching the
+<a href="platforms.html#defining-a-platform">constraints</a>
+specified in the project’s
+<code class="highlighter-rouge">BUILD</code> file(s) with the constraints specified in the toolchain definition.</p>
+
+<h2 id="toolchain-resolution">Toolchain Resolution</h2>
+
+<p>Inputs to the resolution mechanism include the required toolchain types (including
+none) and the target platform. The resolution mechanism outputs a single execution
+platform and a toolchain type-to-toolchain map. Toolchain resolution works as follows:</p>
+
+<ol>
+  <li>Collect all available execution platforms, including the host. This is an ordered list.
+    <ul>
+      <li>Execution platforms are collected from the following sources:
+        <ol>
+          <li>Any extra execution platforms given on the command line via the
+<a href="https://docs.bazel.build/versions/master/command-line-reference.html#flag--extra_execution_platforms"><code class="highlighter-rouge">--extra_execution_platforms</code></a>
+flag.</li>
+          <li>Any execution platforms in the <code class="highlighter-rouge">WORKSPACE</code> file, via the
+<a href="https://docs.bazel.build/versions/master/skylark/lib/globals.html#register_execution_platforms"><code class="highlighter-rouge">register_execution_platforms</code></a>
+function.</li>
+          <li>The host platform.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Collect all available toolchains. This is also an ordered list.
+    <ul>
+      <li>Toolchains are collected from the following sources:
+        <ol>
+          <li>Any extra toolchains given on the command line via the
+<a href="https://docs.bazel.build/versions/master/command-line-reference.html#flag--extra_toolchains"><code class="highlighter-rouge">--extra_toolchains</code></a>
+flag.</li>
+          <li>Any toolchains in the <code class="highlighter-rouge">WORKSPACE</code> file, via the
+<a href="https://docs.bazel.build/versions/master/skylark/lib/globals.html#register_toolchains"><code class="highlighter-rouge">register_toolchains</code></a>
+function.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>For each toolchain type and execution platform, select the first toolchain that matches the execution platform and target platform.</li>
+  <li>With the full set of toolchains and execution platforms for each type, select the first execution platform that can satisfy all toolchain types.</li>
+</ol>
+
+<p>Execution platforms listed first are preferred, and toolchains listed first are preferred.
+Every configured target has the same execution platform for all actions that target generates.</p>
+
+<p>Because Bazel always selects the first matching toolchain, order the toolchains
+by preference if you expect the possibility of multiple matches.</p>
+
+<p><strong>Note:</strong> Some Bazel rules do not yet support toolchain resolution.</p>
+
+<h2 id="defining-a-toolchain">Defining a toolchain</h2>
+
+<p>Defining a toolchain requires the following:</p>
+
+<ul>
+  <li>
+    <p><strong>Toolchain rule</strong> - a rule invoked in a custom build or test rule that
+specifies the build tool configuration options particular to the toolchain
+and supported
+<a href="platforms.html">platforms</a>
+(for example, <a href="https://github.com/bazelbuild/rules_go/blob/master/go/private/go_toolchain.bzl"><code class="highlighter-rouge">go_toolchain</code></a>).
+This rule must return a
+<a href="skylark/lib/platform_common.html#ToolchainInfo"><code class="highlighter-rouge">ToolchainInfo</code> provider</a>.
+The toolchain rule is lazily instantiated by Bazel on an as-needed basis.
+Because of this, a toolchain rule’s dependencies can be as complex as needed,
+including reliance on remote repositories, without affecting builds that do
+not use them.</p>
+  </li>
+  <li>
+    <p><strong>Toolchain definition</strong> - tells Bazel which
+<a href="platforms.html#defining-a-platform">platform constraints</a>
+apply to the toolchain using the <code class="highlighter-rouge">toolchain()</code> rule. This rule must specify a
+unique toolchain type label, which is used as input during toolchain
+resolution.</p>
+  </li>
+  <li>
+    <p><strong>Toolchain registration</strong> - makes the toolchain available to a Bazel project
+using the <code class="highlighter-rouge">register_toolchains()</code> function in the project’s <code class="highlighter-rouge">WORKSPACE</code> file.</p>
+  </li>
+</ul>
+
+<h3 id="creating-a-toolchain-rule">Creating a toolchain rule</h3>
+
+<p>Toolchain rules are rules that create and return providers. To define a
+toolchain rule, first determine the information that the new rule will require.</p>
+
+<p>In the example below, we are adding support for a new programming language, so
+we need to specify paths to the compiler and the system libraries, plus a flag
+that determines the CPU architecture for which Bazel builds the output.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_my_toolchain_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="n">toolchain</span> <span class="o">=</span> <span class="n">platform_common</span><span class="o">.</span><span class="n">ToolchainInfo</span><span class="p">(</span>
+    <span class="n">compiler</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">compiler</span><span class="p">,</span>
+    <span class="n">system_lib</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">system_lib</span><span class="p">,</span>
+    <span class="n">arch_flags</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">arch_flags</span><span class="p">,</span>
+  <span class="p">)</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">toolchain</span><span class="p">]</span>
+
+<span class="n">my_toolchain</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+  <span class="n">_my_toolchain_impl</span><span class="p">,</span>
+  <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'compiler'</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">string</span><span class="p">(),</span>
+    <span class="s">'system_lib'</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">string</span><span class="p">(),</span>
+    <span class="s">'arch_flags'</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">string_list</span><span class="p">(),</span>
+  <span class="p">})</span>
+</code></pre></div></div>
+
+<p>An example invocation of the rule looks as follows:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_toolchain</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">'linux_toolchain_impl'</span><span class="p">,</span>
+  <span class="n">compiler</span> <span class="o">=</span> <span class="s">'@remote_linux_repo//compiler:compiler_binary'</span><span class="p">,</span>
+  <span class="n">system_lib</span> <span class="o">=</span> <span class="s">'@remote_linux_repo//library:system_library'</span><span class="p">,</span>
+  <span class="n">arch_flags</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'--arch=Linux'</span><span class="p">,</span>
+    <span class="s">'--debug_everything'</span><span class="p">,</span>
+  <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">my_toolchain</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">'darwin_toolchain_impl'</span><span class="p">,</span>
+  <span class="n">compiler</span> <span class="o">=</span> <span class="s">'@remote_darwin_repo//compiler:compiler_binary'</span><span class="p">,</span>
+  <span class="n">system_lib</span> <span class="o">=</span> <span class="s">'@remote_darwin_repo//library:system_library'</span><span class="p">,</span>
+  <span class="n">arch_flags</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'--arch=Darwin'</span><span class="p">,</span>
+    <span class="c">#'--debug_everything', # --debug_everything currently broken on Darwin</span>
+  <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="creating-a-toolchain-definition">Creating a toolchain definition</h3>
+
+<p>The toolchain definition is an instance of the <code class="highlighter-rouge">toolchain()</code> rule that specifies
+the toolchain type, execution and target constraints, and the label of the
+actual rule-specific toolchain. The use of the <code class="highlighter-rouge">toolchain()</code> rule enables the
+lazy loading of toolchains.</p>
+
+<p>Below is an example toolchain definition:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">toolchain_type</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">'my_toolchain_type'</span><span class="p">)</span>
+
+<span class="n">toolchain</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">'linux_toolchain'</span><span class="p">,</span>
+  <span class="n">toolchain_type</span> <span class="o">=</span> <span class="s">'//path/to:my_toolchain_type'</span><span class="p">,</span>
+  <span class="n">exec_compatible_with</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'@bazel_tools//platforms:linux'</span><span class="p">,</span>
+    <span class="s">'@bazel_tools//platforms:x86_64'</span><span class="p">],</span>
+  <span class="n">target_compatible_with</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'@bazel_tools//platforms:linux'</span><span class="p">,</span>
+    <span class="s">'@bazel_tools//platforms:x86_64'</span><span class="p">],</span>
+  <span class="n">toolchain</span> <span class="o">=</span> <span class="s">':linux_toolchain_impl'</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="registering-a-toolchain">Registering a toolchain</h3>
+
+<p>Once the toolchain rule and definition exist, register the toolchain to make
+Bazel aware of it. You can register a toolchain either via the project’s
+<code class="highlighter-rouge">WORKSPACE</code> file or specify it in the <code class="highlighter-rouge">--extra_toolchains</code> flag.</p>
+
+<p>Below is an example toolchain registration in a <code class="highlighter-rouge">WORKSPACE</code> file:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">register_toolchains</span><span class="p">(</span>
+  <span class="s">'//path/to:linux_toolchain'</span><span class="p">,</span>
+  <span class="s">'//path/to:darwin_toolchain'</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="using-a-toolchain-in-a-rule">Using a toolchain in a rule</h2>
+
+<p>To use a toolchain in a rule, add the toolchain type to the rule
+definition. For example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_library</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+  <span class="o">...</span>
+  <span class="n">toolchains</span> <span class="o">=</span> <span class="p">[</span><span class="s">'//path/to:my_toolchain_type'</span><span class="p">]</span>
+  <span class="o">...</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>When using the <code class="highlighter-rouge">ctx.toolchains</code> rule, Bazel checks the execution and target
+platforms, and select the first toolchain that matches. The rule implementation
+can then access the toolchain as follows:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_my_library_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="n">toolchain</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">toolchains</span><span class="p">[</span><span class="s">'//path/to:my_toolchain_type'</span><span class="p">]</span>
+  <span class="n">command</span> <span class="o">=</span> <span class="s">'</span><span class="si">%</span><span class="s">s -l </span><span class="si">%</span><span class="s">s </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">toolchain</span><span class="o">.</span><span class="n">compiler</span><span class="p">,</span> <span class="n">toolchain</span><span class="o">.</span><span class="n">system_lib</span><span class="p">,</span> <span class="n">toolchain</span><span class="o">.</span><span class="n">arch_flags</span><span class="p">)</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+
+<h2 id="debugging-a-toolchain">Debugging a toolchain</h2>
+
+<p>When adding toolchain support to an existing rule, use the
+<code class="highlighter-rouge">--toolchain_resolution_debug</code> flag to make toolchain resolution verbose. Bazel
+will output names of toolchains it is checking and skipping during the
+resolution process.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

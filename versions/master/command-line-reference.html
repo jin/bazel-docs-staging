@@ -351,7 +351,13 @@
               
               <option value="/versions/master/command-line-reference.html">master</option>
               
+              <option value="/versions/0.19.2/command-line-reference.html">0.19.2</option>
+              
               <option value="/versions/0.19.1/command-line-reference.html">0.19.1</option>
+              
+              <option value="/versions/0.18.1/command-line-reference.html">0.18.1</option>
+              
+              <option value="/versions/0.17.2/command-line-reference.html">0.17.2</option>
               
               <option value="/versions/0.17.1/command-line-reference.html">0.17.1</option>
               
@@ -720,11 +726,6 @@ GC&#39;s, more than this percentage of the (old gen) heap is still occupied.
 <dl></dl>
 <dl></dl>
 <dl>This option affects semantics of the Starlark language or the build API accessible to BUILD files, .bzl files, or WORKSPACE files.:
-<dt><code><a name="flag--experimental_analysis_testing_improvements"></a>--[no]experimental_analysis_testing_improvements</code> default: "false"</dt>
-<dd>
-If true, enables pieces of experimental Starlark API for analysis-phase testing.
-<br>Tags: 
-<a href="#effect_tag_BUILD_FILE_SEMANTICS"><code>build_file_semantics</code></a>, <a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_EXPERIMENTAL"><code>experimental</code></a></dd>
 <dt><code><a name="flag--experimental_enable_android_migration_apis"></a>--[no]experimental_enable_android_migration_apis</code> default: "false"</dt>
 <dd>
 If set to true, enables the APIs required to support the Android Starlark 
@@ -1403,7 +1404,7 @@ Includes the content of the action command lines in the output (potentially
 large).
 <br>Tags: 
 <a href="#effect_tag_TERMINAL_OUTPUT"><code>terminal_output</code></a></dd>
-<dt><code><a name="flag--output"></a>--output=&lt;a string&gt</code> default: "proto"</dt>
+<dt><code><a name="flag--output"></a>--output=&lt;a string&gt</code> default: "text"</dt>
 <dd>
 The format in which the aquery results should be printed. Allowed values for 
 aquery are: text, textproto, proto.
@@ -2418,6 +2419,13 @@ page (SIGNING IDENTITIES).
 </dl>
 <dl></dl>
 <dl>Options that govern the behavior of the test environment or test runner:
+<dt><code><a name="flag--allow_analysis_failures"></a>--[no]allow_analysis_failures</code> default: "false"</dt>
+<dd>
+If true, an analysis failure of a rule target results in the target&#39;s 
+propagation of an instance of AnalysisFailureInfo containing the error 
+description, instead of resulting in a build failure.
+<br>Tags: 
+<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_EXPERIMENTAL"><code>experimental</code></a></dd>
 <dt><code><a name="flag--analysis_testing_deps_limit"></a>--analysis_testing_deps_limit=&lt;an integer&gt</code> default: "500"</dt>
 <dd>
 Sets the maximum number of transitive dependencies through a rule attribute 
@@ -2425,13 +2433,6 @@ with a for_analysis_testing configuration transition. Exceeding this limit will
 result in a rule error.
 <br>Tags: 
 <a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a></dd>
-<dt><code><a name="flag--experimental_allow_analysis_failures"></a>--[no]experimental_allow_analysis_failures</code> default: "false"</dt>
-<dd>
-If true, an analysis failure of a rule target results in the target&#39;s 
-propagation of an instance of AnalysisFailureInfo containing the error 
-description, instead of resulting in a build failure.
-<br>Tags: 
-<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_EXPERIMENTAL"><code>experimental</code></a></dd>
 <dt><code><a name="flag--experimental_android_use_parallel_dex2oat"></a>--[no]experimental_android_use_parallel_dex2oat</code> default: "false"</dt>
 <dd>
 Use dex2oat in parallel to possibly speed up android_test.
@@ -2552,7 +2553,7 @@ Includes the content of the action command lines in the output (potentially
 large).
 <br>Tags: 
 <a href="#effect_tag_TERMINAL_OUTPUT"><code>terminal_output</code></a></dd>
-<dt><code><a name="flag--output"></a>--output=&lt;a string&gt</code> default: "proto"</dt>
+<dt><code><a name="flag--output"></a>--output=&lt;a string&gt</code> default: "text"</dt>
 <dd>
 The format in which the aquery results should be printed. Allowed values for 
 aquery are: text, textproto, proto.
@@ -2701,14 +2702,6 @@ Check the listed constraint.
 <dd>
 Whether to generate J2ObjC header map in parallel of J2ObjC transpilation.
 </dd>
-<dt><code><a name="flag--experimental_strict_action_env"></a>--[no]experimental_strict_action_env</code> default: "false"</dt>
-<dd>
-If true, Bazel uses an environment with a static value for PATH and does not 
-inherit LD_LIBRARY_PATH or TMPDIR. Use --action_env=ENV_VARIABLE if you want to 
-inherit specific environment variables from the client, but note that doing so 
-can prevent cross-user caching if a shared cache is used.
-<br>Tags: 
-<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a></dd>
 <dt><code><a name="flag--explicit_java_test_deps"></a>--[no]explicit_java_test_deps</code> default: "false"</dt>
 <dd>
 Explicitly specify a dependency to JUnit or Hamcrest in a java_test instead of  
@@ -2738,6 +2731,14 @@ during a build.
 Manually set the remote_execution_properties for the host platform if it is not 
 already set.
 </dd>
+<dt><code><a name="flag--incompatible_strict_action_env"></a>--[no]incompatible_strict_action_env</code> default: "true"</dt>
+<dd>
+If true, Bazel uses an environment with a static value for PATH and does not 
+inherit LD_LIBRARY_PATH or TMPDIR. Use --action_env=ENV_VARIABLE if you want to 
+inherit specific environment variables from the client, but note that doing so 
+can prevent cross-user caching if a shared cache is used.
+<br>Tags: 
+<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_INCOMPATIBLE_CHANGE"><code>incompatible_change</code></a>, <a href="#metadata_tag_TRIGGERED_BY_ALL_INCOMPATIBLE_CHANGES"><code>triggered_by_all_incompatible_changes</code></a></dd>
 <dt><code><a name="flag--j2objc_translation_flags"></a>--j2objc_translation_flags=&lt;comma-separated list of options&gt</code> multiple uses are accumulated</dt>
 <dd>
 Additional options to pass to the J2ObjC tool.
@@ -4667,6 +4668,13 @@ page (SIGNING IDENTITIES).
 </dl>
 <dl></dl>
 <dl>Options that govern the behavior of the test environment or test runner:
+<dt><code><a name="flag--allow_analysis_failures"></a>--[no]allow_analysis_failures</code> default: "false"</dt>
+<dd>
+If true, an analysis failure of a rule target results in the target&#39;s 
+propagation of an instance of AnalysisFailureInfo containing the error 
+description, instead of resulting in a build failure.
+<br>Tags: 
+<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_EXPERIMENTAL"><code>experimental</code></a></dd>
 <dt><code><a name="flag--analysis_testing_deps_limit"></a>--analysis_testing_deps_limit=&lt;an integer&gt</code> default: "500"</dt>
 <dd>
 Sets the maximum number of transitive dependencies through a rule attribute 
@@ -4674,13 +4682,6 @@ with a for_analysis_testing configuration transition. Exceeding this limit will
 result in a rule error.
 <br>Tags: 
 <a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a></dd>
-<dt><code><a name="flag--experimental_allow_analysis_failures"></a>--[no]experimental_allow_analysis_failures</code> default: "false"</dt>
-<dd>
-If true, an analysis failure of a rule target results in the target&#39;s 
-propagation of an instance of AnalysisFailureInfo containing the error 
-description, instead of resulting in a build failure.
-<br>Tags: 
-<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_EXPERIMENTAL"><code>experimental</code></a></dd>
 <dt><code><a name="flag--experimental_android_use_parallel_dex2oat"></a>--[no]experimental_android_use_parallel_dex2oat</code> default: "false"</dt>
 <dd>
 Use dex2oat in parallel to possibly speed up android_test.
@@ -4993,14 +4994,6 @@ This option enables online estimation of how much memory is available at any
 given time, and thus does not require accurate estimation of how much memory a 
 given action will take.
 </dd>
-<dt><code><a name="flag--experimental_strict_action_env"></a>--[no]experimental_strict_action_env</code> default: "false"</dt>
-<dd>
-If true, Bazel uses an environment with a static value for PATH and does not 
-inherit LD_LIBRARY_PATH or TMPDIR. Use --action_env=ENV_VARIABLE if you want to 
-inherit specific environment variables from the client, but note that doing so 
-can prevent cross-user caching if a shared cache is used.
-<br>Tags: 
-<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a></dd>
 <dt><code><a name="flag--explicit_java_test_deps"></a>--[no]explicit_java_test_deps</code> default: "false"</dt>
 <dd>
 Explicitly specify a dependency to JUnit or Hamcrest in a java_test instead of  
@@ -5041,6 +5034,14 @@ during a build.
 Manually set the remote_execution_properties for the host platform if it is not 
 already set.
 </dd>
+<dt><code><a name="flag--incompatible_strict_action_env"></a>--[no]incompatible_strict_action_env</code> default: "true"</dt>
+<dd>
+If true, Bazel uses an environment with a static value for PATH and does not 
+inherit LD_LIBRARY_PATH or TMPDIR. Use --action_env=ENV_VARIABLE if you want to 
+inherit specific environment variables from the client, but note that doing so 
+can prevent cross-user caching if a shared cache is used.
+<br>Tags: 
+<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_INCOMPATIBLE_CHANGE"><code>incompatible_change</code></a>, <a href="#metadata_tag_TRIGGERED_BY_ALL_INCOMPATIBLE_CHANGES"><code>triggered_by_all_incompatible_changes</code></a></dd>
 <dt><code><a name="flag--j2objc_translation_flags"></a>--j2objc_translation_flags=&lt;comma-separated list of options&gt</code> multiple uses are accumulated</dt>
 <dd>
 Additional options to pass to the J2ObjC tool.
@@ -6522,6 +6523,13 @@ page (SIGNING IDENTITIES).
 </dl>
 <dl></dl>
 <dl>Options that govern the behavior of the test environment or test runner:
+<dt><code><a name="flag--allow_analysis_failures"></a>--[no]allow_analysis_failures</code> default: "false"</dt>
+<dd>
+If true, an analysis failure of a rule target results in the target&#39;s 
+propagation of an instance of AnalysisFailureInfo containing the error 
+description, instead of resulting in a build failure.
+<br>Tags: 
+<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_EXPERIMENTAL"><code>experimental</code></a></dd>
 <dt><code><a name="flag--analysis_testing_deps_limit"></a>--analysis_testing_deps_limit=&lt;an integer&gt</code> default: "500"</dt>
 <dd>
 Sets the maximum number of transitive dependencies through a rule attribute 
@@ -6529,13 +6537,6 @@ with a for_analysis_testing configuration transition. Exceeding this limit will
 result in a rule error.
 <br>Tags: 
 <a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a></dd>
-<dt><code><a name="flag--experimental_allow_analysis_failures"></a>--[no]experimental_allow_analysis_failures</code> default: "false"</dt>
-<dd>
-If true, an analysis failure of a rule target results in the target&#39;s 
-propagation of an instance of AnalysisFailureInfo containing the error 
-description, instead of resulting in a build failure.
-<br>Tags: 
-<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_EXPERIMENTAL"><code>experimental</code></a></dd>
 <dt><code><a name="flag--experimental_android_use_parallel_dex2oat"></a>--[no]experimental_android_use_parallel_dex2oat</code> default: "false"</dt>
 <dd>
 Use dex2oat in parallel to possibly speed up android_test.
@@ -6806,14 +6807,6 @@ Check the listed constraint.
 <dd>
 Whether to generate J2ObjC header map in parallel of J2ObjC transpilation.
 </dd>
-<dt><code><a name="flag--experimental_strict_action_env"></a>--[no]experimental_strict_action_env</code> default: "false"</dt>
-<dd>
-If true, Bazel uses an environment with a static value for PATH and does not 
-inherit LD_LIBRARY_PATH or TMPDIR. Use --action_env=ENV_VARIABLE if you want to 
-inherit specific environment variables from the client, but note that doing so 
-can prevent cross-user caching if a shared cache is used.
-<br>Tags: 
-<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a></dd>
 <dt><code><a name="flag--explicit_java_test_deps"></a>--[no]explicit_java_test_deps</code> default: "false"</dt>
 <dd>
 Explicitly specify a dependency to JUnit or Hamcrest in a java_test instead of  
@@ -6843,6 +6836,14 @@ during a build.
 Manually set the remote_execution_properties for the host platform if it is not 
 already set.
 </dd>
+<dt><code><a name="flag--incompatible_strict_action_env"></a>--[no]incompatible_strict_action_env</code> default: "true"</dt>
+<dd>
+If true, Bazel uses an environment with a static value for PATH and does not 
+inherit LD_LIBRARY_PATH or TMPDIR. Use --action_env=ENV_VARIABLE if you want to 
+inherit specific environment variables from the client, but note that doing so 
+can prevent cross-user caching if a shared cache is used.
+<br>Tags: 
+<a href="#effect_tag_LOADING_AND_ANALYSIS"><code>loading_and_analysis</code></a>, <a href="#metadata_tag_INCOMPATIBLE_CHANGE"><code>incompatible_change</code></a>, <a href="#metadata_tag_TRIGGERED_BY_ALL_INCOMPATIBLE_CHANGES"><code>triggered_by_all_incompatible_changes</code></a></dd>
 <dt><code><a name="flag--j2objc_translation_flags"></a>--j2objc_translation_flags=&lt;comma-separated list of options&gt</code> multiple uses are accumulated</dt>
 <dd>
 Additional options to pass to the J2ObjC tool.
@@ -7786,6 +7787,13 @@ those that depend on it cannot be analyzed, other prerequisites of these
 targets can be.
 <br>Tags: 
 <a href="#effect_tag_EAGERNESS_TO_EXIT"><code>eagerness_to_exit</code></a></dd>
+<dt><code><a name="flag--loading_phase_threads"></a>--loading_phase_threads=&lt;&quot;auto&quot; or an integer&gt</code> default: "auto"</dt>
+<dd>
+Number of parallel threads to use for the loading/analysis phase. &quot;
+auto&quot; means to use a reasonable value derived from the machine&#39;s 
+hardware profile (e.g. the number of processors).
+<br>Tags: 
+<a href="#effect_tag_BAZEL_INTERNAL_CONFIGURATION"><code>bazel_internal_configuration</code></a></dd>
 </dl>
 <dl></dl>
 <dl></dl>

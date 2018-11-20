@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rules - Bazel</title>
+
+    <link rel="canonical" href="/versions/0.17.2/skylark/rules.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Rules"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.17.2</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/rules.html">master</option>
+              
+              <option value="/versions/0.19.2/skylark/rules.html">0.19.2</option>
+              
+              <option value="/versions/0.19.1/skylark/rules.html">0.19.1</option>
+              
+              <option value="/versions/0.18.1/skylark/rules.html">0.18.1</option>
+              
+              <option value="/versions/0.17.2/skylark/rules.html">0.17.2</option>
+              
+              <option value="/versions/0.17.1/skylark/rules.html">0.17.1</option>
+              
+          </select>
+
+          <h1 id="rules">Rules</h1>
+
+<p>A rule defines a series of <a href="#actions">actions</a> that Bazel should perform on
+inputs to get a set of outputs. For example, a C++ binary rule might take a set
+of <code class="highlighter-rouge">.cpp</code> files (the inputs), run <code class="highlighter-rouge">g++</code> on them (the action), and return an
+executable file (the output).</p>
+
+<p>Note that, from Bazel’s perspective, <code class="highlighter-rouge">g++</code> and the standard C++ libraries are
+also inputs to this rule. As a rule writer, you must consider not only the
+user-provided inputs to a rule, but also all of the tools and libraries required
+to execute the actions.</p>
+
+<p>Before creating or modifying any rule, make sure you are familiar with the
+<a href="concepts.html">evaluation model</a>. You must understand the three phases of
+execution and the differences between macros and rules.</p>
+
+<p>A few rules are built into Bazel itself. These <em>native rules</em>, such as
+<code class="highlighter-rouge">cc_library</code> and <code class="highlighter-rouge">java_binary</code>, provide some core support for certain languages.
+By defining your own rules, you can add similar support for languages and tools
+that Bazel does not support natively.</p>
+
+<p>Rules defined in .bzl files work just like native rules. For example, their
+targets have labels, can appear in <code class="highlighter-rouge">bazel query</code>, and get built whenever they
+are needed for a <code class="highlighter-rouge">bazel build</code> command or similar. When defining your own rule,
+you get to decide what attributes it supports and how it generates its outputs.</p>
+
+<p>The exact behavior of a rule during the
+<a href="concepts.html#evaluation-model">analysis phase</a> is governed by its
+<code class="highlighter-rouge">implementation</code> function. This function does not run any external commands.
+Rather, it registers <a href="#actions">actions</a> that will be used later during the
+execution phase to build the rule’s outputs, if they are needed. Rules also
+produce and pass along information that may be useful to other rules, in the
+form of <a href="#providers">providers</a>.</p>
+
+<!-- [TOC] -->
+
+<h2 id="rule-creation">Rule creation</h2>
+
+<p>In a <code class="highlighter-rouge">.bzl</code> file, use the <a href="lib/globals.html#rule">rule</a>
+function to create a new rule and store it in a global variable:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_rule</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The rule can then be loaded in <code class="highlighter-rouge">BUILD</code> files:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">'//some/pkg:whatever.bzl'</span><span class="p">,</span> <span class="s">'my_rule'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/bazelbuild/examples/tree/master/rules/empty">See example</a>.</p>
+
+<h2 id="attributes">Attributes</h2>
+
+<p>An attribute is a rule argument, such as <code class="highlighter-rouge">srcs</code> or <code class="highlighter-rouge">deps</code>. You must list the
+names and schemas of all attributes when you define a rule. Attribute schemas
+are created using the <a href="lib/attr.html">attr</a> module.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sum</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_impl</span><span class="p">,</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"number"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="nb">int</span><span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="s">"deps"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label_list</span><span class="p">(),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>In a <code class="highlighter-rouge">BUILD</code> file, call the rule to create targets of this type:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sum</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"my-target"</span><span class="p">,</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":other-target"</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="nb">sum</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"other-target"</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here <code class="highlighter-rouge">other-target</code> is a dependency of <code class="highlighter-rouge">my-target</code>, and therefore <code class="highlighter-rouge">other-target</code>
+will be analyzed first.</p>
+
+<p>There are two special kinds of attributes:</p>
+
+<ul>
+  <li>
+    <p><em>Dependency attributes</em>, such as <code class="highlighter-rouge">attr.label</code> and <code class="highlighter-rouge">attr.label_list</code>,
+declare a dependency from the target that owns the attribute to the target
+whose label appears in the attribute’s value. This kind of attribute forms the
+basis of the target graph.</p>
+  </li>
+  <li>
+    <p><em>Output attributes</em>, such as <code class="highlighter-rouge">attr.output</code> and <code class="highlighter-rouge">attr.output_list</code>, declare an
+output file that the target generates. Although they refer to the output file
+by label, they do not create a dependency relationship between targets. Output
+attributes are used relatively rarely, in favor of other ways of declaring
+output files that do not require the user to specify a label.</p>
+  </li>
+</ul>
+
+<p>Both dependency attributes and output attributes take in label values. These may
+be specified as either <a href="lib/Label.html"><code class="highlighter-rouge">Label</code></a> objects or as simple strings.
+If a string is given, it will be converted to a <code class="highlighter-rouge">Label</code> using the
+<a href="lib/Label.html#Label">constructor</a>. The repository, and possibly the path, will
+be resolved relative to the defined target.</p>
+
+<p>If an attribute schema is defined in the rule but no value for that attribute is
+given when the rule is instantiated, then the rule implementation function will
+see a placeholder value in <code class="highlighter-rouge">ctx.attr</code>. The placeholder value depends on the type
+of attribute. If the schema specifies a <code class="highlighter-rouge">default</code> value, that value will be used
+instead of the placeholder. The schema may also specify <code class="highlighter-rouge">mandatory=True</code>, in
+which case it is illegal for the user to not give an explicit value. It is not
+useful for an attribute schema with <code class="highlighter-rouge">mandatory</code> to also have a <code class="highlighter-rouge">default</code>.</p>
+
+<p>The following attributes are automatically added to every rule: <code class="highlighter-rouge">deprecation</code>,
+<code class="highlighter-rouge">features</code>, <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">tags</code>, <code class="highlighter-rouge">testonly</code>, <code class="highlighter-rouge">visibility</code>. Test rules also have the
+following attributes: <code class="highlighter-rouge">args</code>, <code class="highlighter-rouge">flaky</code>, <code class="highlighter-rouge">local</code>, <code class="highlighter-rouge">shard_count</code>, <code class="highlighter-rouge">size</code>,
+<code class="highlighter-rouge">timeout</code>.</p>
+
+<h3 id="-private-attributes-and-implicit-dependencies"><a name="private-attributes"></a> Private Attributes and Implicit Dependencies</h3>
+
+<p>A dependency attribute with a default value is called an <em>implicit dependency</em>.
+The name comes from the fact that it is a part of the target graph that the user
+does not specify in a BUILD file. Implicit dependencies are useful for
+hard-coding a relationship between a rule and a tool (such as a compiler), since
+most of the time a user is not interested in specifying what tool the rule uses.
+From the rule’s point of view, the tool is still an input, just like any source
+file or other dependency.</p>
+
+<p>Sometimes we want to not only provide a default value, but prevent the user from
+overriding this default. To do this, you can make the attribute <em>private</em> by
+giving it a name that begins with an underscore (<code class="highlighter-rouge">_</code>). Private attributes must
+have default values. It generally only makes sense to use private attributes for
+implicit dependencies.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">metal_binary</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_metal_binary_impl</span><span class="p">,</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"srcs"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label_list</span><span class="p">(),</span>
+        <span class="s">"_compiler"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s">"//tools:metalc"</span><span class="p">),</span>
+            <span class="n">allow_single_file</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="n">executable</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>In this example, every target of type <code class="highlighter-rouge">metal_binary</code> will have an implicit
+dependency on the compiler <code class="highlighter-rouge">//tools:metalc</code>. This allows <code class="highlighter-rouge">metal_binary</code>’s
+implementation function to generate actions that invoke the compiler, even
+though the user did not pass its label as an input. Since <code class="highlighter-rouge">_compiler</code> is a
+private attribute, we know for sure that <code class="highlighter-rouge">ctx.attr._compiler</code> will always point
+to <code class="highlighter-rouge">//tools:metalc</code> in all targets of this rule type. Alternatively, we could
+have named the attribute <code class="highlighter-rouge">compiler</code> without the underscore and kept the default
+value. This lets users substitute a different compiler if necessary, but
+requires no awareness of the compiler’s label otherwise.</p>
+
+<h2 id="implementation-function">Implementation function</h2>
+
+<p>Every rule requires an <code class="highlighter-rouge">implementation</code> function. This function contains the
+actual logic of the rule and is executed strictly in the
+<a href="concepts.html#evaluation-model">analysis phase</a>. As such, the function is not
+able to actually read or write files. Rather, its main job is to emit
+<a href="#actions">actions</a> that will run later during the execution phase.</p>
+
+<p>Implementation functions take exactly one parameter: a <a href="lib/ctx.html">rule
+context</a>, conventionally named <code class="highlighter-rouge">ctx</code>. It can be used to:</p>
+
+<ul>
+  <li>
+    <p>access attribute values and obtain handles on declared input and output files;</p>
+  </li>
+  <li>
+    <p>create actions; and</p>
+  </li>
+  <li>
+    <p>pass information to other targets that depend on this one, via
+<a href="#providers">providers</a>.</p>
+  </li>
+</ul>
+
+<p>The most common way to access attribute values is by using
+<code class="highlighter-rouge">ctx.attr.&lt;attribute_name&gt;</code>, though there are several other fields besides
+<code class="highlighter-rouge">attr</code> that provide more convenient ways of accessing file handles, such as
+<code class="highlighter-rouge">ctx.file</code> and <code class="highlighter-rouge">ctx.outputs</code>. The name and the package of a rule are available
+with <code class="highlighter-rouge">ctx.label.name</code> and <code class="highlighter-rouge">ctx.label.package</code>. The <code class="highlighter-rouge">ctx</code> object also contains
+some helper functions. See its <a href="lib/ctx.html">documentation</a> for a complete
+list.</p>
+
+<p>Rule implementation functions are usually private (i.e., named with a leading
+underscore) because they tend not to be reused. Conventionally, they are named
+the same as their rule, but suffixed with <code class="highlighter-rouge">_impl</code>.</p>
+
+<p>See <a href="https://github.com/bazelbuild/examples/blob/master/rules/attributes/printer.bzl">an example</a>
+of declaring and accessing attributes.</p>
+
+<h2 id="targets">Targets</h2>
+
+<p>Each call to a build rule returns no value but has the side effect of defining a
+new target; this is called instantiating the rule. The dependencies of the new
+target are any other targets whose labels are mentioned in its dependency
+attributes. In the following example, the target <code class="highlighter-rouge">//mypkg:y</code> depends on the
+targets <code class="highlighter-rouge">//mypkg:x</code> and <code class="highlighter-rouge">//mypkg:z.foo</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># //mypkg:BUILD</span>
+
+<span class="n">my_rule</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"x"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c"># Assuming that my_rule has attributes "deps" and "srcs",</span>
+<span class="c"># of type attr.label_list()</span>
+<span class="n">my_rule</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"y"</span><span class="p">,</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":x"</span><span class="p">],</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">":z.foo"</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Dependencies are represented at analysis time as <a href="lib/Target.html"><code class="highlighter-rouge">Target</code></a>
+objects. These objects contain the information produced by analyzing a target –
+in particular, its <a href="#providers">providers</a>. The current target can access its
+dependencies’ <code class="highlighter-rouge">Target</code> objects within its rule implementation function by using
+<code class="highlighter-rouge">ctx.attr</code>.</p>
+
+<h2 id="files">Files</h2>
+
+<p>Files are represented by the <a href="lib/File.html"><code class="highlighter-rouge">File</code></a> type. Since Bazel does not
+perform file I/O during the analysis phase, these objects cannot be used to
+directly read or write file content. Rather, they are passed to action-emitting
+functions to construct pieces of the action graph. See
+<a href="lib/actions.html"><code class="highlighter-rouge">ctx.actions</code></a> for the available kinds of actions.</p>
+
+<p>A file can either be a source file or a generated file. Each generated file must
+be an output of exactly one action. Source files cannot be the output of any
+action.</p>
+
+<p>Some files, including all source files, are addressable by labels. These files
+have <code class="highlighter-rouge">Target</code> objects associated with them. If a file’s label appears within a
+dependency attribute (for example, in a <code class="highlighter-rouge">srcs</code> attribute of type
+<code class="highlighter-rouge">attr.label_list</code>), the <code class="highlighter-rouge">ctx.attr.&lt;attr_name&gt;</code> entry for it will contain the
+corresponding <code class="highlighter-rouge">Target</code>. The <code class="highlighter-rouge">File</code> object can be obtained from this <code class="highlighter-rouge">Target</code>’s
+<code class="highlighter-rouge">files</code> field. This allows the file to be referenced in both the target graph
+and the action graph.</p>
+
+<p>During the analysis phase, a rule’s implementation function can create
+additional output files. Since all labels have to be known during the loading
+phase, these additional output files are not associated with labels or
+<code class="highlighter-rouge">Target</code>s. Generally these are intermediate files needed for a later compilation
+step, or auxiliary outputs that don’t need to be referenced in the target graph.
+Even though these files don’t have a label, they can still be passed along in a
+<a href="#providers"><code class="highlighter-rouge">provider</code></a> to make them available to other depending targets at
+analysis time.</p>
+
+<p>A generated file that is addressable by a label is called a <em>predeclared
+output</em>. There are multiple ways for a rule to introduce a predeclared output:</p>
+
+<ul>
+  <li>
+    <p>If the rule declares an <a href="lib/globals.html#rule.outputs"><code class="highlighter-rouge">outputs</code></a> dict in its
+call to <code class="highlighter-rouge">rule()</code>, then each entry in this dict becomes an output. The output’s
+label is chosen automatically as specified by the entry, usually by
+substituting into a string template. This is the most common way to define
+outputs.</p>
+  </li>
+  <li>
+    <p>The rule can have an attribute of type <a href="lib/attr.html#output"><code class="highlighter-rouge">output</code></a> or
+<a href="lib/attr.html#output_list"><code class="highlighter-rouge">output_list</code></a>. In this case the user explicitly
+chooses the label for the output when they instantiate the rule.</p>
+  </li>
+  <li>
+    <p><strong>(Deprecated)</strong> If the rule is marked
+<a href="lib/globals.html#rule.executable"><code class="highlighter-rouge">executable</code></a> or
+<a href="lib/globals.html#rule.test"><code class="highlighter-rouge">test</code></a>, an output is created with the same name
+as the rule instance itself. (Technically, the file has no label since it
+would clash with the rule instance’s own label, but it is still considered a
+predeclared output.) By default, this file serves as the binary to run if the
+target appears on the command line of a <code class="highlighter-rouge">bazel run</code> or <code class="highlighter-rouge">bazel test</code> command.
+See <a href="#executable-rules-and-test-rules">Executable rules</a> below.</p>
+  </li>
+</ul>
+
+<p>All predeclared outputs can be accessed within the rule’s implementation
+function under the <a href="lib/ctx.html#outputs"><code class="highlighter-rouge">ctx.outputs</code></a> struct; see that page
+for details and restrictions. Non-predeclared outputs are created during
+analysis using the <a href="lib/actions.html#declare_file"><code class="highlighter-rouge">ctx.actions.declare_file</code></a>
+and <a href="lib/actions.html#declare_directory"><code class="highlighter-rouge">ctx.actions.declare_directory</code></a>
+functions. Both kinds of outputs may be passed along in providers.</p>
+
+<p>Although the input files of a target – those files passed through dependency
+attributes – can be accessed indirectly via <code class="highlighter-rouge">ctx.attr</code>, it is more convenient
+to use <code class="highlighter-rouge">ctx.file</code> and <code class="highlighter-rouge">ctx.files</code>. For output files that are predeclared using
+output attributes (attributes of type <code class="highlighter-rouge">attr.output</code> or <code class="highlighter-rouge">attr.output_list</code>),
+<code class="highlighter-rouge">ctx.attr</code> will only return the label, and you must use <code class="highlighter-rouge">ctx.outputs</code> to get the
+actual <code class="highlighter-rouge">File</code> object.</p>
+
+<p><a href="https://github.com/bazelbuild/examples/blob/master/rules/predeclared_outputs/hash.bzl">See example of predeclared outputs</a></p>
+
+<h2 id="actions">Actions</h2>
+
+<p>An action describes how to generate a set of outputs from a set of inputs, for
+example “run gcc on hello.c and get hello.o”. When an action is created, Bazel
+doesn’t run the command immediately. It registers it in a graph of dependencies,
+because an action can depend on the output of another action (e.g. in C,
+the linker must be called after compilation). In the execution phase, Bazel
+decides which actions must be run and in which order.</p>
+
+<p>All functions that create actions are defined in <a href="lib/actions.html"><code class="highlighter-rouge">ctx.actions</code></a>:</p>
+
+<ul>
+  <li><a href="lib/actions.html#run">ctx.actions.run</a>, to run an executable.</li>
+  <li><a href="lib/actions.html#run_shell">ctx.actions.run_shell</a>, to run a shell command.</li>
+  <li><a href="lib/actions.html#write">ctx.actions.write</a>, to write a string to a file.</li>
+  <li><a href="lib/actions.html#expand_template">ctx.actions.expand_template</a>, to generate a file from a template.</li>
+</ul>
+
+<p>Actions take a set (which can be empty) of input files and generate a (non-empty)
+set of output files.
+The set of input and output files must be known during the
+<a href="concepts.html#evaluation-model">analysis phase</a>. It might depend on the value
+of attributes and information from dependencies, but it cannot depend on the
+result of the execution. For example, if your action runs the unzip command, you
+must specify which files you expect to be inflated (before running unzip).</p>
+
+<p>Actions are comparable to pure functions: They should depend only on the
+provided inputs, and avoid accessing computer information, username, clock,
+network, or I/O devices (except for reading inputs and writing outputs). This is
+important because the output will be cached and reused.</p>
+
+<p><strong>If an action generates a file that is not listed in its outputs</strong>: This is
+fine, but the file will be ignored and cannot be used by other rules.</p>
+
+<p><strong>If an action does not generate a file that is listed in its outputs</strong>: This is
+an execution error and the build will fail. This happens for instance when a
+compilation fails.</p>
+
+<p><strong>If an action generates an unknown number of outputs and you want to keep them
+all</strong>, you must group them in a single file (e.g., a zip, tar, or other
+archive format). This way, you will be able to deterministically declare your
+outputs.</p>
+
+<p><strong>If an action does not list a file it uses as an input</strong>, the action execution
+will most likely result in an error. The file is not guaranteed to be available
+to the action, so if it <strong>is</strong> there, it’s due to coincidence or error.</p>
+
+<p><strong>If an action lists a file as an input, but does not use it</strong>: This is fine.
+However, it can affect action execution order, resulting in sub-optimal
+performance.</p>
+
+<p>Dependencies are resolved by Bazel, which will decide which actions are
+executed. It is an error if there is a cycle in the dependency graph. Creating
+an action does not guarantee that it will be executed: It depends on whether
+its outputs are needed for the build.</p>
+
+<h2 id="configurations">Configurations</h2>
+
+<p>Imagine that you want to build a C++ binary and target a different architecture.
+The build can be complex and involve multiple steps. Some of the intermediate
+binaries, like the compilers and code generators, have to run on your machine
+(the host); some of the binaries such the final output must be built for the
+target architecture.</p>
+
+<p>For this reason, Bazel has a concept of “configurations” and transitions. The
+topmost targets (the ones requested on the command line) are built in the
+“target” configuration, while tools that should run locally on the host are
+built in the “host” configuration. Rules may generate different actions based on
+the configuration, for instance to change the cpu architecture that is passed to
+the compiler. In some cases, the same library may be needed for different
+configurations. If this happens, it will be analyzed and potentially built
+multiple times.</p>
+
+<p>By default, Bazel builds the dependencies of a target in the same configuration
+as the target itself, i.e. without transitioning. When a target depends on a
+tool, the label attribute will specify a transition to the host configuration.
+This causes the tool and all of its dependencies to be built for the host
+machine, assuming those dependencies do not themselves have transitions.</p>
+
+<p>For each dependency attribute, you can decide whether the dependency target
+should be built in the same configuration, or transition to the host
+configuration (using <code class="highlighter-rouge">cfg</code>). If a dependency attribute has the flag
+<code class="highlighter-rouge">executable=True</code>, the configuration must be set explicitly.
+<a href="https://github.com/bazelbuild/examples/blob/master/rules/actions_run/execute.bzl">See example</a></p>
+
+<p>In general, sources, dependent libraries, and executables that will be needed at
+runtime can use the same configuration.</p>
+
+<p>Tools that are executed as part of the build (e.g., compilers, code generators)
+should be built for the host configuration. In this case, specify <code class="highlighter-rouge">cfg="host"</code>
+in the attribute.</p>
+
+<p>Otherwise, executables that are used at runtime (e.g. as part of a test) should
+be built for the target configuration. In this case, specify <code class="highlighter-rouge">cfg="target"</code> in
+the attribute.</p>
+
+<h2 id="-configuration-fragments"><a name="fragments"></a> Configuration Fragments</h2>
+
+<p>Rules may access <a href="lib/skylark-configuration-fragment.html">configuration fragments</a>
+such as <code class="highlighter-rouge">cpp</code>, <code class="highlighter-rouge">java</code> and <code class="highlighter-rouge">jvm</code>. However, all required fragments must be
+declared in order to avoid access errors:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="c"># Using ctx.fragments.cpp would lead to an error since it was not declared.</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">fragments</span><span class="o">.</span><span class="n">java</span>
+    <span class="o">...</span>
+
+<span class="n">my_rule</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_impl</span><span class="p">,</span>
+    <span class="n">fragments</span> <span class="o">=</span> <span class="p">[</span><span class="s">"java"</span><span class="p">],</span>      <span class="c"># Required fragments of the target configuration</span>
+    <span class="n">host_fragments</span> <span class="o">=</span> <span class="p">[</span><span class="s">"java"</span><span class="p">],</span> <span class="c"># Required fragments of the host configuration</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">ctx.fragments</code> only provides configuration fragments for the target
+configuration. If you want to access fragments for the host configuration,
+use <code class="highlighter-rouge">ctx.host_fragments</code> instead.</p>
+
+<h2 id="providers">Providers</h2>
+
+<p>Providers are pieces of information that a rule exposes to other rules that
+depend on it. This data can include output files, libraries, parameters to pass
+on a tool’s command line, or anything else the depending rule should know about.
+Providers are the only mechanism to exchange data between rules, and can be
+thought of as part of a rule’s public interface (loosely analogous to a
+function’s return value).</p>
+
+<p>A rule can only see the providers of its direct dependencies. If there is a rule
+<code class="highlighter-rouge">top</code> that depends on <code class="highlighter-rouge">middle</code>, and <code class="highlighter-rouge">middle</code> depends on <code class="highlighter-rouge">bottom</code>, then we say
+that <code class="highlighter-rouge">middle</code> is a direct dependency of <code class="highlighter-rouge">top</code>, while <code class="highlighter-rouge">bottom</code> is a transitive
+dependency of <code class="highlighter-rouge">top</code>. In this case, <code class="highlighter-rouge">top</code> can see the providers of <code class="highlighter-rouge">middle</code>. The
+only way for <code class="highlighter-rouge">top</code> to see any information from <code class="highlighter-rouge">bottom</code> is if <code class="highlighter-rouge">middle</code>
+re-exports this information in its own providers; this is how transitive
+information can be accumulated from all dependencies. In such cases, consider
+using <a href="depsets.html">depsets</a> to hold the data more efficiently without excessive
+copying.</p>
+
+<p>Providers can be declared using the <a href="lib/globals.html#provider">provider()</a> function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TransitiveDataInfo</span> <span class="o">=</span> <span class="n">provider</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s">"value"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Rule implementation function can then construct and return provider instances:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">rule_implementation</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="o">...</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">TransitiveDataInfo</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">TransitiveDataInfo</code> acts both as a constructor for provider instances and as a key to access them.
+A <a href="lib/Target.html">target</a> serves as a map from each provider that the target supports, to the
+target’s corresponding instance of that provider.
+A rule can access the providers of its dependencies using the square bracket notation (<code class="highlighter-rouge">[]</code>):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dependent_rule_implementation</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="o">...</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">dep_target</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">deps</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="n">dep_target</span><span class="p">[</span><span class="n">TransitiveDataInfo</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+
+<p>All targets have a <a href="lib/globals.html#DefaultInfo"><code class="highlighter-rouge">DefaultInfo</code></a> provider that can be used to access
+some information relevant to all targets.</p>
+
+<p>Providers are only available during the analysis phase. Examples of usage:</p>
+
+<ul>
+  <li><a href="https://github.com/bazelbuild/examples/blob/master/rules/mandatory_provider/sum.bzl">mandatory providers</a></li>
+  <li><a href="https://github.com/bazelbuild/examples/blob/master/rules/optional_provider/sum.bzl">optional providers</a></li>
+  <li><a href="https://github.com/bazelbuild/examples/blob/master/rules/depsets/foo.bzl">providers with depsets</a>
+  This examples shows how a library and a binary rule can pass information.</li>
+</ul>
+
+<h3 id="migrating-from-legacy-providers">Migrating from Legacy Providers</h3>
+
+<p>Historically, Bazel providers were simple fields on the <code class="highlighter-rouge">Target</code> object. They
+were accessed using the dot operator, and they were created by putting the field
+in a struct returned by the rule’s implementation function.</p>
+
+<p><em>This style is deprecated and should not be used in new code;</em> see below for
+information that may help you migrate. The new provider mechanism avoids name
+clashes. It also supports data hiding, by requiring any code accessing a
+provider instance to retrieve it using the provider symbol.</p>
+
+<p>For the moment, legacy providers are still supported. A rule can return both
+legacy and modern providers as follows:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_myrule_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="o">...</span>
+  <span class="n">legacy_data</span> <span class="o">=</span> <span class="n">struct</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"foo"</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+  <span class="n">modern_data</span> <span class="o">=</span> <span class="n">MyInfo</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s">"bar"</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+  <span class="c"># When any legacy providers are returned, the top-level returned value is a struct.</span>
+  <span class="k">return</span> <span class="n">struct</span><span class="p">(</span>
+      <span class="c"># One key = value entry for each legacy provider.</span>
+      <span class="n">legacy_info</span> <span class="o">=</span> <span class="n">legacy_data</span><span class="p">,</span>
+      <span class="o">...</span>
+      <span class="c"># All modern providers are put in a list passed to the special "providers" key.</span>
+      <span class="n">providers</span> <span class="o">=</span> <span class="p">[</span><span class="n">modern_data</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>If <code class="highlighter-rouge">dep</code> is the resulting <code class="highlighter-rouge">Target</code> object for an instance of this rule, the
+providers and their contents can be retrieved as <code class="highlighter-rouge">dep.legacy_info.x</code> and
+<code class="highlighter-rouge">dep[MyInfo].y</code>.</p>
+
+<p>In addition to <code class="highlighter-rouge">providers</code>, the returned struct can also take several other
+fields that have special meaning (and that do not create a corresponding legacy
+provider).</p>
+
+<ul>
+  <li>
+    <p>The fields <code class="highlighter-rouge">files</code>, <code class="highlighter-rouge">runfiles</code>, <code class="highlighter-rouge">data_runfiles</code>, <code class="highlighter-rouge">default_runfiles</code>, and
+<code class="highlighter-rouge">executable</code> correspond to the same-named fields of
+<a href="lib/globals.html#DefaultInfo"><code class="highlighter-rouge">DefaultInfo</code></a>. It is not allowed to specify
+any of these fields while also returning a <code class="highlighter-rouge">DefaultInfo</code> modern provider.</p>
+  </li>
+  <li>
+    <p>The field <code class="highlighter-rouge">output_groups</code> takes a struct value and corresponds to an
+<a href="lib/globals.html#OutputGroupInfo"><code class="highlighter-rouge">OutputGroupInfo</code></a>.</p>
+  </li>
+  <li>
+    <p>The field <code class="highlighter-rouge">instrumented_files</code> is for
+<a href="#code-coverage-instrumentation">code coverage instrumentation</a>. It does not
+yet have a modern provider equivalent. If you need it, you cannot yet migrate
+away from legacy providers.</p>
+  </li>
+</ul>
+
+<h2 id="runfiles">Runfiles</h2>
+
+<p>Runfiles are a set of files used by the (often executable) output of a rule
+during runtime (as opposed to build time, i.e. when the binary itself is
+generated).
+During the <a href="concepts.html#evaluation-model">execution phase</a>, Bazel creates a
+directory tree containing symlinks pointing to the runfiles. This stages the
+environment for the binary so it can access the runfiles during runtime.</p>
+
+<p><a href="https://github.com/bazelbuild/examples/blob/master/rules/runfiles/execute.bzl">See example</a></p>
+
+<p>Runfiles can be added manually during rule creation and/or collected
+transitively from the rule’s dependencies:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_rule_implementation</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="o">...</span>
+  <span class="n">transitive_runfiles</span> <span class="o">=</span> <span class="n">depset</span><span class="p">(</span><span class="n">transitive</span><span class="o">=</span>
+    <span class="p">[</span><span class="n">dep</span><span class="o">.</span><span class="n">transitive_runtime_files</span> <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">special_dependencies</span><span class="p">])</span>
+
+  <span class="n">runfiles</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">runfiles</span><span class="p">(</span>
+      <span class="c"># Add some files manually.</span>
+      <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctx</span><span class="o">.</span><span class="nb">file</span><span class="o">.</span><span class="n">some_data_file</span><span class="p">],</span>
+      <span class="c"># Add transitive files from dependencies manually.</span>
+      <span class="n">transitive_files</span> <span class="o">=</span> <span class="n">transitive_runfiles</span><span class="p">,</span>
+      <span class="c"># Collect runfiles from the common locations: transitively from srcs,</span>
+      <span class="c"># deps and data attributes.</span>
+      <span class="n">collect_default</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="p">)</span>
+  <span class="c"># Add a field named "runfiles" to the DefaultInfo provider in order to actually</span>
+  <span class="c"># create the symlink tree.</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">DefaultInfo</span><span class="p">(</span><span class="n">runfiles</span><span class="o">=</span><span class="n">runfiles</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<p>Note that non-executable rule outputs can also have runfiles. For example, a
+library might need some external files during runtime, and every dependent
+binary should know about them.</p>
+
+<p>Also note that if an action uses an executable, the executable’s runfiles can
+be used when the action executes.</p>
+
+<p>Normally, the relative path of a file in the runfiles tree is the same as the
+relative path of that file in the source tree or generated output tree. If these
+need to be different for some reason, you can specify the <code class="highlighter-rouge">root_symlinks</code> or
+<code class="highlighter-rouge">symlinks</code> arguments.  The <code class="highlighter-rouge">root_symlinks</code> is a dictionary mapping paths to
+files, where the paths are relative to the root of the runfiles directory. The
+<code class="highlighter-rouge">symlinks</code> dictionary is the same, but paths are implicitly prefixed with the
+name of the workspace.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">...</span>
+    <span class="n">runfiles</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">runfiles</span><span class="p">(</span>
+        <span class="n">root_symlinks</span> <span class="o">=</span> <span class="p">{</span><span class="s">"some/path/here.foo"</span><span class="p">:</span> <span class="n">ctx</span><span class="o">.</span><span class="nb">file</span><span class="o">.</span><span class="n">some_data_file2</span><span class="p">}</span>
+        <span class="n">symlinks</span> <span class="o">=</span> <span class="p">{</span><span class="s">"some/path/here.bar"</span><span class="p">:</span> <span class="n">ctx</span><span class="o">.</span><span class="nb">file</span><span class="o">.</span><span class="n">some_data_file3</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="c"># Creates something like:</span>
+    <span class="c"># sometarget.runfiles/</span>
+    <span class="c">#     some/</span>
+    <span class="c">#         path/</span>
+    <span class="c">#             here.foo -&gt; some_data_file2</span>
+    <span class="c">#     &lt;workspace_name&gt;/</span>
+    <span class="c">#         some/</span>
+    <span class="c">#             path/</span>
+    <span class="c">#                 here.bar -&gt; some_data_file3</span>
+</code></pre></div></div>
+
+<p>If <code class="highlighter-rouge">symlinks</code> or <code class="highlighter-rouge">root_symlinks</code> is used, be careful not to map two different
+files to the same path in the runfiles tree. This will cause the build to fail
+with an error describing the conflict. To fix, you will need to modify your
+<code class="highlighter-rouge">ctx.runfiles</code> arguments to remove the collision. This checking will be done for
+any targets using your rule, as well as targets of any kind that depend on those
+targets.</p>
+
+<h2 id="requesting-output-files">Requesting output files</h2>
+
+<p>A single target can have several output files. When a <code class="highlighter-rouge">bazel build</code> command is
+run, some of the outputs of the targets given to the command are considered to
+be <em>requested</em>. Bazel only builds these requested files and the files that they
+directly or indirectly depend on. (In terms of the action graph, Bazel only
+executes the actions that are reachable as transitive dependencies of the
+requested files.)</p>
+
+<p>Every target has a set of <em>default outputs</em>, which are the output files that
+normally get requested when that target appears on the command line. For
+example, a target <code class="highlighter-rouge">//pkg:foo</code> of <code class="highlighter-rouge">java_library</code> type has in its default outputs
+a file <code class="highlighter-rouge">foo.jar</code>, which will be built by the command <code class="highlighter-rouge">bazel build //pkg:foo</code>.</p>
+
+<p>Any predeclared output can be explicitly requested on the command line. This can
+be used to build outputs that are not default outputs, or to build some but not
+all default outputs. For example, <code class="highlighter-rouge">bazel build //pkg:foo_deploy.jar</code> and
+<code class="highlighter-rouge">bazel build //pkg:foo.jar</code> will each just build that one file (along with
+its dependencies). See an <a href="https://github.com/bazelbuild/examples/blob/master/rules/implicit_output/hash.bzl">example</a>
+of a rule with non-default predeclared outputs.</p>
+
+<p>In addition to default outputs, there are <em>output groups</em>, which are collections
+of output files that may be requested together. For example, if a target
+<code class="highlighter-rouge">//pkg:mytarget</code> is of a rule type that has a <code class="highlighter-rouge">debug_files</code> output group, these
+files can be built by running
+<code class="highlighter-rouge">bazel build //pkg:mytarget --output_groups=debug_files</code>. See the <a href="https://docs.bazel.build/versions/master/command-line-reference.html#flag--output_groups">command line
+reference</a>
+for details on the <code class="highlighter-rouge">--output_groups</code> argument. Since non-predeclared outputs
+don’t have labels, they can only be requested by appearing in the default
+outputs or an output group.</p>
+
+<p>You can specify the default outputs and output groups of a rule by returning the
+<a href="lib/DefaultInfo.html"><code class="highlighter-rouge">DefaultInfo</code></a> and
+<a href="lib/OutputGroupInfo.html"><code class="highlighter-rouge">OutputGroupInfo</code></a> providers from its implementation
+function.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_myrule_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="o">...</span>
+  <span class="n">binary</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">declare_file</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+  <span class="n">debug_file</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">declare_file</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">".pdb"</span><span class="p">)</span>
+  <span class="c"># ... add actions to generate these files</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">DefaultInfo</span><span class="p">(</span><span class="n">files</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="n">binary</span><span class="p">])),</span>
+          <span class="n">OutputGroupInfo</span><span class="p">(</span><span class="n">debug_files</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="n">debug_file</span><span class="p">]),</span>
+                          <span class="n">all_files</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="n">binary</span><span class="p">,</span> <span class="n">debug_file</span><span class="p">]))]</span>
+</code></pre></div></div>
+
+<p>These providers can also be retrieved from dependencies using the usual syntax
+<code class="highlighter-rouge">&lt;target&gt;[DefaultInfo]</code> and <code class="highlighter-rouge">&lt;target&gt;[OutputGroupInfo]</code>, where <code class="highlighter-rouge">&lt;target&gt;</code> is a
+<code class="highlighter-rouge">Target</code> object.</p>
+
+<p>Note that even if a file is in the default outputs or an output group, you may
+still want to return it in a custom provider in order to make it available in a
+more structured way. For instance, you could pass headers and sources along in
+separate fields of your provider.</p>
+
+<h2 id="code-coverage-instrumentation">Code coverage instrumentation</h2>
+
+<p>A rule can use the <code class="highlighter-rouge">instrumented_files</code> provider to provide information about
+which files should be measured when code coverage data collection is enabled:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_rule_implementation</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="o">...</span>
+  <span class="k">return</span> <span class="n">struct</span><span class="p">(</span><span class="n">instrumented_files</span> <span class="o">=</span> <span class="n">struct</span><span class="p">(</span>
+      <span class="c"># Optional: File extensions used to filter files from source_attributes.</span>
+      <span class="c"># If not provided, then all files from source_attributes will be</span>
+      <span class="c"># added to instrumented files, if an empty list is provided, then</span>
+      <span class="c"># no files from source attributes will be added.</span>
+      <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s">"ext1"</span><span class="p">,</span> <span class="s">"ext2"</span><span class="p">],</span>
+      <span class="c"># Optional: Attributes that contain source files for this rule.</span>
+      <span class="n">source_attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s">"srcs"</span><span class="p">],</span>
+      <span class="c"># Optional: Attributes for dependencies that could include instrumented</span>
+      <span class="c"># files.</span>
+      <span class="n">dependency_attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s">"data"</span><span class="p">,</span> <span class="s">"deps"</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<p><a href="lib/configuration.html#coverage_enabled">ctx.configuration.coverage_enabled</a> notes
+whether coverage data collection is enabled for the current run in general
+(but says nothing about which files specifically should be instrumented).
+If a rule implementation needs to add coverage instrumentation at
+compile-time, it can determine if its sources should be instrumented with
+<a href="lib/ctx.html#coverage_instrumented">ctx.coverage_instrumented</a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Are this rule's sources instrumented?</span>
+<span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">coverage_instrumented</span><span class="p">():</span>
+  <span class="c"># Do something to turn on coverage for this compile action</span>
+</code></pre></div></div>
+
+<p>Note that function will always return false if <code class="highlighter-rouge">ctx.configuration.coverage_enabled</code> is
+false, so you don’t need to check both.</p>
+
+<p>If the rule directly includes sources from its dependencies before compilation
+(e.g. header files), it may also need to turn on compile-time instrumentation
+if the dependencies’ sources should be instrumented. In this case, it may
+also be worth checking <code class="highlighter-rouge">ctx.configuration.coverage_enabled</code> so you can avoid looping
+over dependencies unnecessarily:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Are this rule's sources or any of the sources for its direct dependencies</span>
+<span class="c"># in deps instrumented?</span>
+<span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">coverage_enabled</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">coverage_instrumented</span><span class="p">()</span> <span class="ow">or</span>
+        <span class="nb">any</span><span class="p">([</span><span class="n">ctx</span><span class="o">.</span><span class="n">coverage_instrumented</span><span class="p">(</span><span class="n">dep</span><span class="p">)</span> <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">deps</span><span class="p">]):</span>
+        <span class="c"># Do something to turn on coverage for this compile action</span>
+</code></pre></div></div>
+
+<h2 id="executable-rules-and-test-rules">Executable rules and test rules</h2>
+
+<p>Executable rules define targets that can be invoked by a <code class="highlighter-rouge">bazel run</code> command.
+Test rules are a special kind of executable rule whose targets can also be
+invoked by a <code class="highlighter-rouge">bazel test</code> command. Executable and test rules are created by
+setting the respective <a href="lib/globals.html#rule.executable"><code class="highlighter-rouge">executable</code></a> or
+<a href="lib/globals.html#rule.test"><code class="highlighter-rouge">test</code></a> argument to true when defining the rule.</p>
+
+<p>Test rules (but not necessarily their targets) must have names that end in
+<code class="highlighter-rouge">_test</code>. Non-test rules must not have this suffix.</p>
+
+<p>Both kinds of rules must produce an executable output file (which may or may not
+be predeclared) that will be invoked by the <code class="highlighter-rouge">run</code> or <code class="highlighter-rouge">test</code> commands. To tell
+Bazel which of a rule’s outputs to use as this executable, pass it as the
+<code class="highlighter-rouge">executable</code> argument of a returned <code class="highlighter-rouge">DefaultInfo</code> provider.</p>
+
+<p>The action that generates this file must set the executable bit on the file. For
+a <code class="highlighter-rouge">ctx.actions.run()</code> or <code class="highlighter-rouge">ctx.actions.run_shell()</code> action this should be done by
+the underlying tool that is invoked by the action. For a <code class="highlighter-rouge">ctx.actions.write()</code>
+action it is done by passing the argument <code class="highlighter-rouge">is_executable=True</code>.</p>
+
+<p>As legacy behavior, executable rules have a special <code class="highlighter-rouge">ctx.outputs.executable</code>
+predeclared output. This file serves as the default executable if you do not
+specify one using <code class="highlighter-rouge">DefaultInfo</code>; it must not be used otherwise. This output
+mechanism is deprecated because it does not support customizing the executable
+file’s name at analysis time.</p>
+
+<p>See examples of an <a href="https://github.com/bazelbuild/examples/blob/master/rules/executable/fortune.bzl">executable rule</a>
+and a <a href="https://github.com/bazelbuild/examples/blob/master/rules/test_rule/line_length.bzl">test rule</a>.</p>
+
+<p>Test rules inherit the following attributes: <code class="highlighter-rouge">args</code>, <code class="highlighter-rouge">flaky</code>, <code class="highlighter-rouge">local</code>,
+<code class="highlighter-rouge">shard_count</code>, <code class="highlighter-rouge">size</code>, <code class="highlighter-rouge">timeout</code>. The defaults of inherited attributes cannot be
+changed, but you can use a macro with default arguments:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">example_test</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="s">"small"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+  <span class="n">_example_test</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">_example_test</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+ <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

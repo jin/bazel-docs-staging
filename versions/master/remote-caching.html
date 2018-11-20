@@ -351,7 +351,13 @@
               
               <option value="/versions/master/remote-caching.html">master</option>
               
+              <option value="/versions/0.19.2/remote-caching.html">0.19.2</option>
+              
               <option value="/versions/0.19.1/remote-caching.html">0.19.1</option>
+              
+              <option value="/versions/0.18.1/remote-caching.html">0.18.1</option>
+              
+              <option value="/versions/0.17.2/remote-caching.html">0.17.2</option>
               
               <option value="/versions/0.17.1/remote-caching.html">0.17.1</option>
               
@@ -707,11 +713,6 @@ periodic cleanup of this directory. Enable the disk cache as follows:</p>
 when enabling the disk cache for all developers of a project via the project’s
 checked in <code class="highlighter-rouge">.bazelrc</code> file.</p>
 
-<p>To enable cache hits across different workspaces, use the following flag:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>build --experimental_strict_action_env
-</code></pre></div></div>
-
 <h2 id="known-issues">Known issues</h2>
 
 <p><strong>Input file modification during a build</strong></p>
@@ -725,15 +726,14 @@ build.</p>
 
 <p><strong>Environment variables leaking into an action</strong></p>
 
-<p>An action definition contains environment variables. This can be a problem
-for sharing remote cache hits across machines. For example, environments
-with different <code class="highlighter-rouge">$PATH</code> variables won’t share cache hits. You can specify
-<code class="highlighter-rouge">--experimental_strict_action_env</code> to ensure that that’s not the case and
-that only environment variables explicitly whitelisted via <code class="highlighter-rouge">--action_env</code>
-are included in an action definition. Bazel’s Debian/Ubuntu package used
-to install <code class="highlighter-rouge">/etc/bazel.bazelrc</code> with a whitelist of environment variables
-including <code class="highlighter-rouge">$PATH</code>. If you are getting fewer cache hits than expected, check
-that your environment doesn’t have an old <code class="highlighter-rouge">/etc/bazel.bazelrc</code> file.</p>
+<p>An action definition contains environment variables. This can be a problem for
+sharing remote cache hits across machines. For example, environments with
+different <code class="highlighter-rouge">$PATH</code> variables won’t share cache hits. Only environment variables
+explicitly whitelisted via <code class="highlighter-rouge">--action_env</code> are included in an action
+definition. Bazel’s Debian/Ubuntu package used to install <code class="highlighter-rouge">/etc/bazel.bazelrc</code>
+with a whitelist of environment variables including <code class="highlighter-rouge">$PATH</code>. If you are getting
+fewer cache hits than expected, check that your environment doesn’t have an old
+<code class="highlighter-rouge">/etc/bazel.bazelrc</code> file.</p>
 
 <p><strong>Bazel does not track tools outside a workspace</strong></p>
 

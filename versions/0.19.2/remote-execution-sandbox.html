@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Troubleshooting Bazel Remote Execution with Docker Sandbox - Bazel</title>
+
+    <link rel="canonical" href="/versions/0.19.2/remote-execution-sandbox.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Troubleshooting Bazel Remote Execution with Docker Sandbox"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.2</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/remote-execution-sandbox.html">master</option>
+              
+              <option value="/versions/0.19.2/remote-execution-sandbox.html">0.19.2</option>
+              
+              <option value="/versions/0.19.1/remote-execution-sandbox.html">0.19.1</option>
+              
+              <option value="/versions/0.18.1/remote-execution-sandbox.html">0.18.1</option>
+              
+              <option value="/versions/0.17.2/remote-execution-sandbox.html">0.17.2</option>
+              
+              <option value="/versions/0.17.1/remote-execution-sandbox.html">0.17.1</option>
+              
+          </select>
+
+          <h1 id="troubleshooting-bazel-remote-execution-with-docker-sandbox">Troubleshooting Bazel Remote Execution with Docker Sandbox</h1>
+
+<p>Contents</p>
+
+<ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#prerequisites">Prerequisites</a></li>
+  <li><a href="#troubleshooting-on-the-local-machine">Troubleshooting on the local machine</a>
+    <ul>
+      <li><a href="#step-1-run-the-build">Step 1: Run the build</a></li>
+      <li><a href="#step-2-resolve-detected-issues">Step 2: Resolve detected issues</a></li>
+    </ul>
+  </li>
+  <li><a href="#troubleshooting-in-a-docker-container">Troubleshooting in a Docker container</a>
+    <ul>
+      <li><a href="#step-1-build-the-container">Step 1: Build the container</a></li>
+      <li><a href="#step-2-start-the-container">Step 2: Start the container</a></li>
+      <li><a href="#step-3-test-the-container">Step 3: Test the container</a></li>
+      <li><a href="#step-4-run-the-build">Step 4: Run the build</a></li>
+      <li><a href="#step-5-resolve-detected-issues">Step 5: Resolve detected issues</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>Bazel builds that succeed locally may fail when executed remotely due to
+restrictions and requirements that do not affect local builds. The most common
+causes of such failures are described in <a href="https://docs.bazel.build/versions/master/remote-execution-rules.html">Adapting Bazel Rules for Remote Execution</a>.</p>
+
+<p>This document describes how to identify and resolve the most common issues that
+arise with remote execution using the Docker sandbox feature, which imposes
+restrictions upon the build equal to those of remote execution. This allows you
+to troubleshoot your build without the need for a remote execution service.</p>
+
+<p>The Docker sandbox feature mimics the restrictions of remote execution as
+follows:</p>
+
+<ul>
+  <li>
+    <p><strong>Build actions execute in toolchain containers.</strong> You can use the same
+toolchain containers to run your build locally and remotely via a service
+supporting containerized remote execution.</p>
+  </li>
+  <li>
+    <p><strong>No extraneous data crosses the container boundary.</strong> Only explicitly
+declared inputs and outputs enter and leave the container, and only after
+the associated build action successfully completes.</p>
+  </li>
+  <li>
+    <p><strong>Each action executes in a fresh container.</strong> A new, unique container is
+created for each spawned build action.</p>
+  </li>
+</ul>
+
+<p><strong>Note:</strong> Builds take noticeably more time to complete when the Docker sandbox
+feature is enabled. This is normal.</p>
+
+<p>You can troubleshoot these issues using one of the following methods:</p>
+
+<ul>
+  <li>
+    <p><strong><a href="#troubleshooting-natively">Troubleshooting natively.</a></strong> With this method,
+Bazel and its build actions run natively on your local machine. The Docker
+sandbox feature imposes restrictions upon the build equal to those of remote
+execution. However, this method will not detect local tools, states, and
+data leaking into your build, which will cause problems with remote execution.</p>
+  </li>
+  <li>
+    <p><strong><a href="#troubleshooting-in-a-docker-container">Troubleshooting in a Docker container.</a></strong>
+With this method, Bazel and its build actions run inside a Docker container,
+which allows you to detect tools, states, and data leaking from the local
+machine into the build in addition to imposing restrictions
+equal to those of remote execution. This method provides insight into your
+build even if portions of the build are failing. This method is experimental
+and not officially supported.</p>
+  </li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>Before you begin troubleshooting, do the following if you have not already done so:</p>
+
+<ul>
+  <li>Install Docker and configure the permissions required to run it.</li>
+  <li>Install Bazel 0.14.1 or later. Earlier versions do not support the Docker
+sandbox feature.</li>
+  <li>Add the <a href="https://releases.bazel.build/bazel-toolchains.html">bazel-toolchains</a>
+repo, pinned to the latest release version, to your build’s <code class="highlighter-rouge">WORKSPACE</code> file
+as described <a href="https://releases.bazel.build/bazel-toolchains.html">here</a>.</li>
+  <li>Add the following lines to your <code class="highlighter-rouge">.bazelrc</code> file. Create the file in the root
+directory of your Bazel project if it does not exist.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Docker Sandbox Mode
+build:docker-sandbox --host_javabase=@bazel_toolchains//configs/ubuntu16_04_clang/1.0:jdk8
+build:docker-sandbox --javabase=@bazel_toolchains//configs/ubuntu16_04_clang/1.0:jdk8
+build:docker-sandbox --crosstool_top=@bazel_toolchains//configs/ubuntu16_04_clang/1.0/bazel_0.13.0/default:toolchain
+build:docker-sandbox --experimental_docker_image=gcr.io/cloud-marketplace/google/rbe-ubuntu16-04@sha256:59bf0e191a6b5cc1ab62c2224c810681d1326bad5a27b1d36c9f40113e79da7f
+build:docker-sandbox --spawn_strategy=docker --strategy=Javac=docker --genrule_strategy=docker
+build:docker-sandbox --define=EXECUTOR=remote
+build:docker-sandbox --experimental_docker_verbose
+build:docker-sandbox --experimental_enable_docker_sandbox
+</code></pre></div></div>
+
+<p><strong>Note:</strong> The flags referenced in the <code class="highlighter-rouge">.bazelrc</code> file shown above are configured
+to run within the <a href="https://console.cloud.google.com/launcher/details/google/rbe-ubuntu16-04?_ga=2.231599325.-396882850.1508873814">rbe-ubuntu16-04</a>
+container.</p>
+
+<p>If your rules require additional tools, do the following:</p>
+
+<ol>
+  <li>
+    <p>Create a custom Docker container by installing tools using a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>
+and <a href="https://docs.docker.com/engine/reference/commandline/build/">building</a>
+the image locally.</p>
+  </li>
+  <li>
+    <p>Replace the value of the <code class="highlighter-rouge">--experimental_docker_image</code> flag above with the
+name of your custom container image.</p>
+  </li>
+</ol>
+
+<h2 id="troubleshooting-natively">Troubleshooting natively</h2>
+
+<p>This method executes Bazel and all of its build actions directly on the local
+machine and is a reliable way to confirm whether your build will succeed when
+executed remotely.</p>
+
+<p>However, with this method, locally installed tools, binaries, and data may leak
+into into your build, especially if it uses <a href="https://docs.bazel.build/versions/master/remote-execution-rules.html#managing-configure-style-workspace-rules">configure-style WORKSPACE rules</a>.
+Such leaks will cause problems with remote execution; to detect them, <a href="#troubleshooting-in-a-docker-container">troubleshoot in a Docker container</a>
+in addition to troubleshooting natively.</p>
+
+<h3 id="step-1-run-the-build">Step 1: Run the build</h3>
+
+<ol>
+  <li>
+    <p>Add the <code class="highlighter-rouge">--config=docker-sandbox</code> flag to the Bazel command that executes
+your build. For example:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel --bazelrc=.bazelrc build --config=docker-sandbox &lt;target&gt;
+
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run the build and wait for it to complete. The build will run up to four
+times slower than normal due to the Docker sandbox feature.</p>
+  </li>
+</ol>
+
+<p>You may encounter the following error:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: 'docker' is an invalid value for docker spawn strategy.
+</code></pre></div></div>
+
+<p>If you do, run the build again with the <code class="highlighter-rouge">--experimental_docker_verbose</code>  flag.
+This flag enables verbose error messages. This error is typically caused by a
+faulty Docker installation or lack of permissions to execute it under the
+current user account. See the <a href="https://docs.docker.com/install/linux/linux-postinstall/">Docker documentation</a>
+for more information. If problems persist, skip ahead to <a href="#troubleshooting-in-a-docker-container">Troubleshooting in a Docker container</a>.</p>
+
+<h3 id="step-2-resolve-detected-issues">Step 2: Resolve detected issues</h3>
+
+<p>The following are the most commonly encountered issues and their workarounds.</p>
+
+<ul>
+  <li>
+    <p><strong>A file, tool, binary, or resource referenced by the Bazel runfiles tree is
+missing.</strong>. Confirm that all dependencies of the affected targets have been <a href="/build-ref.html#dependencies">explicitly declared</a>.
+See <a href="/remote-execution-rules.html#managing-implicit-dependencies">Managing implicit dependencies</a>
+for more information.</p>
+  </li>
+  <li>
+    <p><strong>A file, tool, binary, or resource referenced by an absolute path or the <code class="highlighter-rouge">PATH</code>
+variable is missing.</strong> Confirm that all required tools are installed within
+the toolchain container and use <a href="/toolchains.html">toolchain rules</a> to properly
+declare dependencies pointing to the missing resource. See <a href="/remote-execution-rules.html#invoking-build-tools-through-toolchain-rules">Invoking build tools through toolchain rules</a>
+for more information.</p>
+  </li>
+  <li>
+    <p><strong>A binary execution fails.</strong> One of the build rules is referencing a binary
+incompatible with the execution environment (the Docker container). See <a href="/remote-execution-rules.html#managing-platform-dependent-binaries">Managing platform-dependent binaries</a>
+for more information. If you cannot resolve the issue, contact <a href="mailto:bazel-discuss@google.com">bazel-discuss@google.com</a>
+for help.</p>
+  </li>
+  <li>
+    <p><strong>A file from <code class="highlighter-rouge">@local-jdk</code> is missing or causing errors.</strong> The Java binaries
+on your local machine are leaking into the build while being incompatible with
+it. Use <a href="https://docs.bazel.build/versions/master/be/java.html#java_toolchain"><code class="highlighter-rouge">java_toolchain</code></a>
+in your rules and targets instead of <code class="highlighter-rouge">@local_jdk</code>. Contact <a href="mailto:bazel-discuss@google.com">bazel-discuss@google.com</a> if you need further help.</p>
+  </li>
+  <li>
+    <p><strong>Other errors.</strong> Contact <a href="mailto:bazel-discuss@google.com">bazel-discuss@google.com</a> for help.</p>
+  </li>
+</ul>
+
+<h2 id="troubleshooting-in-a-docker-container">Troubleshooting in a Docker container</h2>
+
+<p>With this method, Bazel runs inside a host Docker container, and Bazel’s build
+actions execute inside individual toolchain containers spawned by the Docker
+sandbox feature. The sandbox spawns a brand new toolchain container for each
+build action and only one action executes in each toolchain container.</p>
+
+<p>This method provides more granular control of tools installed in the host
+environment. By separating the execution of the build from the execution of its
+build actions and keeping the installed tooling to a minimum, you can verify
+whether your build has any dependencies on the local execution environment.</p>
+
+<h3 id="step-1-build-the-container">Step 1: Build the container</h3>
+
+<p><strong>Note:</strong> The commands below are tailored specifically for a  <code class="highlighter-rouge">debian:stretch</code> base.
+For other bases, modify them as necessary.</p>
+
+<ol>
+  <li>
+    <p>Create a <code class="highlighter-rouge">Dockerfile</code> that creates the Docker container and installs Bazel
+with a minimal set of build tools:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM debian:stretch
+
+RUN apt-get update &amp;&amp; apt-get install -y apt-transport-https curl software-properties-common git gcc gnupg2 g++ openjdk-8-jdk-headless python-dev zip wget vim
+
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+
+RUN apt-get update &amp;&amp; apt-get install -y docker-ce
+
+RUN wget https://releases.bazel.build/0.14.1/release/bazel-0.14.1-installer-linux-x86_64.sh -O ./bazel-installer.sh &amp;&amp; chmod 755 ./bazel-installer.sh
+
+RUN ./bazel-installer.sh
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Build the container as <code class="highlighter-rouge">bazel_container</code>:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build -t bazel_container - &lt; Dockerfile
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="step-2-start-the-container">Step 2: Start the container</h3>
+
+<p>Start the Docker container using the command shown below. In the command,
+substitute the path to the source code on your host that you want to build.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -it \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /tmp:/tmp \
+  -v &lt;your source code directory&gt;:/src \
+  -w /src \
+  bazel_container \
+  /bin/bash
+</code></pre></div></div>
+
+<p>This command runs the container as root, mapping the docker socket, and mounting
+the <code class="highlighter-rouge">/tmp</code> directory. This allows Bazel to spawn other Docker containers and to
+use directories under <code class="highlighter-rouge">/tmp</code> to share files with those containers. Your source
+code is available at <code class="highlighter-rouge">/src</code> inside the container.</p>
+
+<p>The command intentionally starts from a <code class="highlighter-rouge">debian:stretch</code> base container that
+includes binaries incompatible with the <code class="highlighter-rouge">rbe-ubuntu16-04</code> container used as a
+toolchain container. If binaries from the local environment are leaking into the
+toolchain container, they will cause build errors.</p>
+
+<h3 id="step-3-test-the-container">Step 3: Test the container</h3>
+
+<p>Run the following commands from inside the Docker container to test it:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps
+
+bazel version
+</code></pre></div></div>
+
+<h3 id="step-4-run-the-build">Step 4: Run the build</h3>
+
+<p>Run the build as shown below. The output user is root so that it corresponds to
+a directory that is accessible with the same absolute path from inside the host
+container in which Bazel runs, from the toolchain containers spawned by the Docker
+sandbox feature in which Bazel’s build actions are running, and from the local
+machine on which the host and action containers run.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel --output_user_root=/tmp/bazel_docker_root --bazelrc=.bazelrc \ build --config=docker-sandbox &lt;target&gt;
+</code></pre></div></div>
+
+<h3 id="step-5-resolve-detected-issues">Step 5: Resolve detected issues</h3>
+
+<p>You can resolve build failures as follows:</p>
+
+<ul>
+  <li>
+    <p>If the build fails with an “out of disk space” error, you  can increase this
+limit by starting the host container with the flag <code class="highlighter-rouge">--memory=XX</code> where <code class="highlighter-rouge">XX</code>
+is the allocated disk space in gigabytes. This is experimental and may
+result in unpredictable behavior.</p>
+  </li>
+  <li>
+    <p>If the build fails during the analysis or loading phases, one or more of
+your build rules declared in the WORKSPACE file are not compatible with
+remote execution. See <a href="https://docs.bazel.build/versions/master/remote-execution-rules.html">Adapting Bazel Rules for Remote Execution</a>
+for possible causes and workarounds.</p>
+  </li>
+  <li>
+    <p>If the build fails for any other reason, see the troubleshooting steps in <a href="#step-2-resolve-detected-issues">Step 2: Resolve detected issues</a>.</p>
+  </li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

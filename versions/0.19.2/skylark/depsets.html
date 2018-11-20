@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Depsets - Bazel</title>
+
+    <link rel="canonical" href="/versions/0.19.2/skylark/depsets.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Depsets"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="page-title-bar">
+      <div class="container">
+        <h1>Documentation</h1>
+      </div>
+    </div>
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+          <nav class="sidebar collapse" id="sidebar-nav">
+           <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+           <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                 </ul>
+                </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#tutorials-menu" aria-expanded="false"
+                    aria-controls="tutorials-menu">
+                  Tutorials<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
+                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
+                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
+                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
+                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+              <li><a href="/versions/master/guide.html">User's Guide</a></li>
+              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+             </ul>
+
+           <h3>Rules</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
+                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
+                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
+                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
+                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
+                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
+                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
+                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
+                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-9">
+          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <script>
+            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+            var editButton = document.getElementById('gh-edit');
+            // if there is an edit button and we are not in the Build Encyclopedia
+            if (editButton
+                && window.location.pathname.match(versionDocsURLRegex)
+                && window.location.pathname.lastIndexOf('/be/') == -1
+                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+              // some pages are not using markdown :(
+              if (docFile !== 'user-manual.html'
+                  && docFile !== 'build-ref.html'
+                  && docFile !== 'query.html'
+                  && docFile !== 'test-encyclopedia.html') {
+                docFile = docFile.replace('html', 'md');
+              }
+              editButton.href = ghDocsBazeURL + docFile;
+              editButton.style.visibility = 'visible';
+            }
+          </script>
+
+          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+          
+
+          <p>Documentation for Bazel 0.19.2</p>
+          <select id="touchsplashmenu" onchange="location.href=this.value">
+              <option value="">Choose a Bazel version</option>
+              
+              <option value="/versions/master/skylark/depsets.html">master</option>
+              
+              <option value="/versions/0.19.2/skylark/depsets.html">0.19.2</option>
+              
+              <option value="/versions/0.19.1/skylark/depsets.html">0.19.1</option>
+              
+              <option value="/versions/0.18.1/skylark/depsets.html">0.18.1</option>
+              
+              <option value="/versions/0.17.2/skylark/depsets.html">0.17.2</option>
+              
+              <option value="/versions/0.17.1/skylark/depsets.html">0.17.1</option>
+              
+          </select>
+
+          <h1 id="depsets">Depsets</h1>
+
+<p><a href="lib/depset.html">Depsets</a> are a specialized data structure for efficiently
+collecting data across a target’s transitive dependencies. Since this use case
+concerns the <a href="concepts.html#evaluation-model">analysis phase</a>, depsets are useful
+for authors of rules and aspects, but probably not macros.</p>
+
+<p>The main feature of depsets is that they support a time- and space-efficient
+merge operation, whose cost is independent of the size of the existing contents.
+Depsets also have well-defined ordering semantics.</p>
+
+<p>Example uses of depsets include:</p>
+
+<ul>
+  <li>
+    <p>storing the paths of all object files for a program’s libraries, which can
+then be passed to a linker action</p>
+  </li>
+  <li>
+    <p>for an interpreted language, storing the transitive source files that will
+be included in an executable’s runfiles</p>
+  </li>
+</ul>
+
+<p>If you don’t need the merge operation, consider using another type, such as
+<a href="lib/list.html">list</a> or <a href="lib/dict.html">dict</a>.</p>
+
+<!-- [TOC] -->
+
+<h2 id="full-example">Full example</h2>
+
+<p>This example is avalable at
+<a href="https://github.com/bazelbuild/examples/tree/master/rules/depsets">https://github.com/bazelbuild/examples/tree/master/rules/depsets</a>.</p>
+
+<p>Suppose we have a hypothetical interpreted language Foo. In order to build each
+<code class="highlighter-rouge">foo_binary</code> we need to know all the <code class="highlighter-rouge">*.foo</code> files that it directly or indirectly
+depends on.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># //depsets:BUILD</span>
+
+<span class="n">load</span><span class="p">(</span><span class="s">":foo.bzl"</span><span class="p">,</span> <span class="s">"foo_library"</span><span class="p">,</span> <span class="s">"foo_binary"</span><span class="p">)</span>
+
+<span class="c"># Our hypothetical Foo compiler.</span>
+<span class="n">py_binary</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"foocc"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"foocc.py"</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">foo_library</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"a"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"a.foo"</span><span class="p">,</span> <span class="s">"a_impl.foo"</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">foo_library</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"b"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"b.foo"</span><span class="p">,</span> <span class="s">"b_impl.foo"</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":a"</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">foo_library</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"c"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"c.foo"</span><span class="p">,</span> <span class="s">"c_impl.foo"</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":a"</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">foo_binary</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"d"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"d.foo"</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":b"</span><span class="p">,</span> <span class="s">":c"</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># //depsets:foocc.py</span>
+
+<span class="c"># "Foo compiler" that just concatenates its inputs to form its output.</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+  <span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">"wt"</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">"rt"</span><span class="p">)</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Here, the transitive sources of the binary <code class="highlighter-rouge">d</code> are all of the <code class="highlighter-rouge">*.foo</code> files in
+the <code class="highlighter-rouge">srcs</code> fields of <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code>, <code class="highlighter-rouge">c</code>, and <code class="highlighter-rouge">d</code>. In order for the <code class="highlighter-rouge">foo_binary</code>
+target to know about any file besides <code class="highlighter-rouge">d.foo</code>, the <code class="highlighter-rouge">foo_library</code> targets need to
+pass them along in a provider. Each library receives the providers from its own
+dependencies, adds its own immediate sources, and passes on a new provider with
+the augmented contents. The <code class="highlighter-rouge">foo_binary</code> rule does the same, except that instead
+of returning a provider, it uses the complete list of sources to construct a
+command line for an action.</p>
+
+<p>Here’s a complete implementation of the <code class="highlighter-rouge">foo_library</code> and <code class="highlighter-rouge">foo_binary</code> rules.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># //depsets/foo.bzl</span>
+
+<span class="c"># A provider with one field, transitive_sources.</span>
+<span class="n">FooFiles</span> <span class="o">=</span> <span class="n">provider</span><span class="p">(</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">"transitive_sources"</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">get_transitive_srcs</span><span class="p">(</span><span class="n">srcs</span><span class="p">,</span> <span class="n">deps</span><span class="p">):</span>
+  <span class="s">"""Obtain the source files for a target and its transitive dependencies.
+
+  Args:
+    srcs: a list of source files
+    deps: a list of targets that are direct dependencies
+  Returns:
+    a collection of the transitive sources
+  """</span>
+  <span class="k">return</span> <span class="n">depset</span><span class="p">(</span>
+        <span class="n">srcs</span><span class="p">,</span>
+        <span class="n">transitive</span> <span class="o">=</span> <span class="p">[</span><span class="n">dep</span><span class="p">[</span><span class="n">FooFiles</span><span class="p">]</span><span class="o">.</span><span class="n">transitive_sources</span> <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">deps</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">_foo_library_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="n">trans_srcs</span> <span class="o">=</span> <span class="n">get_transitive_srcs</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">srcs</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">deps</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">FooFiles</span><span class="p">(</span><span class="n">transitive_sources</span><span class="o">=</span><span class="n">trans_srcs</span><span class="p">)]</span>
+
+<span class="n">foo_library</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_foo_library_impl</span><span class="p">,</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"srcs"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label_list</span><span class="p">(</span><span class="n">allow_files</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+        <span class="s">"deps"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label_list</span><span class="p">(),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_foo_binary_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+  <span class="n">foocc</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">executable</span><span class="o">.</span><span class="n">_foocc</span>
+  <span class="n">out</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out</span>
+  <span class="n">trans_srcs</span> <span class="o">=</span> <span class="n">get_transitive_srcs</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">srcs</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">deps</span><span class="p">)</span>
+  <span class="n">srcs_list</span> <span class="o">=</span> <span class="n">trans_srcs</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+  <span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">executable</span> <span class="o">=</span> <span class="n">foocc</span><span class="p">,</span>
+                  <span class="n">arguments</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="o">.</span><span class="n">path</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">src</span><span class="o">.</span><span class="n">path</span> <span class="k">for</span> <span class="n">src</span> <span class="ow">in</span> <span class="n">srcs_list</span><span class="p">],</span>
+                  <span class="n">inputs</span> <span class="o">=</span> <span class="n">srcs_list</span> <span class="o">+</span> <span class="p">[</span><span class="n">foocc</span><span class="p">],</span>
+                  <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="p">])</span>
+
+<span class="n">foo_binary</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_foo_binary_impl</span><span class="p">,</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"srcs"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label_list</span><span class="p">(</span><span class="n">allow_files</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+        <span class="s">"deps"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label_list</span><span class="p">(),</span>
+        <span class="s">"_foocc"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">Label</span><span class="p">(</span><span class="s">"//depsets:foocc"</span><span class="p">),</span>
+                             <span class="n">allow_files</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="s">"host"</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"out"</span><span class="p">:</span> <span class="s">"</span><span class="si">%</span><span class="s">{name}.out"</span><span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>You can test this by copying these files into a fresh package, renaming the
+labels appropriately, creating the source <code class="highlighter-rouge">*.foo</code> files with dummy content, and
+building the <code class="highlighter-rouge">d</code> target.</p>
+
+<h2 id="description-and-operations">Description and operations</h2>
+
+<p>Conceptually, a depset is a directed acyclic graph (DAG) that typically looks
+similar to the target graph. It is constructed from the leaves up to the root.
+Each target in a dependency chain can add its own contents on top of the
+previous without having to read or copy them.</p>
+
+<p>Each node in the DAG holds a list of direct elements and a list of child nodes.
+The contents of the depset are the transitive elements, i.e. the direct elements
+of all the nodes. A new depset can be created using the
+<a href="lib/globals.html#depset">depset</a> constructor: it accepts a list of direct
+elemens and another list of child nodes.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"d"</span><span class="p">,</span> <span class="s">"e"</span><span class="p">],</span> <span class="n">transitive</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>    <span class="c"># depset(["a", "b", "c"])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>    <span class="c"># depset(["d", "e", "a", "b", "c"])</span>
+</code></pre></div></div>
+
+<p>To retrieve the contents of a depset, use the
+<a href="lib/depset.html#to_list">to_list()</a> method. It returns a list of all transitive
+elements, not including duplicates. There is no way to directly inspect the
+precise structure of the DAG, although this structure does affect the order in
+which the elements are returned.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"c"</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>              <span class="c"># True</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span>  <span class="c"># True</span>
+</code></pre></div></div>
+
+<p>The allowed items in a depset are restricted, just as the allowed keys in
+dictionaries are restricted. In particular, depset contents may not be mutable.</p>
+
+<p>Depsets use reference equality: a depset is equal to itself, but unequal to any
+other depset, even if they have the same contents and same internal structure.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">s</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span>  <span class="c"># True</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span>  <span class="c"># False</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">d</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">d</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>  <span class="c"># 2</span>
+</code></pre></div></div>
+
+<p>To compare depsets by their contents, convert them to sorted lists.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"c"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">to_list</span><span class="p">()))</span>  <span class="c"># True</span>
+</code></pre></div></div>
+
+<p>There is no ability to remove elements from a depset. If this is needed, you
+must read out the entire contents of the depset, filter the elements you want to
+remove, and reconstruct a new depset. This is not particularly efficient.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span>
+
+<span class="c"># Compute set difference s - t. Precompute t.to_list() so it's not done</span>
+<span class="c"># in a loop, and convert it to a dictionary for fast membership tests.</span>
+<span class="n">t_items</span> <span class="o">=</span> <span class="p">{</span><span class="n">e</span><span class="p">:</span> <span class="bp">None</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">to_list</span><span class="p">()}</span>
+<span class="n">diff_items</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">t_items</span><span class="p">]</span>
+<span class="c"># Convert back to depset if it's still going to be used for merge operations.</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">depset</span><span class="p">(</span><span class="n">diff_items</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c"># depset(["a"])</span>
+</code></pre></div></div>
+
+<h2 id="order">Order</h2>
+
+<p>The <code class="highlighter-rouge">to_list</code> operation performs a traversal over the DAG. The kind of traversal
+depends on the <em>order</em> that was specified at the time the depset was
+constructed. It is useful for Bazel to support multiple orders because sometimes
+tools care about the order of their inputs. For example, a linker action may
+need to ensure that if <code class="highlighter-rouge">B</code> depends on <code class="highlighter-rouge">A</code>, then <code class="highlighter-rouge">A.o</code> comes before <code class="highlighter-rouge">B.o</code> on the
+linker’s command line. Other tools might have the opposite requirement.</p>
+
+<p>Three traversal orders are supported: <code class="highlighter-rouge">postorder</code>, <code class="highlighter-rouge">preorder</code>, and
+<code class="highlighter-rouge">topological</code>. The first two work exactly like <a href="https://en.wikipedia.org/wiki/Tree_traversal#Depth-first_search">tree
+traversals</a>
+except that they operate on DAGs and skip already visited nodes. The third order
+works as a topological sort from root to leaves, essentially the same as
+preorder except that shared children are listed only after all of their parents.
+Preorder and postorder operate as left-to-right traversals, but note that within
+each node direct elements have no order relative to children. For topological
+order, there is no left-to-right guarantee, and even the
+all-parents-before-child guarantee does not apply in the case that there are
+duplicate elements in different nodes of the DAG.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># This demonstrates different traversal orders.</span>
+
+<span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">order</span><span class="p">):</span>
+  <span class="n">cd</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"c"</span><span class="p">,</span> <span class="s">"d"</span><span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="n">order</span><span class="p">)</span>
+  <span class="n">gh</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"g"</span><span class="p">,</span> <span class="s">"h"</span><span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="n">order</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">depset</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"e"</span><span class="p">,</span> <span class="s">"f"</span><span class="p">],</span> <span class="n">transitive</span> <span class="o">=</span> <span class="p">[</span><span class="n">cd</span><span class="p">,</span> <span class="n">gh</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">create</span><span class="p">(</span><span class="s">"postorder"</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>  <span class="c"># ["c", "d", "g", "h", "a", "b", "e", "f"]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">create</span><span class="p">(</span><span class="s">"preorder"</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>   <span class="c"># ["a", "b", "e", "f", "c", "d", "g", "h"]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># This demonstrates different orders on a diamond graph.</span>
+
+<span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">order</span><span class="p">):</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"a"</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"b"</span><span class="p">],</span> <span class="n">transitive</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="n">order</span><span class="p">)</span>
+  <span class="n">c</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"c"</span><span class="p">],</span> <span class="n">transitive</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="n">order</span><span class="p">)</span>
+  <span class="n">d</span> <span class="o">=</span> <span class="n">depset</span><span class="p">([</span><span class="s">"d"</span><span class="p">],</span> <span class="n">transtive</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="n">order</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">d</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">create</span><span class="p">(</span><span class="s">"postorder"</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>    <span class="c"># ["a", "b", "c", "d"]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">create</span><span class="p">(</span><span class="s">"preorder"</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>     <span class="c"># ["d", "b", "a", "c"]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">create</span><span class="p">(</span><span class="s">"topological"</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>  <span class="c"># ["d", "b", "c", "a"]</span>
+</code></pre></div></div>
+
+<p>Due to how traversals are implemented, the order must be specified at the time
+the depset is created with the constructor’s <code class="highlighter-rouge">order</code> keyword argument. If this
+argument is omitted, the depset has the special <code class="highlighter-rouge">default</code> order, in which case
+there are no guarantees about the order of any of its elements (except that it
+is deterministic).</p>
+
+<p>For safety, depsets with different orders cannot be merged with the <code class="highlighter-rouge">+</code> operator
+unless one of them uses the default order; the resulting depset’s order is the
+same as the left operand. Note that when two depsets of different order are
+merged in this way, the child may appear to have had its elements rearranged
+when it is traversed via the parent. <strong>The <code class="highlighter-rouge">+</code> operator is deprecated, anyway;
+use the <code class="highlighter-rouge">transitive</code> argument instead.</strong></p>
+
+<h2 id="performance">Performance</h2>
+
+<p>To see the motivation for using depsets, consider what would have happened if we
+had implemented <code class="highlighter-rouge">get_transitive_srcs()</code> without them. A naive way of writing
+this function would be to collect the sources in a list.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_transitive_srcs</span><span class="p">(</span><span class="n">srcs</span><span class="p">,</span> <span class="n">deps</span><span class="p">):</span>
+  <span class="n">trans_srcs</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">deps</span><span class="p">:</span>
+    <span class="n">trans_srcs</span> <span class="o">+=</span> <span class="n">dep</span><span class="p">[</span><span class="n">FooFiles</span><span class="p">]</span><span class="o">.</span><span class="n">transitive_sources</span>
+  <span class="n">trans_srcs</span> <span class="o">+=</span> <span class="n">srcs</span>
+  <span class="k">return</span> <span class="n">trans_srcs</span>
+</code></pre></div></div>
+
+<p>However, this does not take into account duplicates, so the source files for <code class="highlighter-rouge">a</code>
+will appear twice on the command line and twice in the contents of the output
+file.</p>
+
+<p>The next alternative is using a general set, which can be simulated by a
+dictionary where the keys are the elements and all the keys map to <code class="highlighter-rouge">True</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_transitive_srcs</span><span class="p">(</span><span class="n">srcs</span><span class="p">,</span> <span class="n">deps</span><span class="p">):</span>
+  <span class="n">trans_srcs</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">deps</span><span class="p">:</span>
+    <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">dep</span><span class="p">[</span><span class="n">FooFiles</span><span class="p">]</span><span class="o">.</span><span class="n">transitive_sources</span><span class="p">:</span>
+      <span class="n">trans_srcs</span><span class="p">[</span><span class="nb">file</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+  <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">srcs</span><span class="p">:</span>
+    <span class="n">trans_srcs</span><span class="p">[</span><span class="nb">file</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+  <span class="k">return</span> <span class="n">trans_srcs</span>
+</code></pre></div></div>
+
+<p>This gets rid of the duplicates, but it makes the order of the command line
+arguments (and therefore the contents of the files) unspecified, although still
+deterministic.</p>
+
+<p>Moreover, both this approach and the list-based one are asymptotically worse
+than the depset-based approach. Consider the case where there is a long chain of
+dependencies on Foo libraries. Processing every rule requires copying all of the
+transitive sources that came before it into a new data structure. This means
+that the time and space cost for analyzing an individual library or binary
+target is proportional to its own height in the chain. For a chain of length n,
+foolib_1 ← foolib_2 ← … ← foolib_n, the overall cost is effectively the
+<a href="https://en.wikipedia.org/wiki/Triangular_number">triangle sum</a> 1 + 2 + … + n,
+which is O(n^2). This cost is wasteful because the library rule’s behavior is
+not actually affected by the transitive sources.</p>
+
+<p>Generally speaking, depsets should be used whenever you are accumulating more
+and more information through your transitive dependencies. This helps ensure
+that your build scales well as your target graph grows deeper. The exact
+advantage will depend on how deep the target graph is and how many elements per
+target are added.</p>
+
+<p>To actually get the performance advantage, it’s important to not retrieve the
+contents of the depset unnecessarily in library rules. One call to <code class="highlighter-rouge">to_list()</code>
+at the end in a binary rule is fine, since the overall cost is just O(n). It’s
+when many non-terminal targets try to call <code class="highlighter-rouge">to_list()</code> that we start to get into
+quadratic behavior.</p>
+
+<h2 id="upcoming-changes">Upcoming changes</h2>
+
+<p>The API for depsets is being updated to be more consistent. Here are some recent
+and/or upcoming changes.</p>
+
+<ul>
+  <li>
+    <p>When it’s necessary to retrieve a depset’s contents, this should be done by
+explicitly converting the depset to a list via its <code class="highlighter-rouge">to_list()</code> method. Do
+not iterate directly over the depset itself; direct iteration is deprecated
+and will be removed. For example, don’t use <code class="highlighter-rouge">list(...)</code>, <code class="highlighter-rouge">sorted(...)</code>, or
+other functions expecting an iterable, on depsets. The rationale of this
+change is that iterating over depsets is generally expensive, and expensive
+operations should be made obvious in code.</p>
+  </li>
+  <li>
+    <p>Depset elements currently must have the same type, e.g. all ints or all
+strings. This restriction will be lifted.</p>
+  </li>
+  <li>
+    <p>A merge operation should be done by using the <code class="highlighter-rouge">transitive</code> argument in the
+depset constructor. All other methods (<code class="highlighter-rouge">|</code> and <code class="highlighter-rouge">+</code> operators, and the
+<code class="highlighter-rouge">union</code> method) are deprecated and will be going away.</p>
+  </li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2018 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+
