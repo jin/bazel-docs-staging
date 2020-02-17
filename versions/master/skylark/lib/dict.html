@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>dict - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>dict - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/lib/dict.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/dict.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,69 +302,60 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <a href="../concepts.html">Extensions</a> &gt;
+<a href="skylark-overview.html">API reference</a> &gt;
+dict
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
+<h1 id="modules.dict">dict</h1>
 
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/lib/dict.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/lib/dict.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/lib/dict.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/lib/dict.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/lib/dict.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/lib/dict.html">0.17.1</option>
-              
-          </select>
-
-          <h1 id="modules.dict">dict</h1>
-
-A language built-in type representating a dictionary (associative mapping). Dictionaries may be constructed with a special literal syntax:<br><pre class="language-python">d = {"a": 2, "b": 5}</pre>See also the <a href="globals.html#dict">dict()</a> constructor function. When using the literal syntax, it is an error to have duplicated keys. Use square brackets to access elements:<br><pre class="language-python">e = d["a"]   # e == 2</pre>Like lists, they can also be constructed using a comprehension syntax:<br><pre class="language-python">d = {i: 2*i for i in range(20)}
-e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements or mutate existing ones:<pre class="language-python">d["key"] = 5</pre><p>Iterating over a dict is equivalent to iterating over its keys. The <code>in</code> operator tests for membership in the keyset of the dict.<br><pre class="language-python">"a" in {"a" : 2, "b" : 5} # evaluates as True</pre>The iteration order for a dict is deterministic and specified as the order in which the keys have been added to the dict. The iteration order is not affected if a value associated with an existing key is updated.
+A language built-in type representing a dictionary (associative mapping). Dictionaries are mutable, indexable, ordered, iterable (equivalent to iterating over its keys), and support fast membership tests of keys using the <code>in</code> operator. The order of the keys is the order of their most recent insertion: it is unaffected by updating the value associated with an existing key, but is affected by removing then reinserting a key.</p>
+<pre>d = {0: 0, 2: 2, 1: 1}
+[k for k in d]  # [0, 2, 1]
+d.pop(2)
+d[0], d[2] = "a", "b"
+0 in d, "a" in d  # (True, False)
+[(k, v) for k, v in d.items()]  # [(0, "a"), (1, 1), (2, "b")]
+</pre>
+<p>There are 3 ways to construct a dictionary, each with a different treatment of duplicate keys:</p>
+<p>The dict literal expression will result in a dynamic error if duplicate keys are given, regardless of whether the keys are themselves given as literals. The keys' insertion order is the order in which they are given in the expression.</p>
+<p>In the dict comprehension, key/value pairs yielded by the generator expression is set in the dictionary in the order yielded: the first occurrence of the key determines its insertion order, and the last determines the value associated to it.</p>
+<pre class="language-python">
+{k: v for k, v in (("a", 0), ("b", 1), ("a", 2))}  # {"a": 2, "b": 1}
+{i: 2*i for i in range(3)}  # {0: 0, 1: 2, 2: 4}
+</pre>
+<p>The <a href="globals.html#dict">dict()</a> global function is documented elsewhere.<p>
 
 <div class="toc">
-  <h2>Methods</h2>
+  <h2>Members</h2>
   <ul>
-          <li><a href="#clear">clear</a></li>
-              <li><a href="#get">get</a></li>
-              <li><a href="#items">items</a></li>
-              <li><a href="#keys">keys</a></li>
-              <li><a href="#pop">pop</a></li>
-              <li><a href="#popitem">popitem</a></li>
-              <li><a href="#setdefault">setdefault</a></li>
-              <li><a href="#update">update</a></li>
-              <li><a href="#values">values</a></li>
+          <li>
+      <a href="#clear">clear</a>
+          </li>
+              <li>
+      <a href="#get">get</a>
+          </li>
+              <li>
+      <a href="#items">items</a>
+          </li>
+              <li>
+      <a href="#keys">keys</a>
+          </li>
+              <li>
+      <a href="#pop">pop</a>
+          </li>
+              <li>
+      <a href="#popitem">popitem</a>
+          </li>
+              <li>
+      <a href="#setdefault">setdefault</a>
+          </li>
+              <li>
+      <a href="#update">update</a>
+          </li>
+              <li>
+      <a href="#values">values</a>
+          </li>
         </ul>
 </div>
 
@@ -394,7 +370,7 @@ e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements
 
     Returns the value for <code>key</code> if <code>key</code> is in the dictionary, else <code>default</code>. If <code>default</code> is not given, it defaults to <code>None</code>, so that this method never throws an error.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -444,9 +420,9 @@ e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements
         <h2 id="pop">pop</h2>
         <p><pre class="rule-signature">unknown dict.pop(key, default=unbound)</pre></p>
 
-    Removes a <code>key</code> from the dict, and returns the associated value. If entry with that key was found, return the specified <code>default</code> value;if no default value was specified, fail instead.
+    Removes a <code>key</code> from the dict, and returns the associated value. If no entry with that key was found, remove nothing and return the specified <code>default</code> value; if no default value was specified, fail instead.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -479,7 +455,7 @@ e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements
       </table>
 
         <h2 id="popitem">popitem</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">tuple</a> dict.popitem()</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="tuple.html">tuple</a> dict.popitem()</pre></p>
 
     Remove and return an arbitrary <code>(key, value)</code> pair from the dictionary. <code>popitem()</code> is useful to destructively iterate over a dictionary, as often used in set algorithms. If the dictionary is empty, calling <code>popitem()</code> fails. It is deterministic which pair is returned.
 
@@ -489,7 +465,7 @@ e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements
 
     If <code>key</code> is in the dictionary, return its value. If not, insert key with a value of <code>default</code> and return <code>default</code>. <code>default</code> defaults to <code>None</code>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -522,11 +498,13 @@ e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements
       </table>
 
         <h2 id="update">update</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> dict.update(other)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> dict.update(args=[], **kwargs)</pre></p>
 
-    Update the dictionary with the key/value pairs from other, overwriting existing keys.
+    Update the dictionary with an optional positional argument <code>[pairs]</code>  and an optional set of keyword arguments <code>[, name=value[, ...]</code>
+If the positional argument <code>pairs</code> is present, it must be <code>None</code>, another <code>dict</code>, or some other iterable. If it is another <code>dict</code>, then its key/value pairs are inserted. If it is an iterable, it must provide a sequence of pairs (or other iterables of length 2), each of which is treated as a key/value pair to be inserted.
+For each <code>name=value</code> argument present, the name is converted to a string and used as the key for an insertion into D, with its corresponding value being <code>value</code>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -540,12 +518,19 @@ e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements
         </thead>
         <tbody>
                   <tr>
-            <td id="update.other">
-              <code>other</code>
+            <td id="update.args">
+              <code>args</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
-                          <p>The values to add.</p>
+                          <p>Either a dictionary or a list of entries. Entries must be tuples or lists with exactly two elements: key, value.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="update.kwargs">
+              <code>kwargs</code>
+            </td>
+            <td>
+                          <p>Dictionary of additional entries.</p>
             </td>
           </tr>
                 </tbody>
@@ -561,11 +546,58 @@ e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements
 
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: dict&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/dict.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#clear">clear</a></li>
+<li class="toc-entry toc-h2"><a href="#get">get</a></li>
+<li class="toc-entry toc-h2"><a href="#items">items</a></li>
+<li class="toc-entry toc-h2"><a href="#keys">keys</a></li>
+<li class="toc-entry toc-h2"><a href="#pop">pop</a></li>
+<li class="toc-entry toc-h2"><a href="#popitem">popitem</a></li>
+<li class="toc-entry toc-h2"><a href="#setdefault">setdefault</a></li>
+<li class="toc-entry toc-h2"><a href="#update">update</a></li>
+<li class="toc-entry toc-h2"><a href="#values">values</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -602,7 +634,7 @@ e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

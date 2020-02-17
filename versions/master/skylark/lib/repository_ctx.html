@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>repository_ctx - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>repository_ctx - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/lib/repository_ctx.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/repository_ctx.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,71 +302,66 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <a href="../concepts.html">Extensions</a> &gt;
+<a href="skylark-overview.html">API reference</a> &gt;
+repository_ctx
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/lib/repository_ctx.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/lib/repository_ctx.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/lib/repository_ctx.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/lib/repository_ctx.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/lib/repository_ctx.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/lib/repository_ctx.html">0.17.1</option>
-              
-          </select>
-
-          <h1 id="modules.repository_ctx">repository_ctx</h1>
+<h1 id="modules.repository_ctx">repository_ctx</h1>
 
 The context of the repository rule containing helper functions and information about attributes. You get a repository_ctx object as an argument to the <code>implementation</code> function when you create a repository rule.
 
 <div class="toc">
-  <h2>Methods</h2>
+  <h2>Members</h2>
   <ul>
-          <li><a href="#attr">attr</a></li>
-              <li><a href="#download">download</a></li>
-              <li><a href="#download_and_extract">download_and_extract</a></li>
-              <li><a href="#execute">execute</a></li>
-              <li><a href="#file">file</a></li>
-              <li><a href="#name">name</a></li>
-              <li><a href="#os">os</a></li>
-              <li><a href="#path">path</a></li>
-              <li><a href="#report_progress">report_progress</a></li>
-              <li><a href="#symlink">symlink</a></li>
-              <li><a href="#template">template</a></li>
-              <li><a href="#which">which</a></li>
+          <li>
+      <a href="#attr">attr</a>
+          </li>
+              <li>
+      <a href="#delete">delete</a>
+          </li>
+              <li>
+      <a href="#download">download</a>
+          </li>
+              <li>
+      <a href="#download_and_extract">download_and_extract</a>
+          </li>
+              <li>
+      <a href="#execute">execute</a>
+          </li>
+              <li>
+      <a href="#extract">extract</a>
+          </li>
+              <li>
+      <a href="#file">file</a>
+          </li>
+              <li>
+      <a href="#name">name</a>
+          </li>
+              <li>
+      <a href="#os">os</a>
+          </li>
+              <li>
+      <a href="#patch">patch</a>
+          </li>
+              <li>
+      <a href="#path">path</a>
+          </li>
+              <li>
+      <a href="#read">read</a>
+          </li>
+              <li>
+      <a href="#report_progress">report_progress</a>
+          </li>
+              <li>
+      <a href="#symlink">symlink</a>
+          </li>
+              <li>
+      <a href="#template">template</a>
+          </li>
+              <li>
+      <a href="#which">which</a>
+          </li>
         </ul>
 </div>
 
@@ -391,12 +371,42 @@ The context of the repository rule containing helper functions and information a
     A struct to access the values of the attributes. The values are provided by the user (if not, a default value is used).
 
 
+        <h2 id="delete">delete</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> repository_ctx.delete(path)</pre></p>
+
+    Deletes a file or a directory. Returns a bool, indicating whether the file or directory was actually deleted by this call.
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="delete.path">
+              <code>path</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="path.html">path</a></code></p>
+                          <p>Path of the file to delete, relative to the repository directory, or absolute. Can be a path or a string.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
         <h2 id="download">download</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> repository_ctx.download(url, output='', sha256='', executable=False)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> repository_ctx.download(url, output='', sha256='', executable=False, allow_fail=False, canonical_id='', auth={}, *, integrity='')</pre></p>
 
-    Download a file to the output path for the provided url and return the hash of the file.
+    Downloads a file to the output path for the provided url and returns a struct containing a hash of the file with the fields <code>sha256</code> and <code>integrity</code>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -445,15 +455,51 @@ The context of the repository rule containing helper functions and information a
                           <p>set the executable flag on the created file, false by default.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="download.allow_fail">
+              <code>allow_fail</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>If set, indicate the error in the return value instead of raising an error for failed downloads</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="download.canonical_id">
+              <code>canonical_id</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>If set, restrict cache hits to those cases where the file was added to the cache with the same canonical id</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="download.auth">
+              <code>auth</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>An optional dict specifying authentication information for some of the URLs.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="download.integrity">
+              <code>integrity</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>Expected checksum of the file downloaded, in Subresource Integrity format. This must match the checksum of the file downloaded. It is a security risk to omit the checksum as remote files can change. At best omitting this field will make your build non-hermetic. It is optional to make development easier but should be set before shipping.</p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
         <h2 id="download_and_extract">download_and_extract</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> repository_ctx.download_and_extract(url, output='', sha256='', type='', stripPrefix='')</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> repository_ctx.download_and_extract(url, output='', sha256='', type='', stripPrefix='', allow_fail=False, canonical_id='', auth={}, *, integrity='')</pre></p>
 
-    Download a file to the output path for the provided url, extract it, and return the hash of the downloaded file.
+    Downloads a file to the output path for the provided url, extracts it, and returns a struct containing a hash of the downloaded file with the fields <code>sha256</code> and <code>integrity</code>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -490,7 +536,7 @@ The context of the repository rule containing helper functions and information a
             </td>
             <td>
                           <p><code><a class="anchor" href="string.html">string</a></code></p>
-                          <p>the expected SHA-256 hash of the file downloaded. This must match the SHA-256 hash of the file downloaded. It is a security risk to omit the SHA-256 as remote files can change. At best omitting this field will make your build non-hermetic. It is optional to make development easier but should be set before shipping. If provided, the repository cache will first be checked for a file with the given hash; a download will only be attempted, if the file was not found in the cache. After a successful download, the file will be added to the cache.</p>
+                          <p>the expected SHA-256 hash of the file downloaded. This must match the SHA-256 hash of the file downloaded. It is a security risk to omit the SHA-256 as remote files can change. At best omitting this field will make your build non-hermetic. It is optional to make development easier but should be set before shipping. If provided, the repository cache will first be checked for a file with the given hash; a download will only be attempted if the file was not found in the cache. After a successful download, the file will be added to the cache.</p>
             </td>
           </tr>
                   <tr>
@@ -512,15 +558,51 @@ The context of the repository rule containing helper functions and information a
 Many archives contain a top-level directory that contains all files in the archive. Instead of needing to specify this prefix over and over in the <code>build_file</code>, this field can be used to strip it from extracted files.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="download_and_extract.allow_fail">
+              <code>allow_fail</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>If set, indicate the error in the return value instead of raising an error for failed downloads</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="download_and_extract.canonical_id">
+              <code>canonical_id</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>If set, restrict cache hits to those cases where the file was added to the cache with the same canonical id</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="download_and_extract.auth">
+              <code>auth</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>An optional dict specifying authentication information for some of the URLs.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="download_and_extract.integrity">
+              <code>integrity</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>Expected checksum of the file downloaded, in Subresource Integrity format. This must match the checksum of the file downloaded. It is a security risk to omit the checksum as remote files can change. At best omitting this field will make your build non-hermetic. It is optional to make development easier but should be set before shipping.</p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
         <h2 id="execute">execute</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="exec_result.html">exec_result</a> repository_ctx.execute(arguments, timeout=600, environment={}, quiet=True)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="exec_result.html">exec_result</a> repository_ctx.execute(arguments, timeout=600, environment={}, quiet=True, working_directory="")</pre></p>
 
     Executes the command given by the list of arguments. The execution time of the command is limited by <code>timeout</code> (in seconds, default 600 seconds). This method returns an <code>exec_result</code> structure containing the output of the command. The <code>environment</code> map can be used to override some environment variables to be passed to the process.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -569,15 +651,74 @@ Many archives contain a top-level directory that contains all files in the archi
                           <p>If stdout and stderr should be printed to the terminal.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="execute.working_directory">
+              <code>working_directory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>Working directory for command execution.
+Can be relative to the repository root or absolute.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="extract">extract</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> repository_ctx.extract(archive, output='', stripPrefix='')</pre></p>
+
+    Extract an archive to the repository directory.
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="extract.archive">
+              <code>archive</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="Label.html">Label</a>; or <a class="anchor" href="path.html">path</a></code></p>
+                          <p>path to the archive that will be unpacked, relative to the repository directory.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="extract.output">
+              <code>output</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="Label.html">Label</a>; or <a class="anchor" href="path.html">path</a></code></p>
+                          <p>path to the directory where the archive will be unpacked, relative to the repository directory.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="extract.stripPrefix">
+              <code>stripPrefix</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a directory prefix to strip from the extracted files.
+Many archives contain a top-level directory that contains all files in the archive. Instead of needing to specify this prefix over and over in the <code>build_file</code>, this field can be used to strip it from extracted files.</p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
         <h2 id="file">file</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> repository_ctx.file(path, content='', executable=True)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> repository_ctx.file(path, content='', executable=True, legacy_utf8=True)</pre></p>
 
-    Generate a file in the repository directory with the provided content.
+    Generates a file in the repository directory with the provided content.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -617,6 +758,15 @@ Many archives contain a top-level directory that contains all files in the archi
                           <p>set the executable flag on the created file, true by default.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="file.legacy_utf8">
+              <code>legacy_utf8</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>encode file content to UTF-8, true by default. Future versions will change the default and remove this parameter.</p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
@@ -632,12 +782,51 @@ Many archives contain a top-level directory that contains all files in the archi
     A struct to access information from the system.
 
 
+        <h2 id="patch">patch</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> repository_ctx.patch(patch_file, strip=0)</pre></p>
+
+    Apply a patch file to the root directory of external repository. The patch file should be a standard <a href="https://en.wikipedia.org/wiki/Diff#Unified_format">unified diff format</a> file. The Bazel-native patch implementation doesn't support fuzz match and binary patch like the patch command line tool.
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="patch.patch_file">
+              <code>patch_file</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="Label.html">Label</a>; or <a class="anchor" href="path.html">path</a></code></p>
+                          <p>The patch file to apply, it can be label, relative path or absolute path. If it's a relative path, it will resolve to the repository directory.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="patch.strip">
+              <code>strip</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="int.html">int</a></code></p>
+                          <p>strip the specified number of leading components from file names.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
         <h2 id="path">path</h2>
         <p><pre class="rule-signature"><a class="anchor" href="path.html">path</a> repository_ctx.path(path)</pre></p>
 
     Returns a path from a string, label or path. If the path is relative, it will resolve relative to the repository directory. If the path is a label, it will resolve to the path of the corresponding file. Note that remote repositories are executed during the analysis phase and thus cannot depends on a target result (the label should point to a non-generated file). If path is a path, it will return that path as is.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -662,12 +851,42 @@ Many archives contain a top-level directory that contains all files in the archi
                 </tbody>
       </table>
 
+        <h2 id="read">read</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> repository_ctx.read(path)</pre></p>
+
+    Reads the content of a file on the filesystem.
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="read.path">
+              <code>path</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="Label.html">Label</a>; or <a class="anchor" href="path.html">path</a></code></p>
+                          <p>path of the file to read from.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
         <h2 id="report_progress">report_progress</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> repository_ctx.report_progress(status)</pre></p>
 
-    Update the progress status for the fetching of this repository
+    Updates the progress status for the fetching of this repository
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -695,9 +914,9 @@ Many archives contain a top-level directory that contains all files in the archi
         <h2 id="symlink">symlink</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> repository_ctx.symlink(from, to)</pre></p>
 
-    Create a symlink on the filesystem.
+    Creates a symlink on the filesystem.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -734,9 +953,9 @@ Many archives contain a top-level directory that contains all files in the archi
         <h2 id="template">template</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> repository_ctx.template(path, template, substitutions={}, executable=True)</pre></p>
 
-    Generate a new file using a <code>template</code>. Every occurrence in <code>template</code> of a key of <code>substitutions</code> will be replaced by the corresponding value. The result is written in <code>path</code>. An optional<code>executable</code> argument (default to true) can be set to turn on or offthe executable bit.
+    Generates a new file using a <code>template</code>. Every occurrence in <code>template</code> of a key of <code>substitutions</code> will be replaced by the corresponding value. The result is written in <code>path</code>. An optional<code>executable</code> argument (default to true) can be set to turn on or offthe executable bit.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -793,7 +1012,7 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Returns the path of the corresponding program or None if there is no such program in the path.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -822,11 +1041,65 @@ Many archives contain a top-level directory that contains all files in the archi
 
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: repository_ctx&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/repository_ctx.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#attr">attr</a></li>
+<li class="toc-entry toc-h2"><a href="#delete">delete</a></li>
+<li class="toc-entry toc-h2"><a href="#download">download</a></li>
+<li class="toc-entry toc-h2"><a href="#download_and_extract">download_and_extract</a></li>
+<li class="toc-entry toc-h2"><a href="#execute">execute</a></li>
+<li class="toc-entry toc-h2"><a href="#extract">extract</a></li>
+<li class="toc-entry toc-h2"><a href="#file">file</a></li>
+<li class="toc-entry toc-h2"><a href="#name">name</a></li>
+<li class="toc-entry toc-h2"><a href="#os">os</a></li>
+<li class="toc-entry toc-h2"><a href="#patch">patch</a></li>
+<li class="toc-entry toc-h2"><a href="#path">path</a></li>
+<li class="toc-entry toc-h2"><a href="#read">read</a></li>
+<li class="toc-entry toc-h2"><a href="#report_progress">report_progress</a></li>
+<li class="toc-entry toc-h2"><a href="#symlink">symlink</a></li>
+<li class="toc-entry toc-h2"><a href="#template">template</a></li>
+<li class="toc-entry toc-h2"><a href="#which">which</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -863,7 +1136,7 @@ Many archives contain a top-level directory that contains all files in the archi
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

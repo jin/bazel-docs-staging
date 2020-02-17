@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Configuring Bazel CI for Testing Rules Against Remote Execution - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Configuring Bazel CI for Testing Rules Against Remote Execution - Bazel </title>
 
     <link rel="canonical" href="/versions/master/remote-execution-ci.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/remote-execution-ci.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/remote-execution-ci.html">master</option>
-              
-              <option value="/versions/0.19.2/remote-execution-ci.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/remote-execution-ci.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/remote-execution-ci.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/remote-execution-ci.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/remote-execution-ci.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="configuring-bazel-ci-to-test-bazel-rules-for-remote-execution">Configuring Bazel CI to Test Bazel Rules for Remote Execution</h1>
 
 <ul>
@@ -414,8 +354,19 @@ repositories.</p>
   <li>
     <p>Add the<a href="https://github.com/bazelbuild/bazel-toolchains"><code class="highlighter-rouge">bazel-toolchains</code></a>
 GitHub repository to your <code class="highlighter-rouge">WORKSPACE</code> file, pinned to the
-<a href="https://releases.bazel.build/bazel-toolchains.html">latest release</a>.</p>
+<a href="https://releases.bazel.build/bazel-toolchains.html">latest release</a>. Also
+add an <code class="highlighter-rouge">rbe_autoconfig</code> target with name <code class="highlighter-rouge">buildkite_config</code>:</p>
   </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>load("@bazel_toolchains//rules:rbe_repo.bzl", "rbe_autoconfig")
+
+# Creates toolchain configuration for remote execution with BuildKite CI
+# for rbe_ubuntu1604.
+rbe_autoconfig(name = "buildkite_config")
+</code></pre></div></div>
+
+<ol>
   <li>
     <p>Send a pull request with your changes to the <code class="highlighter-rouge">presubmit.yml</code> file. (See
 <a href="https://github.com/bazelbuild/rules_rust/commit/db141526d89d00748404856524cedd7db8939c35">example pull request</a>.)</p>
@@ -457,8 +408,8 @@ container and include those tools as described later in this document.</p>
   <li>
     <p><strong>Build or test targets are using rules that are incompatible with remote
 execution.</strong> See
-<a href="https://docs.bazel.build/versions/master/remote-execution-rules.html">Adapting Bazel Rules for Remote Execution</a>
-for details about compatibility wtih remote execution.</p>
+<a href="remote-execution-rules.html">Adapting Bazel Rules for Remote Execution</a> for
+details about compatibility with remote execution.</p>
   </li>
 </ul>
 
@@ -591,46 +542,71 @@ accessible as explained in
 
 <h3 id="specifying-the-build-platform-definition">Specifying the build platform definition</h3>
 
-<p>You must include a
-<a href="https://docs.bazel.build/versions/master/platforms.html">Bazel platform</a>
-configuration in your custom toolchain configuration, which allows Bazel to
-select a toolchain appropriate to the desired hardware/software platform. See
-this <a href="https://github.com/tensorflow/tensorflow/blob/master/third_party/toolchains/BUILD">example platform configuration</a>
-for the TensorFlow <code class="highlighter-rouge">ubuntu16-04</code> container.</p>
+<p>You must include a <a href="platforms.html">Bazel platform</a> configuration in your
+custom toolchain configuration, which allows Bazel to select a toolchain
+appropriate to the desired hardware/software platform. To generate
+automatically a valid platform, you can add  to your <code class="highlighter-rouge">WORKSPACE</code> an
+<code class="highlighter-rouge">rbe_autoconfig</code> target with name <code class="highlighter-rouge">buildkite_config</code> which includes additional
+attrs to select your custom container. For details on this setup please read
+the up-to-date documentation for <a href="https://github.com/bazelbuild/bazel-toolchains/blob/master/rules/rbe_repo.bzl"><code class="highlighter-rouge">rbe_autoconfig</code></a></p>
 
-<p>Create a similar configuration (that is, using the same constraints) but replace
-the value of the <code class="highlighter-rouge">container-image</code> property with the name of your custom
-container, as well as your GCR project ID and container image checksum. For
-example:</p>
+        </div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker://gcr.io/&lt;project-id&gt;/&lt;custom-container-name&gt; @sha256:&lt;sha256sum&gt;
-</code></pre></div></div>
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Configuring Bazel CI for Testing Rules Against Remote Execution&body=Documentation URL: https://docs.bazel.build/versions/master/remote-execution-ci.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
 
-<p>Once you have created a <code class="highlighter-rouge">BUILD</code> file with the platform rule, place it within
-your project tree. For example, <code class="highlighter-rouge">/platforms/BUILD</code>.</p>
-
-<h3 id="configuring-buildkite">Configuring Buildkite</h3>
-
-<p>Add the appropriate <code class="highlighter-rouge">build_flag</code> and <code class="highlighter-rouge">test_flag</code> entries to the
-<code class="highlighter-rouge">.bazelci/presubmit.yml</code> file in your <code class="highlighter-rouge">rbe_ubuntu1604 </code>config to switch your
-builds to using your custom container.
-See <a href="https://github.com/bazelbuild/rules_docker/pull/484">example</a>.</p>
-
-<p><strong>Note:</strong> The example linked above uses a platform definition from the
-<code class="highlighter-rouge">@bazel_toolchains</code> repo. If your platform rule is in <code class="highlighter-rouge">/platforms/BUILD</code>, the
-entries would look as follows:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"--extra_execution_platforms=//platforms:&lt;your_platform_target&gt;"
-"--host_platform=//platforms:&lt;your_platform_target&gt;"
-"--platforms=//platforms:&lt;your_platform_target&gt;"
-</code></pre></div></div>
-
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#prerequisites">Prerequisites</a></li>
+<li class="toc-entry toc-h2"><a href="#setting-up-the-bazel-ci-for-testing">Setting up the Bazel CI for testing</a></li>
+<li class="toc-entry toc-h2"><a href="#troubleshooting-failed-builds-and-tests">Troubleshooting failed builds and tests</a></li>
+<li class="toc-entry toc-h2"><a href="#using-a-custom-container-in-the-rbe_ubuntu1604-ci-config">Using a custom container in the rbe_ubuntu1604 CI config</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#pulling-the-rbe-ubuntu16-04-from-container-registry">Pulling the rbe-ubuntu16-04 from Container Registry</a></li>
+<li class="toc-entry toc-h3"><a href="#building-the-rbe-ubuntu16-04-container-from-source">Building the rbe-ubuntu16-04 container from source</a></li>
+<li class="toc-entry toc-h3"><a href="#running-the-custom-container">Running the custom container</a></li>
+<li class="toc-entry toc-h3"><a href="#adding-resources-to-the-custom-container">Adding resources to the custom container</a></li>
+<li class="toc-entry toc-h3"><a href="#pushing-the-custom-container-to-container-registry">Pushing the custom container to Container Registry</a></li>
+<li class="toc-entry toc-h3"><a href="#specifying-the-build-platform-definition">Specifying the build platform definition</a></li>
+</ul>
+</li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -667,7 +643,7 @@ entries would look as follows:</p>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

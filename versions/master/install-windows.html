@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Installing Bazel on Windows - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Installing Bazel on Windows - Bazel </title>
 
     <link rel="canonical" href="/versions/master/install-windows.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/install-windows.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,117 +302,302 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <h1 id="installing-bazel-on-windows">Installing Bazel on Windows</h1>
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
+<h2 id="1-check-your-system">1. Check your system</h2>
 
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/install-windows.html">master</option>
-              
-              <option value="/versions/0.19.2/install-windows.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/install-windows.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/install-windows.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/install-windows.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/install-windows.html">0.17.1</option>
-              
-          </select>
+<p>Recommended: 64 bit Windows 10, version 1703 (Creators Update) or newer, enable “Developer Mode”.</p>
 
-          <h1 id="installing-bazel-on-windows"><a name="windows"></a>Installing Bazel on Windows</h1>
+<!-- Developer mode: for symlink support. -->
 
-<h3 id="prerequisites">Prerequisites</h3>
+<p>Also supported:</p>
 
 <ul>
   <li>
-    <p>64 bit Windows 7 or newer, or 64 bit Windows Server 2008 R2 or newer</p>
+    <p>64 bit Windows 7 or newer</p>
   </li>
   <li>
-    <p><a href="https://msys2.github.io/">MSYS2 shell</a></p>
+    <p>64 bit Windows Server 2008 R2 or newer</p>
   </li>
   <li>
-    <p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">Microsoft Visual C++ Redistributable for Visual Studio 2015</a></p>
-
-    <p>These are common DLLs that Bazel needs. You may already have them installed.</p>
+    <p>Older Windows 10 versions, disabled “Developer Mode” (enabling the mode just lets you use the
+<code class="highlighter-rouge">--enable_runfiles</code> Bazel flag)</p>
   </li>
 </ul>
 
-<h3 id="getting-bazel">Getting Bazel</h3>
+<h2 id="2-install-the-prerequisites">2. Install the prerequisites</h2>
+
+<ul>
+  <li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">Visual C++ Redistributable for Visual Studio 2015</a></li>
+</ul>
+
+<h2 id="3-download-bazel">3. Download Bazel</h2>
+
+<p><a href="https://github.com/bazelbuild/bazel/releases">Download the Bazel binary (<code>bazel-&lt;version&gt;-windows-x86_64.exe</code>) from
+ GitHub</a>.</p>
+
+<p>Recommended: rename this binary to <code class="highlighter-rouge">bazel.exe</code> and move it to a directory on the <code class="highlighter-rouge">PATH</code>.</p>
+
+<p>Alternatively you can:</p>
+
+<ul>
+  <li><a href="https://github.com/bazelbuild/bazelisk">Download Bazelisk</a> instead of Bazel. Bazelisk is a
+Bazel launcher that ensures you always use the latest Bazel release.</li>
+  <li><a href="#install-using-chocolatey">Install Bazel from Chocolatey</a> (see below)</li>
+  <li><a href="#install-using-scoop">Install Bazel from Scoop</a> (see below)</li>
+  <li><a href="install-compile-source.html">Build Bazel from source</a></li>
+</ul>
+
+<h2 id="4-optional-configure-output-directories">4. Optional: configure output directories</h2>
+
+<p><strong>You can skip this step. Bazel can work without configuring the output directories, and will use
+its default values.</strong></p>
+
+<p>By default, Bazel writes to two directories:</p>
+
+<ul>
+  <li>
+    <p>The “output user root”, configurable with the <code class="highlighter-rouge">--output_user_root</code> flag.</p>
+
+    <p>This is where Bazel extracts from itself its embedded tools, its own runtime, and where it
+writes some log files and some caches.</p>
+
+    <p>This is also the default location for the “output base”.</p>
+  </li>
+  <li>
+    <p>The “output base”, configurable with the <code class="highlighter-rouge">--output_base</code> flag.</p>
+
+    <p>This is where Bazel writes all output files. By default, this is a subdirectory of the “output
+user root”.</p>
+  </li>
+</ul>
+
+<p>By default, Bazel also writes in the workspace directory:</p>
+
+<ul>
+  <li>
+    <p>The “convenience symlinks”, configurable with the <code class="highlighter-rouge">--symlink_prefix</code> flag.</p>
+
+    <p>These are the “bazel-bin”, “bazel-testlogs”, and similar directories that Bazel creates in your
+workspace. These are not really directories but “junctions”: they just point to other
+directories in your filesystem (under the “output root”).</p>
+
+    <p>You can tell Bazel not to create these junctions with <code class="highlighter-rouge">--symlink_prefix=/</code>.</p>
+  </li>
+</ul>
+
+<h2 id="5-optional-install-compilers-and-language-runtimes">5. Optional: install compilers and language runtimes</h2>
+
+<p><strong>You can skip this step. Bazel can work without these programs, but you may need them.</strong></p>
+
+<p>We recommend installing:</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.msys2.org/">MSYS2 x86_64</a></p>
+
+    <p>MSYS2 is a software distro and building platform for Windows. It contains Bash and common Unix
+tools (like <code class="highlighter-rouge">grep</code>, <code class="highlighter-rouge">tar</code>, <code class="highlighter-rouge">git</code>).</p>
+
+    <p>You will need MSYS2 to build, test, or run targets that depend on Bash. Typically these are
+<code class="highlighter-rouge">genrule</code>, <code class="highlighter-rouge">sh_binary</code>, <code class="highlighter-rouge">sh_test</code>, but there may be more (e.g. Starlark rules). Bazel shows an
+error if a build target needs Bash but Bazel could not locate it.</p>
+  </li>
+  <li>
+    <p>Common MSYS2 packages</p>
+
+    <p>You will likely need these to build and run targets that depend on Bash.  MSYS2 does not install
+these tools by default, so you need to install them manually.</p>
+
+    <p>Open the MSYS2 terminal and run this command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -S zip unzip patch diffutils git
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><a href="https://aka.ms/buildtools">Build Tools for Visual Studio 2019</a></p>
+
+    <p>Make sure you install the C++ build tools with the Windows 10 SDK.</p>
+
+    <p>You will need this to build C++ code on Windows.</p>
+
+    <p>Also supported:</p>
+
+    <ul>
+      <li>
+        <p>Visual Studio 2015 (or newer) with Visual C++ and Windows 10 SDK</p>
+      </li>
+      <li>
+        <p>Visual C++ Build Tools 2015 (or newer) and Windows 10 SDK</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Java SE Development Kit 10 (JDK) for Windows x64</p>
+
+    <p>You will need this to build Java code on Windows.</p>
+
+    <p>Also supported: Java 8 and 9</p>
+  </li>
+  <li>
+    <p><a href="https://www.python.org/downloads/windows/">Python 2.7 for Windows x86-64</a></p>
+
+    <p>You will need this to build Python code on Windows.</p>
+
+    <p>Also supported: Python 3 or newer for Windows x86-64</p>
+  </li>
+</ul>
+
+<h2 id="5-done">5. Done</h2>
+
+<p><strong>You have successfully installed Bazel.</strong></p>
+
+<p>Troubleshooting: see the “Appendix” &gt; “Troubleshooting” section below.</p>
+
+<p>Tutorials: see the “Tutorials” section on the left navigation panel.</p>
+
+<hr />
+
+<h1 id="appendix">Appendix</h1>
+
+<p>Table of contents:</p>
+
+<ul>
+  <li><a href="#troubleshooting">Troubleshooting</a>
+    <ul>
+      <li><a href="#problem-bazel-does-not-find-bash-or-bashexe">Problem: Bazel does not find Bash or bash.exe</a></li>
+      <li><a href="#problem-bazel-does-not-find-visual-studio-or-visual-c">Problem: Bazel does not find Visual Studio or Visual C++</a></li>
+    </ul>
+  </li>
+  <li><a href="#other-ways-to-install-bazel">Other ways to install Bazel</a>
+    <ul>
+      <li><a href="#install-using-chocolatey">Install from Chocolatey</a></li>
+      <li><a href="#install-using-scoop">Install from Scoop</a></li>
+      <li><a href="install-compile-source.html">Build from source</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="problem-bazel-does-not-find-bash-or-bashexe">Problem: Bazel does not find Bash or bash.exe</h3>
+
+<p><strong>Possible reasons</strong>:</p>
+
+<ul>
+  <li>
+    <p>you installed MSYS2 not under the default install path</p>
+  </li>
+  <li>
+    <p>you installed MSYS2 i686 instead of MSYS2 x86_64</p>
+  </li>
+  <li>
+    <p>you installed MSYS instead of MSYS2</p>
+  </li>
+</ul>
+
+<p><strong>Solution</strong>:</p>
+
+<p>Ensure you installed MSYS2 x86_64.</p>
+
+<p>If that doesn’t help:</p>
 
 <ol>
   <li>
-    <p><a href="https://github.com/bazelbuild/bazel/releases">Download Bazel for Windows from GitHub</a>.</p>
-
-    <p>Look for <code class="highlighter-rouge">bazel-&lt;version&gt;-windows-x86_64.exe</code>, for example
-<code class="highlighter-rouge">bazel-0.16.1-windows-x86_64.exe</code>.</p>
-
-    <p><strong>Tip:</strong> Rename the binary to <code class="highlighter-rouge">bazel.exe</code> and move it to a directory on your
-<code class="highlighter-rouge">%PATH%</code> (for example to <code class="highlighter-rouge">c:\bazel</code>), so you can run Bazel by typing <code class="highlighter-rouge">bazel</code>
-in any directory.</p>
+    <p>Go to Start Menu &gt; Settings.</p>
   </li>
   <li>
-    <p>Edit environment variables.</p>
+    <p>Find the setting “Edit environment variables for your account”</p>
+  </li>
+  <li>
+    <p>Look at the list on the top (“User variables for &lt;username&gt;”), and click the “New…”
+button below it.</p>
+  </li>
+  <li>
+    <p>For “Variable name”, enter <code class="highlighter-rouge">BAZEL_SH</code></p>
+  </li>
+  <li>
+    <p>Click “Browse File…”</p>
+  </li>
+  <li>
+    <p>Navigate to the MSYS2 directory, then to <code class="highlighter-rouge">usr\bin</code> below it.</p>
 
-    <p>Open the “Environment Variables” dialog box from Control Panel or Start
-Menu, and add or edit the following variables under the “User variables”
-section:</p>
-    <ol>
-      <li><strong>Edit <code class="highlighter-rouge">Path</code></strong>. Add new entries to the beginning of the list:
-        <ul>
-          <li>The directory of <code class="highlighter-rouge">bazel.exe</code>. (Example: <code class="highlighter-rouge">c:\bazel</code>).</li>
-          <li>The <code class="highlighter-rouge">usr\bin</code> directory of MSYS2. (Example: <code class="highlighter-rouge">c:\msys64\usr\bin</code>).</li>
-          <li>If you will build <strong>Python</strong> code: the directory of <code class="highlighter-rouge">python.exe</code>.
-(Example: <code class="highlighter-rouge">c:\python3</code>).</li>
-        </ul>
-      </li>
-      <li><strong>Add <code class="highlighter-rouge">BAZEL_SH</code></strong>. Its value must be the path to MSYS2 Bash.
-Example: <code class="highlighter-rouge">c:\msys64\usr\bin\bash.exe</code></li>
-      <li><strong>Add <code class="highlighter-rouge">JAVA_HOME</code></strong> (if you will build <strong>Java</strong> code). Its value must be
-the directory where you installed the Java JDK 8, for example
-<code class="highlighter-rouge">C:\Program Files\Java\jdk1.8.0_152</code></li>
-    </ol>
+    <p>For example, this might be <code class="highlighter-rouge">C:\msys64\usr\bin</code> on your system.</p>
+  </li>
+  <li>
+    <p>Select the <code class="highlighter-rouge">bash.exe</code> or <code class="highlighter-rouge">bash</code> file and click OK</p>
+  </li>
+  <li>
+    <p>The “Variable value” field now has the path to <code class="highlighter-rouge">bash.exe</code>. Click OK to close the window.</p>
+  </li>
+  <li>
+    <p>Done.</p>
 
-    <p><strong>None of these paths should contain spaces or non-ASCII characters.</strong></p>
+    <p>If you open a new cmd.exe or PowerShell terminal and run Bazel now, it will find Bash.</p>
   </li>
 </ol>
 
-<h3 id="other-ways-to-get-bazel">Other ways to get Bazel</h3>
+<h3 id="problem-bazel-does-not-find-visual-studio-or-visual-c">Problem: Bazel does not find Visual Studio or Visual C++</h3>
+
+<p><strong>Possible reasons</strong>:</p>
 
 <ul>
-  <li><a href="#install-using-chocolatey">Install Bazel using the Chocolatey package manager</a></li>
-  <li><a href="install-compile-source.html">Compile Bazel from source</a></li>
+  <li>
+    <p>you installed multiple versions of Visual Studio</p>
+  </li>
+  <li>
+    <p>you installed and removed various versions of Visual Studio</p>
+  </li>
+  <li>
+    <p>you installed various versions of the Windows SDK</p>
+  </li>
+  <li>
+    <p>you installed Visual Studio not under the default install path</p>
+  </li>
 </ul>
 
-<h4 id="install-using-chocolatey">Install using Chocolatey</h4>
+<p><strong>Solution</strong>:</p>
+
+<ol>
+  <li>
+    <p>Go to Start Menu &gt; Settings.</p>
+  </li>
+  <li>
+    <p>Find the setting “Edit environment variables for your account”</p>
+  </li>
+  <li>
+    <p>Look at the list on the top (“User variables for &lt;username&gt;”), and click the “New…”
+button below it.</p>
+  </li>
+  <li>
+    <p>For “Variable name”, enter <code class="highlighter-rouge">BAZEL_VC</code></p>
+  </li>
+  <li>
+    <p>Click “Browse Directory…”</p>
+  </li>
+  <li>
+    <p>Navigate to the <code class="highlighter-rouge">VC</code> directory of Visual Studio.</p>
+
+    <p>For example, this might be <code class="highlighter-rouge">C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC</code>
+on your system.</p>
+  </li>
+  <li>
+    <p>Select the <code class="highlighter-rouge">VC</code> folder and click OK</p>
+  </li>
+  <li>
+    <p>The “Variable value” field now has the path to <code class="highlighter-rouge">VC</code>. Click OK to close the window.</p>
+  </li>
+  <li>
+    <p>Done.</p>
+
+    <p>If you open a new cmd.exe or PowerShell terminal and run Bazel now, it will find Visual C++.</p>
+  </li>
+</ol>
+
+<h2 id="other-ways-to-install-bazel">Other ways to install Bazel</h2>
+
+<h3 id="install-using-chocolatey">Install using Chocolatey</h3>
 
 <ol>
   <li>
@@ -449,16 +619,88 @@ though.</p>
 guide</a> for more
 information about the Chocolatey package.</p>
 
-<h3 id="using-bazel">Using Bazel</h3>
+<h3 id="install-using-scoop">Install using Scoop</h3>
 
-<p>Once you have installed Bazel, see <a href="windows.html">Using Bazel on Windows</a>.</p>
+<ol>
+  <li>
+    <p>Install the <a href="https://scoop.sh/">Scoop</a> package manager using the following PowerShell command:</p>
 
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install the Bazel package:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scoop install bazel
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>See <a href="https://bazel.build/windows-scoop-maintenance.html">Scoop installation and package maintenance
+guide</a> for more
+information about the Scoop package.</p>
+
+        </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Installing Bazel on Windows&body=Documentation URL: https://docs.bazel.build/versions/master/install-windows.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#1-check-your-system">1. Check your system</a></li>
+<li class="toc-entry toc-h2"><a href="#2-install-the-prerequisites">2. Install the prerequisites</a></li>
+<li class="toc-entry toc-h2"><a href="#3-download-bazel">3. Download Bazel</a></li>
+<li class="toc-entry toc-h2"><a href="#4-optional-configure-output-directories">4. Optional: configure output directories</a></li>
+<li class="toc-entry toc-h2"><a href="#5-optional-install-compilers-and-language-runtimes">5. Optional: install compilers and language runtimes</a></li>
+<li class="toc-entry toc-h2"><a href="#5-done">5. Done</a></li>
+<li class="toc-entry toc-h2"><a href="#troubleshooting">Troubleshooting</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#problem-bazel-does-not-find-bash-or-bashexe">Problem: Bazel does not find Bash or bash.exe</a></li>
+<li class="toc-entry toc-h3"><a href="#problem-bazel-does-not-find-visual-studio-or-visual-c">Problem: Bazel does not find Visual Studio or Visual C++</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#other-ways-to-install-bazel">Other ways to install Bazel</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#install-using-chocolatey">Install using Chocolatey</a></li>
+<li class="toc-entry toc-h3"><a href="#install-using-scoop">Install using Scoop</a></li>
+</ul>
+</li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -495,7 +737,7 @@ information about the Chocolatey package.</p>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Site Search - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Site Search - Bazel </title>
 
     <link rel="canonical" href="/search.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +60,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -101,10 +103,13 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
+
+  // Keep the search term in the search area.
+  var urlParams = new URLSearchParams(window.location.search);
+  document.getElementById('q').value = urlParams.get('q');
 </script>
 
 <gcse:searchresults-only></gcse:searchresults-only>
-
 
     </div>
 
@@ -143,7 +148,7 @@
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

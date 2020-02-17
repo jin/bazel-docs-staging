@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Query Language - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Query Language - Bazel </title>
 
     <link rel="canonical" href="/versions/master/query.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/query.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/query.html">master</option>
-              
-              <option value="/versions/0.19.2/query.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/query.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/query.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/query.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/query.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1>The Bazel Query Reference</h1>
 
 
@@ -389,8 +329,7 @@
 <h3> bazel cquery </h3>
 <p>Traditional bazel query runs on the post-loading phase target graph and therefore
   has no concept of configurations and their related concepts. Notably, this means it does not
-  correctly resolve
-  <a href = "https://docs.bazel.build/versions/master/be/functions.html#select">select statements</a>
+  correctly resolve <a href = "be/functions.html#select">select statements</a>
   and rather returns all possible resolutions of selects. A newer query environment, cquery,
   properly handles configurations but doesn't provide all of the functionality of this original
   query. For more information, see the <a href="cquery.html">Bazel cquery reference</a>.
@@ -439,47 +378,68 @@
     <li>
       <p>
         <b>Words</b>, such as <code>foo/...</code> or
-        <code>".*test rule"</code> or
-        <code>//bar/baz:all</code>.
-        If a character sequence is "quoted" (begins and ends with a
-        single-quote <code>'</code>, or begins and ends with a
-        double-quote <code>&quot;</code>), it is a word.
-        If a character sequence is not quoted, it may still be parsed as a word.
-        Unquoted words are sequences of characters drawn from
-        the set of alphabet characters, numerals, slash <code>/</code>,
-        hyphen <code>-</code>, underscore <code>_</code>, star <code>*</code>, and
-        period <code>.</code>. Unquoted words may not start with a
-        hyphen or period.
+        <code>".*test rule"</code> or <code>//bar/baz:all</code>. If a
+        character sequence is "quoted" (begins and ends with a single-quote
+        <code>'</code> or begins and ends with a double-quote
+        <code>&quot;</code>), it is a word. If a character sequence is not
+        quoted, it may still be parsed as a word. Unquoted words are sequences
+        of characters drawn from the alphabet characters <code>A-Za-z</code>,
+        the numerals <code>0-9</code>, and the special characters <code>*/@.-_:$~</code>
+        (asterisk, forward slash, at, period, hyphen, underscore, colon, dollar sign, tilde).
+        However, unquoted words may not start with a hyphen <code>-</code> or asterisk
+        <code>*</code> even though relative <a href="build-ref.html#name">target names</a> may
+        start with those characters.
+      </p>
+      <p>
+        Unquoted words also may not include the characters plus sign <code>+</code> or equals sign
+        <code>=</code>, even though those characters are permitted in target names. Thus, when
+        writing code that generates query expressions, target names should be quoted.
+      </p>
+      <p>
+        Quoting <em>is</em> necessary when writing scripts that
+        construct Bazel query expressions from user-supplied values.
+      </p>
+      <pre>
+        //foo:bar+wiz    # WRONG: scanned as //foo:bar + wiz.
+        //foo:bar=wiz    # WRONG: scanned as //foo:bar = wiz.
+        "//foo:bar+wiz"  # OK.
+        "//foo:bar=wiz"  # OK.
+      </pre>
+      <p>
+        Note that this quoting is in addition to any quoting that may
+        be required by your shell. e.g.
+      </p>
+      <pre>bazel query ' "//foo:bar=wiz" '     # single-quotes for shell, double-quotes for Bazel.</pre>
+
+      <p>
+        Keywords, when quoted, are treated as ordinary words, thus
+        <code>some</code> is a keyword but <code>"some"</code> is a word.
+        Both <code>foo</code> and <code>"foo"</code> are words.
       </p>
 
-    <p>We chose this syntax so that quote marks aren't needed in most cases.
-      The (unusual) <code>".*test rule"</code> example needs quotes: it
-      starts with a period and contains a space.
-      Quoting <code>"cc_library"</code> is unnecessary but harmless.
-    </p>
+      <p>
+        However, be careful when using single or double quotes in target names. When quoting one or
+        more target names, use only one type of quotes (either all single or all double quotes).
 
-    <p>
-      Quoting <em>is</em> necessary when writing scripts that
-      construct Bazel query expressions from user-supplied values.
+      </p>
+      <pre>
+        The following are examples of what the Java query string will be:
 
-    </p>
-    <pre>
-      //foo:bar+wiz    # WRONG: scanned as //foo:bar + wiz.
-      //foo:bar=wiz    # WRONG: scanned as //foo:bar = wiz.
-      "//foo:bar+wiz"  # ok.
-      "//foo:bar=wiz"  # ok.
-    </pre>
-    <p>
-      Note that this quoting is in addition to any quoting that may
-      be required by your shell. e.g.
-    </p>
-    <pre>bazel query ' "//foo:bar=wiz" '     # single-quotes for shell, double-quotes for Bazel.</pre>
+        'a"'a'         # WRONG: Error message: unclosed quotation.
+        "a'"a"         # WRONG: Error message: unclosed quotation.
+        '"a" + 'a''    # WRONG: Error message: unexpected token 'a' after query expression '"a" + '
+        "'a' + "a""    # WRONG: Error message: unexpected token 'a' after query expression ''a' + '
+        "a'a"          # OK.
+        'a"a'          # OK.
+        '"a" + "a"'    # OK
+        "'a' + 'a'"    # OK
+      </pre>
 
-    <p>
-      Keywords, when quoted, are treated as ordinary words, thus
-      <code>some</code> is a keyword but <code>"some"</code> is a word.
-      Both <code>foo</code> and <code>"foo"</code> are words.
-    </p>
+      <p>We chose this syntax so that quote marks aren't needed in most cases.
+        The (unusual) <code>".*test rule"</code> example needs quotes: it
+        starts with a period and contains a space.
+        Quoting <code>"cc_library"</code> is unnecessary but harmless.
+      </p>
 
     <li><b>Punctuation</b>, such as parens <code>()</code>, period
     <code>.</code> and comma <code>,</code>, etc.  Words containing
@@ -1036,423 +996,93 @@ x intersect (y union z)</pre>
 
 <table style='margin: auto'><tr>
 <td style='text-align: center'>
-<svg width="151pt" height="288pt"
- viewBox="0.00 0.00 151.29 288.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(.8526 .8526) rotate(0) translate(4 333.7875)">
-<title>somepath1</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-333.7875 173.4469,-333.7875 173.4469,4 -4,4"/>
-<!-- n1 -->
-<g id="node1" class="node">
-<title>n1</title>
-<ellipse fill="none" stroke="#000000" cx="40" cy="-310.3406" rx="18" ry="18"/>
-</g>
-<!-- n2 -->
-<g id="node2" class="node">
-<title>n2</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="41" cy="-235.4469" rx="18" ry="18"/>
-</g>
-<!-- n1&#45;&gt;n2 -->
-<g id="edge1" class="edge">
-<title>n1&#45;&gt;n2</title>
-<path fill="none" stroke="#000000" d="M40.2421,-292.2109C40.3555,-283.7184 40.4932,-273.4006 40.62,-263.9029"/>
-<polygon fill="#000000" stroke="#000000" points="44.1228,-263.715 40.7567,-253.6692 37.1234,-263.6215 44.1228,-263.715"/>
-</g>
-<!-- n3 -->
-<g id="node3" class="node">
-<title>n3</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="18" cy="-162" rx="18" ry="18"/>
-</g>
-<!-- n2&#45;&gt;n3 -->
-<g id="edge2" class="edge">
-<title>n2&#45;&gt;n3</title>
-<path fill="none" stroke="#000000" d="M35.5493,-218.041C32.8282,-209.3514 29.4753,-198.6446 26.4318,-188.9256"/>
-<polygon fill="#000000" stroke="#000000" points="29.7401,-187.778 23.4116,-179.2809 23.06,-189.8699 29.7401,-187.778"/>
-</g>
-<!-- n10 -->
-<g id="node10" class="node">
-<title>n10</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="22" cy="-90" rx="18" ry="18"/>
-</g>
-<!-- n2&#45;&gt;n10 -->
-<g id="edge9" class="edge">
-<title>n2&#45;&gt;n10</title>
-<path fill="none" stroke="#000000" d="M44.3041,-217.7155C47.1788,-199.144 50.148,-169.224 45,-144 42.9948,-134.175 39.1326,-123.9242 35.1375,-115.0268"/>
-<polygon fill="#000000" stroke="#000000" points="38.292,-113.5104 30.8316,-105.9875 31.9723,-116.5208 38.292,-113.5104"/>
-</g>
-<!-- n3&#45;&gt;n10 -->
-<g id="edge10" class="edge">
-<title>n3&#45;&gt;n10</title>
-<path fill="none" stroke="#000000" d="M19.0094,-143.8314C19.4372,-136.131 19.9459,-126.9743 20.4213,-118.4166"/>
-<polygon fill="#000000" stroke="#000000" points="23.9169,-118.592 20.977,-108.4133 16.9276,-118.2037 23.9169,-118.592"/>
-</g>
-<!-- n4 -->
-<g id="node4" class="node">
-<title>n4</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="73" cy="-18" rx="18" ry="18"/>
-<text text-anchor="middle" x="73" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">E</text>
-</g>
-<!-- n5 -->
-<g id="node5" class="node">
-<title>n5</title>
-<ellipse fill="none" stroke="#000000" cx="95" cy="-235.4469" rx="18" ry="18"/>
-</g>
-<!-- n6 -->
-<g id="node6" class="node">
-<title>n6</title>
-<ellipse fill="none" stroke="#000000" cx="113" cy="-162" rx="18" ry="18"/>
-</g>
-<!-- n5&#45;&gt;n6 -->
-<g id="edge5" class="edge">
-<title>n5&#45;&gt;n6</title>
-<path fill="none" stroke="#000000" d="M99.3573,-217.6674C101.4356,-209.1871 103.9688,-198.8508 106.2856,-189.3974"/>
-<polygon fill="#000000" stroke="#000000" points="109.7018,-190.1614 108.6828,-179.6157 102.903,-188.4951 109.7018,-190.1614"/>
-</g>
-<!-- n6&#45;&gt;n4 -->
-<g id="edge6" class="edge">
-<title>n6&#45;&gt;n4</title>
-<path fill="none" stroke="#000000" d="M105.6597,-145.2221C101.2549,-134.6847 95.7901,-120.7254 92,-108 85.8937,-87.4979 80.9754,-63.8091 77.6739,-45.8822"/>
-<polygon fill="#000000" stroke="#000000" points="81.0777,-45.033 75.8756,-35.8032 74.1866,-46.2626 81.0777,-45.033"/>
-</g>
-<!-- n9 -->
-<g id="node9" class="node">
-<title>n9</title>
-<ellipse fill="none" stroke="#000000" cx="119" cy="-90" rx="18" ry="18"/>
-</g>
-<!-- n6&#45;&gt;n9 -->
-<g id="edge8" class="edge">
-<title>n6&#45;&gt;n9</title>
-<path fill="none" stroke="#000000" d="M114.5141,-143.8314C115.1558,-136.131 115.9188,-126.9743 116.6319,-118.4166"/>
-<polygon fill="#000000" stroke="#000000" points="120.1229,-118.6694 117.4656,-108.4133 113.1471,-118.088 120.1229,-118.6694"/>
-</g>
-<!-- n7 -->
-<g id="node7" class="node">
-<title>n7</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="95" cy="-310.3406" rx="19.3939" ry="19.3939"/>
-<text text-anchor="middle" x="95" y="-306.1406" font-family="Times,serif" font-size="14.00" fill="#000000">S1</text>
-</g>
-<!-- n7&#45;&gt;n2 -->
-<g id="edge4" class="edge">
-<title>n7&#45;&gt;n2</title>
-<path fill="none" stroke="#000000" d="M83.548,-294.4576C76.0481,-284.0558 66.1202,-270.2866 57.7409,-258.6652"/>
-<polygon fill="#000000" stroke="#000000" points="60.3885,-256.3526 51.7009,-250.2882 54.7105,-260.4466 60.3885,-256.3526"/>
-</g>
-<!-- n7&#45;&gt;n5 -->
-<g id="edge3" class="edge">
-<title>n7&#45;&gt;n5</title>
-<path fill="none" stroke="#000000" d="M95,-290.6632C95,-282.3772 95,-272.5802 95,-263.556"/>
-<polygon fill="#000000" stroke="#000000" points="98.5001,-263.4542 95,-253.4543 91.5001,-263.4543 98.5001,-263.4542"/>
-</g>
-<!-- n8 -->
-<g id="node8" class="node">
-<title>n8</title>
-<ellipse fill="none" stroke="#000000" cx="150" cy="-235.4469" rx="19.3939" ry="19.3939"/>
-<text text-anchor="middle" x="150" y="-231.2469" font-family="Times,serif" font-size="14.00" fill="#000000">S2</text>
-</g>
-<!-- n8&#45;&gt;n6 -->
-<g id="edge7" class="edge">
-<title>n8&#45;&gt;n6</title>
-<path fill="none" stroke="#000000" d="M141.2315,-218.041C136.6323,-208.9113 130.9113,-197.5549 125.8243,-187.4569"/>
-<polygon fill="#000000" stroke="#000000" points="128.8234,-185.6307 121.1986,-178.2746 122.5719,-188.7801 128.8234,-185.6307"/>
-</g>
-<!-- n10&#45;&gt;n4 -->
-<g id="edge11" class="edge">
-<title>n10&#45;&gt;n4</title>
-<path fill="none" stroke="#000000" d="M32.5672,-75.0816C39.4738,-65.3311 48.6369,-52.395 56.4935,-41.3032"/>
-<polygon fill="#000000" stroke="#000000" points="59.5222,-43.0827 62.4463,-32.8993 53.81,-39.0365 59.5222,-43.0827"/>
-</g>
-<!-- n11 -->
-<g id="node11" class="node">
-<title>n11</title>
-<ellipse fill="none" stroke="#000000" cx="19" cy="-18" rx="18" ry="18"/>
-</g>
-<!-- n10&#45;&gt;n11 -->
-<g id="edge12" class="edge">
-<title>n10&#45;&gt;n11</title>
-<path fill="none" stroke="#000000" d="M21.243,-71.8314C20.9221,-64.131 20.5406,-54.9743 20.184,-46.4166"/>
-<polygon fill="#000000" stroke="#000000" points="23.6806,-46.2589 19.7672,-36.4133 16.6867,-46.5503 23.6806,-46.2589"/>
-</g>
-</g>
-</svg>
+<!-- digraph somepath1 {
+  graph [size="4,4"]
+  node [label="",shape=circle];
+  n1;
+  n2 [fillcolor="pink",style=filled];
+  n3 [fillcolor="pink",style=filled];
+  n4 [fillcolor="pink",style=filled,label="E"];
+  n5; n6;
+  n7 [fillcolor="pink",style=filled,label="S1"];
+  n8 [label="S2"];
+  n9;
+  n10 [fillcolor="pink",style=filled];
+
+  n1 -> n2;
+  n2 -> n3;
+  n7 -> n5;
+  n7 -> n2;
+  n5 -> n6;
+  n6 -> n4;
+  n8 -> n6;
+  n6 -> n9;
+  n2 -> n10;
+  n3 -> n10;
+  n10 -> n4;
+  n10 -> n11;
+} -->
+<img src="images/somepath1.svg" alt="somepath1.svg" style="margin-left=10;" />
 <p><code>somepath(S1 + S2, E)</code>,<br/>one possible result.</p>
 </td>
 <td style='padding: 40px; text-align: center'>
-<svg width="151pt" height="288pt"
- viewBox="0.00 0.00 151.29 288.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(.8526 .8526) rotate(0) translate(4 333.7875)">
-<title>somepath2</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-333.7875 173.4469,-333.7875 173.4469,4 -4,4"/>
-<!-- n1 -->
-<g id="node1" class="node">
-<title>n1</title>
-<ellipse fill="none" stroke="#000000" cx="40" cy="-310.3406" rx="18" ry="18"/>
-</g>
-<!-- n2 -->
-<g id="node2" class="node">
-<title>n2</title>
-<ellipse fill="none" stroke="#000000" cx="41" cy="-235.4469" rx="18" ry="18"/>
-</g>
-<!-- n1&#45;&gt;n2 -->
-<g id="edge1" class="edge">
-<title>n1&#45;&gt;n2</title>
-<path fill="none" stroke="#000000" d="M40.2421,-292.2109C40.3555,-283.7184 40.4932,-273.4006 40.62,-263.9029"/>
-<polygon fill="#000000" stroke="#000000" points="44.1228,-263.715 40.7567,-253.6692 37.1234,-263.6215 44.1228,-263.715"/>
-</g>
-<!-- n3 -->
-<g id="node3" class="node">
-<title>n3</title>
-<ellipse fill="none" stroke="#000000" cx="18" cy="-162" rx="18" ry="18"/>
-</g>
-<!-- n2&#45;&gt;n3 -->
-<g id="edge2" class="edge">
-<title>n2&#45;&gt;n3</title>
-<path fill="none" stroke="#000000" d="M35.5493,-218.041C32.8282,-209.3514 29.4753,-198.6446 26.4318,-188.9256"/>
-<polygon fill="#000000" stroke="#000000" points="29.7401,-187.778 23.4116,-179.2809 23.06,-189.8699 29.7401,-187.778"/>
-</g>
-<!-- n10 -->
-<g id="node10" class="node">
-<title>n10</title>
-<ellipse fill="none" stroke="#000000" cx="22" cy="-90" rx="18" ry="18"/>
-</g>
-<!-- n2&#45;&gt;n10 -->
-<g id="edge9" class="edge">
-<title>n2&#45;&gt;n10</title>
-<path fill="none" stroke="#000000" d="M44.3041,-217.7155C47.1788,-199.144 50.148,-169.224 45,-144 42.9948,-134.175 39.1326,-123.9242 35.1375,-115.0268"/>
-<polygon fill="#000000" stroke="#000000" points="38.292,-113.5104 30.8316,-105.9875 31.9723,-116.5208 38.292,-113.5104"/>
-</g>
-<!-- n3&#45;&gt;n10 -->
-<g id="edge10" class="edge">
-<title>n3&#45;&gt;n10</title>
-<path fill="none" stroke="#000000" d="M19.0094,-143.8314C19.4372,-136.131 19.9459,-126.9743 20.4213,-118.4166"/>
-<polygon fill="#000000" stroke="#000000" points="23.9169,-118.592 20.977,-108.4133 16.9276,-118.2037 23.9169,-118.592"/>
-</g>
-<!-- n4 -->
-<g id="node4" class="node">
-<title>n4</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="73" cy="-18" rx="18" ry="18"/>
-<text text-anchor="middle" x="73" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">E</text>
-</g>
-<!-- n5 -->
-<g id="node5" class="node">
-<title>n5</title>
-<ellipse fill="none" stroke="#000000" cx="95" cy="-235.4469" rx="18" ry="18"/>
-</g>
-<!-- n6 -->
-<g id="node6" class="node">
-<title>n6</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="113" cy="-162" rx="18" ry="18"/>
-</g>
-<!-- n5&#45;&gt;n6 -->
-<g id="edge5" class="edge">
-<title>n5&#45;&gt;n6</title>
-<path fill="none" stroke="#000000" d="M99.3573,-217.6674C101.4356,-209.1871 103.9688,-198.8508 106.2856,-189.3974"/>
-<polygon fill="#000000" stroke="#000000" points="109.7018,-190.1614 108.6828,-179.6157 102.903,-188.4951 109.7018,-190.1614"/>
-</g>
-<!-- n6&#45;&gt;n4 -->
-<g id="edge6" class="edge">
-<title>n6&#45;&gt;n4</title>
-<path fill="none" stroke="#000000" d="M105.6597,-145.2221C101.2549,-134.6847 95.7901,-120.7254 92,-108 85.8937,-87.4979 80.9754,-63.8091 77.6739,-45.8822"/>
-<polygon fill="#000000" stroke="#000000" points="81.0777,-45.033 75.8756,-35.8032 74.1866,-46.2626 81.0777,-45.033"/>
-</g>
-<!-- n9 -->
-<g id="node9" class="node">
-<title>n9</title>
-<ellipse fill="none" stroke="#000000" cx="119" cy="-90" rx="18" ry="18"/>
-</g>
-<!-- n6&#45;&gt;n9 -->
-<g id="edge8" class="edge">
-<title>n6&#45;&gt;n9</title>
-<path fill="none" stroke="#000000" d="M114.5141,-143.8314C115.1558,-136.131 115.9188,-126.9743 116.6319,-118.4166"/>
-<polygon fill="#000000" stroke="#000000" points="120.1229,-118.6694 117.4656,-108.4133 113.1471,-118.088 120.1229,-118.6694"/>
-</g>
-<!-- n7 -->
-<g id="node7" class="node">
-<title>n7</title>
-<ellipse fill="none" stroke="#000000" cx="95" cy="-310.3406" rx="19.3939" ry="19.3939"/>
-<text text-anchor="middle" x="95" y="-306.1406" font-family="Times,serif" font-size="14.00" fill="#000000">S1</text>
-</g>
-<!-- n7&#45;&gt;n2 -->
-<g id="edge4" class="edge">
-<title>n7&#45;&gt;n2</title>
-<path fill="none" stroke="#000000" d="M83.548,-294.4576C76.0481,-284.0558 66.1202,-270.2866 57.7409,-258.6652"/>
-<polygon fill="#000000" stroke="#000000" points="60.3885,-256.3526 51.7009,-250.2882 54.7105,-260.4466 60.3885,-256.3526"/>
-</g>
-<!-- n7&#45;&gt;n5 -->
-<g id="edge3" class="edge">
-<title>n7&#45;&gt;n5</title>
-<path fill="none" stroke="#000000" d="M95,-290.6632C95,-282.3772 95,-272.5802 95,-263.556"/>
-<polygon fill="#000000" stroke="#000000" points="98.5001,-263.4542 95,-253.4543 91.5001,-263.4543 98.5001,-263.4542"/>
-</g>
-<!-- n8 -->
-<g id="node8" class="node">
-<title>n8</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="150" cy="-235.4469" rx="19.3939" ry="19.3939"/>
-<text text-anchor="middle" x="150" y="-231.2469" font-family="Times,serif" font-size="14.00" fill="#000000">S2</text>
-</g>
-<!-- n8&#45;&gt;n6 -->
-<g id="edge7" class="edge">
-<title>n8&#45;&gt;n6</title>
-<path fill="none" stroke="#000000" d="M141.2315,-218.041C136.6323,-208.9113 130.9113,-197.5549 125.8243,-187.4569"/>
-<polygon fill="#000000" stroke="#000000" points="128.8234,-185.6307 121.1986,-178.2746 122.5719,-188.7801 128.8234,-185.6307"/>
-</g>
-<!-- n10&#45;&gt;n4 -->
-<g id="edge11" class="edge">
-<title>n10&#45;&gt;n4</title>
-<path fill="none" stroke="#000000" d="M32.5672,-75.0816C39.4738,-65.3311 48.6369,-52.395 56.4935,-41.3032"/>
-<polygon fill="#000000" stroke="#000000" points="59.5222,-43.0827 62.4463,-32.8993 53.81,-39.0365 59.5222,-43.0827"/>
-</g>
-<!-- n11 -->
-<g id="node11" class="node">
-<title>n11</title>
-<ellipse fill="none" stroke="#000000" cx="19" cy="-18" rx="18" ry="18"/>
-</g>
-<!-- n10&#45;&gt;n11 -->
-<g id="edge12" class="edge">
-<title>n10&#45;&gt;n11</title>
-<path fill="none" stroke="#000000" d="M21.243,-71.8314C20.9221,-64.131 20.5406,-54.9743 20.184,-46.4166"/>
-<polygon fill="#000000" stroke="#000000" points="23.6806,-46.2589 19.7672,-36.4133 16.6867,-46.5503 23.6806,-46.2589"/>
-</g>
-</g>
-</svg>
+<!-- digraph somepath2 {
+  graph [size="4,4"]
+  node [label="",shape=circle];
+
+  n1; n2; n3;
+  n4 [fillcolor="pink",style=filled,label="E"];
+  n5;
+  n6 [fillcolor="pink",style=filled];
+  n7 [label="S1"];
+  n8 [fillcolor="pink",style=filled,label="S2"];
+  n9; n10;
+
+  n1 -> n2;
+  n2 -> n3;
+  n7 -> n5;
+  n7 -> n2;
+  n5 -> n6;
+  n6 -> n4;
+  n8 -> n6;
+  n6 -> n9;
+  n2 -> n10;
+  n3 -> n10;
+  n10 -> n4;
+  n10 -> n11;
+} -->
+<img src="images/somepath2.svg" alt="somepath2.svg" style="margin-left=10;" />
 <p><code>somepath(S1 + S2, E)</code>,<br/>another possible result.</p>
 </td>
 <td style='text-align: center'>
-<svg width="151pt" height="288pt"
- viewBox="0.00 0.00 151.29 288.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(.8526 .8526) rotate(0) translate(4 333.7875)">
-<title>allpaths</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-333.7875 173.4469,-333.7875 173.4469,4 -4,4"/>
-<!-- n1 -->
-<g id="node1" class="node">
-<title>n1</title>
-<ellipse fill="none" stroke="#000000" cx="40" cy="-310.3406" rx="18" ry="18"/>
-</g>
-<!-- n2 -->
-<g id="node2" class="node">
-<title>n2</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="41" cy="-235.4469" rx="18" ry="18"/>
-</g>
-<!-- n1&#45;&gt;n2 -->
-<g id="edge1" class="edge">
-<title>n1&#45;&gt;n2</title>
-<path fill="none" stroke="#000000" d="M40.2421,-292.2109C40.3555,-283.7184 40.4932,-273.4006 40.62,-263.9029"/>
-<polygon fill="#000000" stroke="#000000" points="44.1228,-263.715 40.7567,-253.6692 37.1234,-263.6215 44.1228,-263.715"/>
-</g>
-<!-- n3 -->
-<g id="node3" class="node">
-<title>n3</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="18" cy="-162" rx="18" ry="18"/>
-</g>
-<!-- n2&#45;&gt;n3 -->
-<g id="edge2" class="edge">
-<title>n2&#45;&gt;n3</title>
-<path fill="none" stroke="#000000" d="M35.5493,-218.041C32.8282,-209.3514 29.4753,-198.6446 26.4318,-188.9256"/>
-<polygon fill="#000000" stroke="#000000" points="29.7401,-187.778 23.4116,-179.2809 23.06,-189.8699 29.7401,-187.778"/>
-</g>
-<!-- n10 -->
-<g id="node10" class="node">
-<title>n10</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="22" cy="-90" rx="18" ry="18"/>
-</g>
-<!-- n2&#45;&gt;n10 -->
-<g id="edge9" class="edge">
-<title>n2&#45;&gt;n10</title>
-<path fill="none" stroke="#000000" d="M44.3041,-217.7155C47.1788,-199.144 50.148,-169.224 45,-144 42.9948,-134.175 39.1326,-123.9242 35.1375,-115.0268"/>
-<polygon fill="#000000" stroke="#000000" points="38.292,-113.5104 30.8316,-105.9875 31.9723,-116.5208 38.292,-113.5104"/>
-</g>
-<!-- n3&#45;&gt;n10 -->
-<g id="edge10" class="edge">
-<title>n3&#45;&gt;n10</title>
-<path fill="none" stroke="#000000" d="M19.0094,-143.8314C19.4372,-136.131 19.9459,-126.9743 20.4213,-118.4166"/>
-<polygon fill="#000000" stroke="#000000" points="23.9169,-118.592 20.977,-108.4133 16.9276,-118.2037 23.9169,-118.592"/>
-</g>
-<!-- n4 -->
-<g id="node4" class="node">
-<title>n4</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="73" cy="-18" rx="18" ry="18"/>
-<text text-anchor="middle" x="73" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">E</text>
-</g>
-<!-- n5 -->
-<g id="node5" class="node">
-<title>n5</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="95" cy="-235.4469" rx="18" ry="18"/>
-</g>
-<!-- n6 -->
-<g id="node6" class="node">
-<title>n6</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="113" cy="-162" rx="18" ry="18"/>
-</g>
-<!-- n5&#45;&gt;n6 -->
-<g id="edge5" class="edge">
-<title>n5&#45;&gt;n6</title>
-<path fill="none" stroke="#000000" d="M99.3573,-217.6674C101.4356,-209.1871 103.9688,-198.8508 106.2856,-189.3974"/>
-<polygon fill="#000000" stroke="#000000" points="109.7018,-190.1614 108.6828,-179.6157 102.903,-188.4951 109.7018,-190.1614"/>
-</g>
-<!-- n6&#45;&gt;n4 -->
-<g id="edge6" class="edge">
-<title>n6&#45;&gt;n4</title>
-<path fill="none" stroke="#000000" d="M105.6597,-145.2221C101.2549,-134.6847 95.7901,-120.7254 92,-108 85.8937,-87.4979 80.9754,-63.8091 77.6739,-45.8822"/>
-<polygon fill="#000000" stroke="#000000" points="81.0777,-45.033 75.8756,-35.8032 74.1866,-46.2626 81.0777,-45.033"/>
-</g>
-<!-- n9 -->
-<g id="node9" class="node">
-<title>n9</title>
-<ellipse fill="none" stroke="#000000" cx="119" cy="-90" rx="18" ry="18"/>
-</g>
-<!-- n6&#45;&gt;n9 -->
-<g id="edge8" class="edge">
-<title>n6&#45;&gt;n9</title>
-<path fill="none" stroke="#000000" d="M114.5141,-143.8314C115.1558,-136.131 115.9188,-126.9743 116.6319,-118.4166"/>
-<polygon fill="#000000" stroke="#000000" points="120.1229,-118.6694 117.4656,-108.4133 113.1471,-118.088 120.1229,-118.6694"/>
-</g>
-<!-- n7 -->
-<g id="node7" class="node">
-<title>n7</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="95" cy="-310.3406" rx="19.3939" ry="19.3939"/>
-<text text-anchor="middle" x="95" y="-306.1406" font-family="Times,serif" font-size="14.00" fill="#000000">S1</text>
-</g>
-<!-- n7&#45;&gt;n2 -->
-<g id="edge4" class="edge">
-<title>n7&#45;&gt;n2</title>
-<path fill="none" stroke="#000000" d="M83.548,-294.4576C76.0481,-284.0558 66.1202,-270.2866 57.7409,-258.6652"/>
-<polygon fill="#000000" stroke="#000000" points="60.3885,-256.3526 51.7009,-250.2882 54.7105,-260.4466 60.3885,-256.3526"/>
-</g>
-<!-- n7&#45;&gt;n5 -->
-<g id="edge3" class="edge">
-<title>n7&#45;&gt;n5</title>
-<path fill="none" stroke="#000000" d="M95,-290.6632C95,-282.3772 95,-272.5802 95,-263.556"/>
-<polygon fill="#000000" stroke="#000000" points="98.5001,-263.4542 95,-253.4543 91.5001,-263.4543 98.5001,-263.4542"/>
-</g>
-<!-- n8 -->
-<g id="node8" class="node">
-<title>n8</title>
-<ellipse fill="#ffc0cb" stroke="#000000" cx="150" cy="-235.4469" rx="19.3939" ry="19.3939"/>
-<text text-anchor="middle" x="150" y="-231.2469" font-family="Times,serif" font-size="14.00" fill="#000000">S2</text>
-</g>
-<!-- n8&#45;&gt;n6 -->
-<g id="edge7" class="edge">
-<title>n8&#45;&gt;n6</title>
-<path fill="none" stroke="#000000" d="M141.2315,-218.041C136.6323,-208.9113 130.9113,-197.5549 125.8243,-187.4569"/>
-<polygon fill="#000000" stroke="#000000" points="128.8234,-185.6307 121.1986,-178.2746 122.5719,-188.7801 128.8234,-185.6307"/>
-</g>
-<!-- n10&#45;&gt;n4 -->
-<g id="edge11" class="edge">
-<title>n10&#45;&gt;n4</title>
-<path fill="none" stroke="#000000" d="M32.5672,-75.0816C39.4738,-65.3311 48.6369,-52.395 56.4935,-41.3032"/>
-<polygon fill="#000000" stroke="#000000" points="59.5222,-43.0827 62.4463,-32.8993 53.81,-39.0365 59.5222,-43.0827"/>
-</g>
-<!-- n11 -->
-<g id="node11" class="node">
-<title>n11</title>
-<ellipse fill="none" stroke="#000000" cx="19" cy="-18" rx="18" ry="18"/>
-</g>
-<!-- n10&#45;&gt;n11 -->
-<g id="edge12" class="edge">
-<title>n10&#45;&gt;n11</title>
-<path fill="none" stroke="#000000" d="M21.243,-71.8314C20.9221,-64.131 20.5406,-54.9743 20.184,-46.4166"/>
-<polygon fill="#000000" stroke="#000000" points="23.6806,-46.2589 19.7672,-36.4133 16.6867,-46.5503 23.6806,-46.2589"/>
-</g>
-</g>
-</svg>
+<!-- digraph allpaths {
+  graph [size="4,4"]
+  node [label="",shape=circle];
+  n1;
+  n2 [fillcolor="pink",style=filled];
+  n3 [fillcolor="pink",style=filled];
+  n4 [fillcolor="pink",style=filled,label="E"];
+  n5 [fillcolor="pink",style=filled];
+  n6 [fillcolor="pink",style=filled];
+  n7 [fillcolor="pink",style=filled, label="S1"];
+  n8 [fillcolor="pink",style=filled, label="S2"];
+  n9;
+  n10 [fillcolor="pink",style=filled];
+
+  n1 -> n2;
+  n2 -> n3;
+  n7 -> n5;
+  n7 -> n2;
+  n5 -> n6;
+  n6 -> n4;
+  n8 -> n6;
+  n6 -> n9;
+  n2 -> n10;
+  n3 -> n10;
+  n10 -> n4;
+  n10 -> n11;
+} -->
+<img src="images/allpaths.svg" alt="allpaths.svg" style="margin-left=10;" />
 <p><code>allpaths(S1 + S2, E)</code>.</p>
 </td>
 </tr></table>
@@ -1476,7 +1106,7 @@ x intersect (y union z)</pre>
     <li><code><var>ruletype</var> rule</code>
     <li><code><var>ruletype</var></code><br>
     Where <var>ruletype</var> is a build rule.  The difference between these
-    forms is that including "rule" causes the regular expression match for
+    forms is that including "rule" causes the <a href="#regex">regular expression</a> match for
     <var>ruletype</var> to be anchored.
   </ul>
 <li><b>package group</b> patterns should simply be:
@@ -1520,7 +1150,7 @@ genrule(
 
 <p>
   Quotation of the <var>pattern</var> argument is often required
-  because without it, many regular expressions, such as <code>source
+  because without it, many <a href="#regex">regular expressions</a>, such as <code>source
   file</code> and <code>.*_test</code>, are not considered words by
   the parser.
 </p>
@@ -1542,7 +1172,7 @@ genrule(
 
 <p>
   The first argument, <var>pattern</var> is a word containing a
-  regular expression over target names.  A <code>filter</code> expression
+  <a href="#regex">regular expression</a> over target names.  A <code>filter</code> expression
   evaluates to the set containing all targets <var>x</var> such that
   <var>x</var> is a member of the set <var>input</var> and the
   label (in absolute form, e.g. <code>//foo:bar</code>)
@@ -1590,12 +1220,12 @@ genrule(
   operator applies a filter to a set of targets, and discards targets that
   are not rules, rule targets that do not have attribute <var>name</var>
   defined or rule targets where the attribute value does not match the provided
-  regular expression <var>pattern</var>; it evaluates to a subset of its input.
+  <a href="#regex">regular expression</a> <var>pattern</var>; it evaluates to a subset of its input.
 </p>
 
 <p>
   The first argument, <var>name</var> is the name of the rule attribute that
-  should be matched against the provided regular expression pattern. The second
+  should be matched against the provided <a href="#regex">regular expression</a> pattern. The second
   argument, <var>pattern</var> is a regular expression over the attribute
   values. An <code>attr</code> expression evaluates to the set containing all
   targets <var>x</var> such that  <var>x</var> is a member of the set
@@ -1955,73 +1585,15 @@ genrule(
 </p>
 
 <table style='margin: auto'><tr><td>
-<svg width="139pt" height="260pt"
- viewBox="0.00 0.00 138.81 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
-<title>mygraph</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-256 134.8105,-256 134.8105,4 -4,4"/>
-<!-- //a:a -->
-<g id="node1" class="node">
-<title>//a:a</title>
-<polygon fill="none" stroke="#000000" points="55.0122,-108 1.0122,-108 1.0122,-72 55.0122,-72 55.0122,-108"/>
-<text text-anchor="middle" x="28.0122" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">//a:a</text>
-</g>
-<!-- //a:a.cc -->
-<g id="node2" class="node">
-<title>//a:a.cc</title>
-<polygon fill="none" stroke="#000000" points="56.0366,-36 -.0122,-36 -.0122,0 56.0366,0 56.0366,-36"/>
-<text text-anchor="middle" x="28.0122" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">//a:a.cc</text>
-</g>
-<!-- //a:a&#45;&gt;//a:a.cc -->
-<g id="edge1" class="edge">
-<title>//a:a&#45;&gt;//a:a.cc</title>
-<path fill="none" stroke="#000000" d="M28.0122,-71.8314C28.0122,-64.131 28.0122,-54.9743 28.0122,-46.4166"/>
-<polygon fill="#000000" stroke="#000000" points="31.5123,-46.4132 28.0122,-36.4133 24.5123,-46.4133 31.5123,-46.4132"/>
-</g>
-<!-- //b:b -->
-<g id="node3" class="node">
-<title>//b:b</title>
-<polygon fill="none" stroke="#000000" points="110.0122,-180 56.0122,-180 56.0122,-144 110.0122,-144 110.0122,-180"/>
-<text text-anchor="middle" x="83.0122" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">//b:b</text>
-</g>
-<!-- //b:b&#45;&gt;//a:a -->
-<g id="edge2" class="edge">
-<title>//b:b&#45;&gt;//a:a</title>
-<path fill="none" stroke="#000000" d="M69.1334,-143.8314C62.7986,-135.5386 55.1738,-125.557 48.2196,-116.4533"/>
-<polygon fill="#000000" stroke="#000000" points="50.9297,-114.2353 42.0779,-108.4133 45.367,-118.4847 50.9297,-114.2353"/>
-</g>
-<!-- //b:b.cc -->
-<g id="node4" class="node">
-<title>//b:b.cc</title>
-<polygon fill="none" stroke="#000000" points="130.6103,-108 73.4141,-108 73.4141,-72 130.6103,-72 130.6103,-108"/>
-<text text-anchor="middle" x="102.0122" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">//b:b.cc</text>
-</g>
-<!-- //b:b&#45;&gt;//b:b.cc -->
-<g id="edge3" class="edge">
-<title>//b:b&#45;&gt;//b:b.cc</title>
-<path fill="none" stroke="#000000" d="M87.8067,-143.8314C89.8611,-136.0463 92.3082,-126.7729 94.5878,-118.1347"/>
-<polygon fill="#000000" stroke="#000000" points="97.9857,-118.9753 97.1532,-108.4133 91.2174,-117.1892 97.9857,-118.9753"/>
-</g>
-<!-- //c:c -->
-<g id="node5" class="node">
-<title>//c:c</title>
-<polygon fill="none" stroke="#000000" points="82.0122,-252 28.0122,-252 28.0122,-216 82.0122,-216 82.0122,-252"/>
-<text text-anchor="middle" x="55.0122" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">//c:c</text>
-</g>
-<!-- //c:c&#45;&gt;//a:a -->
-<g id="edge5" class="edge">
-<title>//c:c&#45;&gt;//a:a</title>
-<path fill="none" stroke="#000000" d="M51.5926,-215.7623C46.9671,-191.0928 38.6734,-146.8598 33.2572,-117.9731"/>
-<polygon fill="#000000" stroke="#000000" points="36.687,-117.2733 31.404,-108.0896 29.8069,-118.5634 36.687,-117.2733"/>
-</g>
-<!-- //c:c&#45;&gt;//b:b -->
-<g id="edge4" class="edge">
-<title>//c:c&#45;&gt;//b:b</title>
-<path fill="none" stroke="#000000" d="M62.0778,-215.8314C65.1382,-207.9617 68.7901,-198.5712 72.1804,-189.8533"/>
-<polygon fill="#000000" stroke="#000000" points="75.489,-191.0019 75.8515,-180.4133 68.9649,-188.4647 75.489,-191.0019"/>
-</g>
-</g>
-</svg>
+<!-- digraph mygraph {
+  node [shape=box];
+"//a:a" -> "//a:a.cc"
+"//b:b" -> "//a:a"
+"//b:b" -> "//b:b.cc"
+"//c:c" -> "//b:b"
+"//c:c" -> "//a:a"
+} -->
+<img src="images/out-ranked.svg" alt="out-ranked.svg" style="margin-left=10;" />
 </td><td>
 <pre>
 minrank
@@ -2242,6 +1814,12 @@ maxrank
 </p>
 
 
+<h3 id="regex">Regular expressions</h3>
+
+Regular expressions in the query language are implemented using the Java
+regex library, so they support the full syntax documented
+for <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html"><code>java.util.regex.Pattern</code></a>.
+
 <h3 id="external-repos">Querying with external repositories</h3>
 
 <p>
@@ -2273,11 +1851,105 @@ maxrank
 </pre>
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Query Language&body=Documentation URL: https://docs.bazel.build/versions/master/query.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h3"><a href="#-bazel-cquery-"> bazel cquery </a></li>
+<li class="toc-entry toc-h2"><a href="#examples">Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#tokens">Tokens: The Lexical Syntax</a></li>
+<li class="toc-entry toc-h2"><a href="#concepts">Bazel Query Language Concepts</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#cycles-in-the-dependency-graph">Cycles in the dependency graph</a></li>
+<li class="toc-entry toc-h3"><a href="#implicit_deps">Implicit dependencies</a></li>
+<li class="toc-entry toc-h3"><a href="#soundness">Soundness</a></li>
+<li class="toc-entry toc-h3"><a href="#graph-order">On the preservation of graph order</a></li>
+<li class="toc-entry toc-h3"><a href="#sky-query">Sky Query</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#expressions">Expressions: Syntax and Semantics of the Grammar</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#target-patterns">Target patterns</a></li>
+<li class="toc-entry toc-h3"><a href="#variables">Variables</a></li>
+<li class="toc-entry toc-h3"><a href="#parentheses">Parenthesized expressions</a></li>
+<li class="toc-entry toc-h3"><a href="#set-operations">Algebraic set operations:
+                        intersection, union, set difference</a></li>
+<li class="toc-entry toc-h3"><a href="#set">Read targets from an external source: set</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#functions">Functions</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#deps">Transitive closure of dependencies: deps</a></li>
+<li class="toc-entry toc-h3"><a href="#rdeps">Transitive closure of reverse dependencies: rdeps</a></li>
+<li class="toc-entry toc-h3"><a href="#allrdeps">Transitive closure of all reverse dependencies: allrdeps</a></li>
+<li class="toc-entry toc-h3"><a href="#same_pkg_direct_rdeps">Direct reverse dependencies in the same package: same_pkg_direct_rdeps</a></li>
+<li class="toc-entry toc-h3"><a href="#siblings">Dealing with a target&#39;s package: siblings</a></li>
+<li class="toc-entry toc-h3"><a href="#some">Arbitrary choice: some</a></li>
+<li class="toc-entry toc-h3"><a href="#path-operators">Path operators: somepath, allpaths</a></li>
+<li class="toc-entry toc-h3"><a href="#kind">Target kind filtering: kind</a></li>
+<li class="toc-entry toc-h3"><a href="#filter">Target name filtering: filter</a></li>
+<li class="toc-entry toc-h3"><a href="#attr">Rule attribute filtering: attr</a></li>
+<li class="toc-entry toc-h3"><a href="#visible">Rule visibility filtering: visible</a></li>
+<li class="toc-entry toc-h3"><a href="#labels">Evaluation of rule attributes of type label: labels</a></li>
+<li class="toc-entry toc-h3"><a href="#tests">Expand and filter test_suites: tests</a></li>
+<li class="toc-entry toc-h3"><a href="#buildfiles">Package definition files: buildfiles</a></li>
+<li class="toc-entry toc-h3"><a href="#rbuildfiles">Package definition files: rbuildfiles</a></li>
+<li class="toc-entry toc-h3"><a href="#loadfiles">Package definition files: loadfiles</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#output-formats">Output Formats</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#result-order">On the ordering of results</a></li>
+<li class="toc-entry toc-h3"><a href="#output-build">Print the source form of targets as they would appear in BUILD</a></li>
+<li class="toc-entry toc-h3"><a href="#output-label">Print the label of each target</a></li>
+<li class="toc-entry toc-h3"><a href="#output-label_kind">Print the label and kind of each target</a></li>
+<li class="toc-entry toc-h3"><a href="#output-ranked">Print the label of each target, in rank order</a></li>
+<li class="toc-entry toc-h3"><a href="#output-location">Print the location of each target</a></li>
+<li class="toc-entry toc-h3"><a href="#output-package">Print the set of packages</a></li>
+<li class="toc-entry toc-h3"><a href="#output-graph">Display a graph of the result</a></li>
+<li class="toc-entry toc-h3"><a href="#output-xml">XML</a></li>
+<li class="toc-entry toc-h3"><a href="#regex">Regular expressions</a></li>
+<li class="toc-entry toc-h3"><a href="#external-repos">Querying with external repositories</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -2314,7 +1986,7 @@ maxrank
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

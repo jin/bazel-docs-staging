@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Android Rules - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Android Rules - Bazel </title>
 
     <link rel="canonical" href="/versions/master/be/android.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/be/android.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/be/android.html">master</option>
-              
-              <option value="/versions/0.19.2/be/android.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/be/android.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/be/android.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/be/android.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/be/android.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <!--
  This document is synchronized with Bazel releases.
  To edit, submit changes to the Bazel source code.
@@ -371,6 +311,8 @@
 <!-- Generated by //src/main/java/com/google/devtools/build/docgen:build-encyclopedia.zip -->
 
 <h1>Android Rules</h1>
+
+
 
 <div class="toc">
   <h2>Rules</h2>
@@ -414,7 +356,7 @@
     android_binary
   </h2>
 
-  <pre class="rule-signature">android_binary(<a href="#android_binary.name">name</a>, <a href="#android_binary.deps">deps</a>, <a href="#android_binary.srcs">srcs</a>, <a href="#android_binary.aapt_version">aapt_version</a>, <a href="#android_binary.assets">assets</a>, <a href="#android_binary.assets_dir">assets_dir</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_binary.crunch_png">crunch_png</a>, <a href="#android_binary.custom_package">custom_package</a>, <a href="#android_binary.debug_key">debug_key</a>, <a href="#android_binary.densities">densities</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="#android_binary.dex_shards">dex_shards</a>, <a href="#android_binary.dexopts">dexopts</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#android_binary.enable_data_binding">enable_data_binding</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#android_binary.incremental_dexing">incremental_dexing</a>, <a href="#android_binary.inline_constants">inline_constants</a>, <a href="#android_binary.instruments">instruments</a>, <a href="#android_binary.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#android_binary.main_dex_list">main_dex_list</a>, <a href="#android_binary.main_dex_list_opts">main_dex_list_opts</a>, <a href="#android_binary.main_dex_proguard_specs">main_dex_proguard_specs</a>, <a href="#android_binary.manifest">manifest</a>, <a href="#android_binary.manifest_values">manifest_values</a>, <a href="#android_binary.multidex">multidex</a>, <a href="#android_binary.nocompress_extensions">nocompress_extensions</a>, <a href="#android_binary.plugins">plugins</a>, <a href="#android_binary.proguard_apply_dictionary">proguard_apply_dictionary</a>, <a href="#android_binary.proguard_apply_mapping">proguard_apply_mapping</a>, <a href="#android_binary.proguard_generate_mapping">proguard_generate_mapping</a>, <a href="#android_binary.proguard_specs">proguard_specs</a>, <a href="#android_binary.resource_configuration_filters">resource_configuration_filters</a>, <a href="#android_binary.resource_files">resource_files</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#android_binary.shrink_resources">shrink_resources</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">android_binary(<a href="#android_binary.name">name</a>, <a href="#android_binary.deps">deps</a>, <a href="#android_binary.srcs">srcs</a>, <a href="#android_binary.assets">assets</a>, <a href="#android_binary.assets_dir">assets_dir</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_binary.crunch_png">crunch_png</a>, <a href="#android_binary.custom_package">custom_package</a>, <a href="#android_binary.debug_key">debug_key</a>, <a href="#android_binary.densities">densities</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="#android_binary.dex_shards">dex_shards</a>, <a href="#android_binary.dexopts">dexopts</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#android_binary.enable_data_binding">enable_data_binding</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#android_binary.incremental_dexing">incremental_dexing</a>, <a href="#android_binary.instruments">instruments</a>, <a href="#android_binary.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#android_binary.main_dex_list">main_dex_list</a>, <a href="#android_binary.main_dex_list_opts">main_dex_list_opts</a>, <a href="#android_binary.main_dex_proguard_specs">main_dex_proguard_specs</a>, <a href="#android_binary.manifest">manifest</a>, <a href="#android_binary.manifest_values">manifest_values</a>, <a href="#android_binary.multidex">multidex</a>, <a href="#android_binary.nocompress_extensions">nocompress_extensions</a>, <a href="#android_binary.plugins">plugins</a>, <a href="#android_binary.proguard_apply_dictionary">proguard_apply_dictionary</a>, <a href="#android_binary.proguard_apply_mapping">proguard_apply_mapping</a>, <a href="#android_binary.proguard_generate_mapping">proguard_generate_mapping</a>, <a href="#android_binary.proguard_specs">proguard_specs</a>, <a href="#android_binary.resource_configuration_filters">resource_configuration_filters</a>, <a href="#android_binary.resource_files">resource_files</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#android_binary.shrink_resources">shrink_resources</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -517,26 +459,6 @@ Bazel source tree.
         </td>
       </tr>
                       <tr>
-        <td id="android_binary.aapt_version">
-          <code>aapt_version</code>
-        </td>
-        <td>
-                    <p><code>String; optional; default is "auto"</code></p>
-                              Select the version of aapt for this rule.<br/>
-          Possible values:
-          <ul>
-              <li><code>aapt_version = "aapt"</code>: Use aapt. This is the current default
-                behaviour, and should be used for production binaries.</li>
-              <li><code>aapt_version = "aapt2"</code>: Use aapt2. This is the new resource
-               packaging system that provides improved incremental resource processing, smaller apks
-               and more.</li>
-              <li><code>aapt_version = "auto"</code>: aapt is controlled by the
-                --android_aapt flag.</li>
-          </ul>
-
-        </td>
-      </tr>
-                      <tr>
         <td id="android_binary.assets">
           <code>assets</code>
         </td>
@@ -567,9 +489,11 @@ Bazel source tree.
           <code>crunch_png</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 1</code></p>
+                    <p><code>Boolean; optional; default is True</code></p>
                               Do PNG crunching (or not). This is independent of nine-patch processing, which is always
-          done. Currently only supported for local resources (not android_resources).
+          done. This is a deprecated workaround for an
+          <a href="https://code.google.com/p/android/issues/detail?id=74334">aapt bug</a> which has
+          been fixed in aapt2.
 
         </td>
       </tr>
@@ -647,7 +571,7 @@ Bazel source tree.
           <code>enable_data_binding</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                               If true, this rule processes
           <a href="https://developer.android.com/topic/libraries/data-binding/index.html">data
           binding</a> expressions in layout resources included through the
@@ -665,7 +589,7 @@ Bazel source tree.
 
         </td>
       </tr>
-                                <tr>
+                                                    <tr>
         <td id="android_binary.incremental_dexing">
           <code>incremental_dexing</code>
         </td>
@@ -673,20 +597,6 @@ Bazel source tree.
                     <p><code>Integer; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is -1</code></p>
                               Force the target to be built with or without incremental dexing, overriding defaults
           and --incremental_dexing flag.
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="android_binary.inline_constants">
-          <code>inline_constants</code>
-        </td>
-        <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
-                              Let the compiler inline the constants defined in the generated java sources.
-          This attribute must be set to 0 for all <code>android_library</code> rules
-          used directly by an <code>android_binary</code>,
-          and for any <code>android_binary</code> that has an <code>android_library</code>
-          in its transitive closure.
 
         </td>
       </tr>
@@ -865,7 +775,7 @@ Bazel source tree.
           <code>proguard_generate_mapping</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is 0</code></p>
+                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is False</code></p>
                               Whether to generate Proguard mapping file.
           The mapping file will be generated only if <code>proguard_specs</code> is
           specified. This file will list the mapping between the original and
@@ -931,7 +841,7 @@ Bazel source tree.
             <li>resources in <code>values/</code> will be removed as well as file based
                 resources</li>
             <li>uses <code>strict mode</code> by default</li>
-            <li>removing unused ID resources is not supported</li>
+            <li>removing unused ID resources is only supported with aapt2</li>
           </ul>
           If resource shrinking is enabled, <code><var>name</var>_files/resource_shrinker.log</code>
           will also be generated, detailing the analysis and deletions performed.
@@ -952,7 +862,7 @@ Bazel source tree.
     aar_import
   </h2>
 
-  <pre class="rule-signature">aar_import(<a href="#aar_import.name">name</a>, <a href="common-definitions.html#common.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#aar_import.aar">aar</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#aar_import.exports">exports</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">aar_import(<a href="#aar_import.name">name</a>, <a href="common-definitions.html#common.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#aar_import.aar">aar</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="#aar_import.exports">exports</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#aar_import.srcjar">srcjar</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1009,7 +919,7 @@ Bazel source tree.
 
         </td>
       </tr>
-                                                    <tr>
+                                                                        <tr>
         <td id="aar_import.exports">
           <code>exports</code>
         </td>
@@ -1020,13 +930,23 @@ Bazel source tree.
 
         </td>
       </tr>
-                                                                          </tbody>
+                                                    <tr>
+        <td id="aar_import.srcjar">
+          <code>srcjar</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            A JAR file that contains source code for the compiled JAR files in the AAR.
+
+        </td>
+      </tr>
+                                            </tbody>
   </table>
     <h2 id="android_library">
     android_library
   </h2>
 
-  <pre class="rule-signature">android_library(<a href="#android_library.name">name</a>, <a href="#android_library.deps">deps</a>, <a href="#android_library.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#android_library.assets">assets</a>, <a href="#android_library.assets_dir">assets_dir</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_library.custom_package">custom_package</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#android_library.enable_data_binding">enable_data_binding</a>, <a href="#android_library.exported_plugins">exported_plugins</a>, <a href="#android_library.exports">exports</a>, <a href="#android_library.exports_manifest">exports_manifest</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#android_library.idl_import_root">idl_import_root</a>, <a href="#android_library.idl_parcelables">idl_parcelables</a>, <a href="#android_library.idl_preprocessed">idl_preprocessed</a>, <a href="#android_library.idl_srcs">idl_srcs</a>, <a href="#android_library.inline_constants">inline_constants</a>, <a href="#android_library.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#android_library.manifest">manifest</a>, <a href="#android_library.neverlink">neverlink</a>, <a href="#android_library.plugins">plugins</a>, <a href="#android_library.resource_files">resource_files</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">android_library(<a href="#android_library.name">name</a>, <a href="#android_library.deps">deps</a>, <a href="#android_library.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#android_library.assets">assets</a>, <a href="#android_library.assets_dir">assets_dir</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_library.custom_package">custom_package</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#android_library.enable_data_binding">enable_data_binding</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="#android_library.exported_plugins">exported_plugins</a>, <a href="#android_library.exports">exports</a>, <a href="#android_library.exports_manifest">exports_manifest</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#android_library.idl_import_root">idl_import_root</a>, <a href="#android_library.idl_parcelables">idl_parcelables</a>, <a href="#android_library.idl_preprocessed">idl_preprocessed</a>, <a href="#android_library.idl_srcs">idl_srcs</a>, <a href="#android_library.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#android_library.manifest">manifest</a>, <a href="#android_library.neverlink">neverlink</a>, <a href="#android_library.plugins">plugins</a>, <a href="#android_library.proguard_specs">proguard_specs</a>, <a href="#android_library.resource_files">resource_files</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>This rule compiles and archives its sources into a <code>.jar</code> file.
@@ -1230,7 +1150,7 @@ android_library(
           <code>enable_data_binding</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                               If true, this rule processes
           <a href="https://developer.android.com/topic/libraries/data-binding/index.html">data
           binding</a> expressions in layout resources included through the
@@ -1248,7 +1168,7 @@ android_library(
 
         </td>
       </tr>
-                      <tr>
+                                          <tr>
         <td id="android_library.exported_plugins">
           <code>exported_plugins</code>
         </td>
@@ -1370,20 +1290,6 @@ android_library(
         </td>
       </tr>
                       <tr>
-        <td id="android_library.inline_constants">
-          <code>inline_constants</code>
-        </td>
-        <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
-                              Let the compiler inline the constants defined in the generated java sources.
-          This attribute must be set to 0 for all <code>android_library</code> rules
-          used directly by an <code>android_binary</code>,
-          and for any <code>android_binary</code> that has an <code>android_library</code>
-          in its transitive closure.
-
-        </td>
-      </tr>
-                      <tr>
         <td id="android_library.javacopts">
           <code>javacopts</code>
         </td>
@@ -1413,7 +1319,7 @@ android_library(
           <code>neverlink</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                             Only use this library for compilation and not at runtime.
         The outputs of a rule marked as <code>neverlink</code> will not be used in
         <code>.apk</code> creation. Useful if the library will be provided by the
@@ -1433,6 +1339,22 @@ android_library(
           this target is built.  Resources generated by
           the plugin will be included in the result jar of
           the target.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="android_library.proguard_specs">
+          <code>proguard_specs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Files to be used as Proguard specification.
+        These will describe the set of specifications to be used by Proguard. If specified,
+        they will be added to any <code>android_binary</code> target depending on this library.
+
+        The files included here must only have idempotent rules, namely -dontnote, -dontwarn,
+        assumenosideeffects, and rules that start with -keep. Other options can only appear in
+        <code>android_binary</code>'s proguard_specs, to ensure non-tautological merges.
 
         </td>
       </tr>
@@ -1459,7 +1381,7 @@ android_library(
     android_instrumentation_test
   </h2>
 
-  <pre class="rule-signature">android_instrumentation_test(<a href="#android_instrumentation_test.name">name</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#android_instrumentation_test.support_apks">support_apks</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#android_instrumentation_test.target_device">target_device</a>, <a href="#android_instrumentation_test.test_app">test_app</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#android_instrumentation_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">android_instrumentation_test(<a href="#android_instrumentation_test.name">name</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#android_instrumentation_test.support_apks">support_apks</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#android_instrumentation_test.target_device">target_device</a>, <a href="#android_instrumentation_test.test_app">test_app</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#android_instrumentation_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1471,7 +1393,7 @@ android_library(
   The <a href="android.html#android_instrumentation_test.test_app">test_app</a> attribute specifies the
   <code>android_binary</code> which contains the test. This <code>android_binary</code> in turn
   specifies the <code>android_binary</code> application under test through its
-  <a href="${link android_binary.instruments">instruments</a> attribute.
+  <a href="android.html#android_binary.instruments">instruments</a> attribute.
 </p>
 
 <h4 id="android_instrumentation_test_examples">Example</h4>
@@ -1511,7 +1433,7 @@ android_binary(
     name = "hello_world_test_app",
     instruments = "//java/com/samples/hello_world:hello_world_app",
     manifest = "AndroidManifest.xml",
-    deps = ["hello_world_test_lib"],
+    deps = [":hello_world_test_lib"],
 )
 
 android_instrumentation_test(
@@ -1543,7 +1465,7 @@ android_instrumentation_test(
 
         </td>
       </tr>
-                                                                                                                                                  <tr>
+                                                                                                                                                            <tr>
         <td id="android_instrumentation_test.support_apks">
           <code>support_apks</code>
         </td>
@@ -1597,7 +1519,7 @@ android_instrumentation_test(
     android_local_test
   </h2>
 
-  <pre class="rule-signature">android_local_test(<a href="#android_local_test.name">name</a>, <a href="#android_local_test.deps">deps</a>, <a href="#android_local_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#android_local_test.aapt_version">aapt_version</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_local_test.custom_package">custom_package</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#android_local_test.javacopts">javacopts</a>, <a href="#android_local_test.jvm_flags">jvm_flags</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#android_local_test.manifest">manifest</a>, <a href="#android_local_test.manifest_values">manifest_values</a>, <a href="#android_local_test.plugins">plugins</a>, <a href="#android_local_test.resource_jars">resource_jars</a>, <a href="#android_local_test.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#android_local_test.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#android_local_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#android_local_test.test_class">test_class</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#android_local_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">android_local_test(<a href="#android_local_test.name">name</a>, <a href="#android_local_test.deps">deps</a>, <a href="#android_local_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_local_test.custom_package">custom_package</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#android_local_test.javacopts">javacopts</a>, <a href="#android_local_test.jvm_flags">jvm_flags</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#android_local_test.manifest">manifest</a>, <a href="#android_local_test.manifest_values">manifest_values</a>, <a href="#android_local_test.nocompress_extensions">nocompress_extensions</a>, <a href="#android_local_test.plugins">plugins</a>, <a href="#android_local_test.resource_jars">resource_jars</a>, <a href="#android_local_test.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#android_local_test.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#android_local_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#android_local_test.test_class">test_class</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#android_local_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1622,8 +1544,8 @@ writing Robolectric tests.
 
 <p>
 To use Robolectric with <code>android_local_test</code>, add
-<a href="https://github.com/robolectric/robolectric/tree/master/bazel">Robolectric's repository</a>
-to your <code>WORKSPACE</code> file:
+<a href="https://github.com/robolectric/robolectric-bazel/tree/master/bazel">Robolectric's
+repository</a> to your <code>WORKSPACE</code> file:
 <pre class="code">
 http_archive(
     name = "robolectric",
@@ -1736,27 +1658,7 @@ android_library(
 
         </td>
       </tr>
-                                <tr>
-        <td id="android_local_test.aapt_version">
-          <code>aapt_version</code>
-        </td>
-        <td>
-                    <p><code>String; optional; default is "auto"</code></p>
-                            Select the version of aapt for this rule.<br/>
-        Possible values:
-        <ul>
-            <li><code>aapt_version = "aapt"</code>: Use aapt. This is the current default
-              behaviour, and should be used for production binaries.</li>
-            <li><code>aapt_version = "aapt2"</code>: Use aapt2. This is the new resource
-             packaging system that provides improved incremental resource processing, smaller apks
-             and more.</li>
-            <li><code>aapt_version = "auto"</code>: aapt is controlled by the
-              --android_aapt flag.</li>
-        </ul>
-
-        </td>
-      </tr>
-                                          <tr>
+                                                    <tr>
         <td id="android_local_test.custom_package">
           <code>custom_package</code>
         </td>
@@ -1768,7 +1670,7 @@ android_library(
 
         </td>
       </tr>
-                                                              <tr>
+                                                                        <tr>
         <td id="android_local_test.javacopts">
           <code>javacopts</code>
         </td>
@@ -1834,6 +1736,16 @@ android_library(
         <code>applicationId</code> if
         specified or the package in the manifest.
         It is not necessary to have a manifest on the rule in order to use manifest_values.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="android_local_test.nocompress_extensions">
+          <code>nocompress_extensions</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            A list of file extensions to leave uncompressed in the resource apk.
 
         </td>
       </tr>
@@ -1950,7 +1862,7 @@ android_library(
     android_device
   </h2>
 
-  <pre class="rule-signature">android_device(<a href="#android_device.name">name</a>, <a href="#android_device.cache">cache</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_device.default_properties">default_properties</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#android_device.horizontal_resolution">horizontal_resolution</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#android_device.platform_apks">platform_apks</a>, <a href="#android_device.ram">ram</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#android_device.screen_density">screen_density</a>, <a href="#android_device.system_image">system_image</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#android_device.vertical_resolution">vertical_resolution</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#android_device.vm_heap">vm_heap</a>)</pre>
+  <pre class="rule-signature">android_device(<a href="#android_device.name">name</a>, <a href="#android_device.cache">cache</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_device.default_properties">default_properties</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#android_device.horizontal_resolution">horizontal_resolution</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#android_device.platform_apks">platform_apks</a>, <a href="#android_device.ram">ram</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#android_device.screen_density">screen_density</a>, <a href="#android_device.system_image">system_image</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#android_device.vertical_resolution">vertical_resolution</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#android_device.vm_heap">vm_heap</a>)</pre>
 
 
 <p>This rule creates an android emulator configured with the given
@@ -2073,7 +1985,7 @@ ro.product.name=soju
 
         </td>
       </tr>
-                                                    <tr>
+                                                                        <tr>
         <td id="android_device.horizontal_resolution">
           <code>horizontal_resolution</code>
         </td>
@@ -2412,11 +2324,105 @@ android_library(
 <!-- Generated footer -->
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Android Rules&body=Documentation URL: https://docs.bazel.build/versions/master/be/android.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#rules">Rules</a></li>
+<li class="toc-entry toc-h2"><a href="#android_binary">
+    android_binary
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#android_binary_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#aar_import">
+    aar_import
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#aar_import_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#android_library">
+    android_library
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#android_library_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#android_instrumentation_test">
+    android_instrumentation_test
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#android_instrumentation_test_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#android_local_test">
+    android_local_test
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#android_local_test_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#android_device">
+    android_device
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#android_device_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#android_ndk_repository">
+    android_ndk_repository
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#android_ndk_repository_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#android_sdk_repository">
+    android_sdk_repository
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#android_sdk_repository_args">Arguments</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -2453,7 +2459,7 @@ android_library(
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

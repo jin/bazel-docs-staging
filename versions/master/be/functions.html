@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Functions - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Functions - Bazel </title>
 
     <link rel="canonical" href="/versions/master/be/functions.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/be/functions.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/be/functions.html">master</option>
-              
-              <option value="/versions/0.19.2/be/functions.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/be/functions.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/be/functions.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/be/functions.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/be/functions.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <!--
  This document is synchronized with Bazel releases.
  To edit, submit changes to the Bazel source code.
@@ -377,11 +317,9 @@
   <ul>
     <li><a href="#package">package</a></li>
     <li><a href="#package_group">package_group</a></li>
-    <li><a href="#licenses">licenses</a></li>
     <li><a href="#exports_files">exports_files</a></li>
     <li><a href="#glob">glob</a></li>
     <li><a href="#select">select</a></li>
-    <li><a href="#workspace">workspace</a></li>
   </ul>
 </div>
 <!-- =================================================================
@@ -425,7 +363,7 @@ file, before any rule.</p>
         attribute, see the documentation of the
         <a href="common-definitions.html#common.visibility">visibility</a>
         attribute. The package default visibility does not apply to
-        <a href="general.html#exports_files">exports_files</a>, which is
+        <a href="#exports_files">exports_files</a>, which is
         public by default.</p>
       </td>
     </tr>
@@ -605,52 +543,6 @@ package_group(
 </pre>
 
 <!-- =================================================================
-                              licenses()
-     =================================================================
--->
-
-<h2 id="licenses">licenses</h2>
-
-<pre>licenses(license_types)</pre>
-
-<p><code>licenses()</code> specifies the default license type (or types)
-   of the build rules in a <code>BUILD</code> file.
-
-   The <code>licenses()</code> directive should appear close to the
-   beginning of the <code>BUILD</code> file, before any build rules, as it
-   sets the <code>BUILD</code>-file scope default for build rule license
-   types.</p>
-
-<h3 id="licenses_args">Arguments</h3>
-
-<p>The argument, <code id="licenses.licence_types">license_types</code>,
-   is a list of license-type strings.
-   <!-- TODO(bazel-team): specify some examples -->
-
-</p>
-
-<p>Valid license types include:</p>
-<dl>
-  <dt><code>restricted</code></dt><dd>Requires mandatory source
-    distribution.</dd>
-  <dt><code>reciprocal</code></dt><dd>Allows usage of software freely in
-    <b>unmodified</b> form. Any modifications must be made freely
-    available.</dd>
-  <dt><code>notice</code></dt><dd>Original or modified third-party software may
-    be shipped without danger nor encumbering other sources. All of the
-    licenses in this category do, however, have an "original Copyright notice"
-    or "advertising clause", wherein any external distributions must include
-    the notice or clause specified in the license.</dd>
-  <dt><code>permissive</code></dt><dd>Code that is under a license but does not
-    require a notice.</dd>
-  <dt><code>unencumbered</code></dt><dd>Public domain, free for any use.</dd>
-</dl>
-licenses(["notice"])  # MIT license
-
-exports_files(["jquery-2.1.1.js"])
-</pre>
-
-<!-- =================================================================
                         exports_files([label, ...])
      =================================================================
   -->
@@ -661,18 +553,18 @@ exports_files(["jquery-2.1.1.js"])
 
 <p>
   <code>exports_files()</code> specifies a list of files belonging to
-  this package that are exported to other packages but not otherwise
-  mentioned in the BUILD file.
+  this package that are exported to other packages.
 </p>
 
 <p>
-  The BUILD file for a package may only refer to files belonging to another
-  package if they are mentioned somewhere in the other packages's BUILD file,
-  whether as an input to a rule or an explicit or implicit output from a rule.
-  The remaining files are not associated with a specific rule but are just "data",
-  and for these, <code>exports_files</code> ensures that they may be referenced by
-  other packages.  (One kind of data for which this is particularly useful are
-  shell scripts.)
+  The BUILD file for a package may only refer directly to source files belonging
+  to another package if they are explicitly exported with an
+  <pre>exports_files()</pre> statement.
+  As a legacy behaviour, also files mentioned as input to a rule are exported
+  with the default visibility until the flag
+  <a href="https://github.com/bazelbuild/bazel/issues/10225"><code>--incompatible_no_implicit_file_export</code></a>
+  is flipped. However, this behavior should not be relied upon and actively
+  migrated away from.
 </p>
 
 <h3 id="exports_files_args">Arguments</h3>
@@ -709,30 +601,65 @@ exports_files(["golden.txt"])
 
 <h2 id="glob">glob</h2>
 
-<pre>glob(include, exclude=[], exclude_directories=1)</pre>
+<pre>glob(include, exclude=[], exclude_directories=1, allow_empty=True)</pre>
 
 <p>
-Glob is a helper function that can be used anywhere a list of filenames
-is expected.  It takes one or two lists of filename patterns containing
-the <code>*</code> wildcard: as per the Unix shell, this wildcard
-matches any string excluding the directory separator <code>/</code>.
-In addition filename patterns can contain the recursive <code>**</code>
-wildcard. This wildcard will match zero or more complete
-path segments separated by the directory separator <code>/</code>.
-This wildcard can only be used as a complete path segment. For example,
-<code>"x/**/*.java"</code> is valid, but <code>"test**/testdata.xml"</code>
-and <code>"**.java"</code> are both invalid. No other wildcards are supported.
+Glob is a helper function that finds all files that match certain path patterns,
+and returns a list of their paths. Glob only searches files in its own package,
+and looks only for source files (not generated files nor other targets).
 </p>
+
 <p>
-Glob returns a sorted list of every file in the current package that:
+A source file's Label is included in the result if the file's package-relative
+path matches any of the <code>include</code> patterns and none of the
+<code>exclude</code> patterns.
 </p>
+
+<p>
+The <code>include</code> and <code>exclude</code> lists contain path patterns
+that are relative to the current package. Every pattern may consist of one or
+more path segments. As usual with Unix paths, these segments are separated by
+<code>/</code>. Segments may contain the <code>*</code> wildcard: this matches
+any substring in the path segment (even the empty substring), excluding the
+directory separator <code>/</code>. This wildcard can be used multiple times
+within one path segment. Additionally, the <code>**</code> wildcard can match
+zero or more complete path segments, but it must be declared as a standalone
+path segment.
+</p>
+
+Examples:
 <ul>
-  <li>Matches at least one pattern in <code>include</code>. </li>
-  <li>Does not match any of the patterns in <code>exclude</code> (default []).</li>
+<li><code>foo/bar.txt</code> matches exactly the <code>foo/bar.txt</code> file
+in this package</li>
+<li><code>foo/*.txt</code> matches every file in the <code>foo/</code> directory
+if the file ends with
+<code>.txt</code> (unless <code>foo/</code> is a subpackage)</li>
+<li><code>foo/a*.htm*</code> matches every file in the <code>foo/</code>
+directory that starts with <code>a</code>, then has an arbitrary string (could
+be empty), then has <code>.htm</code>, and ends with another arbitrary string;
+such as <code>foo/axx.htm</code> and <code>foo/a.html</code> or
+<code>foo/axxx.html</code></li>
+<li><code>**/a.txt</code> matches every <code>a.txt</code> file in every
+subdirectory of this package</li>
+<li><code>**/bar/**/*.txt</code> matches every <code>.txt</code> file in every
+subdirectory of this package, if at least one directory on the resulting path is
+called <code>bar</code>, such as <code>xxx/bar/yyy/zzz/a.txt</code> or
+<code>bar/a.txt</code> (remember that <code>**</code> also matches zero
+segments) or <code>bar/zzz/a.txt</code></li>
+<li><code>**</code> matches every file in every subdirectory of this
+package</li>
+<li><code>foo**/a.txt</code> is an invalid pattern, because <code>**</code> must
+stand on its own as a segment</li>
 </ul>
+
 <p>
 If the <code>exclude_directories</code> argument is enabled (set to 1), files of
 type directory will be omitted from the results (default 1).
+</p>
+<p>
+If the <code>allow_empty</code> argument is set to <code>False</code>, the
+<code>glob</code> function will error-out if the result would otherwise be the
+empty list.
 </p>
 <p>
 There are several important limitations and caveats:
@@ -740,17 +667,33 @@ There are several important limitations and caveats:
 
 <ol>
   <li>
+    <p>
     Since <code>glob()</code> runs during BUILD file evaluation,
     <code>glob()</code> matches files only in your source tree, never
     generated files.  If you are building a target that requires both
-    source and generated files, create a list of generated
-    files. This list can be specified by using the labels for the generated
-    files or using the label
-    for the target that produces the generated files.
-    Use <code>+</code> to add the list of
-    generated files to the result of the <code>glob()</code> call as shown in
-    the <a href="#glob_example">example</a>
-    below with the target <code>:gen_java_srcs</code>.
+    source and generated files, you must append an explicit list of generated
+    files to the glob. See the <a href="#glob_example">example</a>
+    below with <code>:mylib</code> and <code>:gen_java_srcs</code>.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      If a rule has the same name as a matched source file, the rule will
+      "shadow" the file.
+    </p>
+    <p>
+      To understand this, remember that <code>glob()</code> returns a list of
+      paths, so using <code>glob()</code> in other rules' attribute (e.g.
+      <code>srcs = glob(["*.cc"])</code>) has the same effect as listing the
+      matched paths explicitly.  If for example <code>glob()</code> yields
+      <code>["Foo.java", "bar/Baz.java"]</code> but there's also a rule in the
+      package called "Foo.java" (which is allowed, though Bazel warns about it),
+      then the consumer of the <code>glob()</code> will use the "Foo.java" rule
+      (its outputs) instead of the "Foo.java" file. See
+      <a href="https://github.com/bazelbuild/bazel/issues/10395#issuecomment-583714657">GitHub
+      issue #10395</a> for more details.
+    </p>
   </li>
 
   <li>
@@ -759,9 +702,12 @@ There are several important limitations and caveats:
   </li>
 
   <li>
+    <p>
     Labels are not allowed to cross the package boundary and glob does
     not match files in subpackages.
+    </p>
 
+    <p>
     For example, the glob expression <code>**/*.cc</code> in package
     <code>x</code> does not include <code>x/y/z.cc</code> if
     <code>x/y</code> exists as a package (either as
@@ -772,6 +718,7 @@ There are several important limitations and caveats:
     <code>x/y</code> or it was marked as deleted using the
     <a href="../user-manual.html#flag--deleted_packages">--deleted_packages</a>
     flag.
+    </p>
 
   </li>
 
@@ -780,12 +727,11 @@ There are several important limitations and caveats:
     no matter which wildcards they use.
   </li>
   <li>
-    A hidden file with filename starting with <code>.</code> is matched by
-    both the <code>**</code> and the <code>*</code> wildcards.
-  </li>
-  <li>
-    If a rule and a source file with the same name both exist in the package, the glob will
-    return the outputs of the rule instead of the source file.
+    A hidden file with filename starting with <code>.</code> is completely matched by
+    both the <code>**</code> and the <code>*</code> wildcards. If you want to match a hidden file
+    with a compound pattern, your pattern needs to begin with a <code>.</code>. For example,
+    <code>*</code> and <code>.*.txt</code> will match <code>.foo.txt</code>, but <code>*.txt</code>
+    will not.
   </li>
 
   <li>
@@ -848,9 +794,20 @@ sh_test(
 
 <h3 id="recursive_glob_example">Recursive Glob Examples</h3>
 
+<p>Make the test depend on all txt files in the testdata directory and any
+   of its subdirectories (and their subdirectories, and so on).
+   Subdirectories containing a BUILD file are ignored. (See limitations
+   and caveats above.)</p>
+<pre class="code">
+sh_test(
+    name = "mytest",
+    srcs = ["mytest.sh"],
+    data = glob(["testdata/**/*.txt"]),
+)
+</pre>
+
 <p>Create a library built from all java files in this directory and all
 subdirectories except those whose path includes a directory named testing.
-Subdirectories containing a BUILD file are ignored.
 <b>This pattern should be avoided if possible, as it can reduce build
 incrementality and therefore increase build times.</b>
 </p>
@@ -861,16 +818,6 @@ java_library(
         ["**/*.java"],
         exclude = ["**/testing/**"],
     ),
-)
-</pre>
-
-<p>Make the test depend on all txt files in the testdata directory,
-   its subdirectories</p>
-<pre class="code">
-sh_test(
-    name = "mytest",
-    srcs = ["mytest.sh"],
-    data = glob(["testdata/**/*.txt"]),
 )
 </pre>
 
@@ -1023,53 +970,81 @@ cc_binary(
 
 <p>
 
-<!-- =================================================================
-                              workspace()
-     =================================================================
--->
-
-<h2 id="workspace">workspace</h2>
-
-<pre>workspace(name = "com_example_project")</pre>
-
-<p>This can only be used in a WORKSPACE file.</p>
-
-<p>Each repository's WORKSPACE file should have a workspace(name = "...") line,
-  which sets a global name for the repository.</p>
-
-<p>This name is used for the directory that the repository's runfiles are stored
-  in. For example, if there is a runfile <code>foo/bar</code> in the local
-  repository and the WORKSPACE file contains
-  <code>workspace(name = "baz")</code>, then the runfile will be available under
-  <code>mytarget.runfiles/baz/foo/bar</code>.  If no workspace name is
-  specified, then the runfile will be symlinked to
-  <code>bar.runfiles/foo/bar</code>.
-</p>
-
-<p>A workspace name must start with a letter and can contain letters, numbers,
-  and underscores (this is to maximize the number of languages for which this
-  string can be a valid package/module name). It should describe the project in
-  reverse-DNS form, with elements separated by underscores. For example, if a
-  project is hosted at example.com/some-project, you might use
-  com_example_some_project as the workspace name.
-</p>
-
-<p><a href="workspace.html">Remote repository</a> rule names must be
-  valid workspace names. For example, you could have
-  <code>maven_jar(name = "foo")</code>, but not
-  <code>maven_jar(name = "foo.bar")</code>, as Bazel would attempt to write a
-  WORKSPACE file for the <code>maven_jar</code> containing
-  <code>workspace(name = "foo.bar")</code>.
-</p>
-
 <!-- Generated footer -->
 
+        </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Functions&body=Documentation URL: https://docs.bazel.build/versions/master/be/functions.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#package">package</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#package_args">Arguments</a></li>
+<li class="toc-entry toc-h3"><a href="#package_example">Examples</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#package_group">package_group</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#package_group_args">Arguments</a></li>
+<li class="toc-entry toc-h3"><a href="#package_group_example">Examples</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#exports_files">exports_files</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#exports_files_args">Arguments</a></li>
+<li class="toc-entry toc-h3"><a href="#exports_files_example">Example</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#glob">glob</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#glob_example">Glob Examples</a></li>
+<li class="toc-entry toc-h3"><a href="#recursive_glob_example">Recursive Glob Examples</a></li>
+<li class="toc-entry toc-h3"><a href="#expanded_glob_example">Expanded Glob Examples</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#select">select</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#select_example">Examples</a></li>
+</ul>
+</li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -1106,7 +1081,7 @@ cc_binary(
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

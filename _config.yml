@@ -1,0 +1,41 @@
+destination: production
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  toc_levels: "2,3"
+highlighter: rouge
+
+paginate: 10
+sass:
+  sass_dir: _sass
+plugins:
+  - jekyll-paginate
+  - jekyll-toc
+
+# Update this to the newest release for the default docs.bazel.build version.
+version: master
+
+# This must be kept in sync with //scripts/docs:doc_versions.bzl
+doc_versions:
+  - master
+
+main_site_url: https://www.bazel.build
+docs_site_url: "/"
+blog_site_url: https://blog.bazel.build
+
+defaults:
+  -
+    values:
+      toc: true
+
+toc:
+  min_level: 2
+  max_level: 3
+  list_class: page-toc
+  sublist_class: page-toc-sublist
+
+  # no_toc_section_class: no_toc_section
+  # list_class: section-nav
+  # sublist_class: ''
+  # item_class: toc-entry
+  # item_prefix: toc-

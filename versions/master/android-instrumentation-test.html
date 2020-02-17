@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Android Instrumentation Tests - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Android Instrumentation Tests - Bazel </title>
 
     <link rel="canonical" href="/versions/master/android-instrumentation-test.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/android-instrumentation-test.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,61 +302,15 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/android-instrumentation-test.html">master</option>
-              
-              <option value="/versions/0.19.2/android-instrumentation-test.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/android-instrumentation-test.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/android-instrumentation-test.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/android-instrumentation-test.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/android-instrumentation-test.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="android-instrumentation-tests">Android Instrumentation Tests</h1>
 
-<p><em>If you’re new to Bazel, please start with the <a href="https://docs.bazel.build/versions/master/tutorial/android-app.html">Building Android with
-Bazel</a>
-tutorial.</em></p>
+<p><em>If you’re new to Bazel, please start with the <a href="tutorial/android-app.html">Building Android with
+Bazel</a> tutorial.</em></p>
 
 <p><img src="/assets/android_test.gif" alt="Running Android instrumentation tests in parallel" /></p>
 
-<p><a href="https://docs.bazel.build/versions/master/be/android.html#android_instrumentation_test"><code class="highlighter-rouge">android_instrumentation_test</code></a>
+<p><a href="be/android.html#android_instrumentation_test"><code class="highlighter-rouge">android_instrumentation_test</code></a>
 allows developers to test their apps on Android emulators and devices.
 It utilizes real Android framework APIs and the Android Test Library.</p>
 
@@ -439,11 +378,11 @@ emulator state also speeds up test runs.</p>
 
 <h1 id="prerequisites">Prerequisites</h1>
 
-<p>Ensure your enivornment satisfies the following prerequisites:</p>
+<p>Ensure your environment satisfies the following prerequisites:</p>
 
 <ul>
   <li>
-    <p><strong>Linux</strong>. Tested on Ubuntu 14.04 and 16.04.</p>
+    <p><strong>Linux</strong>. Tested on Ubuntu 16.04, and 18.04.</p>
   </li>
   <li>
     <p><strong>Bazel 0.12.0</strong> or later. Verify the version by running <code class="highlighter-rouge">bazel info release</code>.</p>
@@ -491,50 +430,50 @@ correctly by running <code class="highlighter-rouge">which Xvfb</code> and ensur
 
 <p>The graph translates into a <code class="highlighter-rouge">BUILD</code> file like this:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@gmaven_rules//:defs.bzl"</span><span class="p">,</span> <span class="s">"gmaven_artifact"</span><span class="p">)</span>
-
-<span class="n">android_instrumentation_test</span><span class="p">(</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">android_instrumentation_test</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_test"</span><span class="p">,</span>
     <span class="n">test_app</span> <span class="o">=</span> <span class="s">":my_test_app"</span><span class="p">,</span>
-    <span class="n">target_device</span> <span class="o">=</span> <span class="s">"@android_test_support//tools/android/emulated_devices/generic_phone:android_23_x86_qemu2"</span><span class="p">,</span>
+    <span class="n">target_device</span> <span class="o">=</span> <span class="s">"@android_test_support//tools/android/emulated_devices/generic_phone:android_23_x86"</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="c"># Test app and library</span>
-<span class="n">android_binary</span><span class="p">(</span>
+<span class="c1"># Test app and library
+</span><span class="n">android_binary</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_test_app"</span><span class="p">,</span>
     <span class="n">instruments</span> <span class="o">=</span> <span class="s">":my_app"</span><span class="p">,</span>
     <span class="n">manifest</span> <span class="o">=</span> <span class="s">"AndroidTestManifest.xml"</span><span class="p">,</span>
     <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":my_test_lib"</span><span class="p">],</span>
-    <span class="c"># ...</span>
-<span class="p">)</span>
+    <span class="c1"># ...
+</span><span class="p">)</span>
 
 <span class="n">android_library</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_test_lib"</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">([</span><span class="s">"javatest/**/*.java"</span><span class="p">]),</span>
     <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s">":my_app_lib"</span><span class="p">,</span>
-        <span class="n">gmaven_artifact</span><span class="p">(</span><span class="s">"com.android.support.test.espresso:espresso_core:aar:3.0.1"</span><span class="p">),</span>
+        <span class="s">"@maven//:androidx_test_core"</span><span class="p">,</span>
+        <span class="s">"@maven//:androidx_test_runner"</span><span class="p">,</span>
+        <span class="s">"@maven//:androidx_test_espresso_espresso_core"</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="c"># ...</span>
-<span class="p">)</span>
+    <span class="c1"># ...
+</span><span class="p">)</span>
 
-<span class="c"># Target app and library under test</span>
-<span class="n">android_binary</span><span class="p">(</span>
+<span class="c1"># Target app and library under test
+</span><span class="n">android_binary</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_app"</span><span class="p">,</span>
     <span class="n">manifest</span> <span class="o">=</span> <span class="s">"AndroidManifest.xml"</span><span class="p">,</span>
     <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":my_app_lib"</span><span class="p">],</span>
-    <span class="c"># ...</span>
-<span class="p">)</span>
+    <span class="c1"># ...
+</span><span class="p">)</span>
 
 <span class="n">android_library</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_app_lib"</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">([</span><span class="s">"java/**/*.java"</span><span class="p">]),</span>
     <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">gmaven_artifact</span><span class="p">(</span><span class="s">"com.android.support:design:aar:27.0.2"</span><span class="p">),</span>
-        <span class="n">gmaven_artifact</span><span class="p">(</span><span class="s">"com.android.support:support_annotations:jar:27.0.2"</span><span class="p">),</span>
+        <span class="s">"@maven//:androidx_appcompat_appcompat"</span><span class="p">,</span>
+        <span class="s">"@maven//:androidx_annotation_annotation"</span><span class="p">,</span>
     <span class="p">]</span>
-    <span class="c"># ...</span>
-<span class="p">)</span>
+    <span class="c1"># ...
+</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>The main attributes of the rule <code class="highlighter-rouge">android_instrumentation_test</code> are:</p>
@@ -554,11 +493,11 @@ device</a> for more information.</p>
   </li>
 </ul>
 
-<p>The test app’s <code class="highlighter-rouge">AndroidManifest.xml</code> must include
-<a href="https://developer.android.com/studio/test/#configure_instrumentation_manifest_settings">an <code class="highlighter-rouge">&lt;instrumentation&gt;</code> tag</a>.
+<p>The test app’s <code class="highlighter-rouge">AndroidManifest.xml</code> must include <a href="https://developer.android.com/studio/test/#configure_instrumentation_manifest_settings">an <code class="highlighter-rouge">&lt;instrumentation&gt;</code>
+tag</a>.
 This tag must specify the attributes for the <strong>package of the target app</strong> and
 the <strong>fully qualified class name of the instrumentation test runner</strong>,
-<code class="highlighter-rouge">android.support.test.runner.AndroidJUnitRunner</code>.</p>
+<code class="highlighter-rouge">androidx.test.runner.AndroidJUnitRunner</code>.</p>
 
 <p>Here is an example <code class="highlighter-rouge">AndroidTestManifest.xml</code> for the test app:</p>
 
@@ -570,7 +509,7 @@ the <strong>fully qualified class name of the instrumentation test runner</stron
     <span class="na">android:versionName=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
 
     <span class="nt">&lt;instrumentation</span>
-        <span class="na">android:name=</span><span class="s">"android.support.test.runner.AndroidJUnitRunner"</span>
+        <span class="na">android:name=</span><span class="s">"androidx.test.runner.AndroidJUnitRunner"</span>
         <span class="na">android:targetPackage=</span><span class="s">"com.example.android.app"</span> <span class="nt">/&gt;</span>
 
     <span class="nt">&lt;uses-sdk</span>
@@ -594,25 +533,22 @@ repositories:</p>
   </li>
   <li>
     <p><code class="highlighter-rouge">@android_test_support</code>: Hosts the test runner, emulator launcher, and
-<code class="highlighter-rouge">android_device</code> targets.</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">@gmaven_rules</code>: Defines the <code class="highlighter-rouge">maven_jar</code> and <code class="highlighter-rouge">maven_aar</code> targets available on
-the <a href="https://maven.google.com">Google Maven repository</a>.</p>
+<code class="highlighter-rouge">android_device</code> targets. You can find the <a href="https://github.com/android/android-test/releases">latest release
+here</a></p>
   </li>
 </ul>
 
-<p>You can enable these dependencies by adding the following lines to your
-<code class="highlighter-rouge">WORKSPACE</code> file:</p>
+<p>Enable these dependencies by adding the following lines to your <code class="highlighter-rouge">WORKSPACE</code>
+file:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Android SDK</span>
-<span class="n">android_sdk_repository</span><span class="p">(</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Android SDK
+</span><span class="n">android_sdk_repository</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"androidsdk"</span><span class="p">,</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="s">"/path/to/sdk"</span><span class="p">,</span> <span class="c"># or set ANDROID_HOME</span>
-<span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s">"/path/to/sdk"</span><span class="p">,</span> <span class="c1"># or set ANDROID_HOME
+</span><span class="p">)</span>
 
-<span class="c"># Android Test Support</span>
-<span class="n">ATS_COMMIT</span> <span class="o">=</span> <span class="s">"$COMMIT_HASH"</span>
+<span class="c1"># Android Test Support
+</span><span class="n">ATS_COMMIT</span> <span class="o">=</span> <span class="s">"$COMMIT_HASH"</span>
 <span class="n">http_archive</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"android_test_support"</span><span class="p">,</span>
     <span class="n">strip_prefix</span> <span class="o">=</span> <span class="s">"android-test-</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">ATS_COMMIT</span><span class="p">,</span>
@@ -620,83 +556,17 @@ the <a href="https://maven.google.com">Google Maven repository</a>.</p>
 <span class="p">)</span>
 <span class="n">load</span><span class="p">(</span><span class="s">"@android_test_support//:repo.bzl"</span><span class="p">,</span> <span class="s">"android_test_repositories"</span><span class="p">)</span>
 <span class="n">android_test_repositories</span><span class="p">()</span>
-
-<span class="c"># Google Maven Repository</span>
-<span class="n">GMAVEN_TAG</span> <span class="o">=</span> <span class="s">"0.1.0"</span>
-<span class="n">http_archive</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"gmaven_rules"</span><span class="p">,</span>
-    <span class="n">strip_prefix</span> <span class="o">=</span> <span class="s">"gmaven_rules-</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">GMAVEN_TAG</span><span class="p">,</span>
-    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s">"https://github.com/bazelbuild/gmaven_rules/archive/</span><span class="si">%</span><span class="s">s.tar.gz"</span> <span class="o">%</span> <span class="n">GMAVEN_TAG</span><span class="p">],</span>
-<span class="p">)</span>
-<span class="n">load</span><span class="p">(</span><span class="s">"@gmaven_rules//:gmaven.bzl"</span><span class="p">,</span> <span class="s">"gmaven_rules"</span><span class="p">)</span>
-<span class="n">gmaven_rules</span><span class="p">()</span>
 </code></pre></div></div>
 
 <h1 id="maven-dependencies">Maven dependencies</h1>
 
-<p>Use the
-<a href="https://docs.bazel.build/versions/master/be/workspace.html#maven_jar">maven_jar</a>
-repository rule for Maven dependencies not hosted on Google Maven. For example,
-to use JUnit 4.12 and Hamcrest 2, add the following lines to your <code class="highlighter-rouge">WORKSPACE</code>:</p>
+<p>For managing dependencies on Maven artifacts from repositories like <a href="https://maven.google.com">Google
+Maven</a> or <a href="https://central.maven.org">Maven Central</a>,
+we recommend using a Maven resolver like
+<a href="https://github.com/bazelbuild/rules_jvm_external">rules_jvm_external</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maven_jar(
-    name = "junit_junit",
-    artifact = "junit:junit:4.12",
-)
-
-maven_jar(
-    name = "org_hamcrest_java_hamcrest",
-    artifact = "org.hamcrest:java-hamcrest:2.0.0.0",
-)
-</code></pre></div></div>
-
-<p>Then, you can depend on them in your <code class="highlighter-rouge">BUILD</code> files:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java_library</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"test_deps"</span><span class="p">,</span>
-    <span class="n">visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//visibility:public"</span><span class="p">],</span>
-    <span class="n">exports</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">"@junit_junit//jar"</span><span class="p">,</span>
-        <span class="s">"@org_hamcrest_java_hamcrest//jar"</span><span class="p">,</span>
-    <span class="p">],</span>
-<span class="p">)</span>
-
-<span class="n">android_library</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"my_test_lib"</span><span class="p">,</span>
-    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="o">..</span><span class="p">],</span>
-    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":test_deps"</span><span class="p">],</span>
-<span class="p">)</span>
-</code></pre></div></div>
-
-<p><a href="https://github.com/johnynek/bazel-deps"><code class="highlighter-rouge">bazel-deps</code></a> is another useful tool
-for managing Maven dependencies using <a href="https://github.com/johnynek/bazel-deps/blob/master/dependencies.yaml">a <code class="highlighter-rouge">YAML</code>
-file</a>.</p>
-
-<p>For dependencies hosted on <a href="https://maven.google.com">Google’s Maven
-repository</a>, <a href="https://github.com/bazelbuild/gmaven_rules"><code class="highlighter-rouge">@gmaven_rules</code></a>
-provides a simple way to fetch dependencies hosted with <code class="highlighter-rouge">gmaven_artifact</code>.</p>
-
-<p><code class="highlighter-rouge">gmaven_artifact</code> is a macro that maps an artifact’s coordinate to the actual
-generated target in
-<a href="https://raw.githubusercontent.com/bazelbuild/gmaven_rules/master/gmaven.bzl"><code class="highlighter-rouge">gmaven.bzl</code></a>
-(warning: big file!). The packaging type defaults to <code class="highlighter-rouge">jar</code> if it isn’t
-specified.</p>
-
-<p>Load the <code class="highlighter-rouge">gmaven_artifact</code> macro at the beginning of your <code class="highlighter-rouge">BUILD</code> file to use
-it:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@gmaven_rules//:defs.bzl"</span><span class="p">,</span> <span class="s">"gmaven_artifact"</span><span class="p">)</span>
-
-<span class="n">android_library</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"my_app_lib"</span><span class="p">,</span>
-    <span class="n">srcs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">([</span><span class="s">"java/**/*.java"</span><span class="p">]),</span>
-    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">gmaven_artifact</span><span class="p">(</span><span class="s">"com.android.support:design:aar:27.0.2"</span><span class="p">),</span>
-        <span class="n">gmaven_artifact</span><span class="p">(</span><span class="s">"com.android.support:support_annotations:jar:27.0.2"</span><span class="p">),</span>
-    <span class="p">]</span>
-    <span class="c"># ...</span>
-<span class="p">)</span>
-</code></pre></div></div>
+<p>For the rest of this documentation, we will be using <code class="highlighter-rouge">rules_jvm_external</code> to
+resolve and fetch dependencies from Maven repositories.</p>
 
 <h1 id="choosing-an-android_device-target">Choosing an android_device target</h1>
 
@@ -704,10 +574,10 @@ it:</p>
 run the tests on. These <code class="highlighter-rouge">android_device</code> targets are defined in
 <a href="https://github.com/google/android-testing-support-library/tree/master/tools/android/emulated_devices"><code class="highlighter-rouge">@android_test_support</code></a>.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">bazel</span> <span class="n">query</span> <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">build</span> <span class="nd">@android_test_support</span><span class="o">//</span><span class="n">tools</span><span class="o">/</span><span class="n">android</span><span class="o">/</span><span class="n">emulated_devices</span><span class="o">/</span><span class="n">generic_phone</span><span class="p">:</span><span class="n">android_23_x86_qemu2</span>
-<span class="c"># .../external/android_test_support/tools/android/emulated_devices/generic_phone/BUILD:43:1</span>
-<span class="n">android_device</span><span class="p">(</span>
-  <span class="n">name</span> <span class="o">=</span> <span class="s">"android_23_x86_qemu2"</span><span class="p">,</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">bazel</span> <span class="n">query</span> <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">build</span> <span class="o">@</span><span class="n">android_test_support</span><span class="o">//</span><span class="n">tools</span><span class="o">/</span><span class="n">android</span><span class="o">/</span><span class="n">emulated_devices</span><span class="o">/</span><span class="n">generic_phone</span><span class="p">:</span><span class="n">android_23_x86</span>
+<span class="c1"># .../external/android_test_support/tools/android/emulated_devices/generic_phone/BUILD:43:1
+</span><span class="n">android_device</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">"android_23_x86"</span><span class="p">,</span>
   <span class="n">visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//visibility:public"</span><span class="p">],</span>
   <span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="s">"requires-kvm"</span><span class="p">],</span>
   <span class="n">generator_name</span> <span class="o">=</span> <span class="s">"generic_phone"</span><span class="p">,</span>
@@ -719,8 +589,8 @@ run the tests on. These <code class="highlighter-rouge">android_device</code> ta
   <span class="n">screen_density</span> <span class="o">=</span> <span class="mi">240</span><span class="p">,</span>
   <span class="n">cache</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
   <span class="n">vm_heap</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
-  <span class="n">system_image</span> <span class="o">=</span> <span class="s">"@android_test_support//tools/android/emulated_devices/generic_phone:android_23_x86_qemu2_images"</span><span class="p">,</span>
-  <span class="n">default_properties</span> <span class="o">=</span> <span class="s">"@android_test_support//tools/android/emulated_devices/generic_phone:_android_23_x86_qemu2_props"</span><span class="p">,</span>
+  <span class="n">system_image</span> <span class="o">=</span> <span class="s">"@android_test_support//tools/android/emulated_devices/generic_phone:android_23_x86_images"</span><span class="p">,</span>
+  <span class="n">default_properties</span> <span class="o">=</span> <span class="s">"@android_test_support//tools/android/emulated_devices/generic_phone:_android_23_x86_props"</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
@@ -732,7 +602,7 @@ run the tests on. These <code class="highlighter-rouge">android_device</code> ta
 <p>In order to launch an <code class="highlighter-rouge">android_device</code>, the <code class="highlighter-rouge">system_image</code> for the selected API
 level is required. To download the system image, use Android SDK’s
 <code class="highlighter-rouge">tools/bin/sdkmanager</code>. For example, to download the system image for
-<code class="highlighter-rouge">generic_phone:android_23_x86_qemu2</code>, run <code class="highlighter-rouge">$sdk/tools/bin/sdkmanager
+<code class="highlighter-rouge">generic_phone:android_23_x86</code>, run <code class="highlighter-rouge">$sdk/tools/bin/sdkmanager
 "system-images;android-23;default;x86"</code>.</p>
 
 <p>To see the full list of supported <code class="highlighter-rouge">android_device</code> targets in
@@ -741,18 +611,18 @@ level is required. To download the system image, use Android SDK’s
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel query 'filter("x86_qemu2$", kind(android_device, @android_test_support//tools/android/emulated_devices/...:*))'
 </code></pre></div></div>
 
-<p>Bazel currently supports x86-based emulators only. For better performance,
-we also recommend using <code class="highlighter-rouge">QEMU2</code> <code class="highlighter-rouge">android_device</code> targets instead of <code class="highlighter-rouge">QEMU</code> ones.</p>
+<p>Bazel currently supports x86-based emulators only. For better performance, we
+also recommend using <code class="highlighter-rouge">QEMU2</code> <code class="highlighter-rouge">android_device</code> targets instead of <code class="highlighter-rouge">QEMU</code> ones.</p>
 
 <h1 id="running-tests">Running tests</h1>
 
-<p>To run tests, add these lines to your project’s <code class="highlighter-rouge">tools/bazel.rc</code> file.</p>
+<p>To run tests, add these lines to your project’s <code class="highlighter-rouge">&lt;project root&gt;/.bazelrc</code> file.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Configurations for testing with Bazel
 # Select a configuration by running
 # `bazel test //my:target --config={headless, gui, local_device}`
 
-# Headless instrumentation tests
+# Headless instrumentation tests (No GUI)
 test:headless --test_arg=--enable_display=false
 
 # Graphical instrumentation tests. Ensure that $DISPLAY is set.
@@ -772,8 +642,8 @@ test:local_device --test_arg=--device_broker_type=LOCAL_ADB_SERVER
 <p>Then, use one of the configurations to run tests:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">bazel test //my/test:target --config=headless</code></li>
   <li><code class="highlighter-rouge">bazel test //my/test:target --config=gui</code></li>
+  <li><code class="highlighter-rouge">bazel test //my/test:target --config=headless</code></li>
   <li><code class="highlighter-rouge">bazel test //my/test:target --config=local_device</code></li>
 </ul>
 
@@ -813,27 +683,6 @@ the device/emulator listed in <code class="highlighter-rouge">adb devices</code>
 samples</a>
 for projects using Espresso and UIAutomator.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/googlesamples/android-testing &amp;&amp; cd android-testing
-# Set path to Android SDK in WORKSPACE
-$ bazel test //ui/... --config=headless
-INFO: Analysed 45 targets (1 packages loaded).
-INFO: Found 36 targets and 9 test targets...
-
-...
-
-INFO: Elapsed time: 195.665s, Critical Path: 195.22s
-INFO: Build completed successfully, 417 total actions
-//ui/espresso/BasicSample:BasicSampleInstrumentationTest                 PASSED in 103.7s
-//ui/espresso/CustomMatcherSample:CustomMatcherSampleInstrumentationTest PASSED in 113.2s
-//ui/espresso/DataAdapterSample:DataAdapterSampleInstrumentationTest     PASSED in 110.2s
-//ui/espresso/IdlingResourceSample:IdlingResourceSampleInstrumentationTest PASSED in 102.3s
-//ui/espresso/IntentsAdvancedSample:IntentsAdvancedSampleInstrumentationTest PASSED in 98.3s
-//ui/espresso/IntentsBasicSample:IntentsBasicSampleInstrumentationTest   PASSED in 103.3s
-//ui/espresso/MultiWindowSample:MultiWindowSampleInstrumentationTest     PASSED in 108.3s
-//ui/espresso/RecyclerViewSample:RecyclerViewSampleInstrumentationTest   PASSED in 102.9s
-//ui/uiautomator/BasicSample:BasicSampleInstrumentationTest              PASSED in 122.6s
-</code></pre></div></div>
-
 <h1 id="espresso-setup">Espresso setup</h1>
 
 <p>If you write UI tests with <a href="https://developer.android.com/training/testing/espresso/">Espresso</a>
@@ -852,69 +701,51 @@ junit:junit
 <p>One way to organize these dependencies is to create a <code class="highlighter-rouge">//:test_deps</code> shared
 library:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># In &lt;project root&gt;/BUILD.bazel</span>
-
-<span class="n">load</span><span class="p">(</span><span class="s">"@gmaven_rules//:defs.bzl"</span><span class="p">,</span> <span class="s">"gmaven_artifact"</span><span class="p">)</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># In &lt;project root&gt;/BUILD.bazel
+</span>
 <span class="n">java_library</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"test_deps"</span><span class="p">,</span>
     <span class="n">visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//visibility:public"</span><span class="p">],</span>
     <span class="n">exports</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">gmaven_artifact</span><span class="p">(</span><span class="s">"androidx.test.espresso:espresso-core:aar:3.1.0-alpha4"</span><span class="p">),</span>
-        <span class="n">gmaven_artifact</span><span class="p">(</span><span class="s">"androidx.test:rules:aar:1.1.0-alpha4"</span><span class="p">),</span>
-        <span class="n">gmaven_artifact</span><span class="p">(</span><span class="s">"androidx.test:runner:aar:1.1.0-alpha4"</span><span class="p">),</span>
-        <span class="s">"@javax_inject_javax_inject//jar"</span><span class="p">,</span>
-        <span class="s">"@junit_junit//jar"</span><span class="p">,</span>
-        <span class="s">"@org_hamcrest_java_hamcrest//jar"</span><span class="p">,</span>
+        <span class="s">"@maven//:androidx_test_espresso_espresso_core"</span><span class="p">,</span>
+        <span class="s">"@maven//:androidx_test_rules"</span><span class="p">,</span>
+        <span class="s">"@maven//:androidx_test_runner"</span><span class="p">,</span>
+        <span class="s">"@maven//:javax_inject_javax_inject"</span>
+        <span class="s">"@maven//:org_hamcrest_java_hamcrest"</span><span class="p">,</span>
+        <span class="s">"@maven//:junit_junit"</span><span class="p">,</span>
     <span class="p">],</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
 <p>Then, add the required dependencies in <code class="highlighter-rouge">&lt;project root&gt;/WORKSPACE</code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">android_sdk_repository</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"androidsdk"</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span class="p">,</span> <span class="s">"http_archive"</span><span class="p">)</span>
 
-<span class="c"># Android Test Support</span>
-<span class="n">ATS_COMMIT</span> <span class="o">=</span> <span class="s">"e39a8c7769a5c8b498d0deb0deef3a25b289d410"</span>
+<span class="n">RULES_JVM_EXTERNAL_TAG</span> <span class="o">=</span> <span class="s">"2.8"</span>
+<span class="n">RULES_JVM_EXTERNAL_SHA</span> <span class="o">=</span> <span class="s">"79c9850690d7614ecdb72d68394f994fef7534b292c4867ce5e7dec0aa7bdfad"</span>
 
 <span class="n">http_archive</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"android_test_support"</span><span class="p">,</span>
-    <span class="n">strip_prefix</span> <span class="o">=</span> <span class="s">"android-test-</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">ATS_COMMIT</span><span class="p">,</span>
-    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s">"https://github.com/android/android-test/archive/</span><span class="si">%</span><span class="s">s.tar.gz"</span> <span class="o">%</span> <span class="n">ATS_COMMIT</span><span class="p">],</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"rules_jvm_external"</span><span class="p">,</span>
+    <span class="n">strip_prefix</span> <span class="o">=</span> <span class="s">"rules_jvm_external-</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">RULES_JVM_EXTERNAL_TAG</span><span class="p">,</span>
+    <span class="n">sha256</span> <span class="o">=</span> <span class="n">RULES_JVM_EXTERNAL_SHA</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">"https://github.com/bazelbuild/rules_jvm_external/archive/</span><span class="si">%</span><span class="s">s.zip"</span> <span class="o">%</span> <span class="n">RULES_JVM_EXTERNAL_TAG</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">load</span><span class="p">(</span><span class="s">"@android_test_support//:repo.bzl"</span><span class="p">,</span> <span class="s">"android_test_repositories"</span><span class="p">)</span>
+<span class="n">load</span><span class="p">(</span><span class="s">"@rules_jvm_external//:defs.bzl"</span><span class="p">,</span> <span class="s">"maven_install"</span><span class="p">)</span>
 
-<span class="n">android_test_repositories</span><span class="p">()</span>
-
-<span class="c"># Google Maven Repository</span>
-<span class="n">GMAVEN_TAG</span> <span class="o">=</span> <span class="s">"20180927-1"</span>
-
-<span class="n">http_archive</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"gmaven_rules"</span><span class="p">,</span>
-    <span class="n">strip_prefix</span> <span class="o">=</span> <span class="s">"gmaven_rules-</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">GMAVEN_TAG</span><span class="p">,</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s">"https://github.com/bazelbuild/gmaven_rules/archive/</span><span class="si">%</span><span class="s">s.tar.gz"</span> <span class="o">%</span> <span class="n">GMAVEN_TAG</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">load</span><span class="p">(</span><span class="s">"@gmaven_rules//:gmaven.bzl"</span><span class="p">,</span> <span class="s">"gmaven_rules"</span><span class="p">)</span>
-
-<span class="n">gmaven_rules</span><span class="p">()</span>
-
-<span class="n">maven_jar</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"junit_junit"</span><span class="p">,</span>
-    <span class="n">artifact</span> <span class="o">=</span> <span class="s">"junit:junit:4.12"</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">maven_jar</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"javax_inject_javax_inject"</span><span class="p">,</span>
-    <span class="n">artifact</span> <span class="o">=</span> <span class="s">"javax.inject:javax.inject:1"</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">maven_jar</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"org_hamcrest_java_hamcrest"</span><span class="p">,</span>
-    <span class="n">artifact</span> <span class="o">=</span> <span class="s">"org.hamcrest:java-hamcrest:2.0.0.0"</span><span class="p">,</span>
+<span class="n">maven_install</span><span class="p">(</span>
+    <span class="n">artifacts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"junit:junit:4.12"</span><span class="p">,</span>
+        <span class="s">"javax.inject:javax.inject:1"</span><span class="p">,</span>
+        <span class="s">"org.hamcrest:java-hamcrest:2.0.0.0"</span>
+        <span class="s">"androidx.test.espresso:espresso-core:3.1.1"</span><span class="p">,</span>
+        <span class="s">"androidx.test:rules:aar:1.1.1"</span><span class="p">,</span>
+        <span class="s">"androidx.test:runner:aar:1.1.1"</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">repositories</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"https://maven.google.com"</span><span class="p">,</span>
+        <span class="s">"https://repo1.maven.org/maven2"</span><span class="p">,</span>
+    <span class="p">],</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
@@ -926,10 +757,10 @@ dependency:</p>
     <span class="n">instruments</span> <span class="o">=</span> <span class="s">"//path/to:app"</span><span class="p">,</span>
     <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s">"//:test_deps"</span><span class="p">,</span>
-        <span class="c"># ...</span>
-    <span class="p">],</span>
-    <span class="c"># ...</span>
-<span class="p">)</span>
+        <span class="c1"># ...
+</span>    <span class="p">],</span>
+    <span class="c1"># ...
+</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h1 id="tips">Tips</h1>
@@ -977,7 +808,7 @@ individual test log, go to
 │   ├── adb.7.ok.txt
 │   ├── adb.8.ok.txt
 │   ├── adb.9.ok.txt
-│   ├── android_23_x86_qemu2.1.ok.txt
+│   ├── android_23_x86.1.ok.txt
 │   └── exec-1
 │       ├── adb-2.txt
 │       ├── emulator-2.txt
@@ -1050,16 +881,62 @@ packages com.example.android.testing | cut -d ':' -f 2 | tr -d '\r' | xargs
   <li>Remote test caching and execution</li>
 </ul>
 
-<p>We are planning to rewrite the Android rules in <a href="https://docs.bazel.build/versions/master/skylark/concepts.html">Starlark</a>.
-The <code class="highlighter-rouge">android_instrumentation_test</code> rule will be part of the rewrite, however,
-its usage will remain unchanged from the end-user perspective.</p>
+<p>We are currently rewriting the Android rules in
+<a href="skylark/concepts.html">Starlark</a>. The <code class="highlighter-rouge">android_instrumentation_test</code> rule will
+be part of the rewrite, however, its usage will remain unchanged from the
+end-user perspective.</p>
 
+        </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Android Instrumentation Tests&body=Documentation URL: https://docs.bazel.build/versions/master/android-instrumentation-test.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#build-file">BUILD file</a></li>
+<li class="toc-entry toc-h2"><a href="#workspace-dependencies">WORKSPACE dependencies</a></li>
+<li class="toc-entry toc-h2"><a href="#headless-testing">Headless testing</a></li>
+<li class="toc-entry toc-h2"><a href="#gui-testing">GUI testing</a></li>
+<li class="toc-entry toc-h2"><a href="#testing-with-a-local-emulator-or-device">Testing with a local emulator or device</a></li>
+<li class="toc-entry toc-h2"><a href="#reading-test-logs">Reading test logs</a></li>
+<li class="toc-entry toc-h2"><a href="#reading-emulator-logs">Reading emulator logs</a></li>
+<li class="toc-entry toc-h2"><a href="#testing-against-multiple-api-levels">Testing against multiple API levels</a></li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -1096,7 +973,7 @@ its usage will remain unchanged from the end-user perspective.</p>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>General Rules - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>General Rules - Bazel </title>
 
     <link rel="canonical" href="/versions/master/be/general.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/be/general.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/be/general.html">master</option>
-              
-              <option value="/versions/0.19.2/be/general.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/be/general.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/be/general.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/be/general.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/be/general.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <!--
  This document is synchronized with Bazel releases.
  To edit, submit changes to the Bazel source code.
@@ -371,6 +311,8 @@
 <!-- Generated by //src/main/java/com/google/devtools/build/docgen:build-encyclopedia.zip -->
 
 <h1>General Rules</h1>
+
+
 
 <div class="toc">
   <h2>Rules</h2>
@@ -406,7 +348,7 @@
     filegroup
   </h2>
 
-  <pre class="rule-signature">filegroup(<a href="#filegroup.name">name</a>, <a href="#filegroup.srcs">srcs</a>, <a href="#filegroup.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#filegroup.output_group">output_group</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="#filegroup.path">path</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">filegroup(<a href="#filegroup.name">name</a>, <a href="#filegroup.srcs">srcs</a>, <a href="#filegroup.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#filegroup.output_group">output_group</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -493,10 +435,7 @@ cc_library(
                             The list of targets that are members of the file group.
         <p>
           It is common to use the result of a <a href="functions.html#glob">glob</a> expression for
-          the value
-          of the <code>srcs</code> attribute. If a rule and a source file with the same name both
-          exist in the package, the glob will return the outputs of the rule instead of the source
-          file.
+          the value of the <code>srcs</code> attribute.
         </p>
 
         </td>
@@ -535,27 +474,13 @@ cc_library(
 
         </td>
       </tr>
-                                <tr>
-        <td id="filegroup.path">
-          <code>path</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            An optional string to set a path to the files in the group, relative to the package path.
-        <p>
-          This attribute can be used internally by other rules depending on this
-          <code>filegroup</code> to find the name of the directory holding the files.
-        </p>
-
-        </td>
-      </tr>
-                                                      </tbody>
+                                                                </tbody>
   </table>
     <h2 id="genquery">
     genquery
   </h2>
 
-  <pre class="rule-signature">genquery(<a href="#genquery.name">name</a>, <a href="common-definitions.html#common.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#genquery.expression">expression</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#genquery.opts">opts</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#genquery.scope">scope</a>, <a href="#genquery.strict">strict</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">genquery(<a href="#genquery.name">name</a>, <a href="common-definitions.html#common.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="#genquery.expression">expression</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#genquery.opts">opts</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#genquery.scope">scope</a>, <a href="#genquery.strict">strict</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
   <p>
@@ -625,7 +550,7 @@ genquery(
 
         </td>
       </tr>
-                                                                  <tr>
+                                                                                      <tr>
         <td id="genquery.expression">
           <code>expression</code>
         </td>
@@ -668,7 +593,7 @@ genquery(
           <code>strict</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 1</code></p>
+                    <p><code>Boolean; optional; default is True</code></p>
                             If true, targets whose queries escape the transitive closure of their scopes will fail to
         build. If false, Bazel will print a warning and skip whatever query path led it outside of
         the scope, while completing the rest of the query.
@@ -822,8 +747,8 @@ test_suite(
 </p>
 
 <p>
-  Aliasing only works for "regular" targets. In particular, <code>package_group</code>,
-    <code>config_setting</code> and <code>test_suite</code> rules cannot be aliased.
+  Aliasing only works for "regular" targets. In particular, <code>package_group</code>
+  and <code>test_suite</code> cannot be aliased.
 </p>
 
 <p>
@@ -898,7 +823,7 @@ alias(
     config_setting
   </h2>
 
-  <pre class="rule-signature">config_setting(<a href="#config_setting.name">name</a>, <a href="#config_setting.constraint_values">constraint_values</a>, <a href="#config_setting.define_values">define_values</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#config_setting.values">values</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">config_setting(<a href="#config_setting.name">name</a>, <a href="#config_setting.constraint_values">constraint_values</a>, <a href="#config_setting.define_values">define_values</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#config_setting.flag_values">flag_values</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#config_setting.values">values</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
   <p>
@@ -946,46 +871,66 @@ alias(
   config_setting(
       name = "64bit_glibc_2_25",
       constraint_values = [
-          "@bazel_tools//platforms:x86_64",
+          "@platforms//cpu:x86_64",
           "//example:glibc_2_25",
       ]
   )
   </pre>
 
-  In all these cases, it is possible for the configuration state to change during the build, for
-  instance if a dependency of a target needs to be built for a different platform than the target
-  itself. This means that even when a <code>config_setting</code> does not match the top-level
-  command-line flags, it may still match a deeper part of the build, and vice versa.
+  In all these cases, it's possible for the configuration to change within the build, for example if
+  a target needs to be built for a different platform than its dep. This means that even when a
+  <code>config_setting</code> doesn't match the top-level command-line flags, it may still match
+  some build targets.
 
   <h4 id="config_setting_notes">Notes</h4>
+  <ul>
+    <li>See <a href="functions.html#select">select</a> for what happens when multiple
+       <code>config_setting</code>s match the current configuration state.
+    </li>
 
-  <p>See <a href="functions.html#select">select</a> for what happens when multiple
-     <code>config_setting</code>s match the current configuration state.
-  </p>
+    <li>For flags that support shorthand forms (e.g. <code>--compilation_mode</code> vs.
+      <code>-c</code>), <code>values</code> definitions must use the full form. These automatically
+      match invocations using either form.
+    </li>
 
-  <p>For flags that support shorthand forms (e.g. <code>--compilation_mode</code> vs.
-    <code>-c</code>), <code>values</code> definitions must use the full form. These automatically
-    match invocations using either form.
-  </p>
+    <li>
+      If a flag takes multiple values (like <code>--copt=-Da --copt=-Db</code> or a list-typed
+      <a href="https://docs.bazel.build/versions/master/skylark/config.html#user-defined-build-settings">
+      Starlark flag</a>), <code>values = { "flag": "a" }</code> matches if <code>"a"</code> is
+      present <i>anywhere</i> in the actual list.
 
-  <p>The currently endorsed method for creating custom conditions that can't be expressed through
-    dedicated build flags is through the <code>--define</code> flag. Use this flag with caution:
-    it's not ideal and only endorsed for lack of a currently better workaround. See the
-    <a href="common-definitions.html#configurable-attributes">
-    Configurable attributes</a> section for more discussion.
-  </p>
+      <p>
+        <code>values = { "myflag": "a,b" }</code> works the same way: this matches
+        <code>--myflag=a --myflag=b</code>, <code>--myflag=a --myflag=b --myflag=c</code>,
+        <code>--myflag=a,b</code>, and <code>--myflag=c,b,a</code>. Exact semantics vary between
+        flags. For example, <code>--copt</code> doesn't support multiple values <i>in the same
+        instance</i>: <code>--copt=a,b</code> produces <code>["a,b"]</code> while <code>--copt=a
+        --copt=b</code> produces <code>["a", "b"]</code> (so <code>values = { "copt": "a,b" }</code>
+        matches the former but not the latter). But <code>--ios_multi_cpus</code> (for Apple rules)
+        <i>does</i>: <code>-ios_multi_cpus=a,b</code> and <code>ios_multi_cpus=a --ios_multi_cpus=b
+        </code> both produce <code>["a", "b"]</code>. Check flag definitions and test your
+        conditions carefully to verify exact expectations.
+      </p>
+    </li>
 
-  <p>Avoid repeating identical <code>config_setting</code> definitions in different packages.
-    Instead, prefer to reference a common <code>config_setting</code> target that is defined in a
-    single package.
-  </p>
+    <li>If you need to define conditions that aren't modeled by built-in Bazel flags, use
+      <a href="https://docs.bazel.build/versions/master/skylark/config.html#user-defined-build-settings">
+      Starlark-defined flags</a>. You can also use <code>--define</code>, but this offers weaker
+      support and is not recommended. See
+      <a href="common-definitions.html#configurable-attributes">here</a> for more discussion.
+    </li>
 
-  <p><a href="general.html#config_setting.values"><code>values</code></a>,
-     <a href="general.html#config_setting.define_values"><code>define_values</code></a>, and
-     <a href="general.html#config_setting.constraint_values"><code>constraint_values</code></a>
-     can be used in any combination in the same <code>config_setting</code> but at least one must be
-     set for any given <code>config_setting</code>.
-  </p>
+    <li>Avoid repeating identical <code>config_setting</code> definitions in different packages.
+      Instead, reference a common <code>config_setting</code> that defined in a canonical package.
+    </li>
+
+    <li><a href="general.html#config_setting.values"><code>values</code></a>,
+       <a href="general.html#config_setting.define_values"><code>define_values</code></a>, and
+       <a href="general.html#config_setting.constraint_values"><code>constraint_values</code></a>
+       can be used in any combination in the same <code>config_setting</code> but at least one must
+       be set for any given <code>config_setting</code>.
+    </li>
+  </ul>
 
 
   <h3 id="config_setting_args">Arguments</h3>
@@ -1036,14 +981,9 @@ alias(
                               The same as <a href="general.html#config_setting.values"><code>values</code></a> but
           specifically for the <code>--define</code> flag.
 
-          <p><code>--define</code> is special for two reasons:
-
-          <ol>
-            <li>It's the primary interface Bazel has today for declaring user-definable settings.
-            </li>
-            <li>Its syntax (<code>--define KEY=VAL</code>) means <code>KEY=VAL</code> is
-            a <i>value</i> from a Bazel flag perspective.</li>
-          </ol>
+          <p><code>--define</code> is special because its syntax (<code>--define KEY=VAL</code>)
+            means <code>KEY=VAL</code> is a <i>value</i> from a Bazel flag perspective.
+          </p>
 
           <p>That means:
 
@@ -1068,7 +1008,7 @@ alias(
                 })
           </pre>
 
-          <p>corrrectly matches <code>bazel build //foo --define a=1 --define b=2</code>.
+          <p>correctly matches <code>bazel build //foo --define a=1 --define b=2</code>.
 
           <p><code>--define</code> can still appear in
           <a href="general.html#config_setting.values"><code>values</code></a> with normal flag syntax,
@@ -1076,16 +1016,25 @@ alias(
 
         </td>
       </tr>
-                                                                                  <tr>
+                                                    <tr>
+        <td id="config_setting.flag_values">
+          <code>flag_values</code>
+        </td>
+        <td>
+                    <p><code>null; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                              The same as <a href="general.html#config_setting.values"><code>values</code></a> but
+          for <a href="https://docs.bazel.build/versions/master/skylark/config.html#user-defined-build-settings">
+          Starlark-defined flags</a>.
+
+        </td>
+      </tr>
+                                                    <tr>
         <td id="config_setting.values">
           <code>values</code>
         </td>
         <td>
                     <p><code>Dictionary: String -> String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
                               The set of configuration values that match this rule (expressed as Bazel flags)
-
-          <i>(Dictionary mapping flags to expected values, both expressed as strings;
-             mandatory)</i>
 
           <p>This rule inherits the configuration of the configured target that
             references it in a <code>select</code> statement. It is considered to
@@ -1124,7 +1073,7 @@ alias(
     genrule
   </h2>
 
-  <pre class="rule-signature">genrule(<a href="#genrule.name">name</a>, <a href="#genrule.srcs">srcs</a>, <a href="#genrule.outs">outs</a>, <a href="#genrule.cmd">cmd</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="#genrule.executable">executable</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#genrule.local">local</a>, <a href="#genrule.message">message</a>, <a href="#genrule.output_licenses">output_licenses</a>, <a href="#genrule.output_to_bindir">output_to_bindir</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#genrule.toolchains">toolchains</a>, <a href="#genrule.tools">tools</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">genrule(<a href="#genrule.name">name</a>, <a href="#genrule.srcs">srcs</a>, <a href="#genrule.outs">outs</a>, <a href="#genrule.cmd">cmd</a>, <a href="#genrule.cmd_bash">cmd_bash</a>, <a href="#genrule.cmd_bat">cmd_bat</a>, <a href="#genrule.cmd_ps">cmd_ps</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="#genrule.exec_tools">exec_tools</a>, <a href="#genrule.executable">executable</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#genrule.local">local</a>, <a href="#genrule.message">message</a>, <a href="#genrule.output_licenses">output_licenses</a>, <a href="#genrule.output_to_bindir">output_to_bindir</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#genrule.toolchains">toolchains</a>, <a href="#genrule.tools">tools</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>A <code>genrule</code> generates one or more files using a user-defined Bash command.</p>
@@ -1344,7 +1293,7 @@ genrule(
           <code>cmd</code>
         </td>
         <td>
-                    <p><code>String; required</code></p>
+                    <p><code>String; optional</code></p>
                             The command to run.
         Subject to <a href="make-variables.html#location">$(location)</a> and
         <a href="make-variables.html">"Make" variable</a> substitution.
@@ -1358,8 +1307,8 @@ genrule(
             <p>
               Note that <code>outs</code> are <i>not</i> included in this substitution. Output files
               are always generated into a predictable location (available via <code>$(@D)</code>,
-              <code>$@</code>, <code>$(OUTS)</code> or <code>$(location <i>output_name</i>)</code>;
-              see below).
+              <code>$@</code>, <code>$(OUTS)</code> or <code>$(RULEDIR)</code> or
+              <code>$(location <i>output_name</i>)</code>; see below).
             </p>
           </li>
           <li>
@@ -1389,15 +1338,142 @@ genrule(
             </a> in this document for a list of supported values.
           </li>
         </ul>
+        <p>
+        This is the fallback of <code>cmd_bash</code>, <code>cmd_ps</code> and <code>cmd_bat</code>,
+        if none of them are applicable.
+        </p>
+        <p>
+        If the command line length exceeds the platform limit (64K on Linux/macOS, 8K on Windows),
+        then genrule will write the command to a script and execute that script to work around. This
+        applies to all cmd attributes (<code>cmd</code>, <code>cmd_bash</code>, <code>cmd_ps</code>,
+        <code>cmd_bat</code>).
+        </p>
 
         </td>
       </tr>
-                                                              <tr>
+                      <tr>
+        <td id="genrule.cmd_bash">
+          <code>cmd_bash</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The Bash command to run.
+        <p> This attribute has higher priority than <code>cmd</code>. The command is expanded and
+            runs in the exact same way as the <code>cmd</code> attribute.
+        </p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="genrule.cmd_bat">
+          <code>cmd_bat</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The Batch command to run on Windows.
+        <p> This attribute has higher priority than <code>cmd</code> and <code>cmd_bash</code>.
+            The command runs in the similar way as the <code>cmd</code> attribute, with the
+            following differences:
+        </p>
+        <ul>
+          <li>
+            This attribute only applies on Windows.
+          </li>
+          <li>
+            The command runs with <code>cmd.exe /c</code> with the following default arguments:
+            <ul>
+              <li>
+                <code>/S</code> - strip first and last quotes and execute everything else as is.
+              </li>
+              <li>
+                <code>/E:ON</code> - enable extended command set.
+              </li>
+              <li>
+                <code>/V:ON</code> - enable delayed variable expansion
+              </li>
+              <li>
+                <code>/D</code> - ignore AutoRun registry entries.
+              </li>
+            </ul>
+          </li>
+          <li>
+            After <a href="make-variables.html#location">$(location)</a> and
+            <a href="make-variables.html">"Make" variable</a> substitution, the paths will be
+            expanded to Windows style paths (with backslash).
+          </li>
+        </ul>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="genrule.cmd_ps">
+          <code>cmd_ps</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The Powershell command to run on Windows.
+        <p> This attribute has higher priority than <code>cmd</code>, <code>cmd_bash</code> and
+            <code>cmd_bat</code>. The command runs in the similar way as the <code>cmd</code>
+            attribute, with the following differences:
+        </p>
+        <ul>
+          <li>
+            This attribute only applies on Windows.
+          </li>
+          <li>
+            The command runs with <code>powershell.exe /c</code>.
+          </li>
+        </ul>
+        <p> To make Powershell easier to use and less error-prone, we run the following
+            commands to set up the environment before executing Powershell command in genrule.
+        </p>
+        <ul>
+          <li>
+            <code>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code> - allow running
+            unsigned scripts.
+          </li>
+          <li>
+            <code>$errorActionPreference='Stop'</code> - In case there are multiple commands
+            separated by <code>;</code>, the action exits immediately if a Powershell CmdLet fails,
+            but this does <strong>NOT</strong> work for external command.
+          </li>
+          <li>
+            <code>$PSDefaultParameterValues['*:Encoding'] = 'utf8'</code> - change the default
+            encoding from utf-16 to utf-8.
+          </li>
+        </ul>
+
+        </td>
+      </tr>
+                                                                        <tr>
+        <td id="genrule.exec_tools">
+          <code>exec_tools</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            A list of <i>tool</i> dependencies for this rule. This behaves exactly like the
+        <a href="#genrule.tools"><code>tools</code></a> attribute, except that these dependencies
+        will be configured for the rule's execution platform instead of the host configuration.
+        This means that dependencies in <code>exec_tools</code> are not subject to the same
+        limitations as dependencies in <code>tools</code>. In particular, they are not required to
+        use the host configuration for their own transitive dependencies. See
+        <a href="#genrule.tools"><code>tools</code></a> for further details.
+
+        <p>
+          Note that eventually the host configuration will be replaced by the execution
+          configuration. When that happens, this attribute will be deprecated in favor of
+          <code>tools</code>. Until then, this attribute allows users to selectively migrate
+          dependencies to the execution configuration.
+        </p>
+
+        </td>
+      </tr>
+                      <tr>
         <td id="genrule.executable">
           <code>executable</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is 0</code></p>
+                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is False</code></p>
                             Declare output to be executable.
         <p>
           Setting this flag to 1 means the output is an executable file and can be run using the
@@ -1414,18 +1490,14 @@ genrule(
           <code>local</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                             <p>
-          If set to 1, this option force this <code>genrule</code> to run with the
-          <code>standalone</code> strategy, without sandboxing.
+          If set to 1, this option forces this <code>genrule</code> to run using the "local"
+          strategy, which means no remote execution, no sandboxing, no persistent workers.
         </p>
         <p>
-          This is equivalent to providing 'local' as a tag (<code>tags=["local"]</code>). The
-          local strategy is applied if either one is specified.
+          This is equivalent to providing 'local' as a tag (<code>tags=["local"]</code>).
         </p>
-        <p>
-          The <code>--genrule_strategy</code> option value <code>local</code>
-          overrides this attribute.
 
         </td>
       </tr>
@@ -1462,7 +1534,7 @@ genrule(
           <code>output_to_bindir</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is 0</code></p>
+                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is False</code></p>
                             <p>
           If set to 1, this option causes output files to be written into the <code>bin</code>
           directory instead of the <code>genfiles</code> directory.
@@ -1510,11 +1582,91 @@ genrule(
 <!-- Generated footer -->
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: General Rules&body=Documentation URL: https://docs.bazel.build/versions/master/be/general.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#rules">Rules</a></li>
+<li class="toc-entry toc-h2"><a href="#filegroup">
+    filegroup
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#filegroup_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#genquery">
+    genquery
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#genquery_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#test_suite">
+    test_suite
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#test_suite_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#alias">
+    alias
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#alias_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#config_setting">
+    config_setting
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#config_setting_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#genrule">
+    genrule
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#genrule_args">Arguments</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -1551,7 +1703,7 @@ genrule(
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

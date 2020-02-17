@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Python Rules - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Python Rules - Bazel </title>
 
     <link rel="canonical" href="/versions/master/be/python.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/be/python.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/be/python.html">master</option>
-              
-              <option value="/versions/0.19.2/be/python.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/be/python.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/be/python.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/be/python.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/be/python.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <!--
  This document is synchronized with Bazel releases.
  To edit, submit changes to the Bazel source code.
@@ -371,6 +311,8 @@
 <!-- Generated by //src/main/java/com/google/devtools/build/docgen:build-encyclopedia.zip -->
 
 <h1>Python Rules</h1>
+
+
 
 <div class="toc">
   <h2>Rules</h2>
@@ -398,7 +340,7 @@
     py_binary
   </h2>
 
-  <pre class="rule-signature">py_binary(<a href="#py_binary.name">name</a>, <a href="#py_binary.deps">deps</a>, <a href="#py_binary.srcs">srcs</a>, <a href="#py_binary.data">data</a>, <a href="common-definitions.html#binary.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#py_binary.default_python_version">default_python_version</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_binary.imports">imports</a>, <a href="#py_binary.legacy_create_init">legacy_create_init</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#py_binary.main">main</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#py_binary.srcs_version">srcs_version</a>, <a href="#py_binary.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#py_binary.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">py_binary(<a href="#py_binary.name">name</a>, <a href="#py_binary.deps">deps</a>, <a href="#py_binary.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#binary.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#py_binary.default_python_version">default_python_version</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_binary.imports">imports</a>, <a href="#py_binary.legacy_create_init">legacy_create_init</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#py_binary.main">main</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="#py_binary.python_version">python_version</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#py_binary.srcs_version">srcs_version</a>, <a href="#py_binary.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#py_binary.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -481,8 +423,7 @@ java_library(
           See general comments about <code>deps</code> at
           <a href="common-definitions.html#common-attributes">
           Attributes common to all build rules</a>.
-          These can be
-          <a href="python.html#py_binary"><code>py_binary</code></a> rules,
+          These are generally
           <a href="python.html#py_library"><code>py_library</code></a> rules.
 
         </td>
@@ -493,44 +434,27 @@ java_library(
         </td>
         <td>
                     <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
-                              The list of source files that are processed to create the target.
-          This includes all your checked-in code and any
-          generated source files.  The line between <code>srcs</code> and
-          <code>deps</code> is loose. The <code>.py</code> files
-          probably belong in <code>srcs</code> and library targets probably belong
-          in <code>deps</code>, but don't worry about it too much.
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="py_binary.data">
-          <code>data</code>
-        </td>
-        <td>
-                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
-                              The list of files needed by this binary at runtime.
-          See general comments about <code>data</code> at
-          <a href="common-definitions.html#common-attributes">
-          Attributes common to all build rules</a>.
-          Also see the <a href="python.html#py_library.data"><code>data</code></a> argument of
-          the <a href="python.html#py_library"><code>py_library</code></a> rule for details.
-
-        </td>
-      </tr>
-                                          <tr>
-        <td id="py_binary.default_python_version">
-          <code>default_python_version</code>
-        </td>
-        <td>
-                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is "PY2"</code></p>
-                              A string specifying the default Python major version to use when building this binary and
-          all of its <code>deps</code>.
-          Valid values are <code>"PY2"</code> (default) or <code>"PY3"</code>.
-          Python 3 support is experimental.
+                              The list of source (<code>.py</code>) files that are processed to create the target.
+          This includes all your checked-in code and any generated source files. Library targets
+          belong in <code>deps</code> instead, while other binary files needed at runtime belong in
+          <code>data</code>.
 
         </td>
       </tr>
                                                     <tr>
+        <td id="py_binary.default_python_version">
+          <code>default_python_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is "_INTERNAL_SENTINEL"</code></p>
+                              A deprecated alias for <code>python_version</code>; use that instead. This attribute is
+          disabled under <code>--incompatible_remove_old_python_version_api</code>. For migration
+          purposes, if <code>python_version</code> is given then the value of
+          <code>default_python_version</code> is ignored.
+
+        </td>
+      </tr>
+                                                                        <tr>
         <td id="py_binary.imports">
           <code>imports</code>
         </td>
@@ -555,13 +479,14 @@ java_library(
           <code>legacy_create_init</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 1</code></p>
+                    <p><code>Integer; optional; default is -1</code></p>
                               Whether to implicitly create empty __init__.py files in the runfiles tree.
           These are created in every directory containing Python source code or
-          shared libraries, and every parent directory of those directories.
-          Default is true for backward compatibility.  If false, the user is responsible
-          for creating __init__.py files (empty or not) and adding them to `srcs` or `deps`
-          of Python targets as required.
+          shared libraries, and every parent directory of those directories, excluding the repo root
+          directory. The default, auto, means true unless
+          <code>--incompatible_default_to_explicit_init_py</code> is used. If false, the user is
+          responsible for creating (possibly empty) __init__.py files and adding them to the
+          <code>srcs</code> of Python targets as required.
 
         </td>
       </tr>
@@ -578,32 +503,77 @@ java_library(
 
         </td>
       </tr>
-                                          <tr>
+                                <tr>
+        <td id="py_binary.python_version">
+          <code>python_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is "_INTERNAL_SENTINEL"</code></p>
+                              Whether to build this target (and its transitive <code>deps</code>) for Python 2 or Python
+          3. Valid values are <code>"PY2"</code> and <code>"PY3"</code> (the default).
+
+          <p>Under the old semantics
+          (<code>--incompatible_allow_python_version_transitions=false</code>), the Python version
+          generally cannot be changed once set. This means that the <code>--python_version</code>
+          flag overrides this attribute, and other Python binaries in the <code>data</code> deps of
+          this target are forced to use the same version as this target.
+
+          <p>Under the new semantics
+          (<code>--incompatible_allow_python_version_transitions=true</code>), the Python version
+          is always set (possibly by default) to whatever version is specified by this attribute,
+          regardless of the version specified on the command line or by other targets that depend on
+          this one.
+
+          <p>If you want to <code>select()</code> on the current Python version, you can inspect the
+          value of <code>@rules_python//python:python_version</code>. See
+          <a href="https://github.com/bazelbuild/rules_python/blob/120590e2f2b66e5590bf4dc8ebef9c5338984775/python/BUILD#L43">here</a>
+          for more information.
+
+          <p><b>Bug warning:</b> This attribute sets the version for which Bazel builds your target,
+          but due to <a href="https://github.com/bazelbuild/bazel/issues/4815">#4815</a>, the
+          resulting stub script may still invoke the wrong interpreter version at runtime. See
+          <a href="https://github.com/bazelbuild/bazel/issues/4815#issuecomment-460777113">this
+          workaround</a>, which involves defining a <code>py_runtime</code> target that points to
+          either Python version as needed, and activating this <code>py_runtime</code> by setting
+          <code>--python_top</code>.
+
+        </td>
+      </tr>
+                                <tr>
         <td id="py_binary.srcs_version">
           <code>srcs_version</code>
         </td>
         <td>
                     <p><code>String; optional; default is "PY2AND3"</code></p>
-                              The value set here is for documentation purpose, and it will NOT determine which version
-          of python interpreter to use. Starting with 0.5.3 this attribute has been deprecated and
-          no longer has effect.
-          A string specifying the Python major version(s) that the <code>.py</code> source
-          files listed in the <code>srcs</code> of this rule are compatible with.
-          Please reference to <a href="python.html#py_runtime"><code>py_runtime</code></a> rules for
-          determining the python version.
-          Valid values are:<br/>
-          <code>"PY2ONLY"</code> -
-            Python 2 code that is <b>not</b> suitable for <code>2to3</code> conversion.<br/>
-          <code>"PY2"</code> -
-            Python 2 code that is expected to work when run through <code>2to3</code>.<br/>
-          <code>"PY2AND3"</code> -
-            Code that is compatible with both Python 2 and 3 without
-            <code>2to3</code> conversion.<br/>
-          <code>"PY3ONLY"</code> -
-            Python 3 code that will not run on Python 2.<br/>
-          <code>"PY3"</code> -
-            A synonym for PY3ONLY.<br/>
-          <br/>
+                              This attribute declares the target's <code>srcs</code> to be compatible with either Python
+          2, Python 3, or both. To actually set the Python runtime version, use the
+          <a href="python.html#py_binary.python_version"><code>python_version</code></a> attribute of an
+          executable Python rule (<code>py_binary</code> or <code>py_test</code>).
+
+          <p>Allowed values are: <code>"PY2AND3"</code>, <code>"PY2"</code>, and <code>"PY3"</code>.
+          The values <code>"PY2ONLY"</code> and <code>"PY3ONLY"</code> are also allowed for historic
+          reasons, but they are essentially the same as <code>"PY2"</code> and <code>"PY3"</code>
+          and should be avoided.
+
+          <p>Under the old semantics
+          (<code>--incompatible_allow_python_version_transitions=false</code>), it is an error to
+          build any Python target for a version disallowed by its <code>srcs_version</code>
+          attribute. Under the new semantics
+          (<code>--incompatible_allow_python_version_transitions=true</code>), this check is
+          deferred to the executable rule: You can build a <code>srcs_version = "PY3"</code>
+          <code>py_library</code> target for Python 2, but you cannot actually depend on it via
+          <code>deps</code> from a Python 3 <code>py_binary</code>.
+
+          <p>To get diagnostic information about which dependencies introduce version requirements,
+          you can run the <code>find_requirements</code> aspect on your target:
+          <pre>
+          bazel build &lt;your target&gt; \
+              --aspects=@rules_python//python:defs.bzl%find_requirements \
+              --output_groups=pyversioninfo
+          </pre>
+          This will build a file with the suffix <code>-pyversioninfo.txt</code> giving information
+          about why your target requires one Python version or another. Note that it works even if
+          the given target failed to build due to a version conflict.
 
         </td>
       </tr>
@@ -647,7 +617,7 @@ java_library(
     py_library
   </h2>
 
-  <pre class="rule-signature">py_library(<a href="#py_library.name">name</a>, <a href="#py_library.deps">deps</a>, <a href="#py_library.srcs">srcs</a>, <a href="#py_library.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_library.imports">imports</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#py_library.srcs_version">srcs_version</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">py_library(<a href="#py_library.name">name</a>, <a href="#py_library.deps">deps</a>, <a href="#py_library.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_library.imports">imports</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#py_library.srcs_version">srcs_version</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 
@@ -678,13 +648,12 @@ java_library(
         </td>
         <td>
                     <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
-                            The list of other libraries to be linked in to the library target.
-        See general comments about <code>deps</code> at
-        <a href="common-definitions.html#common-attributes">
-        Attributes common to all build rules</a>.
-        In practice, these arguments are treated like those in <code>srcs</code>;
-        you may move items between these lists willy-nilly.  It's probably more
-        readable to keep your <code>.py</code> files in your <code>srcs</code>.
+                              The list of other libraries to be linked in to the binary target.
+          See general comments about <code>deps</code> at
+          <a href="common-definitions.html#common-attributes">
+          Attributes common to all build rules</a>.
+          These are generally
+          <a href="python.html#py_library"><code>py_library</code></a> rules.
 
         </td>
       </tr>
@@ -694,25 +663,12 @@ java_library(
         </td>
         <td>
                     <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
-                            The list of source files that are processed to create the target.
+                            The list of source (<code>.py</code>) files that are processed to create the target.
         This includes all your checked-in code and any generated source files.
 
         </td>
       </tr>
-                      <tr>
-        <td id="py_library.data">
-          <code>data</code>
-        </td>
-        <td>
-                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
-                            The list of files needed by this library at runtime.
-        See general comments about <code>data</code> at
-        <a href="common-definitions.html#common-attributes">
-        Attributes common to all build rules</a>.
-
-        </td>
-      </tr>
-                                                              <tr>
+                                                                                            <tr>
         <td id="py_library.imports">
           <code>imports</code>
         </td>
@@ -738,26 +694,35 @@ java_library(
         </td>
         <td>
                     <p><code>String; optional; default is "PY2AND3"</code></p>
-                              The value set here is for documentation purpose, and it will NOT determine which version
-          of python interpreter to use. Starting with 0.5.3 this attribute has been deprecated and
-          no longer has effect.
-          A string specifying the Python major version(s) that the <code>.py</code> source
-          files listed in the <code>srcs</code> of this rule are compatible with.
-          Please reference to <a href="python.html#py_runtime"><code>py_runtime</code></a> rules for
-          determining the python version.
-          Valid values are:<br/>
-          <code>"PY2ONLY"</code> -
-            Python 2 code that is <b>not</b> suitable for <code>2to3</code> conversion.<br/>
-          <code>"PY2"</code> -
-            Python 2 code that is expected to work when run through <code>2to3</code>.<br/>
-          <code>"PY2AND3"</code> -
-            Code that is compatible with both Python 2 and 3 without
-            <code>2to3</code> conversion.<br/>
-          <code>"PY3ONLY"</code> -
-            Python 3 code that will not run on Python 2.<br/>
-          <code>"PY3"</code> -
-            A synonym for PY3ONLY.<br/>
-          <br/>
+                              This attribute declares the target's <code>srcs</code> to be compatible with either Python
+          2, Python 3, or both. To actually set the Python runtime version, use the
+          <a href="python.html#py_binary.python_version"><code>python_version</code></a> attribute of an
+          executable Python rule (<code>py_binary</code> or <code>py_test</code>).
+
+          <p>Allowed values are: <code>"PY2AND3"</code>, <code>"PY2"</code>, and <code>"PY3"</code>.
+          The values <code>"PY2ONLY"</code> and <code>"PY3ONLY"</code> are also allowed for historic
+          reasons, but they are essentially the same as <code>"PY2"</code> and <code>"PY3"</code>
+          and should be avoided.
+
+          <p>Under the old semantics
+          (<code>--incompatible_allow_python_version_transitions=false</code>), it is an error to
+          build any Python target for a version disallowed by its <code>srcs_version</code>
+          attribute. Under the new semantics
+          (<code>--incompatible_allow_python_version_transitions=true</code>), this check is
+          deferred to the executable rule: You can build a <code>srcs_version = "PY3"</code>
+          <code>py_library</code> target for Python 2, but you cannot actually depend on it via
+          <code>deps</code> from a Python 3 <code>py_binary</code>.
+
+          <p>To get diagnostic information about which dependencies introduce version requirements,
+          you can run the <code>find_requirements</code> aspect on your target:
+          <pre>
+          bazel build &lt;your target&gt; \
+              --aspects=@rules_python//python:defs.bzl%find_requirements \
+              --output_groups=pyversioninfo
+          </pre>
+          This will build a file with the suffix <code>-pyversioninfo.txt</code> giving information
+          about why your target requires one Python version or another. Note that it works even if
+          the given target failed to build due to a version conflict.
 
         </td>
       </tr>
@@ -767,7 +732,7 @@ java_library(
     py_test
   </h2>
 
-  <pre class="rule-signature">py_test(<a href="#py_test.name">name</a>, <a href="#py_test.deps">deps</a>, <a href="#py_test.srcs">srcs</a>, <a href="#py_test.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#py_test.default_python_version">default_python_version</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#py_test.imports">imports</a>, <a href="#py_test.legacy_create_init">legacy_create_init</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#py_test.main">main</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#py_test.srcs_version">srcs_version</a>, <a href="#py_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#py_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">py_test(<a href="#py_test.name">name</a>, <a href="#py_test.deps">deps</a>, <a href="#py_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#py_test.default_python_version">default_python_version</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#py_test.imports">imports</a>, <a href="#py_test.legacy_create_init">legacy_create_init</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#py_test.main">main</a>, <a href="#py_test.python_version">python_version</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#py_test.srcs_version">srcs_version</a>, <a href="#py_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#py_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -832,8 +797,7 @@ py_test(
           See general comments about <code>deps</code> at
           <a href="common-definitions.html#common-attributes">
           Attributes common to all build rules</a>.
-          These can be
-          <a href="python.html#py_binary"><code>py_binary</code></a> rules,
+          These are generally
           <a href="python.html#py_library"><code>py_library</code></a> rules.
 
         </td>
@@ -844,44 +808,27 @@ py_test(
         </td>
         <td>
                     <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
-                              The list of source files that are processed to create the target.
-          This includes all your checked-in code and any
-          generated source files.  The line between <code>srcs</code> and
-          <code>deps</code> is loose. The <code>.py</code> files
-          probably belong in <code>srcs</code> and library targets probably belong
-          in <code>deps</code>, but don't worry about it too much.
+                              The list of source (<code>.py</code>) files that are processed to create the target.
+          This includes all your checked-in code and any generated source files. Library targets
+          belong in <code>deps</code> instead, while other binary files needed at runtime belong in
+          <code>data</code>.
 
         </td>
       </tr>
-                      <tr>
-        <td id="py_test.data">
-          <code>data</code>
-        </td>
-        <td>
-                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
-                              The list of files needed by this binary at runtime.
-          See general comments about <code>data</code> at
-          <a href="common-definitions.html#common-attributes">
-          Attributes common to all build rules</a>.
-          Also see the <a href="python.html#py_library.data"><code>data</code></a> argument of
-          the <a href="python.html#py_library"><code>py_library</code></a> rule for details.
-
-        </td>
-      </tr>
-                                          <tr>
+                                                    <tr>
         <td id="py_test.default_python_version">
           <code>default_python_version</code>
         </td>
         <td>
-                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is "PY2"</code></p>
-                              A string specifying the default Python major version to use when building this binary and
-          all of its <code>deps</code>.
-          Valid values are <code>"PY2"</code> (default) or <code>"PY3"</code>.
-          Python 3 support is experimental.
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is "_INTERNAL_SENTINEL"</code></p>
+                              A deprecated alias for <code>python_version</code>; use that instead. This attribute is
+          disabled under <code>--incompatible_remove_old_python_version_api</code>. For migration
+          purposes, if <code>python_version</code> is given then the value of
+          <code>default_python_version</code> is ignored.
 
         </td>
       </tr>
-                                                                        <tr>
+                                                                                  <tr>
         <td id="py_test.imports">
           <code>imports</code>
         </td>
@@ -906,13 +853,14 @@ py_test(
           <code>legacy_create_init</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 1</code></p>
+                    <p><code>Integer; optional; default is -1</code></p>
                               Whether to implicitly create empty __init__.py files in the runfiles tree.
           These are created in every directory containing Python source code or
-          shared libraries, and every parent directory of those directories.
-          Default is true for backward compatibility.  If false, the user is responsible
-          for creating __init__.py files (empty or not) and adding them to `srcs` or `deps`
-          of Python targets as required.
+          shared libraries, and every parent directory of those directories, excluding the repo root
+          directory. The default, auto, means true unless
+          <code>--incompatible_default_to_explicit_init_py</code> is used. If false, the user is
+          responsible for creating (possibly empty) __init__.py files and adding them to the
+          <code>srcs</code> of Python targets as required.
 
         </td>
       </tr>
@@ -929,32 +877,77 @@ py_test(
 
         </td>
       </tr>
+                      <tr>
+        <td id="py_test.python_version">
+          <code>python_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is "_INTERNAL_SENTINEL"</code></p>
+                              Whether to build this target (and its transitive <code>deps</code>) for Python 2 or Python
+          3. Valid values are <code>"PY2"</code> and <code>"PY3"</code> (the default).
+
+          <p>Under the old semantics
+          (<code>--incompatible_allow_python_version_transitions=false</code>), the Python version
+          generally cannot be changed once set. This means that the <code>--python_version</code>
+          flag overrides this attribute, and other Python binaries in the <code>data</code> deps of
+          this target are forced to use the same version as this target.
+
+          <p>Under the new semantics
+          (<code>--incompatible_allow_python_version_transitions=true</code>), the Python version
+          is always set (possibly by default) to whatever version is specified by this attribute,
+          regardless of the version specified on the command line or by other targets that depend on
+          this one.
+
+          <p>If you want to <code>select()</code> on the current Python version, you can inspect the
+          value of <code>@rules_python//python:python_version</code>. See
+          <a href="https://github.com/bazelbuild/rules_python/blob/120590e2f2b66e5590bf4dc8ebef9c5338984775/python/BUILD#L43">here</a>
+          for more information.
+
+          <p><b>Bug warning:</b> This attribute sets the version for which Bazel builds your target,
+          but due to <a href="https://github.com/bazelbuild/bazel/issues/4815">#4815</a>, the
+          resulting stub script may still invoke the wrong interpreter version at runtime. See
+          <a href="https://github.com/bazelbuild/bazel/issues/4815#issuecomment-460777113">this
+          workaround</a>, which involves defining a <code>py_runtime</code> target that points to
+          either Python version as needed, and activating this <code>py_runtime</code> by setting
+          <code>--python_top</code>.
+
+        </td>
+      </tr>
                                                     <tr>
         <td id="py_test.srcs_version">
           <code>srcs_version</code>
         </td>
         <td>
                     <p><code>String; optional; default is "PY2AND3"</code></p>
-                              The value set here is for documentation purpose, and it will NOT determine which version
-          of python interpreter to use. Starting with 0.5.3 this attribute has been deprecated and
-          no longer has effect.
-          A string specifying the Python major version(s) that the <code>.py</code> source
-          files listed in the <code>srcs</code> of this rule are compatible with.
-          Please reference to <a href="python.html#py_runtime"><code>py_runtime</code></a> rules for
-          determining the python version.
-          Valid values are:<br/>
-          <code>"PY2ONLY"</code> -
-            Python 2 code that is <b>not</b> suitable for <code>2to3</code> conversion.<br/>
-          <code>"PY2"</code> -
-            Python 2 code that is expected to work when run through <code>2to3</code>.<br/>
-          <code>"PY2AND3"</code> -
-            Code that is compatible with both Python 2 and 3 without
-            <code>2to3</code> conversion.<br/>
-          <code>"PY3ONLY"</code> -
-            Python 3 code that will not run on Python 2.<br/>
-          <code>"PY3"</code> -
-            A synonym for PY3ONLY.<br/>
-          <br/>
+                              This attribute declares the target's <code>srcs</code> to be compatible with either Python
+          2, Python 3, or both. To actually set the Python runtime version, use the
+          <a href="python.html#py_binary.python_version"><code>python_version</code></a> attribute of an
+          executable Python rule (<code>py_binary</code> or <code>py_test</code>).
+
+          <p>Allowed values are: <code>"PY2AND3"</code>, <code>"PY2"</code>, and <code>"PY3"</code>.
+          The values <code>"PY2ONLY"</code> and <code>"PY3ONLY"</code> are also allowed for historic
+          reasons, but they are essentially the same as <code>"PY2"</code> and <code>"PY3"</code>
+          and should be avoided.
+
+          <p>Under the old semantics
+          (<code>--incompatible_allow_python_version_transitions=false</code>), it is an error to
+          build any Python target for a version disallowed by its <code>srcs_version</code>
+          attribute. Under the new semantics
+          (<code>--incompatible_allow_python_version_transitions=true</code>), this check is
+          deferred to the executable rule: You can build a <code>srcs_version = "PY3"</code>
+          <code>py_library</code> target for Python 2, but you cannot actually depend on it via
+          <code>deps</code> from a Python 3 <code>py_binary</code>.
+
+          <p>To get diagnostic information about which dependencies introduce version requirements,
+          you can run the <code>find_requirements</code> aspect on your target:
+          <pre>
+          bazel build &lt;your target&gt; \
+              --aspects=@rules_python//python:defs.bzl%find_requirements \
+              --output_groups=pyversioninfo
+          </pre>
+          This will build a file with the suffix <code>-pyversioninfo.txt</code> giving information
+          about why your target requires one Python version or another. Note that it works even if
+          the given target failed to build due to a version conflict.
 
         </td>
       </tr>
@@ -987,13 +980,22 @@ py_test(
     py_runtime
   </h2>
 
-  <pre class="rule-signature">py_runtime(<a href="#py_runtime.name">name</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_runtime.files">files</a>, <a href="#py_runtime.interpreter">interpreter</a>, <a href="#py_runtime.interpreter_path">interpreter_path</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">py_runtime(<a href="#py_runtime.name">name</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#py_runtime.files">files</a>, <a href="#py_runtime.interpreter">interpreter</a>, <a href="#py_runtime.interpreter_path">interpreter_path</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#py_runtime.python_version">python_version</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
-<p>
-Specifies the configuration for a Python runtime. This rule can either describe a Python runtime in
-the source tree or one at a well-known absolute path.
-</p>
+<p>Represents a Python runtime used to execute Python code.
+
+<p>A <code>py_runtime</code> target can represent either a <em>platform runtime</em> or an
+<em>in-build runtime</em>. A platform runtime accesses a system-installed interpreter at a known
+path, whereas an in-build runtime points to an executable target that acts as the interpreter. In
+both cases, an "interpreter" means any executable binary or wrapper script that is capable of
+running a Python script passed on the command line, following the same conventions as the standard
+CPython interpreter.
+
+<p>A platform runtime is by its nature non-hermetic. It imposes a requirement on the target platform
+to have an interpreter located at a specific path. An in-build runtime may or may not be hermetic,
+depending on whether it points to a checked-in interpreter or a wrapper script that accesses the
+system interpreter.
 
 <h4 id="py_runtime">Example:</h4>
 
@@ -1006,7 +1008,6 @@ py_runtime(
 
 py_runtime(
     name = "python-3.6.0",
-    files = [],
     interpreter_path = "/opt/pyenv/versions/3.6.0/bin/python",
 )
 </pre>
@@ -1038,8 +1039,10 @@ py_runtime(
           <code>files</code>
         </td>
         <td>
-                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
-                            The set of files comprising this Python runtime.
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            For an in-build runtime, this is the set of files comprising this runtime. These files will
+        be added to the runfiles of Python binaries that use this runtime. For a platform runtime
+        this attribute must not be set.
 
         </td>
       </tr>
@@ -1049,8 +1052,8 @@ py_runtime(
         </td>
         <td>
                     <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
-                            The Python interpreter used in this runtime. Binary rules will be executed using this
-        binary.
+                            For an in-build runtime, this is the target to invoke as the interpreter. For a platform
+        runtime this attribute must not be set.
 
         </td>
       </tr>
@@ -1060,22 +1063,102 @@ py_runtime(
         </td>
         <td>
                     <p><code>String; optional</code></p>
-                            The absolute path of a Python interpreter. This attribute and interpreter attribute cannot
-        be set at the same time.
+                            For a platform runtime, this is the absolute path of a Python interpreter on the target
+        platform. For an in-build runtime this attribute must not be set.
 
         </td>
       </tr>
-                                                                </tbody>
+                                <tr>
+        <td id="py_runtime.python_version">
+          <code>python_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional; default is "_INTERNAL_SENTINEL"</code></p>
+                            Whether this runtime is for Python major version 2 or 3. Valid values are <code>"PY2"</code>
+        and <code>"PY3"</code>.
+
+        <p>The default value is controlled by the <code>--incompatible_py3_is_default</code> flag.
+        However, in the future this attribute will be mandatory and have no default value.
+
+        </td>
+      </tr>
+                                                      </tbody>
   </table>
 
 <!-- Generated footer -->
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Python Rules&body=Documentation URL: https://docs.bazel.build/versions/master/be/python.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#rules">Rules</a></li>
+<li class="toc-entry toc-h2"><a href="#py_binary">
+    py_binary
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#py_binary_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#py_library">
+    py_library
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#py_library_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#py_test">
+    py_test
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#py_test_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#py_runtime">
+    py_runtime
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#py_runtime_args">Arguments</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -1112,7 +1195,7 @@ py_runtime(
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ctx - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>ctx - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/lib/ctx.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/ctx.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,94 +302,129 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <a href="../concepts.html">Extensions</a> &gt;
+<a href="skylark-overview.html">API reference</a> &gt;
+ctx
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
+<h1 id="modules.ctx">ctx</h1>
 
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/lib/ctx.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/lib/ctx.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/lib/ctx.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/lib/ctx.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/lib/ctx.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/lib/ctx.html">0.17.1</option>
-              
-          </select>
-
-          <h1 id="modules.ctx">ctx</h1>
-
-A context object that is passed to the implementation function for a rule or aspect. It provides access to the information and methods needed to analyze the current target.<p>In particular, it lets the implementation function access the current target's label, attributes, configuration, and the providers of its dependencies. It has methods for declaring output files and the actions that produce them.<p>Context objects essentially live for the duration of the call to the implementation function. It is not useful to access these objects outside of their associated function.See the <a href='../rules.html#implementation-function'>Rules page</a> for more information.
+A context object that is passed to the implementation function for a rule or aspect. It provides access to the information and methods needed to analyze the current target.<p>In particular, it lets the implementation function access the current target's label, attributes, configuration, and the providers of its dependencies. It has methods for declaring output files and the actions that produce them.<p>Context objects essentially live for the duration of the call to the implementation function. It is not useful to access these objects outside of their associated function. See the <a href='../rules.html#implementation-function'>Rules page</a> for more information.
 
 <div class="toc">
-  <h2>Methods</h2>
+  <h2>Members</h2>
   <ul>
-          <li><a href="#action">action</a></li>
-              <li><a href="#actions">actions</a></li>
-              <li><a href="#aspect_ids">aspect_ids</a></li>
-              <li><a href="#attr">attr</a></li>
-              <li><a href="#bin_dir">bin_dir</a></li>
-              <li><a href="#build_file_path">build_file_path</a></li>
-              <li><a href="#build_setting_value">build_setting_value</a></li>
-              <li><a href="#configuration">configuration</a></li>
-              <li><a href="#coverage_instrumented">coverage_instrumented</a></li>
-              <li><a href="#created_actions">created_actions</a></li>
-              <li><a href="#default_provider">default_provider</a></li>
-              <li><a href="#disabled_features">disabled_features</a></li>
-              <li><a href="#empty_action">empty_action</a></li>
-              <li><a href="#executable">executable</a></li>
-              <li><a href="#expand_location">expand_location</a></li>
-              <li><a href="#expand_make_variables">expand_make_variables</a></li>
-              <li><a href="#features">features</a></li>
-              <li><a href="#file">file</a></li>
-              <li><a href="#file_action">file_action</a></li>
-              <li><a href="#files">files</a></li>
-              <li><a href="#fragments">fragments</a></li>
-              <li><a href="#genfiles_dir">genfiles_dir</a></li>
-              <li><a href="#host_configuration">host_configuration</a></li>
-              <li><a href="#host_fragments">host_fragments</a></li>
-              <li><a href="#label">label</a></li>
-              <li><a href="#new_file">new_file</a></li>
-              <li><a href="#outputs">outputs</a></li>
-              <li><a href="#resolve_command">resolve_command</a></li>
-              <li><a href="#rule">rule</a></li>
-              <li><a href="#runfiles">runfiles</a></li>
-              <li><a href="#split_attr">split_attr</a></li>
-              <li><a href="#template_action">template_action</a></li>
-              <li><a href="#toolchains">toolchains</a></li>
-              <li><a href="#var">var</a></li>
-              <li><a href="#workspace_name">workspace_name</a></li>
+          <li>
+      <a href="#action">action</a>
+          </li>
+              <li>
+      <a href="#actions">actions</a>
+          </li>
+              <li>
+      <a href="#aspect_ids">aspect_ids</a>
+          </li>
+              <li>
+      <a href="#attr">attr</a>
+          </li>
+              <li>
+      <a href="#bin_dir">bin_dir</a>
+          </li>
+              <li>
+      <a href="#build_file_path">build_file_path</a>
+          </li>
+              <li>
+      <a href="#build_setting_value">build_setting_value</a>
+          </li>
+              <li>
+      <a href="#configuration">configuration</a>
+          </li>
+              <li>
+      <a href="#coverage_instrumented">coverage_instrumented</a>
+          </li>
+              <li>
+      <a href="#created_actions">created_actions</a>
+          </li>
+              <li>
+      <a href="#default_provider">default_provider</a>
+          </li>
+              <li>
+      <a href="#disabled_features">disabled_features</a>
+          </li>
+              <li>
+      <a href="#empty_action">empty_action</a>
+          </li>
+              <li>
+      <a href="#executable">executable</a>
+          </li>
+              <li>
+      <a href="#expand_location">expand_location</a>
+          </li>
+              <li>
+      <a href="#expand_make_variables">expand_make_variables</a>
+          </li>
+              <li>
+      <a href="#features">features</a>
+          </li>
+              <li>
+      <a href="#file">file</a>
+          </li>
+              <li>
+      <a href="#file_action">file_action</a>
+          </li>
+              <li>
+      <a href="#files">files</a>
+          </li>
+              <li>
+      <a href="#fragments">fragments</a>
+          </li>
+              <li>
+      <a href="#genfiles_dir">genfiles_dir</a>
+          </li>
+              <li>
+      <a href="#host_configuration">host_configuration</a>
+          </li>
+              <li>
+      <a href="#host_fragments">host_fragments</a>
+          </li>
+              <li>
+      <a href="#label">label</a>
+          </li>
+              <li>
+      <a href="#new_file">new_file</a>
+          </li>
+              <li>
+      <a href="#outputs">outputs</a>
+          </li>
+              <li>
+      <a href="#resolve_command">resolve_command</a>
+          </li>
+              <li>
+      <a href="#resolve_tools">resolve_tools</a>
+          </li>
+              <li>
+      <a href="#rule">rule</a>
+          </li>
+              <li>
+      <a href="#runfiles">runfiles</a>
+          </li>
+              <li>
+      <a href="#split_attr">split_attr</a>
+          </li>
+              <li>
+      <a href="#target_platform_has_constraint">target_platform_has_constraint</a>
+          </li>
+              <li>
+      <a href="#template_action">template_action</a>
+          </li>
+              <li>
+      <a href="#toolchains">toolchains</a>
+          </li>
+              <li>
+      <a href="#var">var</a>
+          </li>
+              <li>
+      <a href="#workspace_name">workspace_name</a>
+          </li>
         </ul>
 </div>
 
@@ -414,7 +434,7 @@ A context object that is passed to the implementation function for a rule or asp
     DEPRECATED. Use <a href="actions.html#run">ctx.actions.run()</a> or <a href="actions.html#run_shell">ctx.actions.run_shell()</a>. <br>Creates an action that runs an executable or a shell command. You must specify either <code>command</code> or <code>executable</code>.
 Actions and genrules are very similar, but have different use cases. Actions are used inside rules, and genrules are used inside macros. Genrules also have make variable expansion.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -554,7 +574,7 @@ Actions and genrules are very similar, but have different use cases. Actions are
         <h2 id="attr">attr</h2>
         <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> ctx.attr</pre></p>
 
-    A struct to access the values of the attributes. The values are provided by the user (if not, a default value is used). The attributes of the struct and the types of their values correspond to the keys and values of the <code>attrs</code> dict provided to the <code>rule</code> function. <a href="https://github.com/bazelbuild/examples/blob/master/rules/attributes/printer.bzl">See example of use</a>.
+    A struct to access the values of the <a href='../rules.html#attributes'>attributes</a>. The values are provided by the user (if not, a default value is used). The attributes of the struct and the types of their values correspond to the keys and values of the <a href='globals.html#rule.attrs'><code>attrs</code> dict</a> provided to the <a href='globals.html#rule'><code>rule</code> function</a>. <a href="https://github.com/bazelbuild/examples/blob/master/rules/attributes/printer.bzl">See example of use</a>.
 
 
         <h2 id="bin_dir">bin_dir</h2>
@@ -584,9 +604,9 @@ Actions and genrules are very similar, but have different use cases. Actions are
         <h2 id="coverage_instrumented">coverage_instrumented</h2>
         <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> ctx.coverage_instrumented(target=None)</pre></p>
 
-    Returns whether code coverage instrumentation should be generated when performing compilation actions for this rule or, if <code>target</code> is provided, the rule specified by that Target. (If a non-rule or a Starlark rule Target is provided, this returns False.) Checks if the sources of the current rule (if no Target is provided) or the sources of Target should be instrumented based on the --instrumentation_filter and --instrument_test_targets config settings. This differs from <code>coverage_enabled</code> in the<a href="configuration.html">configuration</a>, which notes whether coverage data collection is enabled for the entire run, but not whether a specific target should be instrumented.
+    Returns whether code coverage instrumentation should be generated when performing compilation actions for this rule or, if <code>target</code> is provided, the rule specified by that Target. (If a non-rule or a Starlark rule Target is provided, this returns False.) Checks if the sources of the current rule (if no Target is provided) or the sources of Target should be instrumented based on the --instrumentation_filter and --instrument_test_targets config settings. This differs from <code>coverage_enabled</code> in the <a href="configuration.html">configuration</a>, which notes whether coverage data collection is enabled for the entire run, but not whether a specific target should be instrumented.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -612,7 +632,7 @@ Actions and genrules are very similar, but have different use cases. Actions are
       </table>
 
         <h2 id="created_actions">created_actions</h2>
-        <p><pre class="rule-signature">SkylarkValue ctx.created_actions()</pre></p>
+        <p><pre class="rule-signature">StarlarkValue ctx.created_actions()</pre></p>
 
     For rules with <a href="globals.html#rule._skylark_testable">_skylark_testable</a> set to <code>True</code>, this returns an <a href="globals.html#Actions">Actions</a> provider representing all actions created so far for the current rule. For all other rules, returns <code>None</code>. Note that the provider is not updated when subsequent actions are created, so you will have to call this function again if you wish to inspect them. <br/><br/>This is intended to help write tests for rule-implementation helper functions, which may take in a <code>ctx</code> object and create actions on it.
 
@@ -620,7 +640,7 @@ Actions and genrules are very similar, but have different use cases. Actions are
         <h2 id="default_provider">default_provider</h2>
         <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> ctx.default_provider</pre></p>
 
-    Deprecated. Use <a href="globals.html#DefaultInfo">DefaultInfo</a> instead.
+    Deprecated. Use <a href="DefaultInfo.html">DefaultInfo</a> instead.
 
 
         <h2 id="disabled_features">disabled_features</h2>
@@ -634,7 +654,7 @@ Actions and genrules are very similar, but have different use cases. Actions are
 
     DEPRECATED. Use <a href="actions.html#do_nothing">ctx.actions.do_nothing</a> instead. <br>Creates an empty action that neither executes a command nor produces any output, but that is useful for inserting 'extra actions'.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -672,7 +692,7 @@ Actions and genrules are very similar, but have different use cases. Actions are
         <h2 id="executable">executable</h2>
         <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> ctx.executable</pre></p>
 
-    A <code>struct</code> containing executable files defined in label type attributes marked as <code>executable=True</code>. The struct fields correspond to the attribute names. Each value in the struct is either a <code>file</code> or <code>None</code>. If an optional attribute is not specified in the rule then the corresponding struct value is <code>None</code>. If a label type is not marked as <code>executable=True</code>, no corresponding struct field is generated. <a href="https://github.com/bazelbuild/examples/blob/master/rules/actions_run/execute.bzl">See example of use</a>.
+    A <code>struct</code> containing executable files defined in <a href='attr.html#label'>label type attributes</a> marked as <a href='attr.html#label.executable'><code>executable=True</code><a>. The struct fields correspond to the attribute names. Each value in the struct is either a <a href='File.html'><code>File</code></a> or <code>None</code>. If an optional attribute is not specified in the rule then the corresponding struct value is <code>None</code>. If a label type is not marked as <code>executable=True</code>, no corresponding struct field is generated. <a href="https://github.com/bazelbuild/examples/blob/master/rules/actions_run/execute.bzl">See example of use</a>.
 
 
         <h2 id="expand_location">expand_location</h2>
@@ -680,7 +700,7 @@ Actions and genrules are very similar, but have different use cases. Actions are
 
     Expands all <code>$(location ...)</code> templates in the given string by replacing <code>$(location //x)</code> with the path of the output file of target //x. Expansion only works for labels that point to direct dependencies of this rule or that are explicitly listed in the optional argument <code>targets</code>. <br/><br/><code>$(location ...)</code> will cause an error if the referenced target has multiple outputs. In this case, please use <code>$(locations ...)</code> since it produces a space-separated list of output paths. It can be safely used for a single output file, too.<br/><br/>This function is useful to let the user specify a command in a BUILD file (like for <code>genrule</code>). In other cases, it is often better to manipulate labels directly.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -723,7 +743,7 @@ ctx.expand_make_variables("cmd", "$(MY_VAR)", {"MY_VAR": "Hi"})  # == "Hi"
 ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 </pre>Additional variables may come from other places, such as configurations. Note that this function is experimental.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -775,7 +795,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
         <h2 id="file">file</h2>
         <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> ctx.file</pre></p>
 
-    A <code>struct</code> containing files defined in label type attributes marked as <code>allow_single_file</code>. The struct fields correspond to the attribute names. The struct value is always a <code>file</code> or <code>None</code>. If an optional attribute is not specified in the rule then the corresponding struct value is <code>None</code>. If a label type is not marked as <code>allow_single_file</code>, no corresponding struct field is generated. It is a shortcut for:<pre class=language-python>list(ctx.attr.&lt;ATTR&gt;.files)[0]</pre>In other words, use <code>file</code> to access the (singular) <a href="../rules.html#requesting-output-files">default output</a> of a dependency. <a href="https://github.com/bazelbuild/examples/blob/master/rules/expand_template/hello.bzl">See example of use</a>.
+    A <code>struct</code> containing files defined in <a href='attr.html#label'>label type attributes</a> marked as <a href='attr.html#label.allow_single_file'><code>allow_single_file</code></a>. The struct fields correspond to the attribute names. The struct value is always a <a href='File.html'><code>File</code></a> or <code>None</code>. If an optional attribute is not specified in the rule then the corresponding struct value is <code>None</code>. If a label type is not marked as <code>allow_single_file</code>, no corresponding struct field is generated. It is a shortcut for:<pre class=language-python>list(ctx.attr.&lt;ATTR&gt;.files)[0]</pre>In other words, use <code>file</code> to access the (singular) <a href="../rules.html#requesting-output-files">default output</a> of a dependency. <a href="https://github.com/bazelbuild/examples/blob/master/rules/expand_template/hello.bzl">See example of use</a>.
 
 
         <h2 id="file_action">file_action</h2>
@@ -783,7 +803,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     DEPRECATED. Use <a href ="actions.html#write">ctx.actions.write</a> instead. <br>Creates a file write action.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -830,7 +850,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
         <h2 id="files">files</h2>
         <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> ctx.files</pre></p>
 
-    A <code>struct</code> containing files defined in label or label list type attributes. The struct fields correspond to the attribute names. The struct values are <code>list</code> of <code>file</code>s.  It is a shortcut for:<pre class=language-python>[f for t in ctx.attr.&lt;ATTR&gt; for f in t.files]</pre> In other words, use <code>files</code> to access the <a href="../rules.html#requesting-output-files">default outputs</a> of a dependency. <a href="https://github.com/bazelbuild/examples/blob/master/rules/depsets/foo.bzl">See example of use</a>.
+    A <code>struct</code> containing files defined in <a href='attr.html#label'>label</a> or <a href='attr.html#label_list'>label list</a> type attributes. The struct fields correspond to the attribute names. The struct values are <code>list</code> of <a href='File.html'><code>File</code></a>s.  It is a shortcut for:<pre class=language-python>[f for t in ctx.attr.&lt;ATTR&gt; for f in t.files]</pre> In other words, use <code>files</code> to access the <a href="../rules.html#requesting-output-files">default outputs</a> of a dependency. <a href="https://github.com/bazelbuild/examples/blob/master/rules/depsets/foo.bzl">See example of use</a>.
 
 
         <h2 id="fragments">fragments</h2>
@@ -868,7 +888,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     DEPRECATED. Use <a href="actions.html#declare_file">ctx.actions.declare_file</a>. <br>Creates a file object. There are four possible signatures to this method:<br><ul><li>new_file(filename): Creates a file object with the given filename in the current package.</li><li>new_file(file_root, filename): Creates a file object with the given filename under the given file root.</li><li>new_file(sibling_file, filename): Creates a file object in the same directory as the given sibling file.</li><li>new_file(file_root, sibling_file, suffix): Creates a file object with same base name of the sibling_file but with different given suffix, under the given file root.</li></ul> <br>Does not actually create a file on the file system, just declares that some action will do so. You must create an action that generates the file. If the file should be visible to other rules, declare a rule output instead when possible. Doing so enables Bazel to associate a label with the file that rules can refer to (allowing finer dependency control) instead of referencing the whole rule.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -895,7 +915,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
               <code>var2</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="File.html">File</a>; or UnboundMarker</code></p>
+                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="File.html">File</a></code></p>
                           <p></p>
             </td>
           </tr>
@@ -904,7 +924,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
               <code>var3</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="string.html">string</a>; or UnboundMarker</code></p>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
                           <p></p>
             </td>
           </tr>
@@ -914,15 +934,15 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
         <h2 id="outputs">outputs</h2>
         <p><pre class="rule-signature">ClassObject ctx.outputs</pre></p>
 
-    A pseudo-struct containing all the predeclared output files, represented by <a href='File.html'><code>File</code></a> objects. See the <a href='../rules.html#files'>Rules page</a> for more information and examples.<p>This field does not exist on aspect contexts, since aspects do not have predeclared outputs.<p>The fields of this object are defined as follows. It is an error if two outputs produce the same field name or have the same label.<ul><li>If the rule declares an <a href='globals.html#rule.outputs'><code>outputs</code></a> dict, then for every entry in the dict, there is a field whose name is the key and whose value is the corresponding <code>File</code>.<li>For every attribute of type <a href='attr.html#output'><code>attr.output</code></a> that the rule declares, there is a field whose name is the attribute's name. If the target specified a label for that attribute, then the field value is the corresponding <code>File</code>; otherwise the field value is <code>None</code>.<li>For every attribute of type <a href='attr.html#output_list'><code>attr.output_list</code></a> that the rule declares, there is a field whose name is the attribute's name. The field value is a list of <code>File</code> objects corresponding to the labels given for that attribute in the target, or an empty list if the attribute was not specified in the target.<li><b>(Deprecated)</b> If the rule is marked <a href='globals.html#rule.executable'><code>executable</code></a> or <a href='globals.html#rule.test'><code>test</code></a>, there is a field named <code>"executable"</code>, which is the default executable. It is recommended that instead of using this, you pass another file (either predeclared or not) to the <code>executable</code> arg of <a href='globals.html#DefaultInfo'><code>DefaultInfo</code></a>.</ul>
+    A pseudo-struct containing all the predeclared output files, represented by <a href='File.html'><code>File</code></a> objects. See the <a href='../rules.html#files'>Rules page</a> for more information and examples.<p>This field does not exist on aspect contexts, since aspects do not have predeclared outputs.<p>The fields of this object are defined as follows. It is an error if two outputs produce the same field name or have the same label.<ul><li>If the rule declares an <a href='globals.html#rule.outputs'><code>outputs</code></a> dict, then for every entry in the dict, there is a field whose name is the key and whose value is the corresponding <code>File</code>.<li>For every attribute of type <a href='attr.html#output'><code>attr.output</code></a> that the rule declares, there is a field whose name is the attribute's name. If the target specified a label for that attribute, then the field value is the corresponding <code>File</code>; otherwise the field value is <code>None</code>.<li>For every attribute of type <a href='attr.html#output_list'><code>attr.output_list</code></a> that the rule declares, there is a field whose name is the attribute's name. The field value is a list of <code>File</code> objects corresponding to the labels given for that attribute in the target, or an empty list if the attribute was not specified in the target.<li><b>(Deprecated)</b> If the rule is marked <a href='globals.html#rule.executable'><code>executable</code></a> or <a href='globals.html#rule.test'><code>test</code></a>, there is a field named <code>"executable"</code>, which is the default executable. It is recommended that instead of using this, you pass another file (either predeclared or not) to the <code>executable</code> arg of <a href='DefaultInfo.html'><code>DefaultInfo</code></a>.</ul>
 
 
         <h2 id="resolve_command">resolve_command</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">tuple</a> ctx.resolve_command(command='', attribute=None, expand_locations=False, make_variables=None, tools=[], label_dict={}, execution_requirements={})</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="tuple.html">tuple</a> ctx.resolve_command(command='', attribute=None, expand_locations=False, make_variables=None, tools=[], label_dict={}, execution_requirements={})</pre></p>
 
-    <i>(Experimental)</i> Returns a tuple <code>(inputs, command, input_manifests)</code> of the list of resolved inputs, the argv list for the resolved command, and the runfiles metadata required to run the command, all of them suitable for passing as the same-named arguments of the <code>ctx.action</code> method.
+    <i>(Experimental)</i> Returns a tuple <code>(inputs, command, input_manifests)</code> of the list of resolved inputs, the argv list for the resolved command, and the runfiles metadata required to run the command, all of them suitable for passing as the same-named arguments of the <code>ctx.action</code> method.<br/><b>Note for Windows users</b>: this method requires Bash (MSYS2). Consider using <code>resolve_tools()</code> instead (if that fits your needs).
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1001,6 +1021,36 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
                 </tbody>
       </table>
 
+        <h2 id="resolve_tools">resolve_tools</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="tuple.html">tuple</a> ctx.resolve_tools(tools=[])</pre></p>
+
+    Returns a tuple <code>(inputs, input_manifests)</code> of the depset of resolved inputs and the runfiles metadata required to run the tools, both of them suitable for passing as the same-named arguments of the <code>ctx.actions.run</code> method.<br/><br/>In contrast to <code>ctx.resolve_command</code>, this method does not require that Bash be installed on the machine, so it's suitable for rules built on Windows.
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="resolve_tools.tools">
+              <code>tools</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="Target.html">Target</a>s</code></p>
+                          <p>List of tools (list of targets).</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
         <h2 id="rule">rule</h2>
         <p><pre class="rule-signature"><a class="anchor" href="rule_attributes.html">rule_attributes</a> ctx.rule</pre></p>
 
@@ -1012,7 +1062,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     Creates a runfiles object.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1049,7 +1099,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
             </td>
             <td>
                           <p><code><a class="anchor" href="bool.html">bool</a></code></p>
-                          <p>Whether to collect the data runfiles from the dependencies in srcs, data and deps attributes.</p>
+                          <p><b>Use of this parameter is not recommended. See <a href="../rules.html#runfiles">runfiles guide</a></b>. <p>Whether to collect the data runfiles from the dependencies in srcs, data and deps attributes.</p>
             </td>
           </tr>
                   <tr>
@@ -1058,7 +1108,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
             </td>
             <td>
                           <p><code><a class="anchor" href="bool.html">bool</a></code></p>
-                          <p>Whether to collect the default runfiles from the dependencies in srcs, data and deps attributes.</p>
+                          <p><b>Use of this parameter is not recommended. See <a href="../rules.html#runfiles">runfiles guide</a></b>. <p>Whether to collect the default runfiles from the dependencies in srcs, data and deps attributes.</p>
             </td>
           </tr>
                   <tr>
@@ -1088,12 +1138,42 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
     A struct to access the values of attributes with split configurations. If the attribute is a label list, the value of split_attr is a dict of the keys of the split (as strings) to lists of the ConfiguredTargets in that branch of the split. If the attribute is a label, then the value of split_attr is a dict of the keys of the split (as strings) to single ConfiguredTargets. Attributes with split configurations still appear in the attr struct, but their values will be single lists with all the branches of the split merged together.
 
 
+        <h2 id="target_platform_has_constraint">target_platform_has_constraint</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> ctx.target_platform_has_constraint(constraintValue)</pre></p>
+
+    Returns true if the given constraint value is part of the current target platform.
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="target_platform_has_constraint.constraintValue">
+              <code>constraintValue</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="ConstraintValueInfo.html">ConstraintValueInfo</a></code></p>
+                          <p>The constraint value to check the target platform against.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
         <h2 id="template_action">template_action</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> ctx.template_action(template, output, substitutions, executable=False)</pre></p>
 
     DEPRECATED. Use <a href="actions.html#expand_template">ctx.actions.expand_template()</a> instead. <br>Creates a template expansion action.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1147,7 +1227,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
          May return <code>None</code>.
 
         <h2 id="toolchains">toolchains</h2>
-        <p><pre class="rule-signature">SkylarkIndexable ctx.toolchains</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="ToolchainContext.html">ToolchainContext</a> ctx.toolchains</pre></p>
 
     Toolchains required for this rule.
 
@@ -1167,11 +1247,86 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: ctx&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/ctx.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#action">action</a></li>
+<li class="toc-entry toc-h2"><a href="#actions">actions</a></li>
+<li class="toc-entry toc-h2"><a href="#aspect_ids">aspect_ids</a></li>
+<li class="toc-entry toc-h2"><a href="#attr">attr</a></li>
+<li class="toc-entry toc-h2"><a href="#bin_dir">bin_dir</a></li>
+<li class="toc-entry toc-h2"><a href="#build_file_path">build_file_path</a></li>
+<li class="toc-entry toc-h2"><a href="#build_setting_value">build_setting_value</a></li>
+<li class="toc-entry toc-h2"><a href="#configuration">configuration</a></li>
+<li class="toc-entry toc-h2"><a href="#coverage_instrumented">coverage_instrumented</a></li>
+<li class="toc-entry toc-h2"><a href="#created_actions">created_actions</a></li>
+<li class="toc-entry toc-h2"><a href="#default_provider">default_provider</a></li>
+<li class="toc-entry toc-h2"><a href="#disabled_features">disabled_features</a></li>
+<li class="toc-entry toc-h2"><a href="#empty_action">empty_action</a></li>
+<li class="toc-entry toc-h2"><a href="#executable">executable</a></li>
+<li class="toc-entry toc-h2"><a href="#expand_location">expand_location</a></li>
+<li class="toc-entry toc-h2"><a href="#expand_make_variables">expand_make_variables</a></li>
+<li class="toc-entry toc-h2"><a href="#features">features</a></li>
+<li class="toc-entry toc-h2"><a href="#file">file</a></li>
+<li class="toc-entry toc-h2"><a href="#file_action">file_action</a></li>
+<li class="toc-entry toc-h2"><a href="#files">files</a></li>
+<li class="toc-entry toc-h2"><a href="#fragments">fragments</a></li>
+<li class="toc-entry toc-h2"><a href="#genfiles_dir">genfiles_dir</a></li>
+<li class="toc-entry toc-h2"><a href="#host_configuration">host_configuration</a></li>
+<li class="toc-entry toc-h2"><a href="#host_fragments">host_fragments</a></li>
+<li class="toc-entry toc-h2"><a href="#label">label</a></li>
+<li class="toc-entry toc-h2"><a href="#new_file">new_file</a></li>
+<li class="toc-entry toc-h2"><a href="#outputs">outputs</a></li>
+<li class="toc-entry toc-h2"><a href="#resolve_command">resolve_command</a></li>
+<li class="toc-entry toc-h2"><a href="#resolve_tools">resolve_tools</a></li>
+<li class="toc-entry toc-h2"><a href="#rule">rule</a></li>
+<li class="toc-entry toc-h2"><a href="#runfiles">runfiles</a></li>
+<li class="toc-entry toc-h2"><a href="#split_attr">split_attr</a></li>
+<li class="toc-entry toc-h2"><a href="#target_platform_has_constraint">target_platform_has_constraint</a></li>
+<li class="toc-entry toc-h2"><a href="#template_action">template_action</a></li>
+<li class="toc-entry toc-h2"><a href="#toolchains">toolchains</a></li>
+<li class="toc-entry toc-h2"><a href="#var">var</a></li>
+<li class="toc-entry toc-h2"><a href="#workspace_name">workspace_name</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -1208,7 +1363,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

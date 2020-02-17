@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Windows - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Windows - Bazel </title>
 
     <link rel="canonical" href="/versions/master/windows.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/windows.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,71 +302,95 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/windows.html">master</option>
-              
-              <option value="/versions/0.19.2/windows.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/windows.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/windows.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/windows.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/windows.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="using-bazel-on-windows">Using Bazel on Windows</h1>
 
-<h2 id="installation"><a name="install"></a>Installation</h2>
+<p><a name="install"></a></p>
+<h2 id="installation">Installation</h2>
 
 <p>See <a href="install-windows.html">Install Bazel on Windows</a> for installation
 instructions.</p>
 
 <h2 id="known-issues">Known issues</h2>
 
-<p>We mark Windows-related Bazel issues on GitHub with the “platform:windows”
-label. <a href="https://github.com/bazelbuild/bazel/issues?q=is%3Aopen+is%3Aissue+label%3A%22platform%3A+windows%22">You can see the open issues here.</a></p>
+<p>We mark Windows-related Bazel issues on GitHub with the “team-Windows”
+label. <a href="https://github.com/bazelbuild/bazel/issues?q=is%3Aopen+is%3Aissue+label%3Ateam-Windows">You can see the open issues here.</a></p>
 
+<p><a name="running-bazel-shells"></a></p>
 <h2 id="running-bazel-msys2-shell-vs-command-prompt-vs-powershell">Running Bazel: MSYS2 shell vs. Command Prompt vs. PowerShell</h2>
 
-<p>It’s best to run Bazel from the Command Prompt (<code class="highlighter-rouge">cmd.exe</code>) or from PowerShell.</p>
+<p>We recommend running Bazel from the Command Prompt (<code class="highlighter-rouge">cmd.exe</code>) or from
+PowerShell.</p>
 
-<p>You can also run Bazel from the MSYS2 shell, but you need to disable MSYS2’s
-automatic path conversion. See <a href="https://stackoverflow.com/a/49004265/7778502">this StackOverflow
-answer</a> for details.</p>
+<p>As of 2020-01-15, we <strong>do not recommend</strong> running Bazel from <code class="highlighter-rouge">bash</code> – either
+from MSYS2 shell, or Git Bash, or Cygwin, or any other Bash variant. While Bazel
+may work for most use cases, some things are broken, like
+<a href="https://github.com/bazelbuild/bazel/issues/10573">interrupting the build with Ctrl+C from MSYS2</a>).
+Also, if you choose to run under MSYS2, you need to disable MSYS2’s
+automatic path conversion, otherwise MSYS will convert command line arguments
+that <em>look like</em> Unix paths (e.g. <code class="highlighter-rouge">//foo:bar</code>) into Windows paths. See
+<a href="https://stackoverflow.com/a/49004265/7778502">this StackOverflow answer</a> for
+details.</p>
+
+<p><a name="using-bazel-without-bash"></a></p>
+<h2 id="using-bazel-without-bash-msys2">Using Bazel without Bash (MSYS2)</h2>
+
+<p><a name="bazel-build-without-bash"></a></p>
+<h3 id="bazel-build-without-bash"><code class="highlighter-rouge">bazel build</code> without Bash</h3>
+
+<p>Bazel versions before 1.0 used to require Bash to build some rules.</p>
+
+<p>Starting with Bazel 1.0, you can build any rule without Bash unless it is a:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">genrule</code>, because genrules execute Bash commands</li>
+  <li><code class="highlighter-rouge">sh_binary</code> or <code class="highlighter-rouge">sh_test</code> rule, because these inherently need Bash</li>
+  <li>Starlark rule that uses <code class="highlighter-rouge">ctx.actions.run_shell()</code> or <code class="highlighter-rouge">ctx.resolve_command()</code></li>
+</ul>
+
+<p>However, <code class="highlighter-rouge">genrule</code> is often used for simple tasks like
+<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/rules/copy_file.bzl">copying a file</a>
+or <a href="https://github.com/bazelbuild/bazel-skylib/blob/master/rules/write_file.bzl">writing a text file</a>.
+Instead of using <code class="highlighter-rouge">genrule</code> (and depending on Bash) you may find a suitable rule
+in the
+<a href="https://github.com/bazelbuild/bazel-skylib/tree/master/rules">bazel-skylib repository</a>.
+When built on Windows, <strong>these rules do not require Bash</strong>.</p>
+
+<p><a name="bazel-test-without-bash"></a></p>
+<h3 id="bazel-test-without-bash"><code class="highlighter-rouge">bazel test</code> without Bash</h3>
+
+<p>Bazel versions before 1.0 used to require Bash to <code class="highlighter-rouge">bazel test</code> anything.</p>
+
+<p>Starting with Bazel 1.0, you can test any rule without Bash, except when:</p>
+
+<ul>
+  <li>you use <code class="highlighter-rouge">--run_under</code></li>
+  <li>the test rule itself requires Bash (because its executable is a shell script)</li>
+</ul>
+
+<p><a name="bazel-run-without-bash"></a></p>
+<h3 id="bazel-run-without-bash"><code class="highlighter-rouge">bazel run</code> without Bash</h3>
+
+<p>Bazel versions before 1.0 used to require Bash to <code class="highlighter-rouge">bazel run</code> anything.</p>
+
+<p>Starting with Bazel 1.0, you can run any rule without Bash, except when:</p>
+
+<ul>
+  <li>you use <code class="highlighter-rouge">--run_under</code> or <code class="highlighter-rouge">--script_path</code></li>
+  <li>the test rule itself requires Bash (because its executable is a shell script)</li>
+</ul>
+
+<p><a name="sh-rules-without-bash"></a></p>
+<h3 id="sh_binary-and-sh_-rules-and-ctxactionsrun_shell-without-bash"><code class="highlighter-rouge">sh_binary</code> and <code class="highlighter-rouge">sh_*</code> rules, and <code class="highlighter-rouge">ctx.actions.run_shell()</code> without Bash</h3>
+
+<p>You need Bash to build and test <code class="highlighter-rouge">sh_*</code> rules, and to build and test Starlark
+rules that use <code class="highlighter-rouge">ctx.actions.run_shell()</code> and <code class="highlighter-rouge">ctx.resolve_command()</code>. This
+applies not only to rules in your project, but to rules in any of the external
+repositories your project depends on (even transitively).</p>
+
+<p>We may explore the option to use Windows Subsystem for Linux (WSL) to build
+these rules, but as of 2020-01-15 it is not a priority for the Bazel-on-Windows
+subteam.</p>
 
 <h2 id="setting-environment-variables">Setting environment variables</h2>
 
@@ -391,22 +400,25 @@ set the variables again. To always set the variables when <code class="highlight
 can add them to the User variables or System variables in the <code class="highlighter-rouge">Control Panel &gt;
 System Properties &gt; Advanced &gt; Environment Variables...</code> dialog box.</p>
 
-<h2 id="using-bazel-on-windows-1"><a name="using"></a>Using Bazel on Windows</h2>
+<p><a name="using"></a></p>
+<h2 id="using-bazel-on-windows-1">Using Bazel on Windows</h2>
 
 <p>The first time you build any target, Bazel auto-configures the location of
 Python and the Visual C++ compiler. If you need to auto-configure again, run
 <code class="highlighter-rouge">bazel clean</code> then build a target.</p>
 
 <p>You can also tell Bazel where to find the Python binary and the C++ compiler:</p>
+
 <ul>
   <li>use the <a href="command-line-reference.html#flag--python_path"><code class="highlighter-rouge">--python_path=c:\path\to\python.exe</code></a> flag for Python</li>
   <li>use the <code class="highlighter-rouge">BAZEL_VC</code> or the <code class="highlighter-rouge">BAZEL_VS</code> environment variable (they are <em>not</em> the same!).
 See the <a href="#build_cpp">Build C++ section</a> below.</li>
 </ul>
 
-<h3 id="build-c"><a name="build_cpp"></a>Build C++</h3>
+<p><a name="build_cpp"></a></p>
+<h3 id="build-c-with-msvc">Build C++ with MSVC</h3>
 
-<p>To build C++ targets, you need:</p>
+<p>To build C++ targets with MSVC, you need:</p>
 
 <ul>
   <li>
@@ -435,50 +447,67 @@ please upgrade your VS 2017 to the latest version.</p>
     </ul>
   </li>
   <li>
-    <p>The <code class="highlighter-rouge">BAZEL_VS</code> or <code class="highlighter-rouge">BAZEL_VC</code> environment variable. (They are <em>not</em> the same!)</p>
+    <p>The <code class="highlighter-rouge">BAZEL_VS</code>, <code class="highlighter-rouge">BAZEL_VC</code> and <code class="highlighter-rouge">BAZEL_VC_FULL_VERSION</code> environment variable.</p>
 
     <p>Bazel tries to locate the C++ compiler the first time you build any
-target. To tell Bazel where the compiler is, you can set one of the
+target. To tell Bazel where the compiler is, you can set the
 following environment variables:</p>
+
+    <p>For Visual Studio 2017 and 2019, set one of <code class="highlighter-rouge">BAZEL_VC</code> or <code class="highlighter-rouge">BAZEL_VS</code>. Additionally you may also set <code class="highlighter-rouge">BAZEL_VC_FULL_VERSION</code>.</p>
 
     <ul>
       <li>
-        <p><code class="highlighter-rouge">BAZEL_VS</code> storing the Visual Studio installation directory</p>
+        <p><code class="highlighter-rouge">BAZEL_VS</code> the Visual Studio installation directory</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VS=C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools
+</code></pre></div>        </div>
       </li>
-      <li>
-        <p><code class="highlighter-rouge">BAZEL_VC</code> storing the Visual C++ Build Tools installation directory</p>
+      <li><code class="highlighter-rouge">BAZEL_VC</code> the Visual C++ Build Tools installation directory
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VC=C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC
+</code></pre></div>        </div>
+      </li>
+      <li><code class="highlighter-rouge">BAZEL_VC_FULL_VERSION</code> (Optional) Only for Visual Studio 2017 and 2019, the full version
+number of your Visual C++ Build Tools. You can choose the exact Visual C++ Build Tools
+version via <code class="highlighter-rouge">BAZEL_VC_FULL_VERSION</code> if more than one version are installed, otherwise Bazel
+will choose the latest version.
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VC_FULL_VERSION=14.16.27023
+</code></pre></div>        </div>
       </li>
     </ul>
 
-    <p>Setting one of these variables is enough. For example:</p>
+    <p>For Visual Studio 2015 or older, set <code class="highlighter-rouge">BAZEL_VC</code> or <code class="highlighter-rouge">BAZEL_VS</code>. (<code class="highlighter-rouge">BAZEL_VC_FULL_VERSION</code> is not supported.)</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VS=C:\Program Files (x86)\Microsoft Visual Studio 14.0
-</code></pre></div>    </div>
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">BAZEL_VS</code> the Visual Studio installation directory</p>
 
-    <p>or</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VC=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC
-</code></pre></div>    </div>
-
-    <p>The first command sets the path to Visual Studio (BAZEL_V<b>S</b>), the other
-sets the path to Visual C++ (BAZEL_V<b>C</b>).</p>
-
-    <p>For Visual Studio 2017, with a default install, instead you might want</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VS=C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools
-</code></pre></div>    </div>
-
-    <p>or</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VC=C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC
-</code></pre></div>    </div>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VS=C:\Program Files (x86)\Microsoft Visual Studio 14.0
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">BAZEL_VC</code> the Visual C++ Build Tools installation directory</p>
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_VC=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC
+</code></pre></div>        </div>
+      </li>
+    </ul>
   </li>
   <li>
     <p>The <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk">Windows
 SDK</a>.</p>
 
     <p>The Windows SDK contains header files and libraries you need when building
-Windows applications, including Bazel itself.</p>
+Windows applications, including Bazel itself. By default, the latest Windows SDK installed will
+be used. You also can specify Windows SDK version by setting <code class="highlighter-rouge">BAZEL_WINSDK_FULL_VERSION</code>. You
+can use a full Windows 10 SDK number such as 10.0.10240.0, or specify 8.1 to use the Windows 8.1
+SDK (only one version of Windows 8.1 SDK is available). Please make sure you have the specified
+Windows SDK installed.</p>
+
+    <p><strong>Requirement</strong>: This is supported with VC 2017 and 2019. The standalone VC 2015 Build Tools doesn’t
+support selecting Windows SDK, you’ll need the full Visual Studio 2015 installation, otherwise
+<code class="highlighter-rouge">BAZEL_WINSDK_FULL_VERSION</code> will be ignored.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_WINSDK_FULL_VERSION=10.0.10240.0
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -491,6 +520,78 @@ projects</a>:</p>
 
 C:\projects\bazel&gt; bazel-bin\examples\cpp\hello-world.exe
 </code></pre></div></div>
+
+<p>To build and use Dynamically Linked Libraries (DLL files), see <a href="https://github.com/bazelbuild/bazel/tree/master/examples/windows/dll">this
+example</a>.</p>
+
+<h3 id="build-c-with-clang">Build C++ with Clang</h3>
+
+<p>From 0.29.0, Bazel supports building with LLVM’s MSVC-compatible compiler driver (<code class="highlighter-rouge">clang-cl.exe</code>).</p>
+
+<p><strong>Requirement</strong>: To build with Clang, you have to install <strong>both</strong>
+<a href="http://releases.llvm.org/download.html">LLVM</a> and Visual C++ Build tools, because although we use
+<code class="highlighter-rouge">clang-cl.exe</code> as compiler, we still need to link to Visual C++ libraries.</p>
+
+<p>Bazel can automatically detect LLVM installation on your system, or you can explicitly tell
+Bazel where LLVM is installed by <code class="highlighter-rouge">BAZEL_LLVM</code>.</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">BAZEL_LLVM</code> the LLVM installation directory</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set BAZEL_LLVM=C:\Program Files\LLVM
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>To enable the Clang toolchain for building C++, there are several situations.</p>
+
+<ul>
+  <li>
+    <p>In bazel 0.28 and older: Clang is not supported.</p>
+  </li>
+  <li>
+    <p>Without <code class="highlighter-rouge">--incompatible_enable_cc_toolchain_resolution</code>:
+You can enable the Clang toolchain by a build flag <code class="highlighter-rouge">--compiler=clang-cl</code>.</p>
+  </li>
+  <li>
+    <p>With <code class="highlighter-rouge">--incompatible_enable_cc_toolchain_resolution</code>:
+You have to add a platform target to your BUILD file (eg. the top level BUILD file):</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  platform(
+      name = "x64_windows-clang-cl",
+      constraint_values = [
+          "@platforms//cpu:x86_64",
+          "@platforms//os:windows",
+          "@bazel_tools//tools/cpp:clang-cl",
+      ],
+  )
+</code></pre></div>    </div>
+    <p>Then you can enable the Clang toolchain by either of the following two ways:</p>
+    <ul>
+      <li>Specify the following build flags:</li>
+    </ul>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl --extra_execution_platforms=//:x64_windows-clang-cl
+</code></pre></div>    </div>
+
+    <ul>
+      <li>Register the platform and toolchain in your WORKSPACE file:</li>
+    </ul>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  register_execution_platforms(
+      ":x64_windows-clang-cl"
+  )
+
+  register_toolchains(
+      "@local_config_cc//:cc-toolchain-x64_windows-clang-cl",
+  )
+</code></pre></div>    </div>
+
+    <p>The <a href="https://github.com/bazelbuild/bazel/issues/7260">--incompatible_enable_cc_toolchain_resolution</a>
+  flag is planned to be enabled by default in future Bazel release. Therefore,
+  it is recommended to enable Clang support with the second approach.</p>
+  </li>
+</ul>
 
 <h3 id="build-java">Build Java</h3>
 
@@ -560,11 +661,68 @@ Windows, check out this <a href="https://bazel.build/designs/2016/09/05/build-py
 doc</a>.</p>
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Windows&body=Documentation URL: https://docs.bazel.build/versions/master/windows.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#installation">Installation</a></li>
+<li class="toc-entry toc-h2"><a href="#known-issues">Known issues</a></li>
+<li class="toc-entry toc-h2"><a href="#running-bazel-msys2-shell-vs-command-prompt-vs-powershell">Running Bazel: MSYS2 shell vs. Command Prompt vs. PowerShell</a></li>
+<li class="toc-entry toc-h2"><a href="#using-bazel-without-bash-msys2">Using Bazel without Bash (MSYS2)</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#bazel-build-without-bash">bazel build without Bash</a></li>
+<li class="toc-entry toc-h3"><a href="#bazel-test-without-bash">bazel test without Bash</a></li>
+<li class="toc-entry toc-h3"><a href="#bazel-run-without-bash">bazel run without Bash</a></li>
+<li class="toc-entry toc-h3"><a href="#sh_binary-and-sh_-rules-and-ctxactionsrun_shell-without-bash">sh_binary and sh_* rules, and ctx.actions.run_shell() without Bash</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#setting-environment-variables">Setting environment variables</a></li>
+<li class="toc-entry toc-h2"><a href="#using-bazel-on-windows-1">Using Bazel on Windows</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#build-c-with-msvc">Build C++ with MSVC</a></li>
+<li class="toc-entry toc-h3"><a href="#build-c-with-clang">Build C++ with Clang</a></li>
+<li class="toc-entry toc-h3"><a href="#build-java">Build Java</a></li>
+<li class="toc-entry toc-h3"><a href="#build-python">Build Python</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -601,7 +759,7 @@ doc</a>.</p>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

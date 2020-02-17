@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Args - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Args - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/lib/Args.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/Args.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,53 +302,12 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <a href="../concepts.html">Extensions</a> &gt;
+<a href="skylark-overview.html">API reference</a> &gt;
+Args
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/lib/Args.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/lib/Args.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/lib/Args.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/lib/Args.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/lib/Args.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/lib/Args.html">0.17.1</option>
-              
-          </select>
-
-          <h1 id="modules.Args">Args</h1>
+<h1 id="modules.Args">Args</h1>
 
 An object that encapsulates, in a memory-efficient way, the data needed to build part or all of a command line.<p>It often happens that an action requires a large command line containing values accumulated from transitive dependencies. For example, a linker command line might list every object file needed by all of the libraries being linked. It is best practice to store such transitive data in <a href='depset.html'><code>depset</code></a>s, so that they can be shared by multiple targets. However, if the rule author had to convert these depsets into lists of strings in order to construct an action command line, it would defeat this memory-sharing optimization.<p>For this reason, the action-constructing functions accept <code>Args</code> objects in addition to strings. Each <code>Args</code> object represents a concatenation of strings and depsets, with optional transformations for manipulating the data. <code>Args</code> objects do not process the depsets they encapsulate until the execution phase, when it comes time to calculate the command line. This helps defer any expensive copying until after the analysis phase is complete. See the <a href='../performance.html'>Optimizing Performance</a> page for more information.<p><code>Args</code> are constructed by calling <a href='actions.html#args'><code>ctx.actions.args()</code></a>. They can be passed as the <code>arguments</code> parameter of <a href='actions.html#run'><code>ctx.actions.run()</code></a> or <a href='actions.html#run_shell'><code>ctx.actions.run_shell()</code></a>. Each mutation of an <code>Args</code> object appends values to the eventual command line.<p>The <code>map_each</code> feature allows you to customize how items are transformed into strings. If you do not provide a <code>map_each</code> function, the standard conversion is as follows: <ul><li>Values that are already strings are left as-is.<li><a href='File.html'><code>File</code></a> objects are turned into their     <code>File.path</code> values.<li>All other types are turned into strings in an <i>unspecified</i> manner. For     this reason, you should avoid passing values that are not of string or     <code>File</code> type to <code>add()</code>, and if you pass them to     <code>add_all()</code> or <code>add_joined()</code> then you should provide a     <code>map_each</code> function.</ul><p>When using string formatting (<code>format</code>, <code>format_each</code>, and <code>format_joined</code> params of the <code>add*()</code> methods), the format template is interpreted in the same way as <code>%</code>-substitution on strings, except that the template must have exactly one substitution placeholder and it must be <code>%s</code>. Literal percents may be escaped as <code>%%</code>. Formatting is applied after the value is converted to a string as per the above.<p>Each of the <code>add*()</code> methods have an alternate form that accepts an extra positional parameter, an "arg name" string to insert before the rest of the arguments. For <code>add_all</code> and <code>add_joined</code> the extra string will not be added if the sequence turns out to be empty. For instance, the same usage can add either <code>--foo val1 val2 val3 --bar</code> or just <code>--bar</code> to the command line, depending on whether the given sequence contains <code>val1..val3</code> or is empty.<p>If the size of the command line can grow longer than the maximum size allowed by the system, the arguments can be spilled over into parameter files. See <a href='#use_param_file'><code>use_param_file()</code></a> and <a href='#set_param_file_format'><code>set_param_file_format()</code></a>.<p>Example: Suppose we wanted to generate the command line: <pre>
 --foo foo1.txt foo2.txt ... fooN.txt --bar bar1.txt,bar2.txt,...,barM.txt --baz
@@ -382,22 +326,32 @@ ctx.actions.run(
 </pre>
 
 <div class="toc">
-  <h2>Methods</h2>
+  <h2>Members</h2>
   <ul>
-          <li><a href="#add">add</a></li>
-              <li><a href="#add_all">add_all</a></li>
-              <li><a href="#add_joined">add_joined</a></li>
-              <li><a href="#set_param_file_format">set_param_file_format</a></li>
-              <li><a href="#use_param_file">use_param_file</a></li>
+          <li>
+      <a href="#add">add</a>
+          </li>
+              <li>
+      <a href="#add_all">add_all</a>
+          </li>
+              <li>
+      <a href="#add_joined">add_joined</a>
+          </li>
+              <li>
+      <a href="#set_param_file_format">set_param_file_format</a>
+          </li>
+              <li>
+      <a href="#use_param_file">use_param_file</a>
+          </li>
         </ul>
 </div>
 
       <h2 id="add">add</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> Args.add(arg_name_or_value, value=unbound, *, format=None, before_each=None, join_with=None, map_fn=None)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="Args.html">Args</a> Args.add(arg_name_or_value, value=unbound, *, format=None, before_each=None, join_with=None, map_fn=None)</pre></p>
 
     Appends an argument to this command line.<p><b>Deprecation note:</b> The <code>before_each</code>, <code>join_with</code> and <code>map_fn</code> params are replaced by the <a href='#add_all'><code>add_all()</code></a> and <a href='#add_joined'><code>add_joined()</code></a> methods. These parameters will be removed, and are currently disallowed if the <a href='../backward-compatibility.html#new-args-api'><code>--incompatible_disallow_old_style_args_add</code></a> flag is set. Likewise, <code>value</code> should now be a scalar value, not a list, tuple, or depset of items.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -423,7 +377,7 @@ ctx.actions.run(
               <code>value</code>
             </td>
             <td>
-                          <p>The object to append. It will be converted to a string using the standard conversion mentioned above. Since there is no <code>map_each</code> parameter for this function, <code>value</code> should be either a string or a <code>File</code>. A directory <code>File</code> must be passed to <a href='#add_all'><code>add_all()</code> or <a href='#add_joined'><code>add_joined()</code></a> instead of this method.<p><i>Deprecated behavior:</i> <code>value</code> may be a directory unless --noincompatible_expand_directories is passed.</p><p><i>Deprecated behavior:</i> <code>value</code> may also be a list, tuple, or depset of multiple items to append.</p>
+                          <p>The object to append. It will be converted to a string using the standard conversion mentioned above. Since there is no <code>map_each</code> parameter for this function, <code>value</code> should be either a string or a <code>File</code>. A directory <code>File</code> must be passed to <a href='#add_all'><code>add_all()</code> or <a href='#add_joined'><code>add_joined()</code></a> instead of this method.<p><i>Deprecated behavior:</i> <code>value</code> may also be a list, tuple, or depset of multiple items to append.</p>
             </td>
           </tr>
                   <tr>
@@ -466,11 +420,11 @@ ctx.actions.run(
       </table>
 
         <h2 id="add_all">add_all</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> Args.add_all(arg_name_or_values, values=unbound, *, map_each=None, format_each=None, before_each=None, omit_if_empty=True, uniquify=False, expand_directories=unbound, terminate_with=None)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="Args.html">Args</a> Args.add_all(arg_name_or_values, values=unbound, *, map_each=None, format_each=None, before_each=None, omit_if_empty=True, uniquify=False, expand_directories=True, terminate_with=None)</pre></p>
 
-    Appends multiple arguments to this command line. For depsets, the items are evaluated lazily during the execution phase.<p>Most of the processing occurs over a list of arguments to be appended, as per the following steps:<ol><li>Each directory <code>File</code> item is replaced by all <code>File</code>s recursively contained in that directory, unless <code>expand_directories=False</code> is specified.</li><li>If <code>map_each</code> is given, it is applied to each item, and the     resulting lists of strings are concatenated to form the initial argument     list. Otherwise, the initial argument list is the result of applying the     standard conversion to each item.<li>Each argument in the list is formatted with <code>format_each</code>, if     present.<li>If <code>uniquify</code> is true, duplicate arguments are removed. The first     occurrence is the one that remains.<li>If a <code>before_each</code> string is given, it is inserted as a new     argument before each existing argument in the list. This effectively doubles     the number of arguments to be appended by this point.<li>Except in the case that the list is empty and <code>omit_if_empty</code> is     true (the default), the arg name and <code>terminate_with</code> are     inserted as the first and last arguments, respectively, if they are given.</ol>Note that empty strings are valid arguments that are subject to all these processing steps.
+    Appends multiple arguments to this command line. For depsets, the items are evaluated lazily during the execution phase.<p>Most of the processing occurs over a list of arguments to be appended, as per the following steps:<ol><li>Each directory <code>File</code> item is replaced by all <code>File</code>s recursively contained in that directory.</li><li>If <code>map_each</code> is given, it is applied to each item, and the     resulting lists of strings are concatenated to form the initial argument     list. Otherwise, the initial argument list is the result of applying the     standard conversion to each item.<li>Each argument in the list is formatted with <code>format_each</code>, if     present.<li>If <code>uniquify</code> is true, duplicate arguments are removed. The first     occurrence is the one that remains.<li>If a <code>before_each</code> string is given, it is inserted as a new     argument before each existing argument in the list. This effectively doubles     the number of arguments to be appended by this point.<li>Except in the case that the list is empty and <code>omit_if_empty</code> is     true (the default), the arg name and <code>terminate_with</code> are     inserted as the first and last arguments, respectively, if they are given.</ol>Note that empty strings are valid arguments that are subject to all these processing steps.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -551,7 +505,7 @@ ctx.actions.run(
             </td>
             <td>
                           <p><code><a class="anchor" href="bool.html">bool</a></code></p>
-                          <p>If true, any directories in <code>values</code> will be expanded to a flat list of files. This happens before <code>map_each</code> is applied. The default value of this flag is controlled by --incompatible_expand_directories.</p>
+                          <p>If true, any directories in <code>values</code> will be expanded to a flat list of files. This happens before <code>map_each</code> is applied.</p>
             </td>
           </tr>
                   <tr>
@@ -567,11 +521,11 @@ ctx.actions.run(
       </table>
 
         <h2 id="add_joined">add_joined</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> Args.add_joined(arg_name_or_values, values=unbound, *, join_with, map_each=None, format_each=None, format_joined=None, omit_if_empty=True, uniquify=False, expand_directories=unbound)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="Args.html">Args</a> Args.add_joined(arg_name_or_values, values=unbound, *, join_with, map_each=None, format_each=None, format_joined=None, omit_if_empty=True, uniquify=False, expand_directories=True)</pre></p>
 
     Appends an argument to this command line by concatenating together multiple values using a separator. For depsets, the items are evaluated lazily during the execution phase.<p>Processing is similar to <a href='#add_all'><code>add_all()</code></a>, but the list of arguments derived from <code>values</code> is combined into a single argument as if by <code>join_with.join(...)</code>, and then formatted using the given <code>format_joined</code> string template. Unlike <code>add_all()</code>, there is no <code>before_each</code> or <code>terminate_with</code> parameter since these are not generally useful when the items are combined into a single argument.<p>If after filtering there are no strings to join into an argument, and if <code>omit_if_empty</code> is true (the default), no processing is done. Otherwise if there are no strings to join but <code>omit_if_empty</code> is false, the joined string will be an empty string.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -668,11 +622,11 @@ ctx.actions.run(
       </table>
 
         <h2 id="set_param_file_format">set_param_file_format</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> Args.set_param_file_format(format)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="Args.html">Args</a> Args.set_param_file_format(format)</pre></p>
 
     Sets the format of the param file when written to disk
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -698,11 +652,11 @@ ctx.actions.run(
       </table>
 
         <h2 id="use_param_file">use_param_file</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> Args.use_param_file(param_file_arg, *, use_always=False)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="Args.html">Args</a> Args.use_param_file(param_file_arg, *, use_always=False)</pre></p>
 
     Spills the args to a params file, replacing them with a pointer to the param file. Use when your args may be too large for the system's command length limits.<p>Bazel may choose to elide writing the params file to the output tree during execution for efficiency.If you are debugging actions and want to inspect the param file, pass <code>--materialize_param_files</code> to your build.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -739,11 +693,54 @@ ctx.actions.run(
 
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Args&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/Args.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#add">add</a></li>
+<li class="toc-entry toc-h2"><a href="#add_all">add_all</a></li>
+<li class="toc-entry toc-h2"><a href="#add_joined">add_joined</a></li>
+<li class="toc-entry toc-h2"><a href="#set_param_file_format">set_param_file_format</a></li>
+<li class="toc-entry toc-h2"><a href="#use_param_file">use_param_file</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -780,7 +777,7 @@ ctx.actions.run(
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

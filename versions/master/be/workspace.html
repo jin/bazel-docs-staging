@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Workspace Rules - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Workspace Rules - Bazel </title>
 
     <link rel="canonical" href="/versions/master/be/workspace.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/be/workspace.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/be/workspace.html">master</option>
-              
-              <option value="/versions/0.19.2/be/workspace.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/be/workspace.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/be/workspace.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/be/workspace.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/be/workspace.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <!--
  This document is synchronized with Bazel releases.
  To edit, submit changes to the Bazel source code.
@@ -372,48 +312,33 @@
 
 <h1>Workspace Rules</h1>
 
+
+<p>
+Workspace rules are used to pull in <a href="../external.html">external dependencies</a>, typically
+source code located outside the main repository.
+</p>
+
+<p><em>Note:</em> besides the native workspace rules, Bazel also embeds various
+<a href="../repo/index.html">Starlark workspace rules</a>, in particular those to deal
+with git repositories or archives hosted on the web.
+</p>
+
+
+
 <div class="toc">
   <h2>Rules</h2>
   <ul>
+    <li>
+      <a href="#available_xcodes">
+        available_xcodes      </a>
+    </li>
     <li>
       <a href="#bind">
         bind      </a>
     </li>
     <li>
-      <a href="#git_repository">
-        git_repository      </a>
-    </li>
-    <li>
-      <a href="#http_archive">
-        http_archive      </a>
-    </li>
-    <li>
-      <a href="#http_file">
-        http_file      </a>
-    </li>
-    <li>
-      <a href="#http_jar">
-        http_jar      </a>
-    </li>
-    <li>
       <a href="#local_repository">
         local_repository      </a>
-    </li>
-    <li>
-      <a href="#maven_jar">
-        maven_jar      </a>
-    </li>
-    <li>
-      <a href="#maven_server">
-        maven_server      </a>
-    </li>
-    <li>
-      <a href="#new_git_repository">
-        new_git_repository      </a>
-    </li>
-    <li>
-      <a href="#new_http_archive">
-        new_http_archive      </a>
     </li>
     <li>
       <a href="#new_local_repository">
@@ -430,7 +355,62 @@
   </ul>
 </div>
 
-  <h2 id="bind">
+  <h2 id="available_xcodes">
+    available_xcodes
+  </h2>
+
+  <pre class="rule-signature">available_xcodes(<a href="#available_xcodes.name">name</a>, <a href="#available_xcodes.default">default</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#available_xcodes.versions">versions</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>Two targets of this rule can be depended on by an <code>xcode_config</code> rule instance to
+indicate the remotely and locally available xcode versions.
+This allows selection of an official xcode version from the collectively available xcodes.</p>
+
+
+
+  <h3 id="available_xcodes_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="available_xcodes.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="available_xcodes.default">
+          <code>default</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; required; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                            The default xcode version for this platform.
+
+        </td>
+      </tr>
+                                                                                  <tr>
+        <td id="available_xcodes.versions">
+          <code>versions</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                            The xcode versions that are available on this platform.
+
+        </td>
+      </tr>
+                        </tbody>
+  </table>
+    <h2 id="bind">
     bind
   </h2>
 
@@ -440,6 +420,9 @@
 <em><p>Warning: use of <code>bind()</code> is not recommended. See "<a
 href="https://github.com/bazelbuild/bazel/issues/1952">Consider removing bind</a>" for a long
 discussion of its issues and alternatives.</p></em>
+<em><p>Warning: <code>select()</code> cannot be used in <code>bind()</code>. See the <a
+href="../configurable-attributes.html#bind-select">Configurable Attributes FAQ</a> for
+details.</p></em>
 
 <p>Gives a target an alias in the <code>//external</code> package.</p>
 
@@ -550,505 +533,6 @@ cc_library(
       </tr>
                                                                                                         </tbody>
   </table>
-    <h2 id="git_repository">
-    git_repository
-  </h2>
-
-  <pre class="rule-signature">git_repository(<a href="#git_repository.name">name</a>, <a href="#git_repository.commit">commit</a>, <a href="#git_repository.init_submodules">init_submodules</a>, <a href="#git_repository.remote">remote</a>, <a href="#git_repository.sha256">sha256</a>, <a href="#git_repository.tag">tag</a>)</pre>
-
-
-<p><strong>Deprecated.
-<code>load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")</code>
-for a drop-in replacement.</strong></p>
-
-<p>Clones a Git repository, checks out the specified tag, or commit, and makes its targets
-available for binding.</p>
-
-<h4 id="git_repository_examples">Examples</h4>
-
-<p>Suppose the current repository contains the source code for a chat program, rooted at the
-  directory <i>~/chat-app</i>. It needs to depend on an SSL library which is available in the
-  remote Git repository <i>http://example.com/openssl/openssl.git</i>. The chat app depends
-  on version 1.0.2 of the SSL library, which is tagged by the v1.0.2 Git tag.<p>
-
-<p>This Git repository contains the following directory structure:</p>
-
-<pre class="code">
-WORKSPACE
-src/
-  BUILD
-  openssl.cc
-  openssl.h
-</pre>
-
-<p><i>src/BUILD</i> contains the following target definition:</p>
-
-<pre class="code">
-cc_library(
-    name = "openssl-lib",
-    srcs = ["openssl.cc"],
-    hdrs = ["openssl.h"],
-)
-</pre>
-
-<p>Targets in the <i>~/chat-app</i> repository can depend on this target if the following lines are
-  added to <i>~/chat-app/WORKSPACE</i>:</p>
-
-<pre class="code">
-git_repository(
-    name = "my_ssl",
-    remote = "http://example.com/openssl/openssl.git",
-    tag = "v1.0.2",
-)
-</pre>
-
-<p>Then targets would specify <code>@my_ssl//src:openssl-lib</code> as a dependency.</p>
-
-
-
-  <h3 id="git_repository_args">Arguments</h3>
-  <table class="table table-condensed table-bordered table-params">
-    <colgroup>
-      <col class="col-param" />
-      <col class="param-description" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="2">Attributes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="git_repository.name"><code>name</code></td>
-        <td>
-          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
-          <p>A unique name for this target.</p>
-
-        </td>
-      </tr>
-                <tr>
-        <td id="git_repository.commit">
-          <code>commit</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The commit hash to check out in the repository.
-
-        <p>Note that one of either <code>commit</code> or <code>tag</code> must be defined.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="git_repository.init_submodules">
-          <code>init_submodules</code>
-        </td>
-        <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
-                            Whether to clone submodules in the repository.
-
-        <p>Currently, only cloning the top-level submodules is supported</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="git_repository.remote">
-          <code>remote</code>
-        </td>
-        <td>
-                    <p><code>String; required</code></p>
-                            The URI of the remote Git repository.
-
-        <p>This must be a HTTP URL. There is currently no support for authentication.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="git_repository.sha256">
-          <code>sha256</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                             The expected SHA-256 hash of the file downloaded. Specifying this forces the repository to
-         be downloaded as a tarball. Currently, this is only supported for public GitHub
-         repositories.
-
-         <p>This must match the SHA-256 hash of the file downloaded. <em>It is a security risk to
-         omit the SHA-256 as remote files can change.</em> At best omitting this field will make
-         your build non-hermetic. It is optional to make development easier but should be set
-         before shipping.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="git_repository.tag">
-          <code>tag</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The Git tag to check out in the repository.
-
-        <p>Note that one of either <code>commit</code> or <code>tag</code> must be defined.</p>
-
-        </td>
-      </tr>
-              </tbody>
-  </table>
-    <h2 id="http_archive">
-    http_archive
-  </h2>
-
-  <pre class="rule-signature">http_archive(<a href="#http_archive.name">name</a>, <a href="#http_archive.sha256">sha256</a>, <a href="#http_archive.strip_prefix">strip_prefix</a>, <a href="#http_archive.type">type</a>, <a href="#http_archive.url">url</a>, <a href="#http_archive.urls">urls</a>)</pre>
-
-
-<p><strong>Deprecated.
-<code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")</code>
-for a drop-in replacement.</strong></p>
-
-<p>Downloads a Bazel repository as a compressed archive file,
-  decompresses it, and makes its targets available for binding. The
-  repository should already contain a BUILD file. If it does not, use
-  <a href="workspace.html#new_http_archive">new_http_archive</a> instead.</p>
-
-<p>It supports Zip-formatted archives and tarballs. The full set of extensions supported is
-.zip, .jar, .war, .tar.gz, .tgz, .tar.xz, or .tar.bz2.</p>
-
-<h4 id="http_archive_examples">Examples</h4>
-
-<p>Suppose the current repository contains the source code for a chat program, rooted at the
-  directory <i>~/chat-app</i>. It needs to depend on an SSL library which is available from
-  <i>http://example.com/openssl.zip</i>. This .zip file contains the following directory
-  structure:</p>
-
-<pre class="code">
-WORKSPACE
-src/
-  BUILD
-  openssl.cc
-  openssl.h
-</pre>
-
-<p><i>src/BUILD</i> contains the following target definition:</p>
-
-<pre class="code">
-cc_library(
-    name = "openssl-lib",
-    srcs = ["openssl.cc"],
-    hdrs = ["openssl.h"],
-)
-</pre>
-
-<p>Targets in the <i>~/chat-app</i> repository can depend on this target if the following lines are
-  added to <i>~/chat-app/WORKSPACE</i>:</p>
-
-<pre class="code">
-http_archive(
-    name = "my_ssl",
-    url = "http://example.com/openssl.zip",
-    sha256 = "03a58ac630e59778f328af4bcc4acb4f80208ed4",
-)
-</pre>
-
-<p>Then targets would specify <code>@my_ssl//src:openssl-lib</code> as a dependency.</p>
-
-
-
-  <h3 id="http_archive_args">Arguments</h3>
-  <table class="table table-condensed table-bordered table-params">
-    <colgroup>
-      <col class="col-param" />
-      <col class="param-description" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="2">Attributes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="http_archive.name"><code>name</code></td>
-        <td>
-          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
-          <p>A unique name for this target.</p>
-
-        </td>
-      </tr>
-                <tr>
-        <td id="http_archive.sha256">
-          <code>sha256</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                             The expected SHA-256 hash of the file downloaded.
-
-         <p>This must match the SHA-256 hash of the file downloaded. <em>It is a security risk to
-         omit the SHA-256 as remote files can change.</em> At best omitting this field will make
-         your build non-hermetic. It is optional to make development easier but should be set
-         before shipping.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="http_archive.strip_prefix">
-          <code>strip_prefix</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                             A directory prefix to strip from the extracted files.
-
-         <p>Many archives contain a top-level directory that contains all of the useful files in
-         archive. Instead of needing to specify this prefix over and over in the
-         <code>build_file</code>, this field can be used to strip it from all of the extracted
-         files.</p>
-
-         <p>For example, suppose you are using foo-lib-latest.zip, which contains the directory
-         foo-lib-1.2.3/ under which there is a WORKSPACE file and are src/, lib/, and test/
-         directories that contain the actual code you wish to build. Specify
-         <code>strip_prefix = "foo-lib-1.2.3"</code> to use the foo-lib-1.2.3 directory as your
-         top-level directory.</p>
-
-         <p>Note that if there are files outside of this directory, they will be discarded and
-         inaccessible (e.g., a top-level license file). This includes files/directories that
-         start with the prefix but are not in the directory (e.g., foo-lib-1.2.3.release-notes).
-         If the specified prefix does not match a directory in the archive, Bazel will return an
-         error.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="http_archive.type">
-          <code>type</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                             The archive type of the downloaded file.
-
-         <p>By default, the archive type is determined from the file extension of the URL. If the
-         file has no extension, you can explicitly specify one of the following: `"zip"`, `"jar"`,
-         `"war"`, `"tar.gz"`, `"tgz"`, `"tar.xz"`, and `tar.bz2`</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="http_archive.url">
-          <code>url</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                             (Deprecated) A URL referencing an archive file containing a Bazel repository.
-
-         <p>This value has the same meaning as a <code>urls</code> list with a single item. This
-         must not be specified if <code>urls</code> is also specified.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="http_archive.urls">
-          <code>urls</code>
-        </td>
-        <td>
-                    <p><code>List of strings; optional</code></p>
-                            List of mirror URLs referencing the same archive file containing a Bazel repository.
-
-        <p>This must be an http, https, or file URL. Archives of type .zip, .jar, .war, .tar.gz,
-        .tgz, tar.bz2, or tar.xz are supported. There is no support for authentication.</p>
-
-        </td>
-      </tr>
-              </tbody>
-  </table>
-    <h2 id="http_file">
-    http_file
-  </h2>
-
-  <pre class="rule-signature">http_file(<a href="#http_file.name">name</a>, <a href="#http_file.executable">executable</a>, <a href="#http_file.sha256">sha256</a>, <a href="#http_file.url">url</a>, <a href="#http_file.urls">urls</a>)</pre>
-
-
-<p><strong>Deprecated.
-<code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")</code>
-for a drop-in replacement.</strong></p>
-
-<p>Downloads a file from a URL and makes it available to be used as a file group.</p>
-
-<h4 id="http_file_examples">Examples</h4>
-
-<p>Suppose you need to have a debian package for your custom rules. This package is available from
-<i>http://example.com/package.deb</i>. Then you can add to your WORKSPACE file:</p>
-
-<pre class="code">
-http_file(
-   name = "my_deb",
-   url = "http://example.com/package.deb",
-   sha256 = "03a58ac630e59778f328af4bcc4acb4f80208ed4",
-)
-</pre>
-
-<p>Targets would specify <code>@my_deb//file</code> as a dependency to depend on this file.</p>
-
-<p>You may also reference files on the current system (localhost) by using "file:///path/to/file"
-if you are on Unix-based systems. If you're on Windows, use "file:///c:/path/to/file". In both
-examples, note the three slashes (<code>/</code>) -- the first two slashes belong to
-<code>file://</code> and the third one belongs to the absolute path to the file.</p>
-
-
-
-  <h3 id="http_file_args">Arguments</h3>
-  <table class="table table-condensed table-bordered table-params">
-    <colgroup>
-      <col class="col-param" />
-      <col class="param-description" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="2">Attributes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="http_file.name"><code>name</code></td>
-        <td>
-          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
-          <p>A unique name for this target.</p>
-
-        </td>
-      </tr>
-                <tr>
-        <td id="http_file.executable">
-          <code>executable</code>
-        </td>
-        <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
-                            If the downloaded file should be made executable. Defaults to False.
-
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="http_file.sha256">
-          <code>sha256</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The expected SHA-256 of the file downloaded.
-
-        <p>This must match the SHA-256 of the file downloaded. <em>It is a security risk to
-        omit the SHA-256 as remote files can change.</em> At best omitting this field will make
-        your build non-hermetic. It is optional to make development easier but should be set
-        before shipping.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="http_file.url">
-          <code>url</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            (Deprecated) A URL to a file that will be made available to Bazel.
-
-        <p>This value has the same meaning as a <code>urls</code> list with a single item. This
-        must not be specified if <code>urls</code> is also specified.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="http_file.urls">
-          <code>urls</code>
-        </td>
-        <td>
-                    <p><code>List of strings; optional</code></p>
-                            List of mirror URLs referencing the same file that will be made available to Bazel.
-
-        <p>This must be an http, https, or file URL. Authentication is not supported.</p>
-
-        </td>
-      </tr>
-              </tbody>
-  </table>
-    <h2 id="http_jar">
-    http_jar
-  </h2>
-
-  <pre class="rule-signature">http_jar(<a href="#http_jar.name">name</a>, <a href="#http_jar.sha256">sha256</a>, <a href="#http_jar.url">url</a>)</pre>
-
-
-<p><strong>Deprecated.
-<code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_jar")</code>
-for a drop-in replacement.</strong></p>
-
-<p>Downloads a jar from a URL and makes it available to be used as a Java dependency.</p>
-
-<p>Downloaded files must have a .jar extension.</p>
-
-<h4 id="http_jar_examples">Examples</h4>
-
-<p>Suppose the current repository contains the source code for a chat program, rooted at the
-  directory <i>~/chat-app</i>. It needs to depend on an SSL library which is available from
-  <i>http://example.com/openssl-0.2.jar</i>.</p>
-
-<p>Targets in the <i>~/chat-app</i> repository can depend on this target if the following lines are
-  added to <i>~/chat-app/WORKSPACE</i>:</p>
-
-<pre class="code">
-http_jar(
-    name = "my_ssl",
-    url = "http://example.com/openssl-0.2.jar",
-    sha256 = "03a58ac630e59778f328af4bcc4acb4f80208ed4",
-)
-</pre>
-
-<p>Targets would specify <code>@my_ssl//jar</code> as a dependency to depend on this jar.</p>
-
-
-
-  <h3 id="http_jar_args">Arguments</h3>
-  <table class="table table-condensed table-bordered table-params">
-    <colgroup>
-      <col class="col-param" />
-      <col class="param-description" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="2">Attributes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="http_jar.name"><code>name</code></td>
-        <td>
-          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
-          <p>A unique name for this target.</p>
-
-        </td>
-      </tr>
-                <tr>
-        <td id="http_jar.sha256">
-          <code>sha256</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The expected SHA-256 of the file downloaded.
-
-        <p>This must match the SHA-256 of the file downloaded. <em>It is a security risk to
-        omit the SHA-256 as remote files can change.</em> At best omitting this field will make
-        your build non-hermetic. It is optional to make development easier but should be set
-        before shipping.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="http_jar.url">
-          <code>url</code>
-        </td>
-        <td>
-                    <p><code>String; required</code></p>
-                            A URL to an archive file containing a Bazel repository.
-
-        <p>This must be an http or https URL that ends with .jar.</p>
-
-        </td>
-      </tr>
-              </tbody>
-  </table>
     <h2 id="local_repository">
     local_repository
   </h2>
@@ -1117,594 +601,11 @@ library.</p>
       </tr>
               </tbody>
   </table>
-    <h2 id="maven_jar">
-    maven_jar
-  </h2>
-
-  <pre class="rule-signature">maven_jar(<a href="#maven_jar.name">name</a>, <a href="#maven_jar.artifact">artifact</a>, <a href="#maven_jar.repository">repository</a>, <a href="#maven_jar.server">server</a>, <a href="#maven_jar.sha1">sha1</a>, <a href="#maven_jar.sha1_src">sha1_src</a>)</pre>
-
-
-<p>Downloads a jar from Maven and makes it available to be used as a Java dependency.</p>
-
-<h4 id="maven_jar_name">Naming</h4>
-
-<p>Note that the maven_jar name is used as a repository name, so it is limited by the rules
-governing workspace names: it cannot contain dashes nor dots (see
-<a href="http://bazel.build/docs/be/functions.html#workspace">the documentation on workspace
-names</a> for the exact specification). By convention, maven_jar names should match the artifact
-name, replacing illegal characters with underscores and leaving off the version.  For example, a
-rule with <code>artifact = "org.apache.commons:commons-lang3:3.4"</code> should have
-<code>name = "org_apache_commons_commons_lang3"</code>.</p>
-
-<h4 id="maven_jar_examples">Examples</h4>
-
-Suppose that the current repostory contains a java_library target that needs to depend on Guava.
-Using Maven, this dependency would be defined in the pom.xml file as:
-
-<pre>
-&lt;dependency>
-    &lt;groupId>com.google.guava&lt;/groupId>
-    &lt;artifactId>guava&lt;/artifactId>
-    &lt;version>18.0&lt;/version>
-&lt;/dependency>
-</pre>
-
-With Bazel, add the following lines to the WORKSPACE file:
-
-<pre>
-maven_jar(
-    name = "com_google_guava_guava",
-    artifact = "com.google.guava:guava:18.0",
-    sha1 = "cce0823396aa693798f8882e64213b1772032b09",
-    sha1_src = "ad97fe8faaf01a3d3faacecd58e8fa6e78a973ca",
-)
-</pre>
-
-<p>Targets can specify <code>@com_google_guava_guava//jar</code> as a dependency to depend on this
-jar.</p>
-
-
-
-  <h3 id="maven_jar_args">Arguments</h3>
-  <table class="table table-condensed table-bordered table-params">
-    <colgroup>
-      <col class="col-param" />
-      <col class="param-description" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="2">Attributes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="maven_jar.name"><code>name</code></td>
-        <td>
-          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
-          <p>A unique name for this target.</p>
-
-        </td>
-      </tr>
-                <tr>
-        <td id="maven_jar.artifact">
-          <code>artifact</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            A description of a Maven artifact using
-        <a href="https://maven.apache.org/pom.html#Maven_Coordinates">Maven coordinates</a>.
-
-        <p>These descriptions are of the form &lt;groupId&gt:&lt;artifactId&gt;:&lt;version&gt;,
-        see <a href="workspace.html#maven_jar_examples">the documentation below</a> for an example.
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="maven_jar.repository">
-          <code>repository</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            A URL for a Maven repository to fetch the jar from.
-
-        <p>Either this or <code>server</code> can be specified. Defaults to Maven Central
-         ("central.maven.org").</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="maven_jar.server">
-          <code>server</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            A maven_server to use for this artifact.
-
-        <p>Either this or <code>repository</code> can be specified.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="maven_jar.sha1">
-          <code>sha1</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            A SHA-1 hash of the desired jar.
-
-        <p>If the downloaded jar does not match this hash, Bazel will error out. <em>It is a
-        security risk to omit the SHA-1 as remote files can change.</em> At best omitting this
-        field will make your build non-hermetic. It is optional to make development easier but
-        should be set before shipping.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="maven_jar.sha1_src">
-          <code>sha1_src</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            A SHA-1 hash of the desired jar source file.
-
-
-        </td>
-      </tr>
-              </tbody>
-  </table>
-    <h2 id="maven_server">
-    maven_server
-  </h2>
-
-  <pre class="rule-signature">maven_server(<a href="#maven_server.name">name</a>, <a href="#maven_server.settings_file">settings_file</a>, <a href="#maven_server.url">url</a>)</pre>
-
-
-<p>How to access a Maven repository.</p>
-
-<p>This is a combination of a &lt;repository&gt; definition from a pom.xml file and a
-&lt;server&gt; definition from a settings.xml file.</p>
-
-<h4>Using <code>maven_server</code></h4>
-
-<p><code>maven_jar</code> rules can specify the name of a <code>maven_server</code> in their
-<code>server</code> field. For example, suppose we have the following WORKSPACE file:</p>
-
-<pre>
-maven_jar(
-    name = "junit",
-    artifact = "junit:junit-dep:4.10",
-    server = "my_server",
-)
-
-maven_server(
-    name = "my_server",
-    url = "http://intranet.mycorp.net",
-)
-</pre>
-
-This specifies that junit should be downloaded from http://intranet.mycorp.net using the
-authentication information found in ~/.m2/settings.xml (specifically, the settings
-for the server with the id <code>my_server</code>).
-
-<h4>Specifying a default server</h4>
-
-<p>If you create a <code>maven_server</code> with the <code>name</code> "default" it will be
-used for any <code>maven_jar</code> that does not specify a <code>server</code> nor
-<code>repository</code>. If there is no <code>maven_server</code> named default, the
-default will be fetching from Maven Central with no authentication enabled.</p>
-
-
-
-  <h3 id="maven_server_args">Arguments</h3>
-  <table class="table table-condensed table-bordered table-params">
-    <colgroup>
-      <col class="col-param" />
-      <col class="param-description" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="2">Attributes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="maven_server.name"><code>name</code></td>
-        <td>
-          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
-          <p>A unique name for this target.</p>
-
-        </td>
-      </tr>
-                <tr>
-        <td id="maven_server.settings_file">
-          <code>settings_file</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            A path to a settings.xml file.  Used for testing. If unspecified, this defaults to using
-        <code>$M2_HOME/conf/settings.xml</code> for the global settings and
-        <code>$HOME/.m2/settings.xml</code> for the user settings.
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="maven_server.url">
-          <code>url</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            A URL for accessing the server.
-
-        <p>For example, Maven Central (which is the default and does not need to be defined) would
-        be specified as <code>url = "http://central.maven.org/maven2/"</code>.</p>
-
-        </td>
-      </tr>
-              </tbody>
-  </table>
-    <h2 id="new_git_repository">
-    new_git_repository
-  </h2>
-
-  <pre class="rule-signature">new_git_repository(<a href="#new_git_repository.name">name</a>, <a href="#new_git_repository.build_file">build_file</a>, <a href="#new_git_repository.build_file_content">build_file_content</a>, <a href="#new_git_repository.init_submodules">init_submodules</a>, <a href="#new_git_repository.remote">remote</a>, <a href="#new_git_repository.sha256">sha256</a>)</pre>
-
-
-<p><strong>Deprecated.
-<code>load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")</code>
-for a drop-in replacement.</strong></p>
-
-<p>Clones a Git repository, checks out the specified tag, or commit, and makes its targets
-available for binding.</p>
-
-<h4 id="git_repository_examples">Examples</h4>
-
-<p>Suppose the current repository contains the source code for a chat program, rooted at the
-  directory <i>~/chat-app</i>. It needs to depend on an SSL library which is available in the
-  remote Git repository <i>http://example.com/openssl/openssl.git</i>. The chat app depends
-  on version 1.0.2 of the SSL library, which is tagged by the v1.0.2 Git tag.<p>
-
-<p>This Git repository contains the following directory structure:</p>
-
-<pre class="code">
-src/
-  openssl.cc
-  openssl.h
-</pre>
-
-<p>Targets in the <i>~/chat-app</i> repository can depend on this target if the following lines are
-  added to <i>~/chat-app/WORKSPACE</i>:</p>
-
-<pre class="code">
-new_git_repository(
-    name = "my_ssl",
-    remote = "http://example.com/openssl/openssl.git",
-    tag = "v1.0.2",
-    build_file_content = """
-cc_library(
-    name = "openssl-lib",
-    srcs = ["src/openssl.cc"],
-    hdrs = ["src/openssl.h"],
-)""",
-)
-</pre>
-
-<p>Then targets would specify <code>@my_ssl//:openssl-lib</code> as a dependency.</p>
-
-
-
-  <h3 id="new_git_repository_args">Arguments</h3>
-  <table class="table table-condensed table-bordered table-params">
-    <colgroup>
-      <col class="col-param" />
-      <col class="param-description" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="2">Attributes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="new_git_repository.name"><code>name</code></td>
-        <td>
-          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
-          <p>A unique name for this target.</p>
-
-        </td>
-      </tr>
-                <tr>
-        <td id="new_git_repository.build_file">
-          <code>build_file</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The file to use as the BUILD file for this repository.
-
-        <p>Either build_file or build_file_content must be specified.</p>
-
-        <p>This attribute is a label relative to the main workspace. The file does not need to be
-        named BUILD, but can be. (Something like BUILD.new-repo-name may work well for
-        distinguishing it from the repository's actual BUILD files.)</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_git_repository.build_file_content">
-          <code>build_file_content</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The content for the BUILD file for this repository.
-
-        <p>Either build_file or build_file_content must be specified.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_git_repository.init_submodules">
-          <code>init_submodules</code>
-        </td>
-        <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
-                            Whether to clone submodules in the repository.
-
-        <p>Currently, only cloning the top-level submodules is supported</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_git_repository.remote">
-          <code>remote</code>
-        </td>
-        <td>
-                    <p><code>String; required</code></p>
-                            The URI of the remote Git repository.
-
-        <p>This must be a HTTP URL. There is currently no support for authentication.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_git_repository.sha256">
-          <code>sha256</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The expected SHA-256 hash of the file downloaded. Specifying this forces the repository to
-        be downloaded as a tarball. Currently, this is only supported for public GitHub
-        repositories.
-
-        <p>This must match the SHA-256 hash of the file downloaded. <em>It is a security risk to
-        omit the SHA-256 as remote files can change.</em> At best omitting this field will make
-        your build non-hermetic. It is optional to make development easier but should be set
-        before shipping.</p>
-
-        </td>
-      </tr>
-              </tbody>
-  </table>
-    <h2 id="new_http_archive">
-    new_http_archive
-  </h2>
-
-  <pre class="rule-signature">new_http_archive(<a href="#new_http_archive.name">name</a>, <a href="#new_http_archive.build_file">build_file</a>, <a href="#new_http_archive.build_file_content">build_file_content</a>, <a href="#new_http_archive.sha256">sha256</a>, <a href="#new_http_archive.strip_prefix">strip_prefix</a>, <a href="#new_http_archive.type">type</a>, <a href="#new_http_archive.url">url</a>, <a href="#new_http_archive.urls">urls</a>, <a href="#new_http_archive.workspace_file">workspace_file</a>, <a href="#new_http_archive.workspace_file_content">workspace_file_content</a>)</pre>
-
-
-<p><strong>Deprecated.
-<code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")</code>
-for a drop-in replacement.</strong></p>
-
-<p>Downloads a compressed archive file, decompresses it, and creates a Bazel repository by
-combining the archive with the provided BUILD file.</p>
-
-<p>It supports Zip-formatted archives and tarballs. The full set of extensions supported is
-.zip, .jar, .war, .tar.gz, .tgz, .tar.xz, or .tar.bz2.</p>
-
-<h4 id="new_http_archive_examples">Examples</h4>
-
-<p>Suppose the current repository contains the source code for a chat program, rooted at the
-  directory <i>~/chat-app</i>. It needs to depend on an SSL library which is available from
-  <i>http://example.com/openssl.zip</i>. This .zip file contains the following directory
-  structure:</p>
-
-<pre class="code">
-src/
-  openssl.cc
-  openssl.h
-</pre>
-
-<p>In the local repository, the user creates a <i>BUILD.ssl</i> file which contains the following
-target definition:</p>
-
-<pre class="code">
-cc_library(
-    name = "openssl-lib",
-    srcs = ["src/openssl.cc"],
-    hdrs = ["src/openssl.h"],
-)
-</pre>
-
-<p>Targets in the <i>~/chat-app</i> repository can depend on this target if the following lines are
-  added to <i>~/chat-app/WORKSPACE</i>:</p>
-
-<pre class="code">
-new_http_archive(
-    name = "my_ssl",
-    url = "http://example.com/openssl.zip",
-    sha256 = "03a58ac630e59778f328af4bcc4acb4f80208ed4",
-    build_file = "BUILD.ssl",
-)
-</pre>
-
-<p>Targets would specify <code>@my_ssl//:openssl-lib</code> as a dependency to depend on this
- jar.</p>
-
-
-
-  <h3 id="new_http_archive_args">Arguments</h3>
-  <table class="table table-condensed table-bordered table-params">
-    <colgroup>
-      <col class="col-param" />
-      <col class="param-description" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="2">Attributes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="new_http_archive.name"><code>name</code></td>
-        <td>
-          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
-          <p>A unique name for this target.</p>
-
-        </td>
-      </tr>
-                <tr>
-        <td id="new_http_archive.build_file">
-          <code>build_file</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                             The file to use as the BUILD file for this repository.
-
-         <p>Either build_file or build_file_content must be specified.</p>
-
-         <p>This attribute is a label relative to the main workspace. The file does not need to be
-        named BUILD, but can be. (Something like BUILD.new-repo-name may work well for
-        distinguishing it from the repository's actual BUILD files.)</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_http_archive.build_file_content">
-          <code>build_file_content</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The content for the BUILD file for this repository.
-
-        <p>Either build_file or build_file_content must be specified.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_http_archive.sha256">
-          <code>sha256</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The expected SHA-256 hash of the file downloaded.
-
-        <p>This must match the SHA-256 hash of the file downloaded. <em>It is a security risk to
-        omit the SHA-256 as remote files can change.</em> At best omitting this field will make
-        your build non-hermetic. It is optional to make development easier but should be set
-        before shipping.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_http_archive.strip_prefix">
-          <code>strip_prefix</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            A directory prefix to strip from the extracted files.
-
-        <p>Many archives contain a top-level directory that contains all of the useful files in
-        archive. Instead of needing to specify this prefix over and over in the
-        <code>build_file</code>, this field can be used to strip it from all of the extracted
-        files.</p>
-
-        <p>For example, suppose you are using foo-lib-latest.zip, which contains the directory
-        foo-lib-1.2.3/ under which there are src/, lib/, and test/ directories that contain the
-        actual code you wish to build. Specify <code>strip_prefix = "foo-lib-1.2.3"</code> and
-        your <code>build_file</code> will not have to account for this top-level directory.</p>
-
-        <p>Note that if there are files outside of this directory, they will be discarded and
-        inaccessible (e.g., a top-level license file). This includes files/directories that
-        start with the prefix but are not in the directory (e.g., foo-lib-1.2.3.release-notes).
-        If the specified prefix does not match a directory in the archive, Bazel will return an
-        error.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_http_archive.type">
-          <code>type</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The archive type of the downloaded file.
-
-        <p>By default, the archive type is determined from the file extension of the URL. If the
-        file has no extension, you can explicitly specify one of the following: `"zip"`, `"jar"`,
-        `"war"`, `"tar.gz"`, `"tgz"`, `"tar.xz"`, and `tar.bz2`</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_http_archive.url">
-          <code>url</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            (Deprecated) A URL referencing an archive file.
-
-        <p>This value has the same meaning as a <code>urls</code> list with a single item. This
-        must not be specified if <code>urls</code> is also specified.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_http_archive.urls">
-          <code>urls</code>
-        </td>
-        <td>
-                    <p><code>List of strings; optional</code></p>
-                            List of mirror URLs referencing the same archive file containing a Bazel repository.
-
-        <p>This must be an http, https, or file URL. Archives of type .zip, .jar, .war, .tar.gz,
-        .tgz, tar.bz2, or tar.xz are supported. There is no support for authentication.</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_http_archive.workspace_file">
-          <code>workspace_file</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The file to use as the WORKSPACE file for this repository.
-
-         <p>Either workspace_file or workspace_file_content can be specified, but not both.</p>
-
-         <p>This attribute is a label relative to the main workspace. The file does not need to be
-        named WORKSPACE, but can be. (Something like WORKSPACE.new-repo-name may work well for
-        distinguishing it from the repository's actual WORKSPACE files.)</p>
-
-        </td>
-      </tr>
-                      <tr>
-        <td id="new_http_archive.workspace_file_content">
-          <code>workspace_file_content</code>
-        </td>
-        <td>
-                    <p><code>String; optional</code></p>
-                            The content for the WORKSPACE file for this repository.
-
-         <p>Either workspace_file or workspace_file_content can be specified, but not both.</p>
-
-        </td>
-      </tr>
-              </tbody>
-  </table>
     <h2 id="new_local_repository">
     new_local_repository
   </h2>
 
-  <pre class="rule-signature">new_local_repository(<a href="#new_local_repository.name">name</a>, <a href="#new_local_repository.build_file">build_file</a>, <a href="#new_local_repository.build_file_content">build_file_content</a>, <a href="#new_local_repository.path">path</a>)</pre>
+  <pre class="rule-signature">new_local_repository(<a href="#new_local_repository.name">name</a>, <a href="#new_local_repository.build_file">build_file</a>, <a href="#new_local_repository.build_file_content">build_file_content</a>, <a href="#new_local_repository.path">path</a>, <a href="#new_local_repository.workspace_file">workspace_file</a>, <a href="#new_local_repository.workspace_file_content">workspace_file_content</a>)</pre>
 
 
 <p>Allows a local directory to be turned into a Bazel repository. This means that the current
@@ -1712,7 +613,8 @@ new_http_archive(
 
 <p>This rule creates a Bazel repository by creating a WORKSPACE file and subdirectory containing
 symlinks to the BUILD file and path given.  The build file should create targets relative to the
-<code>path</code>.
+<code>path</code>. For directories that already contain a WORKSPACE file and a BUILD file, the
+<a href="#local_repository"><code>local_repository</code></a> rule can be used.
 
 <h4 id="new_local_repository_examples">Examples</h4>
 
@@ -1830,18 +732,46 @@ Then targets can depend on <code>@piano//:play-music</code> to use piano.jar.
 
         </td>
       </tr>
+                      <tr>
+        <td id="new_local_repository.workspace_file">
+          <code>workspace_file</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The file to use as the WORKSPACE file for this repository.
+
+         <p>Either workspace_file or workspace_file_content can be specified, but not both.</p>
+
+         <p>This attribute is a label relative to the main workspace. The file does not need to be
+        named WORKSPACE, but can be. (Something like WORKSPACE.new-repo-name may work well for
+        distinguishing it from the repository's actual WORKSPACE files.)</p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="new_local_repository.workspace_file_content">
+          <code>workspace_file_content</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The content for the WORKSPACE file for this repository.
+
+         <p>Either workspace_file or workspace_file_content can be specified, but not both.</p>
+
+        </td>
+      </tr>
               </tbody>
   </table>
     <h2 id="xcode_config">
     xcode_config
   </h2>
 
-  <pre class="rule-signature">xcode_config(<a href="#xcode_config.name">name</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">xcode_config(<a href="#xcode_config.name">name</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#xcode_config.local_versions">local_versions</a>, <a href="#xcode_config.remote_versions">remote_versions</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>A single target of this rule can be referenced by the <code>--xcode_version_config</code> build
 flag to translate the <code>--xcode_version</code> flag into an accepted official xcode version.
-This allows selection of a an official xcode version from a number of registered aliases.</p>
+This allows selection of an official xcode version from a number of registered aliases.</p>
 
 
 
@@ -1865,7 +795,31 @@ This allows selection of a an official xcode version from a number of registered
 
         </td>
       </tr>
-                                                                              </tbody>
+                                                        <tr>
+        <td id="xcode_config.local_versions">
+          <code>local_versions</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                            The <code>xcode_version<code> targets that are available locally.
+        These are used along with <code>local_versions</code> to select a mutually available
+        version. This may not be set if <code>versions</code> is set.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="xcode_config.remote_versions">
+          <code>remote_versions</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                            The <code>xcode_version<code> targets that are available remotely.
+        These are used along with <code>remote_versions</code> to select a mutually available
+        version. This may not be set if <code>versions</code> is set.
+
+        </td>
+      </tr>
+                                            </tbody>
   </table>
     <h2 id="xcode_version">
     xcode_version
@@ -1959,11 +913,91 @@ See the <code>xcode_config</code> rule.</p>
 <!-- Generated footer -->
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Workspace Rules&body=Documentation URL: https://docs.bazel.build/versions/master/be/workspace.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#rules">Rules</a></li>
+<li class="toc-entry toc-h2"><a href="#available_xcodes">
+    available_xcodes
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#available_xcodes_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#bind">
+    bind
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#bind_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#local_repository">
+    local_repository
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#local_repository_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#new_local_repository">
+    new_local_repository
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#new_local_repository_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#xcode_config">
+    xcode_config
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#xcode_config_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#xcode_version">
+    xcode_version
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#xcode_version_args">Arguments</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -2000,7 +1034,7 @@ See the <code>xcode_config</code> rule.</p>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

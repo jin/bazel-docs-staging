@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Testing - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Testing - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/testing.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/testing.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/testing.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/testing.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/testing.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/testing.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/testing.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/testing.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="testing">Testing</h1>
 
 <p>There are several different approaches to testing Starlark code in Bazel. This
@@ -371,8 +311,9 @@ page gathers the current best practices and frameworks by use case.</p>
 <ul id="markdown-toc">
   <li><a href="#for-testing-rules" id="markdown-toc-for-testing-rules">For testing rules</a>    <ul>
       <li><a href="#minimal-example" id="markdown-toc-minimal-example">Minimal example</a></li>
-      <li><a href="#actions-example" id="markdown-toc-actions-example">Actions example</a></li>
-      <li><a href="#actions-api" id="markdown-toc-actions-api">Actions API</a></li>
+      <li><a href="#failure-testing" id="markdown-toc-failure-testing">Failure Testing</a></li>
+      <li><a href="#verifying-registered-actions" id="markdown-toc-verifying-registered-actions">Verifying Registered Actions</a></li>
+      <li><a href="#verifying-rule-behavior-under-different-flags" id="markdown-toc-verifying-rule-behavior-under-different-flags">Verifying Rule Behavior Under Different Flags</a></li>
     </ul>
   </li>
   <li><a href="#for-validating-artifacts" id="markdown-toc-for-validating-artifacts">For validating artifacts</a>    <ul>
@@ -388,8 +329,8 @@ page gathers the current best practices and frameworks by use case.</p>
 <p><a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a> has a test framework called
 <a href="https://github.com/bazelbuild/bazel-skylib/blob/master/lib/unittest.bzl"><code class="highlighter-rouge">unittest.bzl</code></a>
 for checking the analysis-time behavior of rules, such as their actions and
-providers. It is currently the best option for tests that need to access the
-inner workings of rules.</p>
+providers. Such tests are called “analysis tests” and are currently the best
+option for testing the inner workings of rules.</p>
 
 <p>Some caveats:</p>
 
@@ -397,25 +338,29 @@ inner workings of rules.</p>
   <li>
     <p>Test assertions occur within the build, not a separate test runner process.
 Targets that are created by the test must be named such that they do not
-collide with targets from other tests or from the build. An error that occurs
-during the test is seen by Bazel as a build breakage rather than a test
-failure.</p>
+collide with targets from other tests or from the build. An error that
+occurs during the test is seen by Bazel as a build breakage rather than a
+test failure.</p>
   </li>
   <li>
     <p>It requires a fair amount of boilerplate to set up the rules under test and
 the rules containing test assertions. This boilerplate may seem daunting at
-first. It helps to <a href="concepts.html#evaluation-model">keep in mind</a> which code
-runs during the loading phase and which code runs during the analysis phase.</p>
+first. It helps to <a href="concepts.html#evaluation-model">keep in mind</a> that macros
+are evaluated and targets generated during the loading phase, while rule
+implementation functions don’t run until later, during the analysis phase.</p>
   </li>
   <li>
-    <p>It cannot easily test for expected failures.</p>
+    <p>Analysis tests are intended to be fairly small and lightweight. Certain
+features of the analysis testing framework are restricted to verifying
+targets with a maximum number of transitive dependencies (currently 500).
+This is due to performance implications of using these features with larger
+tests.</p>
   </li>
 </ul>
 
 <p>The basic principle is to define a testing rule that depends on the
 rule-under-test. This gives the testing rule access to the rule-under-test’s
-providers. There is experimental support for passing along action information
-in the form of an additional provider.</p>
+providers.</p>
 
 <p>The testing rule’s implementation function carries out assertions. If there are
 any failures, these are not raised immediately by calling <code class="highlighter-rouge">fail()</code> (which would
@@ -426,87 +371,89 @@ generated script that fails at test execution time.</p>
 
 <h3 id="minimal-example">Minimal example</h3>
 
-<p><code class="highlighter-rouge">//mypkg/BUILD</code>:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">":myrules.bzl"</span><span class="p">,</span> <span class="s">"myrule"</span><span class="p">)</span>
-<span class="n">load</span><span class="p">(</span><span class="s">":myrules_test.bzl"</span><span class="p">,</span> <span class="s">"myrules_test_suite"</span><span class="p">)</span>
-
-<span class="c"># Production use of the rule.</span>
-<span class="n">myrule</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"mytarget"</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="c"># Call a macro that defines targets that perform the tests at analysis time,</span>
-<span class="c"># and that can be executed with "bazel test" to return the result.</span>
-<span class="n">myrules_test_suite</span><span class="p">()</span>
-</code></pre></div></div>
-
 <p><code class="highlighter-rouge">//mypkg/myrules.bzl</code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MyInfo</span> <span class="o">=</span> <span class="n">provider</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MyInfo</span> <span class="o">=</span> <span class="n">provider</span><span class="p">(</span><span class="n">fields</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"val"</span><span class="p">:</span> <span class="s">"string value"</span><span class="p">,</span>
+    <span class="s">"out"</span><span class="p">:</span> <span class="s">"output File"</span><span class="p">,</span>
+<span class="p">})</span>
 
 <span class="k">def</span> <span class="nf">_myrule_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
-  <span class="s">"""Rule that just generates a file and returns a provider."""</span>
-  <span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">)</span>
-  <span class="k">return</span> <span class="p">[</span><span class="n">MyInfo</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="s">"some value"</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out</span><span class="p">)]</span>
+    <span class="s">"""Rule that just generates a file and returns a provider."""</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">declare_file</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">".out"</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">MyInfo</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="s">"some value"</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)]</span>
 
 <span class="n">myrule</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
     <span class="n">implementation</span> <span class="o">=</span> <span class="n">_myrule_impl</span><span class="p">,</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"out"</span><span class="p">:</span> <span class="s">"</span><span class="si">%</span><span class="s">{name}.out"</span><span class="p">},</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
 <p><code class="highlighter-rouge">//mypkg/myrules_test.bzl</code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//:lib.bzl"</span><span class="p">,</span> <span class="s">"asserts"</span><span class="p">,</span> <span class="s">"unittest"</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//lib:unittest.bzl"</span><span class="p">,</span> <span class="s">"asserts"</span><span class="p">,</span> <span class="s">"analysistest"</span><span class="p">)</span>
 <span class="n">load</span><span class="p">(</span><span class="s">":myrules.bzl"</span><span class="p">,</span> <span class="s">"myrule"</span><span class="p">,</span> <span class="s">"MyInfo"</span><span class="p">)</span>
 
-<span class="c"># ==== Check the provider contents ====</span>
-
+<span class="c1"># ==== Check the provider contents ====
+</span>
 <span class="k">def</span> <span class="nf">_provider_contents_test_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
-  <span class="c"># Analysis-time test logic; place assertions here. Always begins with begin()</span>
-  <span class="c"># and ends with end(). If you forget to call end(), you will get an error</span>
-  <span class="c"># about the test result file not having a generating action.</span>
-  <span class="n">env</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-  <span class="n">asserts</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">dep</span><span class="p">[</span><span class="n">MyInfo</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-  <span class="c"># You can also use keyword arguments for readability if you prefer.</span>
-  <span class="n">asserts</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">env</span><span class="p">,</span>
-    <span class="n">expected</span><span class="o">=</span><span class="s">"some value"</span><span class="p">,</span>
-    <span class="n">actual</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">dep</span><span class="p">[</span><span class="n">MyInfo</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-  <span class="n">unittest</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
 
-<span class="c"># Create the testing rule to wrap the test logic. Note that this must be bound</span>
-<span class="c"># to a global variable due to restrictions on how rules can be defined. Also,</span>
-<span class="c"># its name must end with "_test".</span>
-<span class="n">provider_contents_test</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">_provider_contents_test_impl</span><span class="p">,</span>
-                                       <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">"dep"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">()})</span>
-<span class="c"># You can use a different attrs dict if you need to take in multiple rules for</span>
-<span class="c"># the same unit test, or if you need to test an aspect, or if you want to</span>
-<span class="c"># parameterize the assertions with different expected results.</span>
+    <span class="n">target_under_test</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">target_under_test</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="c1"># If preferred, could pass these values as "expected" and "actual" keyword
+</span>    <span class="c1"># arguments.
+</span>    <span class="n">asserts</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">,</span> <span class="n">target_under_test</span><span class="p">[</span><span class="n">MyInfo</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
 
-<span class="c"># Macro to setup the test.</span>
-<span class="k">def</span> <span class="nf">test_provider_contents</span><span class="p">():</span>
-  <span class="c"># Rule under test.</span>
-  <span class="n">myrule</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"provider_contents_subject"</span><span class="p">)</span>
-  <span class="c"># Testing rule.</span>
-  <span class="n">provider_contents_test</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"provider_contents"</span><span class="p">,</span>
-                         <span class="n">dep</span> <span class="o">=</span> <span class="s">":provider_contents_subject"</span><span class="p">)</span>
+    <span class="c1"># If you forget to return end(), you will get an error about an analysis
+</span>    <span class="c1"># test needing to return an instance of AnalysisTestResultInfo.
+</span>    <span class="k">return</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
 
+<span class="c1"># Create the testing rule to wrap the test logic. This must be bound to a global
+# variable, not called in a macro's body, since macros get evaluated at loading
+# time but the rule gets evaluated later, at analysis time. Since this is a test
+# rule, its name must end with "_test".
+</span><span class="n">provider_contents_test</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">_provider_contents_test_impl</span><span class="p">)</span>
 
-<span class="c"># Entry point from the BUILD file; macro for running each test case's macro and</span>
-<span class="c"># declaring a test suite that wraps them together.</span>
-<span class="k">def</span> <span class="nf">myrules_test_suite</span><span class="p">():</span>
-  <span class="c"># Call all test functions and wrap their targets in a suite.</span>
-  <span class="n">test_provider_contents</span><span class="p">()</span>
-  <span class="c"># ...</span>
+<span class="c1"># Macro to setup the test.
+</span><span class="k">def</span> <span class="nf">_test_provider_contents</span><span class="p">():</span>
+    <span class="c1"># Rule under test. Be sure to tag 'manual', as this target should not be
+</span>    <span class="c1"># built using `:all` except as a dependency of the test.
+</span>    <span class="n">myrule</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"provider_contents_subject"</span><span class="p">,</span> <span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="s">"manual"</span><span class="p">])</span>
+    <span class="c1"># Testing rule.
+</span>    <span class="n">provider_contents_test</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"provider_contents_test"</span><span class="p">,</span>
+                           <span class="n">target_under_test</span> <span class="o">=</span> <span class="s">":provider_contents_subject"</span><span class="p">)</span>
+    <span class="c1"># Note the target_under_test attribute is how the test rule depends on
+</span>    <span class="c1"># the real rule target.
+</span>
+<span class="c1"># Entry point from the BUILD file; macro for running each test case's macro and
+# declaring a test suite that wraps them together.
+</span><span class="k">def</span> <span class="nf">myrules_test_suite</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="c1"># Call all test functions and wrap their targets in a suite.
+</span>    <span class="n">_test_provider_contents</span><span class="p">()</span>
+    <span class="c1"># ...
+</span>
+    <span class="n">native</span><span class="o">.</span><span class="n">test_suite</span><span class="p">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+        <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s">":provider_contents_test"</span><span class="p">,</span>
+            <span class="c1"># ...
+</span>        <span class="p">],</span>
+    <span class="p">)</span>
+</code></pre></div></div>
 
-  <span class="n">native</span><span class="o">.</span><span class="n">test_suite</span><span class="p">(</span>
-      <span class="n">name</span> <span class="o">=</span> <span class="s">"myrules_test"</span><span class="p">,</span>
-      <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
-          <span class="s">":provider_contents"</span><span class="p">,</span>
-          <span class="c"># ...</span>
-      <span class="p">],</span>
-  <span class="p">)</span>
+<p><code class="highlighter-rouge">//mypkg/BUILD</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">":myrules.bzl"</span><span class="p">,</span> <span class="s">"myrule"</span><span class="p">)</span>
+<span class="n">load</span><span class="p">(</span><span class="s">":myrules_test.bzl"</span><span class="p">,</span> <span class="s">"myrules_test_suite"</span><span class="p">)</span>
+
+<span class="c1"># Production use of the rule.
+</span><span class="n">myrule</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"mytarget"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Call a macro that defines targets that perform the tests at analysis time,
+# and that can be executed with "bazel test" to return the result.
+</span><span class="n">myrules_test_suite</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"myrules_tests"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>The test can be run with <code class="highlighter-rouge">bazel test //mypkg:myrules_test</code>.</p>
@@ -517,15 +464,15 @@ file:</p>
 <ul>
   <li>
     <p>The tests themselves, each of which consists of 1) an analysis-time
-implementation function for the testing rule, 2) a declaration of the testing
-rule via <code class="highlighter-rouge">unittest.make()</code>, and 3) a loading-time function (macro) for
-declaring the rule-under-test (and its dependencies) and testing rule. If the
-assertions do not change between test cases, 1) and 2) may be shared by
-multiple test cases.</p>
+implementation function for the testing rule, 2) a declaration of the
+testing rule via <code class="highlighter-rouge">analysistest.make()</code>, and 3) a loading-time function
+(macro) for declaring the rule-under-test (and its dependencies) and testing
+rule. If the assertions do not change between test cases, 1) and 2) may be
+shared by multiple test cases.</p>
   </li>
   <li>
-    <p>The test suite function, which calls the loading-time functions for each test,
-and declares a <code class="highlighter-rouge">test_suite</code> target bundling all tests together.</p>
+    <p>The test suite function, which calls the loading-time functions for each
+test, and declares a <code class="highlighter-rouge">test_suite</code> target bundling all tests together.</p>
   </li>
 </ul>
 
@@ -536,15 +483,15 @@ Then:</p>
 
 <ul>
   <li>
-    <p>the loading-time function should should be named <code class="highlighter-rouge">test_foo</code>
-(<code class="highlighter-rouge">test_provider_contents</code>)</p>
+    <p>the macro which generates the test and target under test should should be
+named <code class="highlighter-rouge">_test_foo</code> (<code class="highlighter-rouge">_test_provider_contents</code>)</p>
   </li>
   <li>
-    <p>its testing rule type should be named <code class="highlighter-rouge">foo_test</code> (<code class="highlighter-rouge">provider_contents_test</code>)</p>
+    <p>its test rule type should be named <code class="highlighter-rouge">foo_test</code> (<code class="highlighter-rouge">provider_contents_test</code>)</p>
   </li>
   <li>
     <p>the label of the target of this rule type should be <code class="highlighter-rouge">foo</code>
-(<code class="highlighter-rouge">provider_contents</code>)</p>
+(<code class="highlighter-rouge">provider_contents_test</code>)</p>
   </li>
   <li>
     <p>the implementation function for the testing rule should be named
@@ -559,93 +506,109 @@ should be prefixed with <code class="highlighter-rouge">foo_</code> (<code class
 <p>Note that the labels of all targets can conflict with other labels in the same
 BUILD package, so it’s helpful to use a unique name for the test.</p>
 
-<h3 id="actions-example">Actions example</h3>
+<h3 id="failure-testing">Failure Testing</h3>
 
-<p>To check that the <code class="highlighter-rouge">ctx.actions.write()</code> line works correctly, the above example
-is modified as follows.</p>
+<p>It may be useful to verify that a rule fails given certain inputs or in certain
+state. This can be done using the analysis test framework:</p>
 
-<p><code class="highlighter-rouge">//mypkg/myrules.bzl</code>:</p>
+<p>The test rule created with <code class="highlighter-rouge">analysistest.make</code> should specify <code class="highlighter-rouge">expect_failure</code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
-
-<span class="n">myrule</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
-    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_myrule_impl</span><span class="p">,</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"out"</span><span class="p">:</span> <span class="s">"</span><span class="si">%</span><span class="s">{name}.out"</span><span class="p">},</span>
-    <span class="c"># This enables the Actions provider for this rule.</span>
-    <span class="n">_skylark_testable</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">failure_testing_test</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">make</span><span class="p">(</span>
+    <span class="n">_failure_testing_test_impl</span><span class="p">,</span>
+    <span class="n">expect_failure</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">//mypkg/myrules_test.bzl</code>:</p>
+<p>The test rule implementation should make assertions on the nature of the failure
+that took place (specifically, the failure message):</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
-
-<span class="c"># ==== Check the emitted file_action ====</span>
-
-<span class="k">def</span> <span class="nf">_file_action_test_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
-  <span class="n">env</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-  <span class="n">dep</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">dep</span>
-  <span class="c"># Retrieve the Actions provider.</span>
-  <span class="n">actions</span> <span class="o">=</span> <span class="n">dep</span><span class="p">[</span><span class="n">Actions</span><span class="p">]</span>
-  <span class="c"># Retrieve the generating action for the output file.</span>
-  <span class="n">action</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">by_file</span><span class="p">[</span><span class="n">dep</span><span class="o">.</span><span class="n">out</span><span class="p">]</span>
-  <span class="c"># Check the content that is to be written by the action.</span>
-  <span class="n">asserts</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">action</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">)</span>
-  <span class="n">unittest</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-
-<span class="n">file_action_test</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">_file_action_test_impl</span><span class="p">,</span>
-                                 <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">"dep"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">()})</span>
-
-<span class="k">def</span> <span class="nf">test_file_action</span><span class="p">():</span>
-  <span class="n">myrule</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"file_action_subject"</span><span class="p">)</span>
-  <span class="n">file_action_test</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"file_action"</span><span class="p">,</span>
-                   <span class="n">dep</span> <span class="o">=</span> <span class="s">":file_action_subject"</span><span class="p">)</span>
-
-<span class="o">...</span>
-
-<span class="k">def</span> <span class="nf">myrules_test_suite</span><span class="p">():</span>
-  <span class="c"># Call all test functions and wrap their targets in a suite.</span>
-  <span class="n">test_provider_contents</span><span class="p">()</span>
-  <span class="n">test_file_action</span><span class="p">()</span>
-  <span class="c"># ...</span>
-
-  <span class="n">native</span><span class="o">.</span><span class="n">test_suite</span><span class="p">(</span>
-      <span class="n">name</span> <span class="o">=</span> <span class="s">"myrules_test"</span><span class="p">,</span>
-      <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
-          <span class="s">":provider_contents"</span><span class="p">,</span>
-          <span class="s">":file_action"</span><span class="p">,</span>
-          <span class="c"># ...</span>
-      <span class="p">]</span>
-<span class="p">),</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_failure_testing_test_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+    <span class="n">asserts</span><span class="o">.</span><span class="n">expect_failure</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s">"This rule should never work"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>The flag <code class="highlighter-rouge">"_skylark_testable = True"</code> is needed on any rule whose actions are to
-be tested. This triggers the creation of the <code class="highlighter-rouge">Actions</code> provider. (The leading
-underscore is because this API is still experimental.) The test logic for
-actions makes use of the following API.</p>
+<p>Also make sure that your target under test is specifically tagged ‘manual’.
+Without this, building all targets in your package using <code class="highlighter-rouge">:all</code> will result in a
+build of the intentionally-failing target and will exhibit a build failure. With
+‘manual’, your target under test will build only if explicitly specified, or as
+a dependency of a non-manual target (such as your test rule):</p>
 
-<h3 id="actions-api">Actions API</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_test_failure</span><span class="p">():</span>
+    <span class="n">myrule</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"this_should_fail"</span><span class="p">,</span> <span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="s">"manual"</span><span class="p">])</span>
 
-<p>The <a href="lib/globals.html#Actions"><code class="highlighter-rouge">Actions</code></a> provider is retrieved like any other
-(non-legacy) provider:</p>
+    <span class="n">failure_testing_test</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"failure_testing_test"</span><span class="p">,</span>
+                         <span class="n">target_under_test</span> <span class="o">=</span> <span class="s">":this_should_fail"</span><span class="p">)</span>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">foo</span><span class="p">[</span><span class="n">Actions</span><span class="p">]</span>
+<span class="c1"># Then call _test_failure() in the macro which generates the test suite and add
+# ":failure_testing_test" to the suite's test targets.
+</span></code></pre></div></div>
+
+<h3 id="verifying-registered-actions">Verifying Registered Actions</h3>
+
+<p>You may want to write tests which make assertions about the actions that your
+rule registers, for example, using <code class="highlighter-rouge">ctx.actions.run()</code>. This can be done in your
+analysis test rule implementation function. An example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_inspect_actions_test_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+
+    <span class="n">target_under_test</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">target_under_test</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">target_actions</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="n">asserts</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">actions</span><span class="p">))</span>
+    <span class="n">action_output</span> <span class="o">=</span> <span class="n">actions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">asserts</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="n">target_under_test</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">".out"</span><span class="p">,</span> <span class="n">action_output</span><span class="o">.</span><span class="n">basename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>The returned object has a single field, <code class="highlighter-rouge">by_file</code>, which holds a dictionary
-mapping each of the rule’s output files to its generating action. (Actions that
-do not have output files, in particular those generated by
-<code class="highlighter-rouge">ctx.actions.do_nothing()</code>, cannot be retrieved.)</p>
+<p>Note that <code class="highlighter-rouge">analysistest.target_actions(env)</code> returns a list of
+<a href="lib/Action.html"><code class="highlighter-rouge">Action</code></a> objects which represent actions registered by the
+target under test.</p>
 
-<p>The interface of the actions stored in the <code class="highlighter-rouge">by_file</code> map is documented
-<a href="lib/Action.html">here</a>.</p>
+<h3 id="verifying-rule-behavior-under-different-flags">Verifying Rule Behavior Under Different Flags</h3>
 
-<p>Finally, there is support for testing helper functions that are not rules, but
-that take in a rule’s <code class="highlighter-rouge">ctx</code> in order to create actions on it. Use
-<code class="highlighter-rouge">ctx.created_actions()</code> to get an <code class="highlighter-rouge">Actions</code> provider that has information about
-all actions created on <code class="highlighter-rouge">ctx</code> up to the point that this function was called. For
-this to work, the testing rule itself must have <code class="highlighter-rouge">"_skylark_testable=True"</code> set.
-Testing rules created using <code class="highlighter-rouge">unittest.make()</code> automatically have this flag set.</p>
+<p>You may want to verify your real rule behaves a certain way given certain build
+flags. For example, your rule may behave differently if a user specifies:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel build //mypkg:real_target <span class="nt">-c</span> opt
+</code></pre></div></div>
+
+<p>versus</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel build //mypkg:real_target <span class="nt">-c</span> dbg
+</code></pre></div></div>
+
+<p>At first glance, this could be done by testing the target under test using the
+desired build flags:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel <span class="nb">test</span> //mypkg:myrules_test <span class="nt">-c</span> opt
+</code></pre></div></div>
+
+<p>But then it becomes impossible for your test suite to simultaneously contain a
+test which verifies the rule behavior under <code class="highlighter-rouge">-c opt</code> and another test which
+verifies the rule behavior under <code class="highlighter-rouge">-c dbg</code>. Both tests would not be able to run
+in the same build!</p>
+
+<p>This can be solved by specifying the desired build flags when defining the test
+rule:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myrule_c_opt_test</span> <span class="o">=</span> <span class="n">analysistest</span><span class="o">.</span><span class="n">make</span><span class="p">(</span>
+    <span class="n">_myrule_c_opt_test_impl</span><span class="p">,</span>
+    <span class="n">config_settings</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"//command_line_option:compilation_mode"</span><span class="p">:</span> <span class="s">"opt"</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Normally, a target under test is analyzed given the current build flags.
+Specifying <code class="highlighter-rouge">config_settings</code> overrides the values of the specified command line
+options. (Any unspecified options will retain their values from the actual
+command line).</p>
+
+<p>In the specified <code class="highlighter-rouge">config_settings</code> dictionary, command line flags must be
+prefixed with a special placeholder value <code class="highlighter-rouge">//command_line_option:</code>, as is shown
+above.</p>
 
 <h2 id="for-validating-artifacts">For validating artifacts</h2>
 
@@ -665,7 +628,7 @@ example that validates that the output of <code class="highlighter-rouge">myrule
 
 <p><code class="highlighter-rouge">//mypkg/myrule_validator.sh</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">$(</span><span class="nb">cat</span> <span class="nv">$1</span><span class="k">)</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"abc"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">cat</span> <span class="nv">$1</span><span class="si">)</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"abc"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
   </span><span class="nb">echo</span> <span class="s2">"Passed"</span>
   <span class="nb">exit </span>0
 <span class="k">else
@@ -684,8 +647,8 @@ example that validates that the output of <code class="highlighter-rouge">myrule
 
 <span class="o">...</span>
 
-<span class="c"># Needed for each target whose artifacts are to be checked.</span>
-<span class="n">sh_test</span><span class="p">(</span>
+<span class="c1"># Needed for each target whose artifacts are to be checked.
+</span><span class="n">sh_test</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"validate_mytarget"</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">":myrule_validator.sh"</span><span class="p">],</span>
     <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s">"$(location :mytarget.out)"</span><span class="p">],</span>
@@ -704,7 +667,7 @@ substitutions) instead of numeric ones (for arguments).</p>
 
 <p><code class="highlighter-rouge">//mypkg/myrule_validator.sh.template</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">$(</span><span class="nb">cat</span> %TARGET%<span class="k">)</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"abc"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">cat</span> %TARGET%<span class="si">)</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"abc"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
   </span><span class="nb">echo</span> <span class="s2">"Passed"</span>
   <span class="nb">exit </span>0
 <span class="k">else
@@ -725,19 +688,19 @@ substitutions) instead of numeric ones (for arguments).</p>
                               <span class="n">substitutions</span> <span class="o">=</span> <span class="p">{</span>
                                 <span class="s">"</span><span class="si">%</span><span class="s">TARGET</span><span class="si">%</span><span class="s">"</span><span class="p">:</span> <span class="n">target</span><span class="o">.</span><span class="n">short_path</span><span class="p">,</span>
                               <span class="p">})</span>
-  <span class="c"># This is needed to make sure the output file of myrule is visible to the</span>
-  <span class="c"># resulting instantiated script.</span>
-  <span class="k">return</span> <span class="p">[</span><span class="n">DefaultInfo</span><span class="p">(</span><span class="n">runfiles</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">runfiles</span><span class="p">(</span><span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">]))]</span>
+  <span class="c1"># This is needed to make sure the output file of myrule is visible to the
+</span>  <span class="c1"># resulting instantiated script.
+</span>  <span class="k">return</span> <span class="p">[</span><span class="n">DefaultInfo</span><span class="p">(</span><span class="n">runfiles</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">runfiles</span><span class="p">(</span><span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">]))]</span>
 
 <span class="n">myrule_validation_test</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
-  <span class="n">implementation</span> <span class="o">=</span> <span class="n">_myrule_validation_test_impl</span><span class="p">,</span>
-  <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"target"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">single_file</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
-           <span class="c"># We need an implicit dependency in order to access the template.</span>
-           <span class="c"># A target could potentially override this attribute to modify</span>
-           <span class="c"># the test logic.</span>
-           <span class="s">"_script"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">single_file</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                 <span class="n">default</span><span class="o">=</span><span class="n">Label</span><span class="p">(</span><span class="s">"//mypkg:myrule_validator"</span><span class="p">))},</span>
-  <span class="n">test</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_myrule_validation_test_impl</span><span class="p">,</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"target"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">allow_single_file</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+             <span class="c1"># We need an implicit dependency in order to access the template.
+</span>             <span class="c1"># A target could potentially override this attribute to modify
+</span>             <span class="c1"># the test logic.
+</span>             <span class="s">"_script"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">allow_single_file</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                   <span class="n">default</span><span class="o">=</span><span class="n">Label</span><span class="p">(</span><span class="s">"//mypkg:myrule_validator"</span><span class="p">))},</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
@@ -751,18 +714,18 @@ substitutions) instead of numeric ones (for arguments).</p>
 
 <span class="o">...</span>
 
-<span class="c"># Needed just once, to expose the template. Could have also used export_files(),</span>
-<span class="c"># and made the _script attribute set allow_files=True.</span>
-<span class="n">filegroup</span><span class="p">(</span>
+<span class="c1"># Needed just once, to expose the template. Could have also used export_files(),
+# and made the _script attribute set allow_files=True.
+</span><span class="n">filegroup</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"myrule_validator"</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">":myrule_validator.sh.template"</span><span class="p">],</span>
 <span class="p">)</span>
 
-<span class="c"># Needed for each target whose artifacts are to be checked. Notice that we no</span>
-<span class="c"># longer have to specify the output file name in a data attribute, or its</span>
-<span class="c"># $(location) expansion in an args attribute, or the label for the script</span>
-<span class="c"># (unless we want to override it).</span>
-<span class="n">myrule_validation_test</span><span class="p">(</span>
+<span class="c1"># Needed for each target whose artifacts are to be checked. Notice that we no
+# longer have to specify the output file name in a data attribute, or its
+# $(location) expansion in an args attribute, or the label for the script
+# (unless we want to override it).
+</span><span class="n">myrule_validation_test</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"validate_mytarget"</span><span class="p">,</span>
     <span class="n">target</span> <span class="o">=</span> <span class="s">":mytarget"</span><span class="p">,</span>
 <span class="p">)</span>
@@ -774,19 +737,12 @@ analysis phase using the <code class="highlighter-rouge">str.format</code> metho
 
 <h2 id="for-testing-starlark-utilities">For testing Starlark utilities</h2>
 
-<p>The same framework that was used to test rules can also be used to test utility
-functions (i.e., functions that are neither macros nor rule implementations).
-There is no need to pass an <code class="highlighter-rouge">attrs</code> argument to <code class="highlighter-rouge">unittest.make()</code>, and there is
-no special loading-time setup code to instantiate any rules-under-test. The
-convenience function <code class="highlighter-rouge">unittest.suite()</code> can be used to reduce boilerplate in
-this case.</p>
-
-<p><code class="highlighter-rouge">//mypkg/BUILD</code>:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">":myhelpers_test.bzl"</span><span class="p">,</span> <span class="s">"myhelpers_test_suite"</span><span class="p">)</span>
-
-<span class="n">myhelpers_test_suite</span><span class="p">()</span>
-</code></pre></div></div>
+<p><a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a>’s
+<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/lib/unittest.bzl"><code class="highlighter-rouge">unittest.bzl</code></a>
+framework can be used to test utility functions (that is, functions that are
+neither macros nor rule implementations). Instead of using <code class="highlighter-rouge">unittest.bzl</code>’s
+<code class="highlighter-rouge">analysistest</code> library, <code class="highlighter-rouge">unittest</code> may be used. For such test suites, the
+convenience function <code class="highlighter-rouge">unittest.suite()</code> can be used to reduce boilerplate.</p>
 
 <p><code class="highlighter-rouge">//mypkg/myhelpers.bzl</code>:</p>
 
@@ -796,44 +752,95 @@ this case.</p>
 
 <p><code class="highlighter-rouge">//mypkg/myhelpers_test.bzl</code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//:lib.bzl"</span><span class="p">,</span> <span class="s">"asserts"</span><span class="p">,</span> <span class="s">"unittest"</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//lib:unittest.bzl"</span><span class="p">,</span> <span class="s">"asserts"</span><span class="p">,</span> <span class="s">"unittest"</span><span class="p">)</span>
 <span class="n">load</span><span class="p">(</span><span class="s">":myhelpers.bzl"</span><span class="p">,</span> <span class="s">"myhelper"</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">_myhelper_test_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
   <span class="n">env</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
   <span class="n">asserts</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">,</span> <span class="n">myhelper</span><span class="p">())</span>
-  <span class="n">unittest</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
 
 <span class="n">myhelper_test</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">_myhelper_test_impl</span><span class="p">)</span>
 
-<span class="c"># No need for a test_myhelper() setup function.</span>
-
-<span class="k">def</span> <span class="nf">myhelpers_test_suite</span><span class="p">():</span>
-  <span class="c"># unittest.suite() takes care of instantiating the testing rules and creating</span>
-  <span class="c"># a test_suite.</span>
-  <span class="n">unittest</span><span class="o">.</span><span class="n">suite</span><span class="p">(</span>
-    <span class="s">"myhelpers_tests"</span><span class="p">,</span>
+<span class="c1"># No need for a test_myhelper() setup function.
+</span>
+<span class="k">def</span> <span class="nf">myhelpers_test_suite</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+  <span class="c1"># unittest.suite() takes care of instantiating the testing rules and creating
+</span>  <span class="c1"># a test_suite.
+</span>  <span class="n">unittest</span><span class="o">.</span><span class="n">suite</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">,</span>
     <span class="n">myhelper_test</span><span class="p">,</span>
-    <span class="c"># ...</span>
-  <span class="p">)</span>
+    <span class="c1"># ...
+</span>  <span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">//mypkg/BUILD</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">":myhelpers_test.bzl"</span><span class="p">,</span> <span class="s">"myhelpers_test_suite"</span><span class="p">)</span>
+
+<span class="n">myhelpers_test_suite</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"myhelpers_tests"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>For more examples, see Skylib’s own <a href="https://github.com/bazelbuild/bazel-skylib/blob/master/tests/BUILD">tests</a>.</p>
 
-<p>This can also be used when the utility function takes in a rule’s <code class="highlighter-rouge">ctx</code> object
-as a parameter. If the behavior of the utility function requires that the rule
-be defined in a certain way, you may have to pass in an <code class="highlighter-rouge">attrs</code> parameter to
-<code class="highlighter-rouge">unittest.make()</code> after all, or you may have to declare the rule manually using
-<code class="highlighter-rouge">rule()</code>. To test helpers that create actions, make the unit test rule set
-<code class="highlighter-rouge">"_skylark_testable=True"</code> (if it is not created via <code class="highlighter-rouge">unittest.make()</code>) and
-write assertions on the result of <code class="highlighter-rouge">ctx.created_actions()</code>, as described above.</p>
+        </div>
 
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Testing&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/testing.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#for-testing-rules">For testing rules</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#minimal-example">Minimal example</a></li>
+<li class="toc-entry toc-h3"><a href="#failure-testing">Failure Testing</a></li>
+<li class="toc-entry toc-h3"><a href="#verifying-registered-actions">Verifying Registered Actions</a></li>
+<li class="toc-entry toc-h3"><a href="#verifying-rule-behavior-under-different-flags">Verifying Rule Behavior Under Different Flags</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#for-validating-artifacts">For validating artifacts</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#using-a-test-target">Using a test target</a></li>
+<li class="toc-entry toc-h3"><a href="#using-a-custom-rule">Using a custom rule</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#for-testing-starlark-utilities">For testing Starlark utilities</a></li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -870,7 +877,7 @@ write assertions on the result of <code class="highlighter-rouge">ctx.created_ac
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

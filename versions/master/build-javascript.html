@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Building JavaScript Outputs - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Building JavaScript Outputs - Bazel </title>
 
     <link rel="canonical" href="/versions/master/build-javascript.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/build-javascript.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,56 +302,13 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/build-javascript.html">master</option>
-              
-              <option value="/versions/0.19.2/build-javascript.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/build-javascript.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/build-javascript.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/build-javascript.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/build-javascript.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="building-javascript-outputs">Building JavaScript Outputs</h1>
 
 <p>Bazel supports an incremental and customizable means of building and testing
-JavaScript outputs from JavaScript, TypeScript, and Angular sources.</p>
+JavaScript outputs from JavaScript and TypeScript sources.</p>
+
+<p>It can also support build steps needed for frameworks like Angular.</p>
 
 <p><strong>Note:</strong> This document describes Bazel features and workflows that are useful,
 but the Bazel team has not fully verified and does not officially support
@@ -381,7 +323,7 @@ these features and workflows.</p>
       <li><a href="#step-1-installing-bazel">Step 1: Installing Bazel</a></li>
       <li><a href="#step-2-installing-ibazel">Step 2: Installing iBazel</a></li>
       <li><a href="#step-3-configuring-the-bazel-rc-file">Step 3: Configuring the <code class="highlighter-rouge">bazel.rc</code> file</a></li>
-      <li><a href="#step-4-optional-setting-up-continuous-integration-ci">Step 4: (Optional) Setting up Continuous Integration (CI)</a></li>
+      <li><a href="#step-4-linting">Step 4: Setup linting (optional)</a></li>
     </ul>
   </li>
   <li><a href="#building-javascript">Building JavaScript inputs</a></li>
@@ -400,12 +342,12 @@ these features and workflows.</p>
 <p>Bazel rules for building JavaScript outputs are split into three layers, since
 you can use JavaScript without TypeScript, and TypeScript without Angular.
 This document assumes you are already familiar with Bazel and uses the
-<a href="https://github.com/alexeagle/angular-bazel-example">Angular for Bazel sample project</a>
+<a href="https://github.com/angular/angular-bazel-example">Angular for Bazel sample project</a>
 to illustrate the recommended configuration. You can use the sample project as a
 starting point and add your own code to it to start building with Bazel.</p>
 
-<p>If you’re new to Bazel, take a look at the <a href="https://docs.bazel.build/versions/master/getting-started.html">“Getting Started”</a>
-material before proceeding.</p>
+<p>If you’re new to Bazel, take a look at the <a href="getting-started.html">“Getting
+Started”</a> material before proceeding.</p>
 
 <h2 id="setting-up-your-environment">Setting up your environment</h2>
 
@@ -414,7 +356,9 @@ following:</p>
 
 <h3 id="step-1-installing-bazel">Step 1: Installing Bazel</h3>
 
-<p>If you have not already done so, <a href="https://docs.bazel.build/versions/master/install.html">Install Bazel</a>.</p>
+<p>You can either <a href="install.html">Install Bazel</a> following the same steps that you
+would for backend development, or you can install NodeJS with npm and run
+<code class="highlighter-rouge">npm install -g @bazel/bazel</code>.</p>
 
 <h3 id="step-2-installing-ibazel">Step 2: Installing iBazel</h3>
 
@@ -472,21 +416,11 @@ template as needed.</p>
 # Directory structure         #
 ###############################
 
-# Globally cache downloaded artifacts.
-build --experimental_repository_cache=~/.bazel_cache/
-test --experimental_repository_cache=~/.bazel_cache/
-run --experimental_repository_cache=~/.bazel_cache/
-
-# Don't create bazel-* symlinks in the WORKSPACE directory. These
-# symlinks require .gitignore and may scare users. Instead, run
-# `bazel info bazel-bin` to find out where the outputs are stored.
-build --symlink_prefix=/
-
-# Another good choice is to create a dist/ directory. Then you can
-# use build --symlink_prefix=dist/ to get folders like dist/bin.
+# Artifacts are typically placed in a directory called "dist"
 # Be aware that this setup will still create a bazel-out symlink in
-# your project directory, which you may need to exclude from the
+# your project directory, which you must exclude from version control and your
 # editor's search path.
+build --symlink_prefix=dist/
 
 ###############################
 # Output                      #
@@ -498,14 +432,7 @@ query --output=label_kind
 
 # By default, failing tests don't print any output, it's logged to a
 # file instead.
-
 test --test_output=errors
-
-# Show which actions are running under which workers and print all
-# the actions running in parallel. This shows that Bazel runs on all
-# cores of a CPU.
-build --experimental_ui
-test --experimental_ui
 
 ###############################
 # Typescript / Angular / Sass #
@@ -519,72 +446,49 @@ build --strategy=TypeScriptCompile=worker --strategy=AngularTemplateCompile=work
 test:debug --test_arg=--node_options=--inspect-brk --test_output=streamed --test_strategy=exclusive --test_timeout=9999 --nocache_test_results
 </code></pre></div></div>
 
-<h3 id="step-4-optional-setting-up-continuous-integration-ci">Step 4: (Optional) Setting up Continuous Integration (CI)</h3>
+<h3 id="step-4-linting">Step 4: Linting</h3>
 
-<p>For building JavaScript outputs with Bazel in a CI setting, it’s useful to use a
-container as the environment. The <a href="https://hub.docker.com/r/angular/ngcontainer/">ngcontainer Docker image</a>
-is a ready-to-use environment you can use that makes your builds reproducible in
-other environments, such as your local machine. This reproducibility is
-especially convenient on CircleCI, which lets you choose a Docker image as the
-environment for your build. See the example <a href="https://github.com/alexeagle/angular-bazel-example/blob/master/.circleci/config.yml">CircleCI configuration</a>
-in the sample project to learn more.</p>
+<p>Add the <code class="highlighter-rouge">buildifier</code> dependency to your project:</p>
 
-<p><strong>Tip:</strong> When building in a CI environment, add settings to your <code class="highlighter-rouge">bazel.rc</code> file
-that are specific to CI using the <code class="highlighter-rouge">build:ci</code> and or <code class="highlighter-rouge">test:ci</code> prefixes. With
-this configuration, you can enable those CI-specific options by simply adding
-the <code class="highlighter-rouge">--config=ci</code> argument to your Bazel/iBazel commands.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> @bazel/buildifier
+</code></pre></div></div>
+
+<p>or if you prefer Yarn,</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add <span class="nt">-D</span> @bazel/buildifier
+</code></pre></div></div>
+
+<p>then add scripts to your <code class="highlighter-rouge">package.json</code> that run Buildifier.
+We’ve selected a set of enabled warnings here, you could add and remove from
+this list.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"bazel:format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"find . -type f </span><span class="se">\\</span><span class="s2">( -name </span><span class="se">\"</span><span class="s2">*.bzl</span><span class="se">\"</span><span class="s2"> -or -name WORKSPACE -or -name BUILD -or -name BUILD.bazel </span><span class="se">\\</span><span class="s2">) ! -path </span><span class="se">\"</span><span class="s2">*/node_modules/*</span><span class="se">\"</span><span class="s2"> | xargs buildifier -v --warnings=attr-cfg,attr-license,attr-non-empty,attr-output-default,attr-single-file,constant-glob,ctx-actions,ctx-args,depset-iteration,depset-union,dict-concatenation,duplicated-name,filetype,git-repository,http-archive,integer-division,load,load-on-top,native-build,native-package,out-of-order-load,output-group,package-name,package-on-top,positional-args,redefined-variable,repository-name,same-origin-load,string-iteration,unsorted-dict-items,unused-variable"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bazel:lint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yarn bazel:format --lint=warn"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bazel:lint-fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yarn bazel:format --lint=fix"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>The Bazel team is aware that this configuration is not ergonomic. Follow https://github.com/bazelbuild/buildtools/issues/479</p>
+</blockquote>
+
+<blockquote>
+  <p>Also the Buildifier tool is not available on Windows. Follow https://github.com/bazelbuild/buildtools/issues/375</p>
+</blockquote>
 
 <h2 id="building-javascript">Building JavaScript</h2>
 
-<p>Use the <code>[rules_nodejs](https://github.com/bazelbuild/rules_nodejs)</code>
+<p>Use the <a href="https://github.com/bazelbuild/rules_nodejs"><code class="highlighter-rouge">rules_nodejs</code></a>
 rules to build NodeJS applications and execute JavaScript code within Bazel. You
 can execute JavaScript tools in the Bazel toolchain, binary programs, or tests.
 The NodeJS rules add the NodeJS runtime to your Bazel project.</p>
 
-<p>Most notable NodeJS rules include:</p>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">nodejs_binary</code> - builds an executable program based on JavaScript source
-files and an entry point path relative to the output root. To provide extra
-inputs to be read at runtime, put them in the data attribute.</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">jasmine_node_test</code> - runs JavaScript spec files through the Jasmine test
-framework. See the <a href="https://bazelbuild.github.io/rules_nodejs/">node_js API documentation</a>
-for more information.</p>
-  </li>
-</ul>
+<p>See the documentation on that site for setup steps and to configure targets.</p>
 
 <h2 id="building-typescript">Building TypeScript</h2>
 
-<p>Use the <code>[rules_typescript](https://github.com/bazelbuild/rules_typescript)</code>
-rules to build JavaScript outputs from TypeScript inputs.</p>
-
-<p>To set up your Bazel project for building TypeScript inputs, do the following:</p>
-
-<ol>
-  <li>
-    <p>Make Bazel aware of the TypeScript build rules by adding the following entry
-to your <code class="highlighter-rouge">WORKSPACE</code> file:</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http_archive(
-    name = "build_bazel_rules_typescript",
-    url = "https://github.com/bazelbuild/rules_typescript/archive/v0.13.0.zip",
-    strip_prefix = "rules_typescript-0.13.0",
-)
-
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
-
-ts_setup_workspace()
-
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Add the <code class="highlighter-rouge">--strategy</code> settings to your <code class="highlighter-rouge">bazel.rc</code> file as shown in the
-example <code class="highlighter-rouge">.bazel.rc</code> file in <a href="#step-3-configuring-the-bazel-rc-file">“Configuring the bazel.rc file”</a>.</p>
-  </li>
-</ol>
+<p>See the https://www.npmjs.com/package/@bazel/typescript package.</p>
 
 <h3 id="compiling-typescript-inputs-ts_library">Compiling TypeScript inputs (<code class="highlighter-rouge">ts_library</code>)</h3>
 
@@ -659,11 +563,67 @@ single run.</p>
 
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Building JavaScript Outputs&body=Documentation URL: https://docs.bazel.build/versions/master/build-javascript.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#contents">Contents</a></li>
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#setting-up-your-environment">Setting up your environment</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#step-1-installing-bazel">Step 1: Installing Bazel</a></li>
+<li class="toc-entry toc-h3"><a href="#step-2-installing-ibazel">Step 2: Installing iBazel</a></li>
+<li class="toc-entry toc-h3"><a href="#step-3-configuring-the-bazelrc-file">Step 3: Configuring the bazel.rc file</a></li>
+<li class="toc-entry toc-h3"><a href="#step-4-linting">Step 4: Linting</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#building-javascript">Building JavaScript</a></li>
+<li class="toc-entry toc-h2"><a href="#building-typescript">Building TypeScript</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#compiling-typescript-inputs-ts_library">Compiling TypeScript inputs (ts_library)</a></li>
+<li class="toc-entry toc-h3"><a href="#running-a-development-server-ts_devserver">Running a development server (ts_devserver)</a></li>
+<li class="toc-entry toc-h3"><a href="#testing-typescript-code-ts_web_test">Testing TypeScript code (ts_web_test)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#building-angular-inputs">Building Angular inputs</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -700,7 +660,7 @@ single run.</p>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Starlark Language - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Starlark Language - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/language.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/language.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,73 +302,20 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/language.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/language.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/language.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/language.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/language.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/language.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="starlark-language">Starlark Language</h1>
 
 <!-- [TOC] -->
 
-<p>The page is an overview of <a href="https://github.com/bazelbuild/starlark">Starlark</a>
-(formerly known as Skylark), the language used in Bazel. This should be
-enough to get you started. Please refer to the
-<a href="https://github.com/bazelbuild/starlark/">Starlark repository on GitHub</a>
-for more information about the language.
-For a complete list of functions and types, please check the
-<a href="lib/skylark-overview.html">API reference</a>.</p>
+<p>The page is an overview of <a href="https://github.com/bazelbuild/starlark">Starlark</a>,
+formerly known as Skylark, the language used in Bazel. For a complete list of
+functions and types, check <a href="lib/skylark-overview.html">Starlark’s API reference</a>.</p>
+
+<p>For more information about the language, see <a href="https://github.com/bazelbuild/starlark/">Starlark’s GitHub repo</a>.</p>
 
 <h2 id="syntax">Syntax</h2>
 
-<p>Starlark is designed to be small, simple, and thread-safe. Although it is
-inspired from Python, it is not a general-purpose language and most Python
-features are not included.</p>
-
-<p>The following constructs have been added to the Core Build Language: <code class="highlighter-rouge">if</code>
-statements, <code class="highlighter-rouge">for</code> loops, and function definitions. They behave like in Python.
-Here is an example to show the syntax:</p>
+<p>Starlark’s syntax is inspired by Python3. This is valid syntax in Starlark:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fizz_buzz</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
   <span class="s">"""Print Fizz Buzz numbers from 1 to n."""</span>
@@ -398,152 +330,186 @@ Here is an example to show the syntax:</p>
 <span class="n">fizz_buzz</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>The following basic types are supported: <a href="lib/globals.html#None">None</a>,
-<a href="lib/bool.html">bool</a>, <a href="lib/dict.html">dict</a>, function, <a href="lib/int.html">int</a>,
-<a href="lib/list.html">list</a>, <a href="lib/string.html">string</a>. On top of that, two new
-types are specific to Bazel: <a href="lib/depset.html">depset</a> and
-<a href="lib/struct.html">struct</a>.</p>
+<p>Starlark’s semantics can differ from Python, but behavioral differences are
+rare, except for cases where Starlark raises an error. The following Python
+types are supported:</p>
 
-<p>Starlark is syntactically a subset of both Python 2 and Python 3, and will remain
-so through at least the 1.x release lifecycle. This ensures that Python-based
-tooling can at least parse Starlark code. Although Starlark is not <em>semantically</em>
-a subset of Python, behavioral differences are rare (excluding cases where
-Starlark raises an error).</p>
+<ul>
+  <li><a href="lib/globals.html#None">None</a></li>
+  <li><a href="lib/bool.html">bool</a></li>
+  <li><a href="lib/dict.html">dict</a></li>
+  <li>function</li>
+  <li><a href="lib/int.html">int</a></li>
+  <li><a href="lib/list.html">list</a></li>
+  <li><a href="lib/string.html">string</a></li>
+</ul>
 
 <h2 id="mutability">Mutability</h2>
 
-<p>Because evaluation of BUILD and .bzl files is performed in parallel, there are
-some restrictions in order to guarantee thread-safety and determinism. Two
-mutable data structures are available: <a href="lib/list.html">lists</a> and
-<a href="lib/dict.html">dicts</a>.</p>
+<p>Starlark favors immutability. Two mutable data structures are available:
+<a href="lib/list.html">lists</a> and <a href="lib/dict.html">dicts</a>. Changes to mutable
+data-structures, such as appending a value to a list or deleting an entry in a
+dictionary are valid only for objects created in the current context. After a
+context finishes, its values become immutable.</p>
 
-<p>In a build, there are many “evaluation contexts”: each <code class="highlighter-rouge">.bzl</code> file and each
-<code class="highlighter-rouge">BUILD</code> file is loaded in a different context. Each rule is also analyzed in a
-separate context. We allow side-effects (e.g. appending a value to a list or
-deleting an entry in a dictionary) only on objects created during the current
-evaluation context. Once the code in that context is done executing, all of its
-values are frozen.</p>
+<p>This is because Bazel builds use parallel execution. During a build, each <code class="highlighter-rouge">.bzl</code>
+file and each <code class="highlighter-rouge">BUILD</code> file get their own execution context. Each rule is also
+analyzed in its own context.</p>
 
-<p>For example, here is the content of the file <code class="highlighter-rouge">foo.bzl</code>:</p>
+<p>Let’s go through an example with the file <code class="highlighter-rouge">foo.bzl</code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># `foo.bzl`
+</span><span class="n">var</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># declare a list
+</span>
+<span class="k">def</span> <span class="nf">fct</span><span class="p">():</span> <span class="c1"># declare a function
+</span>  <span class="n">var</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># append a value to the list
+</span>
+<span class="n">fct</span><span class="p">()</span> <span class="c1"># execute the fct function
+</span></code></pre></div></div>
 
-<span class="k">def</span> <span class="nf">fct</span><span class="p">():</span>
-  <span class="n">var</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<p>Bazel creates <code class="highlighter-rouge">var</code> when <code class="highlighter-rouge">foo.bzl</code> loads. <code class="highlighter-rouge">var</code> is thus part of <code class="highlighter-rouge">foo.bzl</code>’s
+context. When <code class="highlighter-rouge">fct()</code> runs, it does so within the context of <code class="highlighter-rouge">foo.bzl</code>. After
+evaluation for <code class="highlighter-rouge">foo.bzl</code> completes, the environment contains an immutable entry,
+<code class="highlighter-rouge">var</code>, with the value <code class="highlighter-rouge">[5]</code>.</p>
 
-<span class="n">fct</span><span class="p">()</span>
-</code></pre></div></div>
+<p>When another <code class="highlighter-rouge">bar.bzl</code> loads symbols from <code class="highlighter-rouge">foo.bzl</code>, loaded values remain
+immutable. For this reason, the following code in <code class="highlighter-rouge">bar.bzl</code> is illegal:</p>
 
-<p>The variable <code class="highlighter-rouge">var</code> is created when <code class="highlighter-rouge">foo.bzl</code> is loaded. <code class="highlighter-rouge">fct()</code> is called during
-the same context, so it is safe. At the end of the evaluation, the environment
-contains an entry mapping the identifier <code class="highlighter-rouge">var</code> to a list <code class="highlighter-rouge">[5]</code>; this list is
-then frozen.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># `bar.bzl`
+</span><span class="n">load</span><span class="p">(</span><span class="s">":foo.bzl"</span><span class="p">,</span> <span class="s">"var"</span><span class="p">,</span> <span class="s">"fct"</span><span class="p">)</span> <span class="c1"># loads `var`, and `fct` from `./foo.bzl`
+</span>
+<span class="n">var</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># runtime error, the list stored in var is frozen
+</span>
+<span class="n">fct</span><span class="p">()</span>          <span class="c1"># runtime error, fct() attempts to modify a frozen list
+</span></code></pre></div></div>
 
-<p>It is possible for multiple other files to load symbols from <code class="highlighter-rouge">foo.bzl</code> at the
-same time. For this reason, the following code is not legal:</p>
+<p>Global variables defined in <code class="highlighter-rouge">bzl</code> files cannot be changed outside of the
+<code class="highlighter-rouge">bzl</code> file that defined them. Just like the above example using <code class="highlighter-rouge">bzl</code> files,
+values returned by rules are immutable.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">":foo.bzl"</span><span class="p">,</span> <span class="s">"var"</span><span class="p">,</span> <span class="s">"fct"</span><span class="p">)</span>
+<h2 id="differences-between-build-and-bzl-files">Differences between BUILD and .bzl files</h2>
 
-<span class="n">var</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c"># runtime error, the list stored in var is frozen</span>
+<p><code class="highlighter-rouge">BUILD</code> files register targets via making calls to rules. <code class="highlighter-rouge">.bzl</code> files provide
+definitions for constants, rules, macros, and functions.</p>
 
-<span class="n">fct</span><span class="p">()</span>          <span class="c"># runtime error, fct() attempts to modify a frozen list</span>
-</code></pre></div></div>
+<p><a href="../be/functions.html">Native functions</a> and <a href="../be/overview.html#language-specific-native-rules">native rules</a> are global symbols in
+<code class="highlighter-rouge">BUILD</code> files. <code class="highlighter-rouge">bzl</code> files need to load them using the <a href="https://docs.bazel.build/versions/master/skylark/lib/native.html"><code class="highlighter-rouge">native</code> module</a>.</p>
 
-<p>Evaluation contexts are also created for the analysis of each custom rule. This
-means that any values that are returned from the rule’s analysis are frozen.
-Note that by the time a custom rule’s analysis begins, the .bzl file in which
-it is defined has already been loaded, and so the global variables are already
-frozen.</p>
+<p>There are two syntactic restrictions in <code class="highlighter-rouge">BUILD</code> files: 1) declaring functions is
+illegal, and 2) <code class="highlighter-rouge">*args</code> and <code class="highlighter-rouge">**kwargs</code> arguments are not allowed.</p>
 
 <h2 id="differences-with-python">Differences with Python</h2>
 
-<p>In addition to the mutability restrictions, there are also differences with
-Python:</p>
-
 <ul>
   <li>
-    <p>Global variables cannot be reassigned.</p>
+    <p>Global variables are immutable.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">for</code> statements are not allowed at the top-level; factor them into functions
-instead.</p>
+    <p><code class="highlighter-rouge">for</code> statements are not allowed at the top-level. Use them within functions
+instead. In BUILD files, you may use list comprehensions.</p>
   </li>
   <li>
-    <p>Dictionaries have a deterministic order of iteration.</p>
+    <p><code class="highlighter-rouge">if</code> statements are not allowed at the top-level. However, <code class="highlighter-rouge">if</code> expressions
+can be used: <code class="highlighter-rouge">first = data[0] if len(data) &gt; 0 else None</code>.</p>
+  </li>
+  <li>
+    <p>Deterministic order for iterating through Dictionaries.</p>
   </li>
   <li>
     <p>Recursion is not allowed.</p>
   </li>
   <li>
-    <p>Int type is limited to 32-bit signed integers (an overflow will throw an
-error).</p>
+    <p>Int type is limited to 32-bit signed integers. Overflows will throw an error.</p>
   </li>
   <li>
-    <p>Lists and other mutable types may be stored in dictionary
-keys once they are frozen.</p>
+    <p>Modifying a collection during iteration is an error.</p>
   </li>
   <li>
-    <p>Modifying a collection during iteration is an error. You can avoid the error
-by iterating over a copy of the collection, e.g.
-<code class="highlighter-rouge">for x in list(my_list): ...</code>. You can still modify its deep contents
-regardless.</p>
+    <p>Except for equality tests, comparison operators <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&lt;=</code>, <code class="highlighter-rouge">&gt;=</code>, <code class="highlighter-rouge">&gt;</code>, etc. are
+not defined across value types. In short: <code class="highlighter-rouge">5 &lt; 'foo'</code> will throw an error and
+<code class="highlighter-rouge">5 == "5"</code> will return false.</p>
   </li>
   <li>
-    <p>Global (non-function) variables must be declared before they can be used in
-a function, even if the function is not called until after the global variable
-declaration. However, it is fine to define <code class="highlighter-rouge">f()</code> before <code class="highlighter-rouge">g()</code>, even if <code class="highlighter-rouge">f()</code>
-calls <code class="highlighter-rouge">g()</code>.</p>
-  </li>
-  <li>
-    <p>The comparison operators (<code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&lt;=</code>, <code class="highlighter-rouge">&gt;=</code>, <code class="highlighter-rouge">&gt;</code>) are not defined across
-different types of values, e.g., you can’t compare <code class="highlighter-rouge">5 &lt; 'foo'</code> (however you
-still can compare them using <code class="highlighter-rouge">==</code> or <code class="highlighter-rouge">!=</code>). This is a difference with Python
-2, but consistent with Python 3. Note that this means you are unable to sort
-lists that contain mixed types of values.</p>
-  </li>
-  <li>
-    <p>Tuple syntax is more restrictive. You may use a trailing comma only when the
-tuple is between parentheses, e.g. write <code class="highlighter-rouge">(1,)</code> instead of <code class="highlighter-rouge">1,</code>.</p>
+    <p>In tuples, a trailing comma is valid only when the tuple is between
+parentheses, e.g. write <code class="highlighter-rouge">(1,)</code> instead of <code class="highlighter-rouge">1,</code>.</p>
   </li>
   <li>
     <p>Dictionary literals cannot have duplicated keys. For example, this is an
 error: <code class="highlighter-rouge">{"a": 4, "b": 7, "a": 1}</code>.</p>
   </li>
   <li>
-    <p>Variable of a comprehension may not be used after the comprehension. This is
-stricter than Python 2 and Python 3, which have different behavior (shadowing
-vs reassignment).</p>
+    <p>Strings are represented with double-quotes (e.g. when you call
+<a href="lib/globals.html#repr">repr</a>).</p>
   </li>
   <li>
-    <p>Strings are represented with double-quotes (e.g. when you
-call <a href="lib/globals.html#repr">repr</a>).</p>
+    <p>Strings aren’t iterable.</p>
   </li>
 </ul>
 
 <p>The following Python features are not supported:</p>
 
 <ul>
-  <li>implicit string concatenation (use explicit <code class="highlighter-rouge">+</code> operator)</li>
-  <li>Chained comparisons (e.g. <code class="highlighter-rouge">1 &lt; x &lt; 5</code>)</li>
-  <li><code class="highlighter-rouge">class</code> (see <a href="lib/struct.html#struct"><code class="highlighter-rouge">struct</code></a> function)</li>
-  <li><code class="highlighter-rouge">import</code> (see <a href="concepts.html#loading-an-extension"><code class="highlighter-rouge">load</code></a> statement)</li>
-  <li><code class="highlighter-rouge">while</code>, <code class="highlighter-rouge">yield</code></li>
-  <li>float and set types</li>
-  <li>generators and generator expressions</li>
-  <li><code class="highlighter-rouge">lambda</code> and nested functions</li>
-  <li><code class="highlighter-rouge">is</code> (use <code class="highlighter-rouge">==</code> instead)</li>
-  <li><code class="highlighter-rouge">try</code>, <code class="highlighter-rouge">raise</code>, <code class="highlighter-rouge">except</code>, <code class="highlighter-rouge">finally</code> (see <a href="lib/globals.html#fail"><code class="highlighter-rouge">fail</code></a> for
-fatal errors)</li>
-  <li><code class="highlighter-rouge">global</code>, <code class="highlighter-rouge">nonlocal</code></li>
-  <li>most builtin functions, most methods</li>
+  <li>implicit string concatenation (use explicit <code class="highlighter-rouge">+</code> operator).</li>
+  <li>Chained comparisons (e.g. <code class="highlighter-rouge">1 &lt; x &lt; 5</code>).</li>
+  <li><code class="highlighter-rouge">class</code> (see <a href="lib/struct.html#struct"><code class="highlighter-rouge">struct</code></a> function).</li>
+  <li><code class="highlighter-rouge">import</code> (see <a href="concepts.html#loading-an-extension"><code class="highlighter-rouge">load</code></a> statement).</li>
+  <li><code class="highlighter-rouge">while</code>, <code class="highlighter-rouge">yield</code>.</li>
+  <li>float and set types.</li>
+  <li>generators and generator expressions.</li>
+  <li><code class="highlighter-rouge">lambda</code> and nested functions.</li>
+  <li><code class="highlighter-rouge">is</code> (use <code class="highlighter-rouge">==</code> instead).</li>
+  <li><code class="highlighter-rouge">try</code>, <code class="highlighter-rouge">raise</code>, <code class="highlighter-rouge">except</code>, <code class="highlighter-rouge">finally</code> (see <a href="lib/globals.html#fail"><code class="highlighter-rouge">fail</code></a> for fatal errors).</li>
+  <li><code class="highlighter-rouge">global</code>, <code class="highlighter-rouge">nonlocal</code>.</li>
+  <li>most builtin functions, most methods.</li>
 </ul>
 
+        </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Starlark Language&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/language.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#syntax">Syntax</a></li>
+<li class="toc-entry toc-h2"><a href="#mutability">Mutability</a></li>
+<li class="toc-entry toc-h2"><a href="#differences-between-build-and-bzl-files">Differences between BUILD and .bzl files</a></li>
+<li class="toc-entry toc-h2"><a href="#differences-with-python">Differences with Python</a></li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -580,7 +546,7 @@ fatal errors)</li>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

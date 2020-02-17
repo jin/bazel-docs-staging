@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>attr - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>attr - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/lib/attr.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/attr.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,72 +302,54 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <a href="../concepts.html">Extensions</a> &gt;
+<a href="skylark-overview.html">API reference</a> &gt;
+attr
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/lib/attr.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/lib/attr.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/lib/attr.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/lib/attr.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/lib/attr.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/lib/attr.html">0.17.1</option>
-              
-          </select>
-
-          <h1 id="modules.attr">attr</h1>
+<h1 id="modules.attr">attr</h1>
 
 This is a top-level module for defining the attribute schemas of a rule or aspect. Each function returns an object representing the schema of a single attribute. These objects are used as the values of the <code>attrs</code> dictionary argument of <a href="globals.html#rule"><code>rule()</code></a> and <a href="globals.html#aspect"><code>aspect()</code></a>.<p>See the Rules page for more on <a href='../rules.html#attributes'>defining</a> and <a href='../rules.html#implementation-function'>using</a> attributes.
 
 <div class="toc">
-  <h2>Methods</h2>
+  <h2>Members</h2>
   <ul>
-          <li><a href="#bool">bool</a></li>
-              <li><a href="#int">int</a></li>
-              <li><a href="#int_list">int_list</a></li>
-              <li><a href="#label">label</a></li>
-              <li><a href="#label_keyed_string_dict">label_keyed_string_dict</a></li>
-              <li><a href="#label_list">label_list</a></li>
-              <li><a href="#license">license</a></li>
-              <li><a href="#output">output</a></li>
-              <li><a href="#output_list">output_list</a></li>
-              <li><a href="#string">string</a></li>
-              <li><a href="#string_dict">string_dict</a></li>
-              <li><a href="#string_list">string_list</a></li>
-              <li><a href="#string_list_dict">string_list_dict</a></li>
+          <li>
+      <a href="#bool">bool</a>
+          </li>
+              <li>
+      <a href="#int">int</a>
+          </li>
+              <li>
+      <a href="#int_list">int_list</a>
+          </li>
+              <li>
+      <a href="#label">label</a>
+          </li>
+              <li>
+      <a href="#label_keyed_string_dict">label_keyed_string_dict</a>
+          </li>
+              <li>
+      <a href="#label_list">label_list</a>
+          </li>
+              <li>
+      <a href="#output">output</a>
+          </li>
+              <li>
+      <a href="#output_list">output_list</a>
+          </li>
+              <li>
+      <a href="#string">string</a>
+          </li>
+              <li>
+      <a href="#string_dict">string_dict</a>
+          </li>
+              <li>
+      <a href="#string_list">string_list</a>
+          </li>
+              <li>
+      <a href="#string_list_dict">string_list_dict</a>
+          </li>
         </ul>
 </div>
 
@@ -391,7 +358,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a boolean attribute.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -409,7 +376,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
               <code>default</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="bool.html">bool</a>; or function</code></p>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
                           <p>A default value to use if no value for this attribute is given when instantiating the rule.</p>
             </td>
           </tr>
@@ -439,7 +406,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an integer attribute.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -457,7 +424,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
               <code>default</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="int.html">int</a>; or function</code></p>
+                          <p><code><a class="anchor" href="int.html">int</a></code></p>
                           <p>A default value to use if no value for this attribute is given when instantiating the rule.</p>
             </td>
           </tr>
@@ -496,7 +463,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a list-of-integers attribute.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -541,7 +508,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
               <code>default</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="int.html">int</a>s; or function</code></p>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="int.html">int</a>s</code></p>
                           <p>A default value to use if no value for this attribute is given when instantiating the rule.</p>
             </td>
           </tr>
@@ -562,7 +529,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a label attribute. This is a dependency attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time (within the rule's implementation function), when retrieving the attribute value from <code>ctx.attr</code>, labels are replaced by the corresponding <a href='Target.html'><code>Target</code></a>s. This allows you to access the providers of the currrent target's dependencies.<p>In addition to ordinary source files, this kind of attribute is often used to refer to a tool -- for example, a compiler. Such tools are considered to be dependencies, just like source files. To avoid requiring users to specify the tool's label every time they use the rule in their BUILD files, you can hard-code the label of a canonical tool as the <code>default</code> value of this attribute. If you also want to prevent users from overriding this default, you can make the attribute private by giving it a name that starts with an underscore. See the <a href='../rules.html#private-attributes'>Rules</a> page for more information.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -659,7 +626,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
               <code>cfg</code>
             </td>
             <td>
-                          <p><a href="../rules.html#configurations">Configuration</a> of the attribute. It can be either <code>"host"</code> or <code>"target"</code>. This parameter is required if <code>executable</code> is True.</p>
+                          <p><a href="../rules.html#configurations">Configuration</a> of the attribute. It can be either <code>"host"</code> or <code>"target"</code>. This parameter is required if <code>executable</code> is True to guard against accidentally building host tools in the target configuration. <code>"target"</code> has no semantic effect, so don't set it when <code>executable</code> is False unless it really helps clarify your intentions.</p>
             </td>
           </tr>
                   <tr>
@@ -679,7 +646,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an attribute holding a dictionary, where the keys are labels and the values are strings. This is a dependency attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time (within the rule's implementation function), when retrieving the attribute value from <code>ctx.attr</code>, labels are replaced by the corresponding <a href='Target.html'><code>Target</code></a>s. This allows you to access the providers of the currrent target's dependencies.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -797,7 +764,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a list-of-labels attribute. This is a dependency attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time (within the rule's implementation function), when retrieving the attribute value from <code>ctx.attr</code>, labels are replaced by the corresponding <a href='Target.html'><code>Target</code></a>s. This allows you to access the providers of the currrent target's dependencies.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -910,59 +877,12 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
                 </tbody>
       </table>
 
-        <h2 id="license">license</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.license(default=None, doc='', mandatory=False)</pre></p>
-
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_no_attr_license</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Creates a schema for a license attribute.
-
-          <h3>Parameters</h3>
-      <table class="table table-bordered table-condensed table-params">
-        <colgroup>
-          <col class="col-param">
-          <col class="param-description">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-                  <tr>
-            <td id="license.default">
-              <code>default</code>
-            </td>
-            <td>
-                          <p>A default value to use if no value for this attribute is given when instantiating the rule.</p>
-            </td>
-          </tr>
-                  <tr>
-            <td id="license.doc">
-              <code>doc</code>
-            </td>
-            <td>
-                          <p><code><a class="anchor" href="string.html">string</a></code></p>
-                          <p>A description of the attribute that can be extracted by documentation generating tools.</p>
-            </td>
-          </tr>
-                  <tr>
-            <td id="license.mandatory">
-              <code>mandatory</code>
-            </td>
-            <td>
-                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
-                          <p>If true, the value must be specified explicitly (even if it has a <code>default</code>).</p>
-            </td>
-          </tr>
-                </tbody>
-      </table>
-
         <h2 id="output">output</h2>
         <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.output(default=None, doc='', mandatory=False)</pre></p>
 
     Creates a schema for an output (label) attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time, the corresponding <a href='File.html'><code>File</code></a> can be retrieved using <code>ctx.outputs</code>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1010,7 +930,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a list-of-outputs attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time, the corresponding <a href='File.html'><code>File</code></a> can be retrieved using <code>ctx.outputs</code>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1076,7 +996,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a string attribute.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1133,7 +1053,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an attribute holding a dictionary, where the keys and values are strings.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1160,7 +1080,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
               <code>default</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="dict.html">dict</a>; or function</code></p>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
                           <p>A default value to use if no value for this attribute is given when instantiating the rule.</p>
             </td>
           </tr>
@@ -1199,7 +1119,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a list-of-strings attribute.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1244,7 +1164,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
               <code>default</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s; or function</code></p>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
                           <p>A default value to use if no value for this attribute is given when instantiating the rule.</p>
             </td>
           </tr>
@@ -1265,7 +1185,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an attribute holding a dictionary, where the keys are strings and the values are lists of strings.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1292,7 +1212,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
               <code>default</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="dict.html">dict</a>; or function</code></p>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
                           <p>A default value to use if no value for this attribute is given when instantiating the rule.</p>
             </td>
           </tr>
@@ -1329,11 +1249,61 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: attr&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/attr.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#bool">bool</a></li>
+<li class="toc-entry toc-h2"><a href="#int">int</a></li>
+<li class="toc-entry toc-h2"><a href="#int_list">int_list</a></li>
+<li class="toc-entry toc-h2"><a href="#label">label</a></li>
+<li class="toc-entry toc-h2"><a href="#label_keyed_string_dict">label_keyed_string_dict</a></li>
+<li class="toc-entry toc-h2"><a href="#label_list">label_list</a></li>
+<li class="toc-entry toc-h2"><a href="#output">output</a></li>
+<li class="toc-entry toc-h2"><a href="#output_list">output_list</a></li>
+<li class="toc-entry toc-h2"><a href="#string">string</a></li>
+<li class="toc-entry toc-h2"><a href="#string_dict">string_dict</a></li>
+<li class="toc-entry toc-h2"><a href="#string_list">string_list</a></li>
+<li class="toc-entry toc-h2"><a href="#string_list_dict">string_list_dict</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -1370,7 +1340,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

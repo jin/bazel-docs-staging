@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Globals - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Globals - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/lib/globals.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/globals.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,110 +302,145 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <a href="../concepts.html">Extensions</a> &gt;
+<a href="skylark-overview.html">API reference</a> &gt;
+Globals
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/lib/globals.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/lib/globals.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/lib/globals.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/lib/globals.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/lib/globals.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/lib/globals.html">0.17.1</option>
-              
-          </select>
-
-          <h1 id="modules.globals">Globals</h1>
+<h1 id="modules.globals">Globals</h1>
 
 Objects, functions and modules registered in the global environment.
 
 <div class="toc">
-  <h2>Methods</h2>
+  <h2>Members</h2>
   <ul>
-                <li><a href="#all">all</a></li>
-              <li><a href="#analysis_test_transition">analysis_test_transition</a></li>
-              <li><a href="#any">any</a></li>
-              <li><a href="#aspect">aspect</a></li>
-              <li><a href="#bool">bool</a></li>
-              <li><a href="#configuration_field">configuration_field</a></li>
-              <li><a href="#depset">depset</a></li>
-              <li><a href="#dict">dict</a></li>
-              <li><a href="#dir">dir</a></li>
-                    <li><a href="#enumerate">enumerate</a></li>
-                          <li><a href="#fail">fail</a></li>
-              <li><a href="#False">False</a></li>
-              <li><a href="#getattr">getattr</a></li>
-                    <li><a href="#hasattr">hasattr</a></li>
-              <li><a href="#hash">hash</a></li>
-              <li><a href="#int">int</a></li>
-              <li><a href="#len">len</a></li>
-                    <li><a href="#list">list</a></li>
-              <li><a href="#max">max</a></li>
-              <li><a href="#min">min</a></li>
-              <li><a href="#None">None</a></li>
-                    <li><a href="#PACKAGE_NAME">PACKAGE_NAME</a></li>
-              <li><a href="#print">print</a></li>
-              <li><a href="#provider">provider</a></li>
-              <li><a href="#range">range</a></li>
-              <li><a href="#register_execution_platforms">register_execution_platforms</a></li>
-              <li><a href="#register_toolchains">register_toolchains</a></li>
-              <li><a href="#REPOSITORY_NAME">REPOSITORY_NAME</a></li>
-              <li><a href="#repository_rule">repository_rule</a></li>
-              <li><a href="#repr">repr</a></li>
-              <li><a href="#reversed">reversed</a></li>
-              <li><a href="#rule">rule</a></li>
-              <li><a href="#select">select</a></li>
-              <li><a href="#sorted">sorted</a></li>
-              <li><a href="#str">str</a></li>
-              <li><a href="#True">True</a></li>
-              <li><a href="#tuple">tuple</a></li>
-              <li><a href="#type">type</a></li>
-              <li><a href="#workspace">workspace</a></li>
-              <li><a href="#zip">zip</a></li>
+          <li>
+      <a href="#__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc">__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc</a>
+          </li>
+              <li>
+      <a href="#all">all</a>
+          </li>
+              <li>
+      <a href="#analysis_test_transition">analysis_test_transition</a>
+          </li>
+              <li>
+      <a href="#any">any</a>
+          </li>
+              <li>
+      <a href="#aspect">aspect</a>
+          </li>
+              <li>
+      <a href="#bind">bind</a>
+          </li>
+              <li>
+      <a href="#bool">bool</a>
+          </li>
+              <li>
+      <a href="#configuration_field">configuration_field</a>
+          </li>
+              <li>
+      <a href="#depset">depset</a>
+          </li>
+              <li>
+      <a href="#dict">dict</a>
+          </li>
+              <li>
+      <a href="#dir">dir</a>
+          </li>
+              <li>
+      <a href="#enumerate">enumerate</a>
+          </li>
+              <li>
+      <a href="#fail">fail</a>
+          </li>
+              <li>
+      <a href="#getattr">getattr</a>
+          </li>
+              <li>
+      <a href="#hasattr">hasattr</a>
+          </li>
+              <li>
+      <a href="#hash">hash</a>
+          </li>
+              <li>
+      <a href="#int">int</a>
+          </li>
+              <li>
+      <a href="#len">len</a>
+          </li>
+              <li>
+      <a href="#list">list</a>
+          </li>
+              <li>
+      <a href="#max">max</a>
+          </li>
+              <li>
+      <a href="#min">min</a>
+          </li>
+              <li>
+      <a href="#print">print</a>
+          </li>
+              <li>
+      <a href="#provider">provider</a>
+          </li>
+              <li>
+      <a href="#range">range</a>
+          </li>
+              <li>
+      <a href="#register_execution_platforms">register_execution_platforms</a>
+          </li>
+              <li>
+      <a href="#register_toolchains">register_toolchains</a>
+          </li>
+              <li>
+      <a href="#repository_rule">repository_rule</a>
+          </li>
+              <li>
+      <a href="#repr">repr</a>
+          </li>
+              <li>
+      <a href="#reversed">reversed</a>
+          </li>
+              <li>
+      <a href="#rule">rule</a>
+          </li>
+              <li>
+      <a href="#select">select</a>
+          </li>
+              <li>
+      <a href="#sorted">sorted</a>
+          </li>
+              <li>
+      <a href="#str">str</a>
+          </li>
+              <li>
+      <a href="#tuple">tuple</a>
+          </li>
+              <li>
+      <a href="#type">type</a>
+          </li>
+              <li>
+      <a href="#workspace">workspace</a>
+          </li>
+              <li>
+      <a href="#zip">zip</a>
+          </li>
         </ul>
 </div>
 
+      <h2 id="__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc">__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> __do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc()</pre></p>
+
+    When --incompatible_use_cc_configure_from_rules_cc is set to true, Bazel will fail the build. Please see https://github.com/bazelbuild/bazel/issues/10134 for details and migration instructions.
+
+
         <h2 id="all">all</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> all(elements)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> all(elements)</pre></p>
 
     Returns true if all elements evaluate to True or if the collection is empty. Elements are converted to boolean using the <a href="#bool">bool</a> function.<pre class="language-python">all(["hello", 3, True]) == True
 all([-1, 0, 1]) == False</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -447,9 +467,9 @@ all([-1, 0, 1]) == False</pre>
         <h2 id="analysis_test_transition">analysis_test_transition</h2>
         <p><pre class="rule-signature"><a class="anchor" href="transition.html">transition</a> analysis_test_transition(settings)</pre></p>
 
-    <b>Experimental. This type is experimental and subject to change at any time. Do not depend on it.</b><p> Creates a configuration transition to be applied on an analysis-test rule's dependencies. This transition may only be applied on attributes of rules with <code>analysis_test = True</code>.
+    <p> Creates a configuration transition to be applied on an analysis-test rule's dependencies. This transition may only be applied on attributes of rules with <code>analysis_test = True</code>. Such rules are restricted in capabilities (for example, the size of their dependency tree is limited), so transitions created using this function are limited in potential scope as compared to transitions created using <a href="#transition">transition</a>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -475,13 +495,12 @@ all([-1, 0, 1]) == False</pre>
       </table>
 
         <h2 id="any">any</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> any(elements)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> any(elements)</pre></p>
 
     Returns true if at least one element evaluates to True. Elements are converted to boolean using the <a href="#bool">bool</a> function.<pre class="language-python">any([-1, 0, 1]) == True
 any([False, 0, ""]) == False</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -506,11 +525,11 @@ any([False, 0, ""]) == False</pre>
       </table>
 
         <h2 id="aspect">aspect</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="Aspect.html">Aspect</a> aspect(implementation, attr_aspects=[], attrs=None, required_aspect_providers=[], provides=[], fragments=[], host_fragments=[], toolchains=[], doc='')</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="Aspect.html">Aspect</a> aspect(implementation, attr_aspects=[], attrs=None, required_aspect_providers=[], provides=[], fragments=[], host_fragments=[], toolchains=[], doc='', *, apply_to_generating_rules=False)</pre></p>
 
     Creates a new aspect. The result of this function must be stored in a global value. Please see the <a href="../aspects.html">introduction to Aspects</a> for more details.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -529,7 +548,7 @@ any([False, 0, ""]) == False</pre>
             </td>
             <td>
                           <p><code>function</code></p>
-                          <p>the function implementing this aspect. Must have two parameters: <a href="Target.html">Target</a> (the target to which the aspect is applied) and <a href="ctx.html">ctx</a>. Attributes of the target are available via ctx.rule field. The function is called during the analysis phase for each application of an aspect to a target.</p>
+                          <p>A Starlark function that implements this aspect, with exactly two parameters: <a href="Target.html">Target</a> (the target to which the aspect is applied) and <a href="ctx.html">ctx</a> (the rule context which the targetis created from). Attributes of the target are available via the <code>ctx.rule</code> field. This function is evaluated during the analysis phase for each application of an aspect to a target.</p>
             </td>
           </tr>
                   <tr>
@@ -538,7 +557,7 @@ any([False, 0, ""]) == False</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
-                          <p>List of attribute names.  The aspect propagates along dependencies specified by attributes of a target with this name. The list can also contain a single string '*': in that case aspect propagates along all dependencies of a target.</p>
+                          <p>List of attribute names. The aspect propagates along dependencies specified in  the attributes of a target with these names. Common values here include <code>deps</code> and <code>exports</code>. The list can also contain a single string <code>"*"</code> to propagate along all dependencies of a target.</p>
             </td>
           </tr>
                   <tr>
@@ -547,7 +566,7 @@ any([False, 0, ""]) == False</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="dict.html">dict</a></code></p>
-                          <p>dictionary to declare all the attributes of the aspect.  It maps from an attribute name to an attribute object (see <a href="attr.html">attr</a> module). Aspect attributes are available to implementation function as fields of ctx parameter. Implicit attributes starting with <code>_</code> must have default values, and have type <code>label</code> or <code>label_list</code>. Explicit attributes must have type <code>string</code>, and must use the <code>values</code> restriction. If explicit attributes are present, the aspect can only be used with rules that have attributes of the same name and type, with valid values.</p>
+                          <p>A dictionary declaring all the attributes of the aspect. It maps from an attribute name to an attribute object, like `attr.label` or `attr.string` (see <a href="attr.html">attr</a> module). Aspect attributes are available to implementation function as fields of <code>ctx</code> parameter. <p>Implicit attributes starting with <code>_</code> must have default values, and have type <code>label</code> or <code>label_list</code>. <p>Explicit attributes must have type <code>string</code>, and must use the <code>values</code> restriction. Explicit attributes restrict the aspect to only be used with rules that have attributes of the same name, type, and valid values according to the restriction.</p>
             </td>
           </tr>
                   <tr>
@@ -556,7 +575,7 @@ any([False, 0, ""]) == False</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="list.html">sequence</a></code></p>
-                          <p>Allow the aspect to inspect other aspects. If the aspect propagates along a dependency, and the underlying rule sends a different aspect along that dependency, and that aspect provides one of the providers listed here, this aspect will see the providers provided by that aspect. <p>The value should be either a list of providers, or a list of lists of providers. This aspect will 'see'  the underlying aspects that provide  ALL providers from at least ONE of these lists. A single list of providers will be automatically converted to a list containing one list of providers.</p>
+                          <p>This attribute allows this aspect to inspect other aspects. The value must be a list of providers, or a list of lists of providers. For example, <code>[FooInfo, BarInfo, [BazInfo, QuxInfo]]</code> is a valid value.<p>A single list of providers will automatically be converted to a list containing one list of providers. That is, <code>[FooInfo, BarInfo]</code> will automatically be converted to <code>[[FooInfo, BarInfo]]</code>. <p>To make another aspect (e.g. <code>other_aspect</code>) visible to this aspect, <code>other_aspect</code> must provide all providers from at least one of the lists. In the example of <code>[FooInfo, BarInfo, [BazInfo, QuxInfo]]</code>, this aspect can only see <code>other_aspect</code> if and only if <code>other_aspect</code> provides <code>FooInfo</code> *or* <code>BarInfo</code> *or* both <code>BazInfo</code> *and* <code>QuxInfo</code>.</p>
             </td>
           </tr>
                   <tr>
@@ -604,16 +623,64 @@ any([False, 0, ""]) == False</pre>
                           <p>A description of the aspect that can be extracted by documentation generating tools.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="aspect.apply_to_generating_rules">
+              <code>apply_to_generating_rules</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_aspect_output_propagation</code> <br>If true, the aspect will, when applied to an output file, instead apply to the output file's generating rule. <p>For example, suppose an aspect propagates transitively through attribute `deps` and it is applied to target `alpha`. Suppose `alpha` has `deps = [':beta_output']`, where `beta_output` is a declared output of a target `beta`. Suppose `beta` has a target `charlie` as one of its `deps`. If `apply_to_generating_rules=True` for the aspect, then the aspect will propagate through `alpha`, `beta`, and `charlie`. If False, then the aspect will propagate only to `alpha`. </p><p>False by default.</p></p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
+        <h2 id="bind">bind</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> bind(name, actual=None)</pre></p>
+
+    <p>Warning: use of <code>bind()</code> is not recommended. See <a href="https://github.com/bazelbuild/bazel/issues/1952">Consider removing bind</a> for a long discussion if its issues and alternatives.</p> <p>Gives a target an alias in the <code>//external</code> package.</p>
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="bind.name">
+              <code>name</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>The label under '//external' to serve as the alias name</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="bind.actual">
+              <code>actual</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>The real label to be aliased</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+         May return <code>None</code>.
+
         <h2 id="bool">bool</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> bool(x)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> bool(x=False)</pre></p>
 
     Constructor for the bool type. It returns <code>False</code> if the object is <code>None</code>, <code>False</code>, an empty string (<code>""</code>), the number <code>0</code>, or an empty collection (e.g. <code>()</code>, <code>[]</code>). Otherwise, it returns <code>True</code>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -644,7 +711,7 @@ any([False, 0, ""]) == False</pre>
     foo_info = ctx.attr._foo
     ...</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -679,14 +746,13 @@ any([False, 0, ""]) == False</pre>
       </table>
 
         <h2 id="depset">depset</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> depset(items=[], order="default", *, direct=None, transitive=None)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> depset(x=None, order="default", *, direct=None, transitive=None, items=[])</pre></p>
 
-    Creates a <a href="depset.html">depset</a>. The <code>direct</code> parameter is a list of direct elements of the depset, and <code>transitive</code> parameter is a list of depsets whose elements become indirect elements of the created depset. The order in which elements are returned when the depset is converted to a list is specified by the <code>order</code> parameter. See the <a href="../depsets.html">Depsets overview</a> for more information. <p> All elements (direct and indirect) of a depset must be of the same type. <p> The order of the created depset should be <i>compatible</i> with the order of its <code>transitive</code> depsets. <code>"default"</code> order is compatible with any other order, all other orders are only compatible with themselves.<p> Note on backward/forward compatibility. This function currently accepts a positional <code>items</code> parameter. It is deprecated and will be removed in the future, and after its removal <code>direct</code> will become a sole positional parameter of the <code>depset</code> function. Thus, both of the following calls are equivalent and future-proof:<br><pre class=language-python>depset(['a', 'b'], transitive = [...])
+    Creates a <a href="depset.html">depset</a>. The <code>direct</code> parameter is a list of direct elements of the depset, and <code>transitive</code> parameter is a list of depsets whose elements become indirect elements of the created depset. The order in which elements are returned when the depset is converted to a list is specified by the <code>order</code> parameter. See the <a href="../depsets.html">Depsets overview</a> for more information. <p>All elements (direct and indirect) of a depset must be of the same type, as obtained by the expression <code>type(x)</code>.<p>Because a hash-based set is used to eliminate duplicates during iteration, all elements of a depset should be hashable. However, this invariant is not currently checked consistently in all constructors. Use the --incompatible_always_check_depset_elements flag to enable consistent checking; this will be the default behavior in future releases;  see <a href='https://github.com/bazelbuild/bazel/issues/10313'>Issue 10313</a>.<p>In addition, elements must currently be immutable, though this restriction will be relaxed in future.<p> The order of the created depset should be <i>compatible</i> with the order of its <code>transitive</code> depsets. <code>"default"</code> order is compatible with any other order, all other orders are only compatible with themselves.<p> Note on backward/forward compatibility. This function currently accepts a positional <code>items</code> parameter. It is deprecated and will be removed in the future, and after its removal <code>direct</code> will become a sole positional parameter of the <code>depset</code> function. Thus, both of the following calls are equivalent and future-proof:<br><pre class=language-python>depset(['a', 'b'], transitive = [...])
 depset(direct = ['a', 'b'], transitive = [...])
 </pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -700,11 +766,11 @@ depset(direct = ['a', 'b'], transitive = [...])
         </thead>
         <tbody>
                   <tr>
-            <td id="depset.items">
-              <code>items</code>
+            <td id="depset.x">
+              <code>x</code>
             </td>
             <td>
-                          <p>Deprecated: Either an iterable whose items become the direct elements of the new depset, in left-to-right order, or else a depset that becomes a transitive element of the new depset. In the latter case, <code>transitive</code> cannot be specified.</p>
+                          <p>A positional parameter distinct from other parameters for legacy support. <p>If <code>--incompatible_disable_depset_inputs</code> is false, this parameter serves as the value of <code>items</code>.</p> <p>If <code>--incompatible_disable_depset_inputs</code> is true, this parameter serves as the value of <code>direct</code>.</p> <p>See the documentation for these parameters for more details.</p>
             </td>
           </tr>
                   <tr>
@@ -721,8 +787,7 @@ depset(direct = ['a', 'b'], transitive = [...])
               <code>direct</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
-                          <p>A list of <i>direct</i> elements of a depset.</p>
+                          <p>A list of <i>direct</i> elements of a depset. </p>
             </td>
           </tr>
                   <tr>
@@ -734,16 +799,23 @@ depset(direct = ['a', 'b'], transitive = [...])
                           <p>A list of depsets whose elements will become indirect elements of the depset.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="depset.items">
+              <code>items</code>
+            </td>
+            <td>
+                          <p><b>Deprecated</b>. This parameter is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_depset_inputs</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Deprecated: Either an iterable whose items become the direct elements of the new depset, in left-to-right order, or else a depset that becomes a transitive element of the new depset. In the latter case, <code>transitive</code> cannot be specified.</p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
         <h2 id="dict">dict</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="dict.html">dict</a> dict(args=[], **kwargs)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="dict.html">dict</a> dict(args=[], **kwargs)</pre></p>
 
     Creates a <a href="dict.html">dictionary</a> from an optional positional argument and an optional set of keyword arguments. In the case where the same key is given multiple times, the last value will be used. Entries supplied via keyword arguments are considered to come after entries supplied via the positional argument.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -776,12 +848,11 @@ depset(direct = ['a', 'b'], transitive = [...])
       </table>
 
         <h2 id="dir">dir</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> dir(x)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> dir(x)</pre></p>
 
     Returns a list of strings: the names of the attributes and methods of the parameter object.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -805,15 +876,14 @@ depset(direct = ['a', 'b'], transitive = [...])
                 </tbody>
       </table>
 
-          <h2 id="enumerate">enumerate</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> enumerate(list)
-</pre></p>
+        <h2 id="enumerate">enumerate</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> enumerate(list, start=0)</pre></p>
 
-    Returns a list of pairs (two-element tuples), with the index (int) and the item from the input list.
+    Returns a list of pairs (two-element tuples), with the index (int) and the item from the input sequence.
 <pre class="language-python">enumerate([24, 21, 84]) == [(0, 24), (1, 21), (2, 84)]</pre>
 
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -831,20 +901,27 @@ depset(direct = ['a', 'b'], transitive = [...])
               <code>list</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
-                          <p>input list.</p>
+                          <p>input sequence.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="enumerate.start">
+              <code>start</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="int.html">int</a></code></p>
+                          <p>start index.</p>
             </td>
           </tr>
                 </tbody>
       </table>
 
-            <h2 id="fail">fail</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> fail(msg, attr=None)
-</pre></p>
+        <h2 id="fail">fail</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> fail(msg=None, attr=None)</pre></p>
 
     Raises an error that cannot be intercepted. It can be used anywhere, both in the loading phase and in the analysis phase.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -877,20 +954,13 @@ depset(direct = ['a', 'b'], transitive = [...])
                 </tbody>
       </table>
 
-        <h2 id="False">False</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a></pre></p>
-
-    Literal for the boolean false.
-
-
         <h2 id="getattr">getattr</h2>
-        <p><pre class="rule-signature">unknown getattr(x, name, default=unbound)
-</pre></p>
+        <p><pre class="rule-signature">unknown getattr(x, name, default=unbound)</pre></p>
 
-    Returns the struct's field of the given name if it exists. If not, it either returns <code>default</code> (if specified) or raises an error. Built-in methods cannot currently be retrieved in this way; doing so will result in an error if a <code>default</code> is not given. <code>getattr(x, "foobar")</code> is equivalent to <code>x.foobar</code>.<pre class="language-python">getattr(ctx.attr, "myattr")
+    Returns the struct's field of the given name if it exists. If not, it either returns <code>default</code> (if specified) or raises an error. <code>getattr(x, "foobar")</code> is equivalent to <code>x.foobar</code>.<pre class="language-python">getattr(ctx.attr, "myattr")
 getattr(ctx.attr, "myattr", "mydefault")</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -930,13 +1000,12 @@ getattr(ctx.attr, "myattr", "mydefault")</pre>
                 </tbody>
       </table>
 
-          <h2 id="hasattr">hasattr</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> hasattr(x, name)
-</pre></p>
+        <h2 id="hasattr">hasattr</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> hasattr(x, name)</pre></p>
 
     Returns True if the object <code>x</code> has an attribute or method of the given <code>name</code>, otherwise False. Example:<br><pre class="language-python">hasattr(ctx.attr, "myattr")</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -970,12 +1039,11 @@ getattr(ctx.attr, "myattr", "mydefault")</pre>
       </table>
 
         <h2 id="hash">hash</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="int.html">int</a> hash(value)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="int.html">int</a> hash(value)</pre></p>
 
     Return a hash value for a string. This is computed deterministically using the same algorithm as Java's <code>String.hashCode()</code>, namely: <pre class="language-python">s[0] * (31^(n-1)) + s[1] * (31^(n-2)) + ... + s[n-1]</pre> Hashing of values besides strings is not currently supported.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1001,8 +1069,7 @@ getattr(ctx.attr, "myattr", "mydefault")</pre>
       </table>
 
         <h2 id="int">int</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="int.html">int</a> int(x, base=unbound)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="int.html">int</a> int(x, base=unbound)</pre></p>
 
     Returns x as an int value.<ul><li>If <code>x</code> is already an int, it is returned as-is.<li>If <code>x</code> is a boolean, a true value returns 1 and a false value     returns 0.<li>If <code>x</code> is a string, it must have the format     <code>&lt;sign&gt;&lt;prefix&gt;&lt;digits&gt;</code>.     <code>&lt;sign&gt;</code> is either <code>"+"</code>, <code>"-"</code>,     or empty (interpreted as positive). <code>&lt;digits&gt;</code> are a     sequence of digits from 0 up to <code>base</code> - 1, where the letters a-z     (or equivalently, A-Z) are used as digits for 10-35. In the case where     <code>base</code> is 2/8/16, <code>&lt;prefix&gt;</code> is optional and may     be 0b/0o/0x (or equivalently, 0B/0O/0X) respectively; if the     <code>base</code> is any other value besides these bases or the special value     0, the prefix must be empty. In the case where <code>base</code> is 0, the     string is interpreted as an integer literal, in the sense that one of the     bases 2/8/10/16 is chosen depending on which prefix if any is used. If     <code>base</code> is 0, no prefix is used, and there is more than one digit,     the leading digit cannot be 0; this is to avoid confusion between octal and     decimal. The magnitude of the number represented by the string must be within     the allowed range for the int type.</ul>This function fails if <code>x</code> is any other type, or if the value is a string not satisfying the above format. Unlike Python's <code>int()</code> function, this function does not allow zero arguments, and does not allow extraneous whitespace for string arguments.<p>Examples:<pre class="language-python">int("123") == 123
 int("-123") == -123
@@ -1012,7 +1079,7 @@ int("0xFF", 16) == 255
 int("10", 0) == 10
 int("-0x10", 0) == -16</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1045,12 +1112,11 @@ int("-0x10", 0) == -16</pre>
       </table>
 
         <h2 id="len">len</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="int.html">int</a> len(x)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="int.html">int</a> len(x)</pre></p>
 
-    Returns the length of a string, list, tuple, depset, or dictionary.
+    Returns the length of a string, sequence (such as a list or tuple), dict, or other iterable.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1068,21 +1134,20 @@ int("-0x10", 0) == -16</pre>
               <code>x</code>
             </td>
             <td>
-                          <p>The object to check length of.</p>
+                          <p>The value whose length to report.</p>
             </td>
           </tr>
                 </tbody>
       </table>
 
-          <h2 id="list">list</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> list(x)
-</pre></p>
+        <h2 id="list">list</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> list(x=[])</pre></p>
 
-    Converts a collection (e.g. list, tuple or dictionary) to a list.<pre class="language-python">list([1, 2]) == [1, 2]
+    Returns a new list with the same elements as the given iterable value.<pre class="language-python">list([1, 2]) == [1, 2]
 list((2, 3, 2)) == [2, 3, 2]
 list({5: "a", 2: "b", 4: "c"}) == [5, 2, 4]</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1107,13 +1172,12 @@ list({5: "a", 2: "b", 4: "c"}) == [5, 2, 4]</pre>
       </table>
 
         <h2 id="max">max</h2>
-        <p><pre class="rule-signature">unknown max(*args)
-</pre></p>
+        <p><pre class="rule-signature">unknown max(*args)</pre></p>
 
     Returns the largest one of all given arguments. If only one argument is provided, it must be a non-empty iterable.It is an error if elements are not comparable (for example int with string). <pre class="language-python">max(2, 5, 4) == 5
 max([5, 6, 3]) == 6</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1131,7 +1195,6 @@ max([5, 6, 3]) == 6</pre>
               <code>args</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
                           <p>The elements to be checked.</p>
             </td>
           </tr>
@@ -1139,13 +1202,12 @@ max([5, 6, 3]) == 6</pre>
       </table>
 
         <h2 id="min">min</h2>
-        <p><pre class="rule-signature">unknown min(*args)
-</pre></p>
+        <p><pre class="rule-signature">unknown min(*args)</pre></p>
 
     Returns the smallest one of all given arguments. If only one argument is provided, it must be a non-empty iterable. It is an error if elements are not comparable (for example int with string). <pre class="language-python">min(2, 5, 4) == 2
 min([5, 6, 3]) == 3</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1163,34 +1225,18 @@ min([5, 6, 3]) == 3</pre>
               <code>args</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
                           <p>The elements to be checked.</p>
             </td>
           </tr>
                 </tbody>
       </table>
 
-        <h2 id="None">None</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a></pre></p>
-
-    Literal for the None value.
-
-
-          <h2 id="PACKAGE_NAME">PACKAGE_NAME</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a></pre></p>
-
-    <b>Deprecated. Use <a href="native.html#package_name">package_name()</a> instead.</b> The name of the package being evaluated. For example, in the BUILD file <code>some/package/BUILD</code>, its value will be <code>some/package</code>. If the BUILD file calls a function defined in a .bzl file, PACKAGE_NAME will match the caller BUILD file package. In .bzl files, do not access PACKAGE_NAME at the file-level (outside of functions), either directly or by calling a function at the file-level that accesses PACKAGE_NAME (PACKAGE_NAME is only defined during BUILD file evaluation).Here is an example of a .bzl file:<br><pre class=language-python># a = PACKAGE_NAME  # not allowed outside functions
-def extension():
-  return PACKAGE_NAME</pre>In this case, <code>extension()</code> can be called from a BUILD file (even indirectly), but not in a file-level expression in the .bzl file. When implementing a rule, use <a href="ctx.html#label">ctx.label</a> to know where the rule comes from.
-
-
         <h2 id="print">print</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> print(*args, *, sep=" ")
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> print(sep=" ", *args)</pre></p>
 
     Prints <code>args</code> as debug output. It will be prefixed with the string <code>"DEBUG"</code> and the location (file and line number) of this call. The exact way in which the arguments are converted to strings is unspecified and may change at any time. In particular, it may be different from (and more detailed than) the formatting done by <a href='#str'><code>str()</code></a> and <a href='#repr'><code>repr()</code></a>.<p>Using <code>print</code> in production code is discouraged due to the spam it creates for users. For deprecations, prefer a hard error using <a href="#fail"><code>fail()</code></a> whenever possible.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1230,7 +1276,7 @@ def extension():
 d = data(x = 2, y = 3)
 print(d.x + d.y) # prints 5</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1266,14 +1312,13 @@ print(d.x + d.y) # prints 5</pre>
       </table>
 
         <h2 id="range">range</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> range(start_or_stop, stop_or_none=None, step=1)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> range(start_or_stop, stop_or_none=None, step=1)</pre></p>
 
     Creates a list where items go from <code>start</code> to <code>stop</code>, using a <code>step</code> increment. If a single argument is provided, items will range from 0 to that element.<pre class="language-python">range(4) == [0, 1, 2, 3]
 range(3, 9, 2) == [3, 5, 7]
 range(3, 0, -1) == [3, 2, 1]</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1317,12 +1362,11 @@ range(3, 0, -1) == [3, 2, 1]</pre>
       </table>
 
         <h2 id="register_execution_platforms">register_execution_platforms</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> register_execution_platforms(*platform_labels)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> register_execution_platforms(*platform_labels)</pre></p>
 
     Registers a platform so that it is available to execute actions.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1346,14 +1390,14 @@ range(3, 0, -1) == [3, 2, 1]</pre>
           </tr>
                 </tbody>
       </table>
+         May return <code>None</code>.
 
         <h2 id="register_toolchains">register_toolchains</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> register_toolchains(*toolchain_labels)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> register_toolchains(*toolchain_labels)</pre></p>
 
     Registers a toolchain created with the toolchain() rule so that it is available for toolchain resolution.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1377,19 +1421,14 @@ range(3, 0, -1) == [3, 2, 1]</pre>
           </tr>
                 </tbody>
       </table>
-
-        <h2 id="REPOSITORY_NAME">REPOSITORY_NAME</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a></pre></p>
-
-    <b>Deprecated. Use <a href="native.html#repository_name">repository_name()</a> instead.</b> The name of the repository the rule or build extension is called from. For example, in packages that are called into existence by the WORKSPACE stanza <code>local_repository(name='local', path=...)</code> it will be set to <code>@local</code>. In packages in the main repository, it will be set to <code>@</code>. It can only be accessed in functions (transitively) called from BUILD files, i.e. it follows the same restrictions as <a href="#PACKAGE_NAME">PACKAGE_NAME</a>.
-
+         May return <code>None</code>.
 
         <h2 id="repository_rule">repository_rule</h2>
-        <p><pre class="rule-signature">function repository_rule(implementation, *, attrs=None, local=False, environ=[])</pre></p>
+        <p><pre class="rule-signature">function repository_rule(implementation, *, attrs=None, local=False, environ=[], configure=False, remotable=False, doc='')</pre></p>
 
     Creates a new repository rule. Store it in a global value, so that it can be loaded and called from the WORKSPACE file.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1408,7 +1447,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code>function</code></p>
-                          <p>the function implementing this rule, has to have exactly one parameter: <code><a href="repository_ctx.html">repository_ctx</a></code>. The function is called during loading phase for each instance of the rule.</p>
+                          <p>the Starlark function that implements this rule. Must have a single parameter, <code><a href="repository_ctx.html">repository_ctx</a></code>. The function is called during the loading phase for each instance of the rule.</p>
             </td>
           </tr>
                   <tr>
@@ -1438,16 +1477,42 @@ range(3, 0, -1) == [3, 2, 1]</pre>
                           <p>Provides a list of environment variable that this repository rule depends on. If an environment variable in that list change, the repository will be refetched.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="repository_rule.configure">
+              <code>configure</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>Indicate that the repository inspects the system for configuration purpose</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="repository_rule.remotable">
+              <code>remotable</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_repo_remote_exec</code> <br>Compatible with remote execution</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="repository_rule.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>A description of the repository rule that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
         <h2 id="repr">repr</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> repr(x)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> repr(x)</pre></p>
 
     Converts any object to a string representation. This is useful for debugging.<br><pre class="language-python">repr("ab") == '"ab"'</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1472,12 +1537,11 @@ range(3, 0, -1) == [3, 2, 1]</pre>
       </table>
 
         <h2 id="reversed">reversed</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> reversed(sequence)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> reversed(sequence)</pre></p>
 
     Returns a list that contains the elements of the original sequence in reversed order.<pre class="language-python">reversed([3, 5, 4]) == [4, 5, 3]</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1495,18 +1559,19 @@ range(3, 0, -1) == [3, 2, 1]</pre>
               <code>sequence</code>
             </td>
             <td>
-                          <p>The sequence to be reversed (string, list or tuple).</p>
+                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
+                          <p>The sequence (list or tuple) to be reversed.</p>
             </td>
           </tr>
                 </tbody>
       </table>
 
         <h2 id="rule">rule</h2>
-        <p><pre class="rule-signature">function rule(implementation, test=False, attrs=None, outputs=None, executable=False, output_to_genfiles=False, fragments=[], host_fragments=[], _skylark_testable=False, toolchains=[], doc='', *, provides=[], execution_platform_constraints_allowed=False, exec_compatible_with=[], analysis_test=unbound, build_setting=None)</pre></p>
+        <p><pre class="rule-signature">function rule(implementation, test=False, attrs=None, outputs=None, executable=False, output_to_genfiles=False, fragments=[], host_fragments=[], _skylark_testable=False, toolchains=[], doc='', *, provides=[], exec_compatible_with=[], analysis_test=False, build_setting=None, cfg=None)</pre></p>
 
     Creates a new rule, which can be called from a BUILD file or a macro to create targets.<p>Rules must be assigned to global variables in a .bzl file; the name of the global variable is the rule's name.<p>Test rules are required to have a name ending in <code>_test</code>, while all other rules must not have this suffix. (This restriction applies only to rules, not to their targets.)
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1525,7 +1590,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code>function</code></p>
-                          <p>the function implementing this rule, must have exactly one parameter: <a href="ctx.html">ctx</a>. The function is called during the analysis phase for each instance of the rule. It can access the attributes provided by the user. It must create actions to generate all the declared outputs.</p>
+                          <p>the Starlark function implementing this rule, must have exactly one parameter: <a href="ctx.html">ctx</a>. The function is called during the analysis phase for each instance of the rule. It can access the attributes provided by the user. It must create actions to generate all the declared outputs.</p>
             </td>
           </tr>
                   <tr>
@@ -1552,7 +1617,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="dict.html">dict</a>; or <a class="anchor" href="globals.html#None">None</a>; or function</code></p>
-                          <p><b>Experimental:</b> This API is in the process of being redesigned.<p>A schema for defining predeclared outputs. Unlike <a href='attr.html#output'><code>output</code></a> and <a href='attr.html#output_list'><code>output_list</code></a> attributes, the user does not specify the labels for these files. See the <a href='../rules.html#files'>Rules page</a> for more on predeclared outputs.<p>The value of this argument is either a dictionary or a callback function that produces a dictionary. The callback works similar to computed dependency attributes: The function's parameter names are matched against the rule's attributes, so for example if you pass <code>outputs = _my_func</code> with the definition <code>def _my_func(srcs, deps): ...</code>, the function has access to the attributes <code>srcs</code> and <code>deps</code>. Whether the dictionary is specified directly or via a function, it is interpreted as follows.<p>Each entry in the dictionary creates a predeclared output where the key is an identifier and the value is a string template that determines the output's label. In the rule's implementation function, the identifier becomes the field name used to access the output's <a href='File.html'><code>File</code></a> in <a href='ctx.html#outputs'><code>ctx.outputs</code></a>. The output's label has the same package as the rule, and the part after the package is produced by substituting each placeholder of the form <code>"%{ATTR}"</code> with a string formed from the value of the attribute <code>ATTR</code>:<ul><li>String-typed attributes are substituted verbatim.<li>Label-typed attributes become the part of the label after the package, minus the file extension. For example, the label <code>"//pkg:a/b.c"</code> becomes <code>"a/b"</code>.<li>Output-typed attributes become the part of the label after the package, including the file extension (for the above example, <code>"a/b.c"</code>).<li>All list-typed attributes (for example, <code>attr.label_list</code>) used in placeholders are required to have <i>exactly one element</i>. Their conversion is the same as their non-list version (<code>attr.label</code>).<li>Other attribute types may not appear in placeholders.<li>The special non-attribute placeholders <code>%{dirname}</code> and <code>%{basename}</code> expand to those parts of the rule's label, excluding its package. For example, in <code>"//pkg:a/b.c"</code>, the dirname is <code>a</code> and the basename is <code>b.c</code>.</ul><p>In practice, the most common substitution placeholder is <code>"%{name}"</code>. For example, for a target named "foo", the outputs dict <code>{"bin": "%{name}.exe"}</code> predeclares an output named <code>foo.exe</code> that is accessible in the implementation function as <code>ctx.outputs.bin</code>.</p>
+                          <p><b>Deprecated</b>. This parameter is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_no_rule_outputs_param</code>. Use this flag to verify your code is compatible with its imminent removal. <br>This parameter has been deprecated. Migrate rules to use <code>OutputGroupInfo</code> or <code>attr.output</code> instead. <p>A schema for defining predeclared outputs. Unlike <a href='attr.html#output'><code>output</code></a> and <a href='attr.html#output_list'><code>output_list</code></a> attributes, the user does not specify the labels for these files. See the <a href='../rules.html#files'>Rules page</a> for more on predeclared outputs.<p>The value of this argument is either a dictionary or a callback function that produces a dictionary. The callback works similar to computed dependency attributes: The function's parameter names are matched against the rule's attributes, so for example if you pass <code>outputs = _my_func</code> with the definition <code>def _my_func(srcs, deps): ...</code>, the function has access to the attributes <code>srcs</code> and <code>deps</code>. Whether the dictionary is specified directly or via a function, it is interpreted as follows.<p>Each entry in the dictionary creates a predeclared output where the key is an identifier and the value is a string template that determines the output's label. In the rule's implementation function, the identifier becomes the field name used to access the output's <a href='File.html'><code>File</code></a> in <a href='ctx.html#outputs'><code>ctx.outputs</code></a>. The output's label has the same package as the rule, and the part after the package is produced by substituting each placeholder of the form <code>"%{ATTR}"</code> with a string formed from the value of the attribute <code>ATTR</code>:<ul><li>String-typed attributes are substituted verbatim.<li>Label-typed attributes become the part of the label after the package, minus the file extension. For example, the label <code>"//pkg:a/b.c"</code> becomes <code>"a/b"</code>.<li>Output-typed attributes become the part of the label after the package, including the file extension (for the above example, <code>"a/b.c"</code>).<li>All list-typed attributes (for example, <code>attr.label_list</code>) used in placeholders are required to have <i>exactly one element</i>. Their conversion is the same as their non-list version (<code>attr.label</code>).<li>Other attribute types may not appear in placeholders.<li>The special non-attribute placeholders <code>%{dirname}</code> and <code>%{basename}</code> expand to those parts of the rule's label, excluding its package. For example, in <code>"//pkg:a/b.c"</code>, the dirname is <code>a</code> and the basename is <code>b.c</code>.</ul><p>In practice, the most common substitution placeholder is <code>"%{name}"</code>. For example, for a target named "foo", the outputs dict <code>{"bin": "%{name}.exe"}</code> predeclares an output named <code>foo.exe</code> that is accessible in the implementation function as <code>ctx.outputs.bin</code>.</p>
             </td>
           </tr>
                   <tr>
@@ -1628,15 +1693,6 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
           </tr>
                   <tr>
-            <td id="rule.execution_platform_constraints_allowed">
-              <code>execution_platform_constraints_allowed</code>
-            </td>
-            <td>
-                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
-                          <p>If true, a special attribute named <code>exec_compatible_with</code> of label-list type is added, which must not already exist in <code>attrs</code>. Targets may use this attribute to specify additional constraints on the execution platform beyond those given in the <code>exec_compatible_with</code> argument to <code>rule()</code>.</p>
-            </td>
-          </tr>
-                  <tr>
             <td id="rule.exec_compatible_with">
               <code>exec_compatible_with</code>
             </td>
@@ -1650,8 +1706,8 @@ range(3, 0, -1) == [3, 2, 1]</pre>
               <code>analysis_test</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="bool.html">bool</a>; or UnboundMarker</code></p>
-                          <p><b>Experimental: This parameter is experimental and subject to change at any time.</b><p> If true, then this rule is treated as an analysis test.</p>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>If true, then this rule is treated as an analysis test. <p>Note: Analysis test rules are primarily defined using infrastructure provided in core Starlark libraries. See <a href="../testing.html#for-testing-rules">Testing</a> for guidance. <p>If a rule is defined as an analysis test rule, it becomes allowed to use configuration transitions defined using <a href="#analysis_test_transition">analysis_test_transition</a> on its attributes, but opts into some restrictions: <ul><li>Targets of this rule are limited in the number of transitive dependencies they may have. <li>The rule is considered a test rule (as if <code>test=True</code> were set). This supercedes the value of <code>test</code></li> <li>The rule implementation function may not register actions. Instead, it must register a pass/fail result via providing <a href='AnalysisTestResultInfo.html'>AnalysisTestResultInfo</a>.</li></ul></p>
             </td>
           </tr>
                   <tr>
@@ -1660,19 +1716,26 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="BuildSetting.html">BuildSetting</a></code></p>
-                          <p><b>Experimental: This parameter is experimental and subject to change at any time.</b><p> If set, describes what kind of build setting this rule is. See the <a href='config.html'><code>config</code></a> module. If this is set, a mandatory attribute named "build_setting_default" is automaticallyadded to this rule, with a type corresponding to the value passed in here.</p>
+                          <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_build_setting_api</code> <br>If set, describes what kind of <a href = '../config.html#user-defined-build-settings'><code>build setting</code></a> this rule is. See the <a href='config.html'><code>config</code></a> module. If this is set, a mandatory attribute named "build_setting_default" is automatically added to this rule, with a type corresponding to the value passed in here.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="rule.cfg">
+              <code>cfg</code>
+            </td>
+            <td>
+                          <p>If set, points to the configuration transition the rule will apply to its own configuration before analysis.</p>
             </td>
           </tr>
                 </tbody>
       </table>
 
         <h2 id="select">select</h2>
-        <p><pre class="rule-signature">unknown select(x, no_match_error='')
-</pre></p>
+        <p><pre class="rule-signature">unknown select(x, no_match_error='')</pre></p>
 
     <code>select()</code> is the helper function that makes a rule attribute <a href="/versions/master/be/common-definitions.html#configurable-attributes">configurable</a>. See <a href="/versions/master/be/functions.html#select">build encyclopedia</a> for details.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1691,7 +1754,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="dict.html">dict</a></code></p>
-                          <p>The parameter to convert.</p>
+                          <p>A dict that maps configuration conditions to values. Each key is a label string that identifies a config_setting instance.</p>
             </td>
           </tr>
                   <tr>
@@ -1707,12 +1770,11 @@ range(3, 0, -1) == [3, 2, 1]</pre>
       </table>
 
         <h2 id="sorted">sorted</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> sorted(self)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> sorted(iterable, *, key=None, reverse=False)</pre></p>
 
     Sort a collection. Elements should all belong to the same orderable type, they are sorted by their value (in ascending order). It is an error if elements are not comparable (for example int with string).<pre class="language-python">sorted([3, 5, 4]) == [3, 4, 5]</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1726,24 +1788,40 @@ range(3, 0, -1) == [3, 2, 1]</pre>
         </thead>
         <tbody>
                   <tr>
-            <td id="sorted.self">
-              <code>self</code>
+            <td id="sorted.iterable">
+              <code>iterable</code>
             </td>
             <td>
-                          <p>This collection.</p>
+                          <p>The iterable sequence to sort.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="sorted.key">
+              <code>key</code>
+            </td>
+            <td>
+                          <p>An optional function applied to each element before comparison.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="sorted.reverse">
+              <code>reverse</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>Return results in descending order.</p>
             </td>
           </tr>
                 </tbody>
       </table>
 
         <h2 id="str">str</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> str(x)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> str(x)</pre></p>
 
     Converts any object to string. This is useful for debugging.<pre class="language-python">str("ab") == "ab"
 str(8) == "8"</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1767,21 +1845,14 @@ str(8) == "8"</pre>
                 </tbody>
       </table>
 
-        <h2 id="True">True</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a></pre></p>
-
-    Literal for the boolean true.
-
-
         <h2 id="tuple">tuple</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">tuple</a> tuple(x)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="tuple.html">tuple</a> tuple(x=())</pre></p>
 
-    Converts a collection (e.g. list, tuple or dictionary) to a tuple.<pre class="language-python">tuple([1, 2]) == (1, 2)
+    Returns a tuple with the same elements as the given iterable value.<pre class="language-python">tuple([1, 2]) == (1, 2)
 tuple((2, 3, 2)) == (2, 3, 2)
 tuple({5: "a", 2: "b", 4: "c"}) == (5, 2, 4)</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1806,14 +1877,13 @@ tuple({5: "a", 2: "b", 4: "c"}) == (5, 2, 4)</pre>
       </table>
 
         <h2 id="type">type</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> type(x)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> type(x)</pre></p>
 
     Returns the type name of its argument. This is useful for debugging and type-checking. Examples:<pre class="language-python">type(2) == "int"
 type([1]) == "list"
 type(struct(a = 2)) == "struct"</pre>This function might change in the future. To write Python-compatible code and be future-proof, use it only to compare return values: <pre class="language-python">if type(x) == type([]):  # if x is a list</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1838,12 +1908,11 @@ type(struct(a = 2)) == "struct"</pre>This function might change in the future. T
       </table>
 
         <h2 id="workspace">workspace</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> workspace(name)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> workspace(name, managed_directories={})</pre></p>
 
-    Sets the name for this workspace. Workspace names should be a Java-package-style description of the project, using underscores as separators, e.g., github.com/bazelbuild/bazel should use com_github_bazelbuild_bazel. Names must start with a letter and can only contain letters, numbers, and underscores.
+    <p>This command can only be used in a <code>WORKSPACE</code> file and must come before all other commands in the <code>WORKSPACE</code> file. Each <code>WORKSPACE</code> file should have a <code>workspace</code> command.</p><p>Sets the name for this workspace. Workspace names should be a Java-package-style description of the project, using underscores as separators, e.g., github.com/bazelbuild/bazel should use com_github_bazelbuild_bazel. <p>This name is used for the directory that the repository's runfiles are stored in. For example, if there is a runfile <code>foo/bar</code> in the local repository and the WORKSPACE file contains <code>workspace(name = 'baz')</code>, then the runfile will be available under <code>mytarget.runfiles/baz/foo/bar</code>.  If no workspace name is specified, then the runfile will be symlinked to <code>bar.runfiles/foo/bar</code>.</p> <p><a href="../../external.html">Remote repository</a> rule names must be  valid workspace names. For example, you could have  <code>maven_jar(name = 'foo')</code>, but not  <code>maven_jar(name = 'foo.bar')</code>, as Bazel would attempt to write a  WORKSPACE file for the <code>maven_jar</code> containing  <code>workspace(name = 'foo.bar')</code>.</p>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1862,22 +1931,32 @@ type(struct(a = 2)) == "struct"</pre>This function might change in the future. T
             </td>
             <td>
                           <p><code><a class="anchor" href="string.html">string</a></code></p>
-                          <p>the name of the workspace.</p>
+                          <p>the name of the workspace. Names must start with a letter and can only contain letters, numbers, and underscores.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="workspace.managed_directories">
+              <code>managed_directories</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>Dict (strings to list of strings) for defining the mappings between external repositories and relative (to the workspace root) paths to directories they incrementally update.
+Managed directories must be excluded from the source tree by listing them (or their parent directories) in the .bazelignore file.</p>
             </td>
           </tr>
                 </tbody>
       </table>
+         May return <code>None</code>.
 
         <h2 id="zip">zip</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> zip(*args)
-</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> zip(*args)</pre></p>
 
     Returns a <code>list</code> of <code>tuple</code>s, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The list has the size of the shortest input. With a single iterable argument, it returns a list of 1-tuples. With no arguments, it returns an empty list. Examples:<pre class="language-python">zip()  # == []
 zip([1, 2])  # == [(1,), (2,)]
 zip([1, 2], [3, 4])  # == [(1, 3), (2, 4)]
 zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1904,11 +1983,86 @@ zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
 
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Globals&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/globals.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc">__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc</a></li>
+<li class="toc-entry toc-h2"><a href="#all">all</a></li>
+<li class="toc-entry toc-h2"><a href="#analysis_test_transition">analysis_test_transition</a></li>
+<li class="toc-entry toc-h2"><a href="#any">any</a></li>
+<li class="toc-entry toc-h2"><a href="#aspect">aspect</a></li>
+<li class="toc-entry toc-h2"><a href="#bind">bind</a></li>
+<li class="toc-entry toc-h2"><a href="#bool">bool</a></li>
+<li class="toc-entry toc-h2"><a href="#configuration_field">configuration_field</a></li>
+<li class="toc-entry toc-h2"><a href="#depset">depset</a></li>
+<li class="toc-entry toc-h2"><a href="#dict">dict</a></li>
+<li class="toc-entry toc-h2"><a href="#dir">dir</a></li>
+<li class="toc-entry toc-h2"><a href="#enumerate">enumerate</a></li>
+<li class="toc-entry toc-h2"><a href="#fail">fail</a></li>
+<li class="toc-entry toc-h2"><a href="#getattr">getattr</a></li>
+<li class="toc-entry toc-h2"><a href="#hasattr">hasattr</a></li>
+<li class="toc-entry toc-h2"><a href="#hash">hash</a></li>
+<li class="toc-entry toc-h2"><a href="#int">int</a></li>
+<li class="toc-entry toc-h2"><a href="#len">len</a></li>
+<li class="toc-entry toc-h2"><a href="#list">list</a></li>
+<li class="toc-entry toc-h2"><a href="#max">max</a></li>
+<li class="toc-entry toc-h2"><a href="#min">min</a></li>
+<li class="toc-entry toc-h2"><a href="#print">print</a></li>
+<li class="toc-entry toc-h2"><a href="#provider">provider</a></li>
+<li class="toc-entry toc-h2"><a href="#range">range</a></li>
+<li class="toc-entry toc-h2"><a href="#register_execution_platforms">register_execution_platforms</a></li>
+<li class="toc-entry toc-h2"><a href="#register_toolchains">register_toolchains</a></li>
+<li class="toc-entry toc-h2"><a href="#repository_rule">repository_rule</a></li>
+<li class="toc-entry toc-h2"><a href="#repr">repr</a></li>
+<li class="toc-entry toc-h2"><a href="#reversed">reversed</a></li>
+<li class="toc-entry toc-h2"><a href="#rule">rule</a></li>
+<li class="toc-entry toc-h2"><a href="#select">select</a></li>
+<li class="toc-entry toc-h2"><a href="#sorted">sorted</a></li>
+<li class="toc-entry toc-h2"><a href="#str">str</a></li>
+<li class="toc-entry toc-h2"><a href="#tuple">tuple</a></li>
+<li class="toc-entry toc-h2"><a href="#type">type</a></li>
+<li class="toc-entry toc-h2"><a href="#workspace">workspace</a></li>
+<li class="toc-entry toc-h2"><a href="#zip">zip</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -1945,7 +2099,7 @@ zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

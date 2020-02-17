@@ -1,0 +1,580 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Backward Compatibility - Bazel </title>
+
+    <link rel="canonical" href="/versions/master/backward-compatibility.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Backward Compatibility"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-2">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+
+          <nav class="sidebar collapse" id="sidebar-nav">
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/backward-compatibility.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+            </ul>
+
+            <h4>Installing and Using Bazel</h4>
+            <ul class="sidebar-nav">
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installing Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
+                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+                   <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
+                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
+                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote Execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting Remote Execution<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                 </ul>
+              </li>
+
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
+             </ul>
+
+           
+
+           <h4>Reference</h4>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
+             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/platforms.html">Platforms</a></li>
+             <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
+           </ul>
+
+            <h4>Extending Bazel</h4>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/master/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
+                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-practices" aria-expanded="false"
+                    aria-controls="starlark-practices">
+                  Best Practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
+                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-7">
+          <h1 id="backward-compatibility">Backward Compatibility</h1>
+
+<p>Bazel is evolving, and we will make changes to Bazel that at times will be
+incompatible and require some changes from Bazel users.</p>
+
+<h2 id="github-labels">GitHub labels</h2>
+
+<ul>
+  <li>All incompatible changes: label <a href="https://github.com/bazelbuild/bazel/issues?q=label%3Aincompatible-change"><strong>incompatible-change</strong></a></li>
+  <li>Expected breaking change in release X.Y: label <strong>breaking-change-X.Y</strong> (for example: <a href="https://github.com/bazelbuild/bazel/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+label%3Abreaking-change-0.21"><strong>breaking-change-0.21</strong></a>)</li>
+  <li>Release X.Y is in a migration window: label <strong>migration-X.Y</strong> (for example: <a href="https://github.com/bazelbuild/bazel/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+label%3Amigration-0.21"><strong>migration-0.21</strong></a>)</li>
+</ul>
+
+<h2 id="at-a-glance">At a glance</h2>
+
+<ol>
+  <li>Every breaking change is guarded with an <code class="highlighter-rouge">--incompatible_*</code> flag.</li>
+  <li>Newly introduced incompatible flags default to off.</li>
+  <li>For every <code class="highlighter-rouge">--incompatible_*</code> flag we have a GitHub issue that explains
+the change in behavior and provides a migration recipe.</li>
+  <li>The migration window is at least one release long and is set by the author of the incompatible change.</li>
+  <li>We announce what set of flags we intend to flip with the next release one release in advance.</li>
+  <li>APIs and behavior guarded by an <code class="highlighter-rouge">--experimental_*</code> flag can change at any time.</li>
+  <li>Users should never run their production builds with <code class="highlighter-rouge">--experimental_*</code>  or <code class="highlighter-rouge">--incompatible_*</code> flags.</li>
+</ol>
+
+<h3 id="how-to-follow-this-policy">How to follow this policy</h3>
+
+<ul>
+  <li><a href="updating-bazel.html">For Bazel Users - how to update
+Bazel</a></li>
+  <li><a href="https://bazel.build/breaking-changes-guide.html">For contributors - best practices for incompatible changes</a></li>
+  <li><a href="https://github.com/bazelbuild/continuous-integration/tree/master/docs/release-playbook.%6D%64">For release managers - how to update issue labels and release</a></li>
+</ul>
+
+<h2 id="what-is-stable-functionality">What is stable functionality?</h2>
+
+<p>In general, if an API or a behavior is available in Bazel without
+<code class="highlighter-rouge">--experimental_...</code> flag, we consider it a stable, supported feature.
+This includes:</p>
+
+<ul>
+  <li>Starlark language and APIs</li>
+  <li>Rules bundled with Bazel</li>
+  <li>Bazel APIs such as Remote Execution APIs or Build Event Protocol</li>
+  <li>Flags and their semantics</li>
+</ul>
+
+<h2 id="incompatible-changes-and-migration-recipes">Incompatible changes and migration recipes</h2>
+
+<p>When we introduce an incompatible change, we try to make it easier for Bazel
+users to update their code. We do this by means of <em>migration windows</em> and
+<em>migration recipes</em>.</p>
+
+<p>Migration window is one or more release of Bazel during which a migration from
+old functionality to new functionality is possible, according to a migration
+recipe.</p>
+
+<p>During the migration window, both the old functionality and the new functionality
+are available in the Bazel release. For every incompatible change, we provide
+a <em>migration recipe</em> that allows updating the user code (<code class="highlighter-rouge">BUILD</code> and <code class="highlighter-rouge">.bzl</code> files,
+as well as any Bazel usage in scripts, usage of Bazel API and so on) in such a
+way that <strong>it works simultaneously without any flags with old and new
+functionality</strong>.</p>
+
+<p>In other words, during a migration window for an incompatible change <code class="highlighter-rouge">foo</code>:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">--incompatible_foo</code> flag is available in Bazel release and defaults to off.</li>
+  <li>User code can be updated in such a way that it works simultaneously with
+that flag being on or off.</li>
+  <li>After the code is migrated, the users can check whether they migrated
+successfully by building with <code class="highlighter-rouge">--incompatible_foo=true</code>. However, their
+code will continue to work in the same release in default state (where
+<code class="highlighter-rouge">--incompatible_foo</code> is off), as well after the migration window is over
+(at which point the flag will be effectively on).</li>
+</ol>
+
+<h2 id="communicating-incompatible-changes">Communicating incompatible changes</h2>
+
+<p>The primary source of information about incompatible changes are GitHub issues
+marked with an <a href="https://github.com/bazelbuild/bazel/issues?q=label%3Aincompatible-change">“incompatible-change” label</a>.</p>
+
+<p>For every incompatible change, the issue specifies the following:</p>
+<ul>
+  <li>Name of the flag controlling the incompatible change</li>
+  <li>Description of the changed functionality</li>
+  <li>Migration recipe</li>
+</ul>
+
+<p>The incompatible change issue is closed when the incompatible flag is flipped at
+HEAD.</p>
+
+<p>All the incompatible changes for which a Bazel release X.Y is part of a
+migration window are marked with a label “migration-X.Y” label (for example
+<a href="https://github.com/bazelbuild/bazel/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+label%3Amigration-0.21">migration-0.21</a>).</p>
+
+<p>All the incompatible changes that are expected to happen in release X.Y
+are marked with a label “breaking-change-X.Y” (for example
+<a href="https://github.com/bazelbuild/bazel/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+label%3Abreaking-change-0.21">breaking-change-0.21</a>).</p>
+
+
+        </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Backward Compatibility&body=Documentation URL: https://docs.bazel.build/versions/master/backward-compatibility.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#github-labels">GitHub labels</a></li>
+<li class="toc-entry toc-h2"><a href="#at-a-glance">At a glance</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#how-to-follow-this-policy">How to follow this policy</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#what-is-stable-functionality">What is stable functionality?</a></li>
+<li class="toc-entry toc-h2"><a href="#incompatible-changes-and-migration-recipes">Incompatible changes and migration recipes</a></li>
+<li class="toc-entry toc-h2"><a href="#communicating-incompatible-changes">Communicating incompatible changes</a></li>
+</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2020 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

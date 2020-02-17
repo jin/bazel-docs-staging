@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Java Rules - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Java Rules - Bazel </title>
 
     <link rel="canonical" href="/versions/master/be/java.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/be/java.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/be/java.html">master</option>
-              
-              <option value="/versions/0.19.2/be/java.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/be/java.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/be/java.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/be/java.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/be/java.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <!--
  This document is synchronized with Bazel releases.
  To edit, submit changes to the Bazel source code.
@@ -371,6 +311,8 @@
 <!-- Generated by //src/main/java/com/google/devtools/build/docgen:build-encyclopedia.zip -->
 
 <h1>Java Rules</h1>
+
+
 
 <div class="toc">
   <h2>Rules</h2>
@@ -400,8 +342,20 @@
         java_test      </a>
     </li>
     <li>
+      <a href="#java_package_configuration">
+        java_package_configuration      </a>
+    </li>
+    <li>
       <a href="#java_plugin">
         java_plugin      </a>
+    </li>
+    <li>
+      <a href="#java_runtime">
+        java_runtime      </a>
+    </li>
+    <li>
+      <a href="#java_toolchain">
+        java_toolchain      </a>
     </li>
   </ul>
 </div>
@@ -410,7 +364,7 @@
     java_binary
   </h2>
 
-  <pre class="rule-signature">java_binary(<a href="#java_binary.name">name</a>, <a href="#java_binary.deps">deps</a>, <a href="#java_binary.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#java_binary.resources">resources</a>, <a href="common-definitions.html#binary.args">args</a>, <a href="#java_binary.classpath_resources">classpath_resources</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#java_binary.create_executable">create_executable</a>, <a href="#java_binary.deploy_manifest_lines">deploy_manifest_lines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_binary.javacopts">javacopts</a>, <a href="#java_binary.jvm_flags">jvm_flags</a>, <a href="#java_binary.launcher">launcher</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_binary.main_class">main_class</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="#java_binary.plugins">plugins</a>, <a href="#java_binary.resource_jars">resource_jars</a>, <a href="#java_binary.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_binary.runtime_deps">runtime_deps</a>, <a href="#java_binary.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#java_binary.toolchains">toolchains</a>, <a href="#java_binary.use_testrunner">use_testrunner</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">java_binary(<a href="#java_binary.name">name</a>, <a href="#java_binary.deps">deps</a>, <a href="#java_binary.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#java_binary.resources">resources</a>, <a href="common-definitions.html#binary.args">args</a>, <a href="#java_binary.classpath_resources">classpath_resources</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#java_binary.create_executable">create_executable</a>, <a href="#java_binary.deploy_env">deploy_env</a>, <a href="#java_binary.deploy_manifest_lines">deploy_manifest_lines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_binary.javacopts">javacopts</a>, <a href="#java_binary.jvm_flags">jvm_flags</a>, <a href="#java_binary.launcher">launcher</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_binary.main_class">main_class</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="#java_binary.plugins">plugins</a>, <a href="#java_binary.resource_jars">resource_jars</a>, <a href="#java_binary.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_binary.runtime_deps">runtime_deps</a>, <a href="#java_binary.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#java_binary.toolchains">toolchains</a>, <a href="#java_binary.use_testrunner">use_testrunner</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -610,13 +564,28 @@ java_binary(
           <code>create_executable</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is 1</code></p>
+                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is True</code></p>
                               Whether the binary is executable. Non-executable binaries collect transitive
           runtime Java dependencies into a deploy jar, but cannot be executed directly.
 
           No wrapper script is created if this attribute is set. It is an error to set
           this to 0 if the <code>launcher</code> or <code>main_class</code> attributes
           are set.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_binary.deploy_env">
+          <code>deploy_env</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            A list of other <code>java_binary</code> targets which represent the deployment
+        environment for this binary.
+        Set this attribute when building a plugin which will be loaded by another
+        <code>java_binary</code>.<br/> Setting this attribute excludes all dependencies from
+        the runtime classpath (and the deploy jar) of this binary that are shared between this
+        binary and the targets specified in <code>deploy_env</code>.
 
         </td>
       </tr>
@@ -632,7 +601,7 @@ java_binary(
 
         </td>
       </tr>
-                                                    <tr>
+                                                                        <tr>
         <td id="java_binary.javacopts">
           <code>javacopts</code>
         </td>
@@ -683,9 +652,7 @@ java_binary(
           <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/invocation.html">
           Java Invocation API</a> can be specified as a value for this attribute.
 
-          <p>The special value <code>//tools/jdk:no_launcher</code>
-          indicates that you want to use the normal JDK launcher (bin/java or java.exe)
-          as the value for this attribute. This is the default.</p>
+          <p>By default, Bazel will use the normal JDK launcher (bin/java or java.exe).</p>
 
           <p>The related <a href="../user-manual.html#flag--java_launcher"><code>
           --java_launcher</code></a> Bazel flag affects only those
@@ -830,7 +797,7 @@ java_binary(
           <code>use_testrunner</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                               Use the test runner (by default
           <code>com.google.testing.junit.runner.BazelTestRunner</code>) class as the
           main entry point for a Java program, and provide the test class
@@ -857,7 +824,7 @@ java_binary(
     java_import
   </h2>
 
-  <pre class="rule-signature">java_import(<a href="#java_import.name">name</a>, <a href="#java_import.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#java_import.exports">exports</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_import.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">java_import(<a href="#java_import.name">name</a>, <a href="#java_import.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#java_import.constraints">constraints</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="#java_import.exports">exports</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_import.jars">jars</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_import.neverlink">neverlink</a>, <a href="#java_import.proguard_specs">proguard_specs</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_import.runtime_deps">runtime_deps</a>, <a href="#java_import.srcjar">srcjar</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -912,6 +879,16 @@ java_binary(
 
         </td>
       </tr>
+                                          <tr>
+        <td id="java_import.constraints">
+          <code>constraints</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                            Extra constraints imposed on this rule as a Java library.
+
+        </td>
+      </tr>
                                                               <tr>
         <td id="java_import.exports">
           <code>exports</code>
@@ -923,7 +900,47 @@ java_binary(
 
         </td>
       </tr>
-                                                    <tr>
+                                <tr>
+        <td id="java_import.jars">
+          <code>jars</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                            The list of JAR files provided to Java targets that depend on this target.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="java_import.neverlink">
+          <code>neverlink</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is False</code></p>
+                            Only use this library for compilation and not at runtime.
+        Useful if the library will be provided by the runtime environment
+        during execution. Examples of libraries like this are IDE APIs
+        for IDE plug-ins or <code>tools.jar</code> for anything running on
+        a standard JDK.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_import.proguard_specs">
+          <code>proguard_specs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Files to be used as Proguard specification.
+        These will describe the set of specifications to be used by Proguard. If specified,
+        they will be added to any <code>android_binary</code> target depending on this library.
+
+        The files included here must only have idempotent rules, namely -dontnote, -dontwarn,
+        assumenosideeffects, and rules that start with -keep. Other options can only appear in
+        <code>android_binary</code>'s proguard_specs, to ensure non-tautological merges.
+
+        </td>
+      </tr>
+                                <tr>
         <td id="java_import.runtime_deps">
           <code>runtime_deps</code>
         </td>
@@ -934,13 +951,23 @@ java_binary(
 
         </td>
       </tr>
+                      <tr>
+        <td id="java_import.srcjar">
+          <code>srcjar</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            A JAR file that contains source code for the compiled JAR files.
+
+        </td>
+      </tr>
                                             </tbody>
   </table>
     <h2 id="java_library">
     java_library
   </h2>
 
-  <pre class="rule-signature">java_library(<a href="#java_library.name">name</a>, <a href="#java_library.deps">deps</a>, <a href="#java_library.srcs">srcs</a>, <a href="#java_library.data">data</a>, <a href="#java_library.resources">resources</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#java_library.exported_plugins">exported_plugins</a>, <a href="#java_library.exports">exports</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_library.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_library.neverlink">neverlink</a>, <a href="#java_library.plugins">plugins</a>, <a href="#java_library.resource_jars">resource_jars</a>, <a href="#java_library.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_library.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">java_library(<a href="#java_library.name">name</a>, <a href="#java_library.deps">deps</a>, <a href="#java_library.srcs">srcs</a>, <a href="#java_library.data">data</a>, <a href="#java_library.resources">resources</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="#java_library.exported_plugins">exported_plugins</a>, <a href="#java_library.exports">exports</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_library.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_library.neverlink">neverlink</a>, <a href="#java_library.plugins">plugins</a>, <a href="#java_library.proguard_specs">proguard_specs</a>, <a href="#java_library.resource_jars">resource_jars</a>, <a href="#java_library.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_library.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>This rule compiles and links sources into a <code>.jar</code> file.</p>
@@ -1076,7 +1103,7 @@ java_binary(
 
         </td>
       </tr>
-                                                    <tr>
+                                                                        <tr>
         <td id="java_library.exported_plugins">
           <code>exported_plugins</code>
         </td>
@@ -1148,7 +1175,7 @@ java_binary(
           <code>neverlink</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                             Whether this library should only be used for compilation and not at runtime.
         Useful if the library will be provided by the runtime environment during execution. Examples
         of such libraries are the IDE APIs for IDE plug-ins or <code>tools.jar</code> for anything
@@ -1179,6 +1206,22 @@ java_binary(
           is built. A library may also inherit plugins from dependencies that use
           <code><a href="#java_library.exported_plugins">exported_plugins</a></code>. Resources
           generated by the plugin will be included in the resulting jar of this rule.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_library.proguard_specs">
+          <code>proguard_specs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Files to be used as Proguard specification.
+        These will describe the set of specifications to be used by Proguard. If specified,
+        they will be added to any <code>android_binary</code> target depending on this library.
+
+        The files included here must only have idempotent rules, namely -dontnote, -dontwarn,
+        assumenosideeffects, and rules that start with -keep. Other options can only appear in
+        <code>android_binary</code>'s proguard_specs, to ensure non-tautological merges.
 
         </td>
       </tr>
@@ -1232,7 +1275,7 @@ java_binary(
     java_lite_proto_library
   </h2>
 
-  <pre class="rule-signature">java_lite_proto_library(<a href="#java_lite_proto_library.name">name</a>, <a href="#java_lite_proto_library.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">java_lite_proto_library(<a href="#java_lite_proto_library.name">name</a>, <a href="#java_lite_proto_library.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1298,13 +1341,13 @@ proto_library(
 
         </td>
       </tr>
-                                                                                                                  </tbody>
+                                                                                                                                      </tbody>
   </table>
     <h2 id="java_proto_library">
     java_proto_library
   </h2>
 
-  <pre class="rule-signature">java_proto_library(<a href="#java_proto_library.name">name</a>, <a href="#java_proto_library.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">java_proto_library(<a href="#java_proto_library.name">name</a>, <a href="#java_proto_library.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1370,13 +1413,13 @@ proto_library(
 
         </td>
       </tr>
-                                                                                                                  </tbody>
+                                                                                                                                      </tbody>
   </table>
     <h2 id="java_test">
     java_test
   </h2>
 
-  <pre class="rule-signature">java_test(<a href="#java_test.name">name</a>, <a href="#java_test.deps">deps</a>, <a href="#java_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#java_test.resources">resources</a>, <a href="common-definitions.html#test.args">args</a>, <a href="#java_test.classpath_resources">classpath_resources</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#java_test.create_executable">create_executable</a>, <a href="#java_test.deploy_manifest_lines">deploy_manifest_lines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#java_test.javacopts">javacopts</a>, <a href="#java_test.jvm_flags">jvm_flags</a>, <a href="#java_test.launcher">launcher</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#java_test.main_class">main_class</a>, <a href="#java_test.plugins">plugins</a>, <a href="#java_test.resource_jars">resource_jars</a>, <a href="#java_test.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_test.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#java_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#java_test.test_class">test_class</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#java_test.toolchains">toolchains</a>, <a href="#java_test.use_testrunner">use_testrunner</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">java_test(<a href="#java_test.name">name</a>, <a href="#java_test.deps">deps</a>, <a href="#java_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#java_test.resources">resources</a>, <a href="common-definitions.html#test.args">args</a>, <a href="#java_test.classpath_resources">classpath_resources</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#java_test.create_executable">create_executable</a>, <a href="#java_test.deploy_manifest_lines">deploy_manifest_lines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#java_test.javacopts">javacopts</a>, <a href="#java_test.jvm_flags">jvm_flags</a>, <a href="#java_test.launcher">launcher</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#java_test.main_class">main_class</a>, <a href="#java_test.plugins">plugins</a>, <a href="#java_test.resource_jars">resource_jars</a>, <a href="#java_test.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_test.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#java_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#java_test.test_class">test_class</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#java_test.toolchains">toolchains</a>, <a href="#java_test.use_testrunner">use_testrunner</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1537,7 +1580,7 @@ java_test(
           <code>create_executable</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is 1</code></p>
+                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is True</code></p>
                               Whether the binary is executable. Non-executable binaries collect transitive
           runtime Java dependencies into a deploy jar, but cannot be executed directly.
 
@@ -1559,7 +1602,7 @@ java_test(
 
         </td>
       </tr>
-                                                                        <tr>
+                                                                                  <tr>
         <td id="java_test.javacopts">
           <code>javacopts</code>
         </td>
@@ -1610,9 +1653,7 @@ java_test(
           <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/invocation.html">
           Java Invocation API</a> can be specified as a value for this attribute.
 
-          <p>The special value <code>//tools/jdk:no_launcher</code>
-          indicates that you want to use the normal JDK launcher (bin/java or java.exe)
-          as the value for this attribute. This is the default.</p>
+          <p>By default, Bazel will use the normal JDK launcher (bin/java or java.exe).</p>
 
           <p>The related <a href="../user-manual.html#flag--java_launcher"><code>
           --java_launcher</code></a> Bazel flag affects only those
@@ -1754,9 +1795,11 @@ java_test(
         </p>
         <p>
           This attribute specifies the name of a Java class to be run by
-          this test. It is rare to need to set this. If this argument is omitted, the Java class
-          whose name corresponds to the <code>name</code> of this
-          <code>java_test</code> rule will be used.
+          this test. It is rare to need to set this. If this argument is omitted,
+          it will be inferred using the target's <code>name</code> and its
+          source-root-relative path. If the test is located outside a known
+          source root, Bazel will report an error if <code>test_class</code>
+          is unset.
         </p>
         <p>
           For JUnit3, the test class needs to either be a subclass of
@@ -1796,7 +1839,7 @@ java_test(
           <code>use_testrunner</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 1</code></p>
+                    <p><code>Boolean; optional; default is True</code></p>
                               Use the test runner (by default
           <code>com.google.testing.junit.runner.BazelTestRunner</code>) class as the
           main entry point for a Java program, and provide the test class
@@ -1819,11 +1862,104 @@ java_test(
       </tr>
                         </tbody>
   </table>
+    <h2 id="java_package_configuration">
+    java_package_configuration
+  </h2>
+
+  <pre class="rule-signature">java_package_configuration(<a href="#java_package_configuration.name">name</a>, <a href="#java_package_configuration.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_package_configuration.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_package_configuration.packages">packages</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>
+Configuration to apply to a set of packages.
+Configurations can be added to
+<code><a href="java.html#java_toolchain.javacopts">java_toolchain.javacopts</a></code>s.
+</p>
+
+<h4 id="java_package_configuration">Example:</h4>
+
+<pre class="code">
+java_package_configuration(
+    name = "my_configuration",
+    packages = [":my_packages"],
+    javacopts = ["-Werror"],
+)
+
+package_group(
+    name = "my_packages",
+    packages = [
+        "//com/my/project/...",
+        "-//com/my/project/testing/...",
+    ],
+)
+
+java_toolchain(
+    ...,
+    package_configuration = [
+        ":my_configuration",
+    ]
+)
+</pre>
+
+
+
+  <h3 id="java_package_configuration_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="java_package_configuration.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="java_package_configuration.data">
+          <code>data</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The list of files needed by this configuration at runtime.
+
+        </td>
+      </tr>
+                                                              <tr>
+        <td id="java_package_configuration.javacopts">
+          <code>javacopts</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            Java compiler flags.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="java_package_configuration.packages">
+          <code>packages</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The set of <code><a href="functions.html#package_group">package_group</a></code>s
+        the configuration should be applied to.
+
+        </td>
+      </tr>
+                                                      </tbody>
+  </table>
     <h2 id="java_plugin">
     java_plugin
   </h2>
 
-  <pre class="rule-signature">java_plugin(<a href="#java_plugin.name">name</a>, <a href="#java_plugin.deps">deps</a>, <a href="#java_plugin.srcs">srcs</a>, <a href="#java_plugin.data">data</a>, <a href="#java_plugin.resources">resources</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_plugin.generates_api">generates_api</a>, <a href="#java_plugin.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_plugin.neverlink">neverlink</a>, <a href="#java_plugin.output_licenses">output_licenses</a>, <a href="#java_plugin.plugins">plugins</a>, <a href="#java_plugin.processor_class">processor_class</a>, <a href="#java_plugin.resource_jars">resource_jars</a>, <a href="#java_plugin.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">java_plugin(<a href="#java_plugin.name">name</a>, <a href="#java_plugin.deps">deps</a>, <a href="#java_plugin.srcs">srcs</a>, <a href="#java_plugin.data">data</a>, <a href="#java_plugin.resources">resources</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_plugin.generates_api">generates_api</a>, <a href="#java_plugin.javacopts">javacopts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_plugin.neverlink">neverlink</a>, <a href="#java_plugin.output_licenses">output_licenses</a>, <a href="#java_plugin.plugins">plugins</a>, <a href="#java_plugin.processor_class">processor_class</a>, <a href="#java_plugin.proguard_specs">proguard_specs</a>, <a href="#java_plugin.resource_jars">resource_jars</a>, <a href="#java_plugin.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1969,12 +2105,12 @@ java_test(
 
         </td>
       </tr>
-                                                              <tr>
+                                                                                  <tr>
         <td id="java_plugin.generates_api">
           <code>generates_api</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                             This attribute marks annotation processors that generate API code.
         <p>If a rule uses an API-generating annotation processor, other rules
         depending on it can refer to the generated code only if their
@@ -2004,7 +2140,7 @@ java_test(
           <code>neverlink</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                             Whether this library should only be used for compilation and not at runtime.
         Useful if the library will be provided by the runtime environment during execution. Examples
         of such libraries are the IDE APIs for IDE plug-ins or <code>tools.jar</code> for anything
@@ -2068,6 +2204,22 @@ java_test(
         </td>
       </tr>
                       <tr>
+        <td id="java_plugin.proguard_specs">
+          <code>proguard_specs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Files to be used as Proguard specification.
+        These will describe the set of specifications to be used by Proguard. If specified,
+        they will be added to any <code>android_binary</code> target depending on this library.
+
+        The files included here must only have idempotent rules, namely -dontnote, -dontwarn,
+        assumenosideeffects, and rules that start with -keep. Other options can only appear in
+        <code>android_binary</code>'s proguard_specs, to ensure non-tautological merges.
+
+        </td>
+      </tr>
+                      <tr>
         <td id="java_plugin.resource_jars">
           <code>resource_jars</code>
         </td>
@@ -2099,15 +2251,505 @@ java_test(
       </tr>
                                                       </tbody>
   </table>
+    <h2 id="java_runtime">
+    java_runtime
+  </h2>
+
+  <pre class="rule-signature">java_runtime(<a href="#java_runtime.name">name</a>, <a href="#java_runtime.srcs">srcs</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_runtime.java">java</a>, <a href="#java_runtime.java_home">java_home</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>
+Specifies the configuration for a Java runtime.
+</p>
+
+<h4 id="java_runtime">Example:</h4>
+
+<pre class="code">
+java_runtime(
+    name = "jdk-9-ea+153",
+    srcs = glob(["jdk9-ea+153/**"]),
+    java_home = "jdk9-ea+153",
+)
+</pre>
+
+
+
+  <h3 id="java_runtime_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="java_runtime.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="java_runtime.srcs">
+          <code>srcs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            All files in the runtime.
+
+        </td>
+      </tr>
+                                                              <tr>
+        <td id="java_runtime.java">
+          <code>java</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            The path to the java executable.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_runtime.java_home">
+          <code>java_home</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The path to the root of the runtime.
+        Subject to <a href="make-variables.html">"Make" variable</a> substitution.
+        If this path is absolute, the rule denotes a non-hermetic Java runtime with a well-known
+        path. In that case, the <code>srcs</code> and <java></code> attributes must be empty.
+
+        </td>
+      </tr>
+                                                                </tbody>
+  </table>
+    <h2 id="java_toolchain">
+    java_toolchain
+  </h2>
+
+  <pre class="rule-signature">java_toolchain(<a href="#java_toolchain.name">name</a>, <a href="#java_toolchain.bootclasspath">bootclasspath</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#java_toolchain.forcibly_disable_header_compilation">forcibly_disable_header_compilation</a>, <a href="#java_toolchain.genclass">genclass</a>, <a href="#java_toolchain.header_compiler">header_compiler</a>, <a href="#java_toolchain.header_compiler_direct">header_compiler_direct</a>, <a href="#java_toolchain.ijar">ijar</a>, <a href="#java_toolchain.jacocorunner">jacocorunner</a>, <a href="#java_toolchain.javabuilder">javabuilder</a>, <a href="#java_toolchain.javabuilder_jvm_opts">javabuilder_jvm_opts</a>, <a href="#java_toolchain.javac">javac</a>, <a href="#java_toolchain.javac_supports_workers">javac_supports_workers</a>, <a href="#java_toolchain.javacopts">javacopts</a>, <a href="#java_toolchain.jvm_opts">jvm_opts</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#java_toolchain.oneversion">oneversion</a>, <a href="#java_toolchain.oneversion_whitelist">oneversion_whitelist</a>, <a href="#java_toolchain.package_configuration">package_configuration</a>, <a href="#java_toolchain.resourcejar">resourcejar</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#java_toolchain.singlejar">singlejar</a>, <a href="#java_toolchain.source_version">source_version</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#java_toolchain.target_version">target_version</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#java_toolchain.timezone_data">timezone_data</a>, <a href="#java_toolchain.tools">tools</a>, <a href="#java_toolchain.turbine_jvm_opts">turbine_jvm_opts</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#java_toolchain.xlint">xlint</a>)</pre>
+
+
+<p>
+Specifies the configuration for the Java compiler. Which toolchain to be used can be changed through
+the --java_toolchain argument. Normally you should not write those kind of rules unless you want to
+tune your Java compiler.
+</p>
+
+<h4 id="java_binary_examples">Examples</h4>
+
+<p>A simple example would be:
+</p>
+
+<pre class="code">
+java_toolchain(
+    name = "toolchain",
+    source_version = "7",
+    target_version = "7",
+    bootclasspath = ["//tools/jdk:bootclasspath"],
+    xlint = [ "classfile", "divzero", "empty", "options", "path" ],
+    javacopts = [ "-g" ],
+    javabuilder = ":JavaBuilder_deploy.jar",
+)
+</pre>
+
+
+
+  <h3 id="java_toolchain_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="java_toolchain.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="java_toolchain.bootclasspath">
+          <code>bootclasspath</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            The Java target bootclasspath entries. Corresponds to javac's -bootclasspath flag.
+
+        </td>
+      </tr>
+                                                              <tr>
+        <td id="java_toolchain.forcibly_disable_header_compilation">
+          <code>forcibly_disable_header_compilation</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is False</code></p>
+                            Overrides --java_header_compilation to disable header compilation on platforms that do not
+        support it, e.g. JDK 7 Bazel.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.genclass">
+          <code>genclass</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                            Label of the GenClass deploy jar.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.header_compiler">
+          <code>header_compiler</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Label of the header compiler. Required if --java_header_compilation is enabled.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.header_compiler_direct">
+          <code>header_compiler_direct</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Optional label of the header compiler to use for direct classpath actions that do not
+        include any API-generating annotation processors.
+
+        <p>This tool does not support annotation processing.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.ijar">
+          <code>ijar</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                            Label of the ijar executable.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.jacocorunner">
+          <code>jacocorunner</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Label of the JacocoCoverageRunner deploy jar.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.javabuilder">
+          <code>javabuilder</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                            Label of the JavaBuilder deploy jar.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.javabuilder_jvm_opts">
+          <code>javabuilder_jvm_opts</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            The list of arguments for the JVM when invoking JavaBuilder.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.javac">
+          <code>javac</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Label of the javac jar.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.javac_supports_workers">
+          <code>javac_supports_workers</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is True</code></p>
+                            True if JavaBuilder supports running as a persistent worker, false if it doesn't.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.javacopts">
+          <code>javacopts</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            The list of extra arguments for the Java compiler. Please refer to the Java compiler
+        documentation for the extensive list of possible Java compiler flags.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.jvm_opts">
+          <code>jvm_opts</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            The list of arguments for the JVM when invoking the Java compiler. Please refer to the Java
+        virtual machine documentation for the extensive list of possible flags for this option.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="java_toolchain.oneversion">
+          <code>oneversion</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Label of the one-version enforcement binary.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.oneversion_whitelist">
+          <code>oneversion_whitelist</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Label of the one-version whitelist.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.package_configuration">
+          <code>package_configuration</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Configuration that should be applied to the specified package groups.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.resourcejar">
+          <code>resourcejar</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Label of the resource jar builder executable.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="java_toolchain.singlejar">
+          <code>singlejar</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; required</code></p>
+                            Label of the SingleJar deploy jar.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.source_version">
+          <code>source_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The Java source version (e.g., '6' or '7'). It specifies which set of code structures
+        are allowed in the Java source code.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="java_toolchain.target_version">
+          <code>target_version</code>
+        </td>
+        <td>
+                    <p><code>String; optional</code></p>
+                            The Java target version (e.g., '6' or '7'). It specifies for which Java runtime the class
+        should be build.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="java_toolchain.timezone_data">
+          <code>timezone_data</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Label of a resource jar containing timezone data. If set, the timezone data is added as an
+        implicitly runtime dependency of all java_binary rules.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.tools">
+          <code>tools</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                            Labels of tools available for label-expansion in jvm_opts.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="java_toolchain.turbine_jvm_opts">
+          <code>turbine_jvm_opts</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            The list of arguments for the JVM when invoking turbine.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="java_toolchain.xlint">
+          <code>xlint</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            The list of warning to add or removes from default list. Precedes it with a dash to
+        removes it. Please see the Javac documentation on the -Xlint options for more information.
+
+        </td>
+      </tr>
+              </tbody>
+  </table>
 
 <!-- Generated footer -->
 
+        </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Java Rules&body=Documentation URL: https://docs.bazel.build/versions/master/be/java.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#rules">Rules</a></li>
+<li class="toc-entry toc-h2"><a href="#java_binary">
+    java_binary
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_binary_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_import">
+    java_import
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_import_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_library">
+    java_library
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_library_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_lite_proto_library">
+    java_lite_proto_library
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_lite_proto_library_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_proto_library">
+    java_proto_library
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_proto_library_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_test">
+    java_test
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_test_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_package_configuration">
+    java_package_configuration
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_package_configuration_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_plugin">
+    java_plugin
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_plugin_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_runtime">
+    java_runtime
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_runtime_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#java_toolchain">
+    java_toolchain
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#java_toolchain_args">Arguments</a></li>
+</ul>
+</li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -2144,7 +2786,7 @@ java_test(
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

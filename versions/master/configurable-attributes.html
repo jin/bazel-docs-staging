@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Configurable Build Attributes - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Configurable Build Attributes - Bazel </title>
 
     <link rel="canonical" href="/versions/master/configurable-attributes.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/configurable-attributes.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/configurable-attributes.html">master</option>
-              
-              <option value="/versions/0.19.2/configurable-attributes.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/configurable-attributes.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/configurable-attributes.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/configurable-attributes.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/configurable-attributes.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="configurable-build-attributes">Configurable Build Attributes</h1>
 
 <h3 id="contents">Contents</h3>
@@ -374,15 +314,22 @@
   <li><a href="#platforms">Platforms</a></li>
   <li><a href="#short-keys">Short Keys</a></li>
   <li><a href="#multiple-selects">Multiple Selects</a></li>
-  <li><a href="#or-chaining">OR Chaining</a></li>
+  <li><a href="#or-chaining">OR Chaining</a>
+    <ul>
+      <li><a href="#selects-with-or">selects.with_or</a></li>
+      <li><a href="#selects-config-setting-or-group">selects.config_setting_group</a></li>
+    </ul>
+  </li>
+  <li><a href="#and-chaining">AND Chaining</a></li>
   <li><a href="#custom-error-messages">Custom Error Messages</a></li>
   <li><a href="#rules">Rules Compatibility</a></li>
   <li><a href="#query">Bazel Query and Cquery</a></li>
   <li><a href="#faq">FAQ</a>
     <ul>
-      <li><a href="#macros-select">Why doesn’t select() work in macros</a></li>
+      <li><a href="#macros-select">Why doesn’t select() work in macros?</a></li>
       <li><a href="#boolean-select">Why does select() always return true?</a></li>
       <li><a href="#inspectable-select">Can I read select() like a dict?</a></li>
+      <li><a href="#bind-select">Why doesn’t select() work with bind()?</a></li>
     </ul>
   </li>
 </ul>
@@ -398,8 +345,8 @@ feature-configurable binary that can be customized at build time.</p>
 
 <h2 id="example">Example</h2>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># myapp/BUILD</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># myapp/BUILD
+</span>
 <span class="n">cc_binary</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"mybinary"</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"main.cc"</span><span class="p">],</span>
@@ -437,7 +384,7 @@ command line. Specficially, <code class="highlighter-rouge">deps</code> becomes:
     <td><code>[":arm_lib"]</code></td>
   </tr>
   <tr>
-    <td><code>bazel build //myapp:mybinary --c dbg --cpu=x86</code></td>
+    <td><code>bazel build //myapp:mybinary -c dbg --cpu=x86</code></td>
     <td><code>[":x86_dev_lib"]</code></td>
   </tr>
   <tr>
@@ -527,8 +474,8 @@ matches.</p>
 and no default condition triggers a <code class="highlighter-rouge">"no matching conditions"</code> error. This can
 protect against silent failures from unexpected build flags:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># foo/BUILD</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># foo/BUILD
+</span>
 <span class="n">config_setting</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"foobar"</span><span class="p">,</span>
     <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s">"define"</span><span class="p">:</span> <span class="s">"foo=bar"</span><span class="p">},</span>
@@ -588,9 +535,9 @@ because each instance has the same dictionary key. To solve this, use
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config_setting</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"bar_and_baz"</span><span class="p">,</span>
     <span class="n">define_values</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span><span class="p">,</span>  <span class="c"># matches --define foo=bar</span>
-        <span class="s">"baz"</span><span class="p">:</span> <span class="s">"bat"</span><span class="p">,</span>  <span class="c"># matches --define baz=bat</span>
-    <span class="p">},</span>
+        <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span><span class="p">,</span>  <span class="c1"># matches --define foo=bar
+</span>        <span class="s">"baz"</span><span class="p">:</span> <span class="s">"bat"</span><span class="p">,</span>  <span class="c1"># matches --define baz=bat
+</span>    <span class="p">},</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
@@ -605,8 +552,8 @@ you want to build a target.
    <a href="platforms.html">Platforms</a>
 allow you to consolidate these into simple bundles.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># myapp/BUILD</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># myapp/BUILD
+</span>
 <span class="n">sh_binary</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_rocks"</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="n">select</span><span class="p">({</span>
@@ -632,8 +579,8 @@ allow you to consolidate these into simple bundles.</p>
     <span class="p">],</span>
 <span class="p">)</span>
 
-<span class="c"># constraint_setting acts as an enum type, and constraint_value as an enum value.</span>
-<span class="n">constraint_setting</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"color"</span><span class="p">)</span>
+<span class="c1"># constraint_setting acts as an enum type, and constraint_value as an enum value.
+</span><span class="n">constraint_setting</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"color"</span><span class="p">)</span>
 <span class="n">constraint_value</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"black"</span><span class="p">,</span> <span class="n">constraint_setting</span> <span class="o">=</span> <span class="s">"color"</span><span class="p">)</span>
 <span class="n">constraint_value</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">,</span> <span class="n">constraint_setting</span> <span class="o">=</span> <span class="s">"color"</span><span class="p">)</span>
 <span class="n">constraint_setting</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"texture"</span><span class="p">)</span>
@@ -675,8 +622,8 @@ we can simply run</p>
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel build //my_app:my_rocks <span class="nt">--define</span> <span class="nv">color</span><span class="o">=</span>white <span class="nt">--define</span> <span class="nv">texture</span><span class="o">=</span>smooth <span class="nt">--define</span> <span class="nb">type</span><span class="o">=</span>metamorphic
 </code></pre></div></div>
 
-<p>Platforms are still under development. See the <a href="https://docs.bazel.build/versions/master/platforms.html">documentation</a> and
-<a href="https://bazel.build/roadmaps/platforms.html">roadmap</a> for details.</p>
+<p>Platforms are still under development. See the <a href="platforms.html">documentation</a>
+and <a href="https://bazel.build/roadmaps/platforms.html">roadmap</a> for details.</p>
 
 <h2 id="short-keys">Short Keys</h2>
 
@@ -712,8 +659,8 @@ unwieldy. This can be mitigated with local variable definitions:</p>
 
 <p>Before:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># foo/BUILD</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># foo/BUILD
+</span>
 <span class="n">genrule</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_target"</span><span class="p">,</span>
     <span class="n">srcs</span> <span class="o">=</span> <span class="p">[],</span>
@@ -728,8 +675,8 @@ unwieldy. This can be mitigated with local variable definitions:</p>
 
 <p>After:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># foo/genrule_select.bzl</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># foo/genrule_select.bzl
+</span>
 <span class="k">def</span> <span class="nf">select_echo</span><span class="p">(</span><span class="n">input_dict</span><span class="p">):</span>
     <span class="n">echo_cmd</span> <span class="o">=</span> <span class="s">"echo </span><span class="si">%</span><span class="s">s &gt; $@"</span>
     <span class="n">out_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">"//conditions:default"</span><span class="p">:</span> <span class="n">echo_cmd</span> <span class="o">%</span> <span class="s">"default output"</span><span class="p">}</span>
@@ -739,8 +686,8 @@ unwieldy. This can be mitigated with local variable definitions:</p>
     <span class="k">return</span> <span class="n">select</span><span class="p">(</span><span class="n">out_dict</span><span class="p">)</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># foo/BUILD</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># foo/BUILD
+</span>
 <span class="n">load</span><span class="p">(</span><span class="s">"//foo:genrule_select.bzl"</span><span class="p">,</span> <span class="s">"select_echo"</span><span class="p">)</span>
 
 <span class="n">genrule</span><span class="p">(</span>
@@ -772,8 +719,8 @@ unwieldy. This can be mitigated with local variable definitions:</p>
 <span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">select</code> cannot appear inside another <code class="highlighter-rouge">select</code> (i.e. <em><code class="highlighter-rouge">AND</code> chaining</em>). If you
-need to <code class="highlighter-rouge">AND</code> selects together, either use an intermediate target:</p>
+<p><code class="highlighter-rouge">select</code> cannot appear inside another <code class="highlighter-rouge">select</code>. If you need to nest <code class="highlighter-rouge">selects</code>
+use an intermediate target:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sh_binary</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_target"</span><span class="p">,</span>
@@ -793,21 +740,11 @@ need to <code class="highlighter-rouge">AND</code> selects together, either use 
 <span class="p">)</span>
 </code></pre></div></div>
 
-<p>or write a <a href="skylark/macros.html">macro</a> to do the same thing
-automatically.</p>
+<p>Note that this approach doesn’t work for non-deps attributes (like
+<a href="be/general.html#genrule.cmd">genrule:cmd</a>).</p>
 
-<p>This approach doesn’t work for non-deps attributes (like
-<a href="be/general.html#genrule.cmd">genrule:cmd</a>). For these, extra <code class="highlighter-rouge">config_settings</code>
-may be necessary:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config_setting</span><span class="p">(</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s">"armeabi_and_opt"</span><span class="p">,</span>
-    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">"cpu"</span><span class="p">:</span> <span class="s">"armeabi"</span><span class="p">,</span>
-        <span class="s">"compilation_mode"</span><span class="p">:</span> <span class="s">"opt"</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">)</span>
-</code></pre></div></div>
+<p>If you just need a <code class="highlighter-rouge">select</code> to match when multiple conditions match, see <a href="#and-chaining">AND
+chaining</a>.</p>
 
 <h2 id="or-chaining">OR Chaining</h2>
 
@@ -848,10 +785,17 @@ maintain, and refactoring-unfriendly. It would be nice to not have to repeat
 <p>This makes it easier to manage the dependency. But it still adds unnecessary
 duplication.</p>
 
-<p><code class="highlighter-rouge">select()</code> doesn’t support native syntax for <code class="highlighter-rouge">OR</code>ed conditions. For this, use
-the <a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a> utility <a href="https://github.com/bazelbuild/bazel-skylib/blob/master/lib/selects.bzl"><code class="highlighter-rouge">selects</code></a>.</p>
+<p>For more direct support, use one of the following:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//:lib.bzl"</span><span class="p">,</span> <span class="s">"selects"</span><span class="p">)</span>
+<h3 id="selectswith_or"><a name="selects-with-or"></a><code class="highlighter-rouge">selects.with_or</code></h3>
+
+<p>The
+<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/docs/selects_doc.html#selectswith_or">with_or</a>
+macro in <a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a>’s
+<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/docs/selects_doc.html"><code class="highlighter-rouge">selects</code></a>
+module supports <code class="highlighter-rouge">OR</code>ing conditions directly inside a <code class="highlighter-rouge">select</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//lib:selects.bzl"</span><span class="p">,</span> <span class="s">"selects"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sh_binary</span><span class="p">(</span>
@@ -864,9 +808,80 @@ the <a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a> utility <a h
 <span class="p">)</span>
 </code></pre></div></div>
 
-<p>This automatically expands the <code class="highlighter-rouge">select</code> to the original syntax above.</p>
+<h3 id="selectsconfig_setting_group"><a name="selects-config-setting-or-group"></a><code class="highlighter-rouge">selects.config_setting_group</code></h3>
 
-<p>For <code class="highlighter-rouge">AND</code> chaining, see <a href="#multiple-selects">here</a>.</p>
+<p>The
+<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/docs/selects_doc.html#selectsconfig_setting_group">config_setting_group</a>
+macro in <a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a>’s
+<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/docs/selects_doc.html"><code class="highlighter-rouge">selects</code></a>
+module supports <code class="highlighter-rouge">OR</code>ing multiple <code class="highlighter-rouge">config_setting</code>s:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//lib:selects.bzl"</span><span class="p">,</span> <span class="s">"selects"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config_setting</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"config1"</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s">"cpu"</span><span class="p">:</span> <span class="s">"arm"</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">config_setting</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"config2"</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s">"compilation_mode"</span><span class="p">:</span> <span class="s">"dbg"</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">selects</span><span class="o">.</span><span class="n">config_setting_group</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"config1_or_2"</span><span class="p">,</span>
+    <span class="n">match_any</span> <span class="o">=</span> <span class="p">[</span><span class="s">":config1"</span><span class="p">,</span> <span class="s">":config2"</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">sh_binary</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"my_target"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"always_include.sh"</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="n">select</span><span class="p">({</span>
+        <span class="s">":config1_or_2"</span><span class="p">:</span> <span class="p">[</span><span class="s">":standard_lib"</span><span class="p">],</span>
+        <span class="s">"//conditions:default"</span><span class="p">:</span> <span class="p">[</span><span class="s">":other_lib"</span><span class="p">],</span>
+    <span class="p">}),</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Unlike <code class="highlighter-rouge">selects.with_or</code>, different rules can <code class="highlighter-rouge">select</code> on <code class="highlighter-rouge">:config1_or_2</code>
+with different values.</p>
+
+<p>Note that it’s an error for multiple conditions to match unless one is a
+“specialization” of the other. See <a href="be/functions.html#select">select()</a>
+documentation for details.</p>
+
+<h2 id="and-chaining">And Chaining</h2>
+
+<p>If you need a <code class="highlighter-rouge">select</code> path to match when multiple conditions match, use the
+<a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a> macro
+<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/docs/selects_doc.html#selectsconfig_setting_group">config_setting_group</a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//lib:selects.bzl"</span><span class="p">,</span> <span class="s">"selects"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config_setting</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"config1"</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s">"cpu"</span><span class="p">:</span> <span class="s">"arm"</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">config_setting</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"config2"</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s">"compilation_mode"</span><span class="p">:</span> <span class="s">"dbg"</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">selects</span><span class="o">.</span><span class="n">config_setting_group</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"config1_and_2"</span><span class="p">,</span>
+    <span class="n">match_all</span> <span class="o">=</span> <span class="p">[</span><span class="s">":config1"</span><span class="p">,</span> <span class="s">":config2"</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">sh_binary</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"my_target"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"always_include.sh"</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="n">select</span><span class="p">({</span>
+        <span class="s">":config1_and_2"</span><span class="p">:</span> <span class="p">[</span><span class="s">":standard_lib"</span><span class="p">],</span>
+        <span class="s">"//conditions:default"</span><span class="p">:</span> <span class="p">[</span><span class="s">":other_lib"</span><span class="p">],</span>
+        <span class="p">}),</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Unlike OR chaining, existing <code class="highlighter-rouge">config_setting</code>s can’t be <code class="highlighter-rouge">AND</code>ed together
+directly inside a <code class="highlighter-rouge">select</code>: you have to explicitly declare the
+<code class="highlighter-rouge">config_setting_group</code>.</p>
 
 <h2 id="custom-error-messages">Custom Error Messages</h2>
 
@@ -902,8 +917,8 @@ build with an Android or Windows toolchain
 <p>Rule implementations receive the <em>resolved values</em> of configurable
 attributes. For example, given:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># myproject/BUILD</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># myproject/BUILD
+</span>
 <span class="n">some_rule</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_target"</span><span class="p">,</span>
     <span class="n">some_attr</span> <span class="o">=</span> <span class="n">select</span><span class="p">({</span>
@@ -954,8 +969,8 @@ attributes. It doesn’t have full feature parity with query but supports most
 major functionality and is actively being worked on.
 Querying the following build file…</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># myproject/BUILD</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># myproject/BUILD
+</span>
 <span class="n">cc_library</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_lib"</span><span class="p">,</span>
     <span class="n">deps</span> <span class="o">=</span> <span class="n">select</span><span class="p">({</span>
@@ -1001,32 +1016,32 @@ Here’s an end-to-end example:</p>
 
 <p>Define a rule and macro:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># myproject/defs.bzl</span>
-
-<span class="c"># Rule implementation: when an attribute is read, all select()s have already</span>
-<span class="c"># been resolved. So it looks like a plain old attribute just like any other.</span>
-<span class="k">def</span> <span class="nf">_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># myproject/defs.bzl
+</span>
+<span class="c1"># Rule implementation: when an attribute is read, all select()s have already
+# been resolved. So it looks like a plain old attribute just like any other.
+</span><span class="k">def</span> <span class="nf">_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">name</span>
-    <span class="n">allcaps</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">my_config_string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>  <span class="c"># This works fine on all values.</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"My name is "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" with custom message: "</span> <span class="o">+</span> <span class="n">allcaps</span><span class="p">)</span>
+    <span class="n">allcaps</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">my_config_string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>  <span class="c1"># This works fine on all values.
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"My name is "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" with custom message: "</span> <span class="o">+</span> <span class="n">allcaps</span><span class="p">)</span>
 
-<span class="c"># Rule declaration:</span>
-<span class="n">my_custom_bazel_rule</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+<span class="c1"># Rule declaration:
+</span><span class="n">my_custom_bazel_rule</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
     <span class="n">implementation</span> <span class="o">=</span> <span class="n">_impl</span><span class="p">,</span>
     <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"my_config_string"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">string</span><span class="p">()},</span>
 <span class="p">)</span>
 
-<span class="c"># Macro declaration:</span>
-<span class="k">def</span> <span class="nf">my_custom_bazel_macro</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">my_config_string</span><span class="p">):</span>
-    <span class="n">allcaps</span> <span class="o">=</span> <span class="n">my_config_string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>  <span class="c"># This line won't work with select(s).</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"My name is "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" with custom message: "</span> <span class="o">+</span> <span class="n">allcaps</span><span class="p">)</span>
+<span class="c1"># Macro declaration:
+</span><span class="k">def</span> <span class="nf">my_custom_bazel_macro</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">my_config_string</span><span class="p">):</span>
+    <span class="n">allcaps</span> <span class="o">=</span> <span class="n">my_config_string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>  <span class="c1"># This line won't work with select(s).
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"My name is "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" with custom message: "</span> <span class="o">+</span> <span class="n">allcaps</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Instantiate the rule and macro:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># myproject/BUILD</span>
-
-<span class="n">load</span><span class="p">(</span><span class="s">"//myproject:defx.bzl"</span><span class="p">,</span> <span class="s">"my_custom_bazel_rule"</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># myproject/BUILD
+</span>
+<span class="n">load</span><span class="p">(</span><span class="s">"//myproject:defs.bzl"</span><span class="p">,</span> <span class="s">"my_custom_bazel_rule"</span><span class="p">)</span>
 <span class="n">load</span><span class="p">(</span><span class="s">"//myproject:defs.bzl"</span><span class="p">,</span> <span class="s">"my_custom_bazel_macro"</span><span class="p">)</span>
 
 <span class="n">my_custom_bazel_rule</span><span class="p">(</span>
@@ -1079,8 +1094,8 @@ information to evaluate select()s.</p>
 
 <p>Macros can, however, pass <code class="highlighter-rouge">select()</code>s as opaque blobs to rules:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># myproject/defs.bzl</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># myproject/defs.bzl
+</span>
 <span class="k">def</span> <span class="nf">my_custom_bazel_macro</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">my_config_string</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"Invoking macro "</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
     <span class="n">my_custom_bazel_rule</span><span class="p">(</span>
@@ -1097,7 +1112,7 @@ DEBUG: /myworkspace/myproject/defs.bzl:15:3: My name is sad_macro_less_sad with 
 <h2 id="why-does-select-always-return-true"><a name="boolean-select"></a>Why does select() always return true?</h2>
 <p>Because <em>macros</em> (but not rules) by definition
 <a href="#macros-select">can’t evaluate select(s)</a>, any attempt to do so
-usually produces a an error:</p>
+usually produces an error:</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: /myworkspace/myproject/BUILD:17:1: Traceback
   <span class="o">(</span>most recent call last<span class="o">)</span>:
@@ -1117,7 +1132,7 @@ def my_boolean_macro<span class="o">(</span>boolval<span class="o">)</span>:
   print<span class="o">(</span><span class="s2">"TRUE"</span> <span class="k">if </span>boolval <span class="k">else</span> <span class="s2">"FALSE"</span><span class="o">)</span>
 
 <span class="nv">$ </span><span class="nb">cat </span>myproject/BUILD
-load<span class="o">(</span><span class="s2">"//myproject:defx.bzl"</span>, <span class="s2">"my_boolean_macro"</span><span class="o">)</span>
+load<span class="o">(</span><span class="s2">"//myproject:defs.bzl"</span>, <span class="s2">"my_boolean_macro"</span><span class="o">)</span>
 my_boolean_macro<span class="o">(</span>
     boolval <span class="o">=</span> <span class="k">select</span><span class="o">({</span>
         <span class="s2">"//tools/target_cpu:x86"</span>: True,
@@ -1192,12 +1207,114 @@ def selecty_genrule<span class="o">(</span>name, select_cmd<span class="o">)</sp
     <span class="o">)</span>
 </code></pre></div></div>
 
+<h2 id="why-doesnt-select-work-with-bind"><a name="bind-select"></a>Why doesn’t select() work with bind()?</h2>
+
+<p>Because <a href="be/workspace.html#bind"><code class="highlighter-rouge">bind()</code></a> is a WORKSPACE rule, not a BUILD rule.</p>
+
+<p>Workspace rules do not have a specific configuration, and aren’t evaluated in
+the same way as BUILD rules. Therefore, a <code class="highlighter-rouge">select()</code> in a <code class="highlighter-rouge">bind()</code> can’t
+actually evaluate to any specific branch.</p>
+
+<p>Instead, you should use <a href="be/general.html#alias"><code class="highlighter-rouge">alias()</code></a>, with a <code class="highlighter-rouge">select()</code> in
+the <code class="highlighter-rouge">actual</code> attribute, to perform this type of run-time determination. This
+works correctly, since <code class="highlighter-rouge">alias()</code> is a BUILD rule, and is evaluated with a
+specific configuration.</p>
+
+<p>You can even have a <code class="highlighter-rouge">bind()</code> target point to an <code class="highlighter-rouge">alias()</code>, if needed.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>WORKSPACE
+workspace<span class="o">(</span>name <span class="o">=</span> <span class="s2">"myproject"</span><span class="o">)</span>
+<span class="nb">bind</span><span class="o">(</span>name <span class="o">=</span> <span class="s2">"openssl"</span>, actual <span class="o">=</span> <span class="s2">"//:ssl"</span><span class="o">)</span>
+http_archive<span class="o">(</span>name <span class="o">=</span> <span class="s2">"alternative"</span>, ...<span class="o">)</span>
+http_archive<span class="o">(</span>name <span class="o">=</span> <span class="s2">"boringssl"</span>, ...<span class="o">)</span>
+
+<span class="nv">$ </span><span class="nb">cat </span>BUILD
+config_setting<span class="o">(</span>
+    name <span class="o">=</span> <span class="s2">"alt_ssl"</span>,
+    define_values <span class="o">=</span> <span class="o">{</span>
+        <span class="s2">"ssl_library"</span>: <span class="s2">"alternative"</span>,
+    <span class="o">}</span>,
+<span class="o">)</span>
+
+<span class="nb">alias</span><span class="o">(</span>
+    name <span class="o">=</span> <span class="s2">"ssl"</span>,
+    actual <span class="o">=</span> <span class="k">select</span><span class="o">({</span>
+        <span class="s2">"//:alt_ssl"</span>: <span class="s2">"@alternative//:ssl"</span>,
+        <span class="s2">"//conditions:default"</span>: <span class="s2">"@boringssl//:ssl"</span>,
+    <span class="o">})</span>,
+<span class="o">)</span>
+</code></pre></div></div>
+
+<p>With this setup, you can pass <code class="highlighter-rouge">--define ssl_library=alternative</code>, and any target
+that depends on either <code class="highlighter-rouge">//:ssl</code> or <code class="highlighter-rouge">//external:ssl</code> will see the alternative
+located at <code class="highlighter-rouge">@alternative//:ssl</code>.</p>
+
+        </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Configurable Build Attributes&body=Documentation URL: https://docs.bazel.build/versions/master/configurable-attributes.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h3"><a href="#contents">Contents</a></li>
+<li class="toc-entry toc-h2"><a href="#example">Example</a></li>
+<li class="toc-entry toc-h2"><a href="#configuration-conditions">Configuration Conditions</a></li>
+<li class="toc-entry toc-h2"><a href="#defaults">Defaults</a></li>
+<li class="toc-entry toc-h2"><a href="#custom-keys">Custom Keys</a></li>
+<li class="toc-entry toc-h2"><a href="#platforms">Platforms</a></li>
+<li class="toc-entry toc-h2"><a href="#short-keys">Short Keys</a></li>
+<li class="toc-entry toc-h2"><a href="#multiple-selects">Multiple Selects</a></li>
+<li class="toc-entry toc-h2"><a href="#or-chaining">OR Chaining</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#selectswith_or">selects.with_or</a></li>
+<li class="toc-entry toc-h3"><a href="#selectsconfig_setting_group">selects.config_setting_group</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#and-chaining">And Chaining</a></li>
+<li class="toc-entry toc-h2"><a href="#custom-error-messages">Custom Error Messages</a></li>
+<li class="toc-entry toc-h2"><a href="#rules-compatibility">Rules Compatibility</a></li>
+<li class="toc-entry toc-h2"><a href="#bazel-query-and-cquery">Bazel Query and Cquery</a></li>
+<li class="toc-entry toc-h2"><a href="#faq">FAQ</a></li>
+<li class="toc-entry toc-h2"><a href="#why-doesnt-select-work-in-macros">Why doesn’t select() work in macros?</a></li>
+<li class="toc-entry toc-h2"><a href="#why-does-select-always-return-true">Why does select() always return true?</a></li>
+<li class="toc-entry toc-h2"><a href="#can-i-read-select-like-a-dict">Can I read select() like a dict?</a></li>
+<li class="toc-entry toc-h2"><a href="#why-doesnt-select-work-with-bind">Why doesn’t select() work with bind()?</a></li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -1234,7 +1351,7 @@ def selecty_genrule<span class="o">(</span>name, select_cmd<span class="o">)</sp
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

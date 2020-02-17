@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>actions - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>actions - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/lib/actions.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/actions.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,67 +302,48 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <a href="../concepts.html">Extensions</a> &gt;
+<a href="skylark-overview.html">API reference</a> &gt;
+actions
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/lib/actions.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/lib/actions.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/lib/actions.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/lib/actions.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/lib/actions.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/lib/actions.html">0.17.1</option>
-              
-          </select>
-
-          <h1 id="modules.actions">actions</h1>
+<h1 id="modules.actions">actions</h1>
 
 Module providing functions to create actions. Access this module using <a href="ctx.html#actions"><code>ctx.actions</code></a>.
 
 <div class="toc">
-  <h2>Methods</h2>
+  <h2>Members</h2>
   <ul>
-          <li><a href="#args">args</a></li>
-              <li><a href="#declare_directory">declare_directory</a></li>
-              <li><a href="#declare_file">declare_file</a></li>
-              <li><a href="#do_nothing">do_nothing</a></li>
-              <li><a href="#expand_template">expand_template</a></li>
-              <li><a href="#run">run</a></li>
-              <li><a href="#run_shell">run_shell</a></li>
-              <li><a href="#write">write</a></li>
+          <li>
+      <a href="#args">args</a>
+          </li>
+              <li>
+      <a href="#declare_directory">declare_directory</a>
+          </li>
+              <li>
+      <a href="#declare_file">declare_file</a>
+          </li>
+              <li>
+      <a href="#declare_symlink">declare_symlink</a>
+          </li>
+              <li>
+      <a href="#do_nothing">do_nothing</a>
+          </li>
+              <li>
+      <a href="#expand_template">expand_template</a>
+          </li>
+              <li>
+      <a href="#run">run</a>
+          </li>
+              <li>
+      <a href="#run_shell">run_shell</a>
+          </li>
+              <li>
+      <a href="#symlink">symlink</a>
+          </li>
+              <li>
+      <a href="#write">write</a>
+          </li>
         </ul>
 </div>
 
@@ -390,9 +356,9 @@ Module providing functions to create actions. Access this module using <a href="
         <h2 id="declare_directory">declare_directory</h2>
         <p><pre class="rule-signature"><a class="anchor" href="File.html">File</a> actions.declare_directory(filename, *, sibling=None)</pre></p>
 
-    Declares that rule or aspect create a directory with the given name, in the current package. You must create an action that generates the directory.
+    Declares that the rule or aspect creates a directory with the given name, in the current package. You must create an action that generates the directory. The contents of the directory are not directly accessible from Starlark, but can be expanded in an action command with <a href="Args.html#add_all"><code>Args.add_all()</code></a>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -431,7 +397,7 @@ Module providing functions to create actions. Access this module using <a href="
 
     Declares that the rule or aspect creates a file with the given filename. If <code>sibling</code> is not specified, the file name is relative to the package directory, otherwise the file is in the same directory as <code>sibling</code>. Files cannot be created outside of the current package.<p>Remember that in addition to declaring a file, you must separately create an action that emits the file. Creating that action will require passing the returned <code>File</code> object to the action's construction function.<p>Note that <a href='../rules.html#files'>predeclared output files</a> do not need to be (and cannot be) declared using this function. You can obtain their <code>File</code> objects from <a href="ctx.html#outputs"><code>ctx.outputs</code></a> instead. <a href="https://github.com/bazelbuild/examples/tree/master/rules/computed_dependencies/hash.bzl">See example of use</a>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -465,12 +431,51 @@ Module providing functions to create actions. Access this module using <a href="
                 </tbody>
       </table>
 
+        <h2 id="declare_symlink">declare_symlink</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="File.html">File</a> actions.declare_symlink(filename, *, sibling=None)</pre></p>
+
+    <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_allow_unresolved_symlinks</code></p> <p>Declares that the rule or aspect creates a symlink with the given name in the current package. You must create an action that generates this symlink. Bazel will never dereference this symlink and will transfer it verbatim to sandboxes or remote executors.
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="declare_symlink.filename">
+              <code>filename</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>If no 'sibling' provided, path of the new symlink, relative to the current package. Otherwise a base name for a file ('sibling' defines a directory).</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="declare_symlink.sibling">
+              <code>sibling</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>A file that lives in the same directory as the newly declared symlink.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
         <h2 id="do_nothing">do_nothing</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.do_nothing(mnemonic, inputs=[])</pre></p>
 
     Creates an empty action that neither executes a command nor produces any output, but that is useful for inserting 'extra actions'.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -509,7 +514,7 @@ Module providing functions to create actions. Access this module using <a href="
 
     Creates a template expansion action. When the action is executed, it will generate a file based on a template. Parts of the template will be replaced using the <code>substitutions</code> dictionary, in the order the substitutions are specified. Whenever a key of the dictionary appears in the template (or a result of a previous substitution), it is replaced with the associated value. There is no special syntax for the keys. You may, for example, use curly braces to avoid conflicts (for example, <code>{KEY}</code>). <a href="https://github.com/bazelbuild/examples/blob/master/rules/expand_template/hello.bzl">See example of use</a>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -562,11 +567,11 @@ Module providing functions to create actions. Access this module using <a href="
       </table>
 
         <h2 id="run">run</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run(outputs, inputs=[], executable, tools=unbound, arguments=[], mnemonic=None, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run(outputs, inputs=[], unused_inputs_list=None, executable, tools=unbound, arguments=[], mnemonic=None, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None)</pre></p>
 
     Creates an action that runs an executable. <a href="https://github.com/bazelbuild/examples/tree/master/rules/actions_run/execute.bzl">See example of use</a>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -598,11 +603,20 @@ Module providing functions to create actions. Access this module using <a href="
             </td>
           </tr>
                   <tr>
+            <td id="run.unused_inputs_list">
+              <code>unused_inputs_list</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>File containing list of inputs unused by the action. <p>The content of this file (generally one of the outputs of the action) corresponds to  the list of input files that were not used during the whole action execution. Any change in those files must not affect in any way the outputs of the action.</p>
+            </td>
+          </tr>
+                  <tr>
             <td id="run.executable">
               <code>executable</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="File.html">File</a>; or <a class="anchor" href="string.html">string</a></code></p>
+                          <p><code><a class="anchor" href="File.html">File</a>; or <a class="anchor" href="string.html">string</a>; or <a class="anchor" href="FilesToRunProvider.html">FilesToRunProvider</a></code></p>
                           <p>The executable file to be called by the action.</p>
             </td>
           </tr>
@@ -611,7 +625,7 @@ Module providing functions to create actions. Access this module using <a href="
               <code>tools</code>
             </td>
             <td>
-                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="File.html">File</a>s; or <a class="anchor" href="depset.html">depset</a> of <a class="anchor" href="File.html">File</a>s</code></p>
+                          <p><code><a class="anchor" href="list.html">sequence</a>; or <a class="anchor" href="depset.html">depset</a></code></p>
                           <p>List or depset of any tools needed by the action. Tools are inputs with additional runfiles that are automatically made available to the action.</p>
             </td>
           </tr>
@@ -684,9 +698,9 @@ Module providing functions to create actions. Access this module using <a href="
         <h2 id="run_shell">run_shell</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run_shell(outputs, inputs=[], tools=unbound, arguments=[], mnemonic=None, command, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None)</pre></p>
 
-    Creates an action that runs a shell command. <a href="https://github.com/bazelbuild/examples/tree/master/rules/shell_command/size.bzl">See example of use</a>.
+    Creates an action that runs a shell command. <a href="https://github.com/bazelbuild/examples/tree/master/rules/shell_command/rules.bzl">See example of use</a>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -723,7 +737,7 @@ Module providing functions to create actions. Access this module using <a href="
             </td>
             <td>
                           <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="File.html">File</a>s; or <a class="anchor" href="depset.html">depset</a> of <a class="anchor" href="File.html">File</a>s</code></p>
-                          <p>List or depset of any tools needed by the action. Tools are inputs with additional runfiles that are automatically made available to the action.</p>
+                          <p>List or depset of any tools needed by the action. Tools are inputs with additional runfiles that are automatically made available to the action. The list can contain Files or FilesToRunProvider instances.</p>
             </td>
           </tr>
                   <tr>
@@ -750,7 +764,7 @@ Module providing functions to create actions. Access this module using <a href="
             </td>
             <td>
                           <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
-                          <p>Shell command to execute. This may either be a string (preferred) or a sequence of strings <b>(deprecated)</b>.<p>If <code>command</code> is a string, then it is executed as if by <code>sh -c &lt;command&gt; "" &lt;arguments&gt;</code> -- that is, the elements in <code>arguments</code> are made available to the command as <code>$1</code>, <code>$2</code>, etc. If <code>arguments</code> contains any <a href="actions.html#args"><code>actions.args()</code></a> objects, their contents are appended one by one to the command line, so <code>$</code><i>i</i> can refer to individual strings within an Args object. Note that if an Args object of unknown size is passed as part of <code>arguments</code>, then the strings will be at unknown indices; in this case the <code>$@</code> shell substitution (retrieve all arguments) may be useful.<p><b>(Deprecated)</b> If <code>command</code> is a sequence of strings, the first item is the executable to run and the remaining items are its arguments. If this form is used, the <code>arguments</code> parameter must not be supplied.<p>Bazel uses the same shell to execute the command as it does for genrules.</p>
+                          <p>Shell command to execute. This may either be a string (preferred) or a sequence of strings <b>(deprecated)</b>.<p>If <code>command</code> is a string, then it is executed as if by <code>sh -c &lt;command&gt; "" &lt;arguments&gt;</code> -- that is, the elements in <code>arguments</code> are made available to the command as <code>$1</code>, <code>$2</code>, etc. If <code>arguments</code> contains any <a href="actions.html#args"><code>actions.args()</code></a> objects, their contents are appended one by one to the command line, so <code>$</code><i>i</i> can refer to individual strings within an Args object. Note that if an Args object of unknown size is passed as part of <code>arguments</code>, then the strings will be at unknown indices; in this case the <code>$@</code> shell substitution (retrieve all arguments) may be useful.<p><b>(Deprecated)</b> If <code>command</code> is a sequence of strings, the first item is the executable to run and the remaining items are its arguments. If this form is used, the <code>arguments</code> parameter must not be supplied. <i>Note that this form is deprecated and will soon be removed. It is disabled with `--incompatible_run_shell_command_string`. Use this flag to verify your code is compatible. </i><p>Bazel uses the same shell to execute the command as it does for genrules.</p>
             </td>
           </tr>
                   <tr>
@@ -801,12 +815,51 @@ Module providing functions to create actions. Access this module using <a href="
                 </tbody>
       </table>
 
+        <h2 id="symlink">symlink</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.symlink(output, target)</pre></p>
+
+    <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_allow_unresolved_symlinks</code></p><p>Creates a symlink in the file system. If the output file is a regular file, the symlink must point to a file. If the output is an unresolved symlink, a dangling symlink is allowed.
+
+          <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="symlink.output">
+              <code>output</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>The output path.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="symlink.target">
+              <code>target</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>The target.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
         <h2 id="write">write</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.write(output, content, is_executable=False)</pre></p>
 
     Creates a file write action. When the action is executed, it will write the given content to a file. This is used to generate files using information available in the analysis phase. If the file is large and with a lot of static content, consider using <a href="#expand_template"><code>expand_template</code></a>.
 
-          <h3>Parameters</h3>
+          <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -852,11 +905,59 @@ Module providing functions to create actions. Access this module using <a href="
 
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: actions&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/actions.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#args">args</a></li>
+<li class="toc-entry toc-h2"><a href="#declare_directory">declare_directory</a></li>
+<li class="toc-entry toc-h2"><a href="#declare_file">declare_file</a></li>
+<li class="toc-entry toc-h2"><a href="#declare_symlink">declare_symlink</a></li>
+<li class="toc-entry toc-h2"><a href="#do_nothing">do_nothing</a></li>
+<li class="toc-entry toc-h2"><a href="#expand_template">expand_template</a></li>
+<li class="toc-entry toc-h2"><a href="#run">run</a></li>
+<li class="toc-entry toc-h2"><a href="#run_shell">run_shell</a></li>
+<li class="toc-entry toc-h2"><a href="#symlink">symlink</a></li>
+<li class="toc-entry toc-h2"><a href="#write">write</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -893,7 +994,7 @@ Module providing functions to create actions. Access this module using <a href="
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

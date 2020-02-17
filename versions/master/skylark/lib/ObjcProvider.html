@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ObjcProvider - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>ObjcProvider - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/lib/ObjcProvider.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/ObjcProvider.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,128 +302,166 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
+        <div class="col-md-7">
+          <a href="../concepts.html">Extensions</a> &gt;
+<a href="skylark-overview.html">API reference</a> &gt;
+ObjcProvider
 
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/lib/ObjcProvider.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/lib/ObjcProvider.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/lib/ObjcProvider.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/lib/ObjcProvider.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/lib/ObjcProvider.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/lib/ObjcProvider.html">0.17.1</option>
-              
-          </select>
-
-          <h1 id="modules.ObjcProvider">ObjcProvider</h1>
+<h1 id="modules.ObjcProvider">ObjcProvider</h1>
 
 A provider for compilation and linking of objc.
 
 <div class="toc">
-  <h2>Methods</h2>
+  <h2>Members</h2>
   <ul>
-          <li><a href="#asset_catalog">asset_catalog</a></li>
-              <li><a href="#bundle_file">bundle_file</a></li>
-              <li><a href="#define">define</a></li>
-              <li><a href="#dynamic_framework_dir">dynamic_framework_dir</a></li>
-              <li><a href="#dynamic_framework_file">dynamic_framework_file</a></li>
-              <li><a href="#exported_debug_artifacts">exported_debug_artifacts</a></li>
-              <li><a href="#force_load_library">force_load_library</a></li>
-              <li><a href="#framework_dir">framework_dir</a></li>
-              <li><a href="#framework_search_path_only">framework_search_path_only</a></li>
-              <li><a href="#header">header</a></li>
-              <li><a href="#imported_library">imported_library</a></li>
-              <li><a href="#include">include</a></li>
-              <li><a href="#include_system">include_system</a></li>
-              <li><a href="#iquote">iquote</a></li>
-              <li><a href="#j2objc_library">j2objc_library</a></li>
-              <li><a href="#jre_library">jre_library</a></li>
-              <li><a href="#library">library</a></li>
-              <li><a href="#link_inputs">link_inputs</a></li>
-              <li><a href="#linked_binary">linked_binary</a></li>
-              <li><a href="#linkmap_file">linkmap_file</a></li>
-              <li><a href="#linkopt">linkopt</a></li>
-              <li><a href="#merge_zip">merge_zip</a></li>
-              <li><a href="#module_map">module_map</a></li>
-              <li><a href="#multi_arch_dynamic_libraries">multi_arch_dynamic_libraries</a></li>
-              <li><a href="#multi_arch_linked_archives">multi_arch_linked_archives</a></li>
-              <li><a href="#multi_arch_linked_binaries">multi_arch_linked_binaries</a></li>
-              <li><a href="#root_merge_zip">root_merge_zip</a></li>
-              <li><a href="#sdk_dylib">sdk_dylib</a></li>
-              <li><a href="#sdk_framework">sdk_framework</a></li>
-              <li><a href="#source">source</a></li>
-              <li><a href="#static_framework_file">static_framework_file</a></li>
-              <li><a href="#storyboard">storyboard</a></li>
-              <li><a href="#strings">strings</a></li>
-              <li><a href="#umbrella_header">umbrella_header</a></li>
-              <li><a href="#weak_sdk_framework">weak_sdk_framework</a></li>
-              <li><a href="#xcassets_dir">xcassets_dir</a></li>
-              <li><a href="#xcdatamodel">xcdatamodel</a></li>
-              <li><a href="#xib">xib</a></li>
+          <li>
+      <a href="#define">define</a>
+          </li>
+              <li>
+      <a href="#direct_headers">direct_headers</a>
+          </li>
+              <li>
+      <a href="#direct_module_maps">direct_module_maps</a>
+          </li>
+              <li>
+      <a href="#direct_sources">direct_sources</a>
+          </li>
+              <li>
+      <a href="#dynamic_framework_file">dynamic_framework_file</a>
+          </li>
+              <li>
+      <a href="#dynamic_framework_names">dynamic_framework_names</a>
+          </li>
+              <li>
+      <a href="#dynamic_framework_paths">dynamic_framework_paths</a>
+          </li>
+              <li>
+      <a href="#exported_debug_artifacts">exported_debug_artifacts</a>
+          </li>
+              <li>
+      <a href="#force_load_library">force_load_library</a>
+          </li>
+              <li>
+      <a href="#framework_search_path_only">framework_search_path_only</a>
+          </li>
+              <li>
+      <a href="#header">header</a>
+          </li>
+              <li>
+      <a href="#imported_library">imported_library</a>
+          </li>
+              <li>
+      <a href="#include">include</a>
+          </li>
+              <li>
+      <a href="#include_system">include_system</a>
+          </li>
+              <li>
+      <a href="#iquote">iquote</a>
+          </li>
+              <li>
+      <a href="#j2objc_library">j2objc_library</a>
+          </li>
+              <li>
+      <a href="#jre_library">jre_library</a>
+          </li>
+              <li>
+      <a href="#library">library</a>
+          </li>
+              <li>
+      <a href="#link_inputs">link_inputs</a>
+          </li>
+              <li>
+      <a href="#linked_binary">linked_binary</a>
+          </li>
+              <li>
+      <a href="#linkmap_file">linkmap_file</a>
+          </li>
+              <li>
+      <a href="#linkopt">linkopt</a>
+          </li>
+              <li>
+      <a href="#merge_zip">merge_zip</a>
+          </li>
+              <li>
+      <a href="#module_map">module_map</a>
+          </li>
+              <li>
+      <a href="#multi_arch_dynamic_libraries">multi_arch_dynamic_libraries</a>
+          </li>
+              <li>
+      <a href="#multi_arch_linked_archives">multi_arch_linked_archives</a>
+          </li>
+              <li>
+      <a href="#multi_arch_linked_binaries">multi_arch_linked_binaries</a>
+          </li>
+              <li>
+      <a href="#sdk_dylib">sdk_dylib</a>
+          </li>
+              <li>
+      <a href="#sdk_framework">sdk_framework</a>
+          </li>
+              <li>
+      <a href="#source">source</a>
+          </li>
+              <li>
+      <a href="#static_framework_file">static_framework_file</a>
+          </li>
+              <li>
+      <a href="#static_framework_names">static_framework_names</a>
+          </li>
+              <li>
+      <a href="#static_framework_paths">static_framework_paths</a>
+          </li>
+              <li>
+      <a href="#umbrella_header">umbrella_header</a>
+          </li>
+              <li>
+      <a href="#weak_sdk_framework">weak_sdk_framework</a>
+          </li>
         </ul>
 </div>
 
-      <h2 id="asset_catalog">asset_catalog</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.asset_catalog</pre></p>
-
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Asset catalog resource files.
-
-
-        <h2 id="bundle_file">bundle_file</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.bundle_file</pre></p>
-
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Files that are plopped into the final bundle at some arbitrary bundle path.
-
-
-        <h2 id="define">define</h2>
+      <h2 id="define">define</h2>
         <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.define</pre></p>
 
     A set of strings from 'defines' attributes. These are to be passed as '-D' flags to all invocations of the compiler for this target and all depending targets.
 
 
-        <h2 id="dynamic_framework_dir">dynamic_framework_dir</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.dynamic_framework_dir</pre></p>
+        <h2 id="direct_headers">direct_headers</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> ObjcProvider.direct_headers</pre></p>
 
-    Exec paths of .framework directories corresponding to dynamic frameworks to link.
+    Header files from this target directly (no transitive headers). These may be either public or private headers.
+
+
+        <h2 id="direct_module_maps">direct_module_maps</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> ObjcProvider.direct_module_maps</pre></p>
+
+    Module map files from this target directly (no transitive module maps). Used to enforce proper use of private header files and for Swift compilation.
+
+
+        <h2 id="direct_sources">direct_sources</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> ObjcProvider.direct_sources</pre></p>
+
+    All direct source files from this target (no transitive files).
 
 
         <h2 id="dynamic_framework_file">dynamic_framework_file</h2>
         <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.dynamic_framework_file</pre></p>
 
-    Files in .framework directories belonging to a dynamically linked framework.
+    The library files in .framework directories belonging to a dynamically linked framework.
+
+
+        <h2 id="dynamic_framework_names">dynamic_framework_names</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.dynamic_framework_names</pre></p>
+
+    Returns all names of dynamic frameworks in this provider.
+
+
+        <h2 id="dynamic_framework_paths">dynamic_framework_paths</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.dynamic_framework_paths</pre></p>
+
+    Returns all framework paths to dynamic frameworks in this provider.
 
 
         <h2 id="exported_debug_artifacts">exported_debug_artifacts</h2>
@@ -451,12 +474,6 @@ A provider for compilation and linking of objc.
         <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.force_load_library</pre></p>
 
     Libraries to load with -force_load.
-
-
-        <h2 id="framework_dir">framework_dir</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.framework_dir</pre></p>
-
-    Returns all unique static framework directories (directories ending in '.framework') for all static framework files in this provider.
 
 
         <h2 id="framework_search_path_only">framework_search_path_only</h2>
@@ -540,7 +557,7 @@ A provider for compilation and linking of objc.
         <h2 id="merge_zip">merge_zip</h2>
         <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.merge_zip</pre></p>
 
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Merge zips to include in the bundle. The entries of these zip files are included in the final bundle with the same path. The entries in the merge zips should not include the bundle root path (e.g. 'Foo.app').
+    Merge zips to include in the bundle. The entries of these zip files are included in the final bundle with the same path. The entries in the merge zips should not include the bundle root path (e.g. 'Foo.app').
 
 
         <h2 id="module_map">module_map</h2>
@@ -567,12 +584,6 @@ A provider for compilation and linking of objc.
     Combined-architecture binaries to include in the final bundle.
 
 
-        <h2 id="root_merge_zip">root_merge_zip</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.root_merge_zip</pre></p>
-
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Merge zips to include in the ipa and outside the bundle root.
-
-
         <h2 id="sdk_dylib">sdk_dylib</h2>
         <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.sdk_dylib</pre></p>
 
@@ -594,19 +605,19 @@ A provider for compilation and linking of objc.
         <h2 id="static_framework_file">static_framework_file</h2>
         <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.static_framework_file</pre></p>
 
-    Files in .framework directories that should be statically included as inputs when compiling and linking.
+    The library files in .framework directories that should be statically linked.
 
 
-        <h2 id="storyboard">storyboard</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.storyboard</pre></p>
+        <h2 id="static_framework_names">static_framework_names</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.static_framework_names</pre></p>
 
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Files for storyboard sources.
+    Returns all names of static frameworks in this provider.
 
 
-        <h2 id="strings">strings</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.strings</pre></p>
+        <h2 id="static_framework_paths">static_framework_paths</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.static_framework_paths</pre></p>
 
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Files for strings source files.
+    Returns all framework paths to static frameworks in this provider.
 
 
         <h2 id="umbrella_header">umbrella_header</h2>
@@ -621,32 +632,87 @@ A provider for compilation and linking of objc.
     Names of SDK frameworks to weakly link with. For instance, 'MediaAccessibility'. In difference to regularly linked SDK frameworks, symbols from weakly linked frameworks do not cause an error if they are not present at runtime.
 
 
-        <h2 id="xcassets_dir">xcassets_dir</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.xcassets_dir</pre></p>
-
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>The set of all unique asset catalog directories (*.xcassets) containing files in 'asset_catalogs'.
 
 
-        <h2 id="xcdatamodel">xcdatamodel</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.xcdatamodel</pre></p>
+        </div>
 
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Files that comprise the data models of the final linked binary.
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: ObjcProvider&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/ObjcProvider.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
 
-
-        <h2 id="xib">xib</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.xib</pre></p>
-
-    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_disable_objc_provider_resources</code>. Use this flag to verify your code is compatible with its imminent removal. <br>.xib resource files
-
-
-
-
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#define">define</a></li>
+<li class="toc-entry toc-h2"><a href="#direct_headers">direct_headers</a></li>
+<li class="toc-entry toc-h2"><a href="#direct_module_maps">direct_module_maps</a></li>
+<li class="toc-entry toc-h2"><a href="#direct_sources">direct_sources</a></li>
+<li class="toc-entry toc-h2"><a href="#dynamic_framework_file">dynamic_framework_file</a></li>
+<li class="toc-entry toc-h2"><a href="#dynamic_framework_names">dynamic_framework_names</a></li>
+<li class="toc-entry toc-h2"><a href="#dynamic_framework_paths">dynamic_framework_paths</a></li>
+<li class="toc-entry toc-h2"><a href="#exported_debug_artifacts">exported_debug_artifacts</a></li>
+<li class="toc-entry toc-h2"><a href="#force_load_library">force_load_library</a></li>
+<li class="toc-entry toc-h2"><a href="#framework_search_path_only">framework_search_path_only</a></li>
+<li class="toc-entry toc-h2"><a href="#header">header</a></li>
+<li class="toc-entry toc-h2"><a href="#imported_library">imported_library</a></li>
+<li class="toc-entry toc-h2"><a href="#include">include</a></li>
+<li class="toc-entry toc-h2"><a href="#include_system">include_system</a></li>
+<li class="toc-entry toc-h2"><a href="#iquote">iquote</a></li>
+<li class="toc-entry toc-h2"><a href="#j2objc_library">j2objc_library</a></li>
+<li class="toc-entry toc-h2"><a href="#jre_library">jre_library</a></li>
+<li class="toc-entry toc-h2"><a href="#library">library</a></li>
+<li class="toc-entry toc-h2"><a href="#link_inputs">link_inputs</a></li>
+<li class="toc-entry toc-h2"><a href="#linked_binary">linked_binary</a></li>
+<li class="toc-entry toc-h2"><a href="#linkmap_file">linkmap_file</a></li>
+<li class="toc-entry toc-h2"><a href="#linkopt">linkopt</a></li>
+<li class="toc-entry toc-h2"><a href="#merge_zip">merge_zip</a></li>
+<li class="toc-entry toc-h2"><a href="#module_map">module_map</a></li>
+<li class="toc-entry toc-h2"><a href="#multi_arch_dynamic_libraries">multi_arch_dynamic_libraries</a></li>
+<li class="toc-entry toc-h2"><a href="#multi_arch_linked_archives">multi_arch_linked_archives</a></li>
+<li class="toc-entry toc-h2"><a href="#multi_arch_linked_binaries">multi_arch_linked_binaries</a></li>
+<li class="toc-entry toc-h2"><a href="#sdk_dylib">sdk_dylib</a></li>
+<li class="toc-entry toc-h2"><a href="#sdk_framework">sdk_framework</a></li>
+<li class="toc-entry toc-h2"><a href="#source">source</a></li>
+<li class="toc-entry toc-h2"><a href="#static_framework_file">static_framework_file</a></li>
+<li class="toc-entry toc-h2"><a href="#static_framework_names">static_framework_names</a></li>
+<li class="toc-entry toc-h2"><a href="#static_framework_paths">static_framework_paths</a></li>
+<li class="toc-entry toc-h2"><a href="#umbrella_header">umbrella_header</a></li>
+<li class="toc-entry toc-h2"><a href="#weak_sdk_framework">weak_sdk_framework</a></li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -683,7 +749,7 @@ A provider for compilation and linking of objc.
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

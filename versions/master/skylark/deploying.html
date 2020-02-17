@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Deploying Rules - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Deploying Rules - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/deploying.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/deploying.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/skylark/deploying.html">master</option>
-              
-              <option value="/versions/0.19.2/skylark/deploying.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/skylark/deploying.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/skylark/deploying.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/skylark/deploying.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/skylark/deploying.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="deploying-rules">Deploying Rules</h1>
 
 <p>This documentation is for rule writers who are planning to make their
@@ -376,73 +316,202 @@ if you feel like your rules belong in the <a href="https://github.com/bazelbuild
 organization.</p>
 
 <p>Repository names for Bazel rules are standardized on the following format:
-*<organization>/rules_<name>*.
-See [examples on GitHub](https://github.com/search?q=rules+bazel&amp;type=Repositories).
-For consistency, you must follow this same format when publishing your Bazel rules.</name></organization></p>
+<code class="highlighter-rouge">$ORGANIZATION/rules_$NAME</code>.
+See <a href="https://github.com/search?q=rules+bazel&amp;type=Repositories">examples on GitHub</a>.
+For consistency, you must follow this same format when publishing your Bazel rules.</p>
 
 <p>Make sure to use a descriptive GitHub repository description and <code class="highlighter-rouge">README.html</code>
 title, example:</p>
 
 <ul>
-  <li>Repository: <em>bazelbuild/rules_go</em></li>
-  <li>Repository description: <em>“Go rules for Bazel”</em></li>
+  <li>Repository name: <code class="highlighter-rouge">bazelbuild/rules_go</code></li>
+  <li>Repository description: <em>Go rules for Bazel</em></li>
   <li>Repository tags: <code class="highlighter-rouge">golang</code>, <code class="highlighter-rouge">bazel</code></li>
-  <li><code class="highlighter-rouge">README.html</code> header: <em>“Go rules for <a href="https://bazel.build">Bazel</a>”</em>
+  <li><code class="highlighter-rouge">README.html</code> header: <em>Go rules for <a href="https://bazel.build">Bazel</a></em>
 (note the link to https://bazel.build which will guide users who are unfamiliar
 with Bazel to the right place)</li>
 </ul>
 
 <p>Rules can be grouped either by language (e.g., Scala) or some notion of platform
-(e.g., Android.</p>
+(e.g., Android).</p>
 
-<h2 id="rule-content">Rule content</h2>
+<h2 id="repository-content">Repository content</h2>
 
 <p>Every rule repository should have a certain layout so that users can quickly
 understand new rules.</p>
 
 <p>For example, suppose we are writing new rules for the (make-believe)
-mockascript language. We would have the following structure:</p>
+<code class="highlighter-rouge">mockascript</code> language. We would have the following structure:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.travis.yml
-README.html
-WORKSPACE
-mockascript/
-  BUILD
-  mockascript.bzl
-tests/
-  BUILD
-  some_test.sh
-  another_test.py
-examples/
-  BUILD
-  bin.mocs
-  lib.mocs
-  test.mocs
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/
+  LICENSE
+  README
+  WORKSPACE
+  mockascript/
+    constraints/
+      BUILD
+    runfiles/
+      BUILD
+      runfiles.mocs
+    BUILD
+    defs.bzl
+  tests/
+    BUILD
+    some_test.sh
+    another_test.py
+  examples/
+    BUILD
+    bin.mocs
+    lib.mocs
+    test.mocs
 </code></pre></div></div>
 
-<h3 id="readmehtml">README.html</h3>
+<h3 id="workspace">WORKSPACE</h3>
 
-<p>At the top level, there should be a README.html that contains (at least) what
+<p>In the project’s <code class="highlighter-rouge">WORKSPACE</code>, you should define the name that users will use
+to reference your rules. If your rules belong to the
+<a href="https://github.com/bazelbuild">bazelbuild</a> organization, you must use
+<code class="highlighter-rouge">rules_&lt;lang&gt;</code> (e.g. <code class="highlighter-rouge">rules_mockascript</code>). Otherwise, you should name your
+repository <code class="highlighter-rouge">&lt;org&gt;_rules_&lt;lang&gt;</code> (e.g. <code class="highlighter-rouge">build_stack_rules_proto</code>). Please contact
+<a href="https://groups.google.com/forum/#!forum/bazel-dev">bazel-dev mailing list</a>
+if you feel like your rules should follow the convention for rules in the
+<a href="https://github.com/bazelbuild">bazelbuild</a> organization.</p>
+
+<p>In the following sections, we will assume the repository belongs to the
+<a href="https://github.com/bazelbuild">bazelbuild</a> organization.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>workspace(name = "rules_mockascript")
+</code></pre></div></div>
+
+<h3 id="readme">README</h3>
+
+<p>At the top level, there should be a <code class="highlighter-rouge">README</code> that contains (at least) what
 users will need to copy-paste into their WORKSPACE file to use your rule.
-In general, this will be a <code class="highlighter-rouge">git_repository</code> pointing to your GitHub repo and
+In general, this will be a <code class="highlighter-rouge">http_archive</code> pointing to your GitHub release and
 a macro call that downloads/configures any tools your rule needs. For example,
-for the <a href="https://github.com/bazelbuild/rules_go/blob/master/README.html#setup">Go
+for the <a href="https://github.com/bazelbuild/rules_go#setup">Go
 rules</a>, this
 looks like:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git_repository(
-    name = "io_bazel_rules_go",
-    remote = "https://github.com/bazelbuild/rules_go.git",
-    tag = "0.0.2",
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+http_archive(
+    name = "rules_go",
+    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.18.5/rules_go-0.18.5.tar.gz"],
+    sha256 = "a82a352bffae6bee4e95f68a8d80a70e87f42c4741e6a448bec11998fcc82329",
 )
-load("@io_bazel_rules_go//go:def.bzl", "go_repositories")
-
-go_repositories()
+load("@rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
+go_rules_dependencies()
+go_register_toolchains()
 </code></pre></div></div>
 
-<p>If your rules depend on another repository’s rules, specify both in the
-<code class="highlighter-rouge">README.html</code> (see the <a href="https://github.com/bazelbuild/skydoc#setup">Skydoc rules</a>,
-which depend on the Sass rules, for an example of this).</p>
+<p>If your rules depend on another repository’s rules, specify that in the
+rules documentation (for example, see the
+<a href="https://skydoc.bazel.build/docs/getting_started_stardoc.html">Skydoc rules</a>,
+which depend on the Sass rules), and provide a WORKSPACE
+macro that will download all dependencies (see <code class="highlighter-rouge">rules_go</code> above).</p>
+
+<h3 id="rules">Rules</h3>
+
+<p>Often times there will be multiple rules provided by your repository. Create a
+directory named by the language and provide an entry point - <code class="highlighter-rouge">defs.bzl</code> file
+exporting all rules (also include a <code class="highlighter-rouge">BUILD</code> file so the directory is a package).
+For <code class="highlighter-rouge">rules_mockascript</code> that means there will be a directory named
+<code class="highlighter-rouge">mockascript</code>, and a <code class="highlighter-rouge">BUILD</code> file and a <code class="highlighter-rouge">defs.bzl</code> file inside:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/
+  mockascript/
+    BUILD
+    defs.bzl
+</code></pre></div></div>
+
+<h3 id="constraints">Constraints</h3>
+
+<p>If your rule defines
+<a href="https://docs.bazel.build/versions/master/toolchains.html">toolchain</a> rules,
+it’s possible that you’ll need to define custom <code class="highlighter-rouge">constraint_setting</code>s and/or
+<code class="highlighter-rouge">constraint_value</code>s. Put these into a <code class="highlighter-rouge">//&lt;LANG&gt;/constraints</code> package. Your
+directory structure will look like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/
+  mockascript/
+    constraints/
+      BUILD
+    BUILD
+    defs.bzl
+</code></pre></div></div>
+
+<p>Please read
+<a href="https://github.com/bazelbuild/platforms">github.com/bazelbuild/platforms</a>
+for best practices, and to see what constraints are already present, and
+consider contributing your constraints there if they are language independent.
+Be mindful of introducing custom constraints, all users of your rules will
+use them to perform platform specific logic in their BUILD files (for example,
+using <a href="https://docs.bazel.build/versions/master/be/functions.html#select">selects</a>).
+With custom constraints, you define a language that the whole Bazel ecosystem
+will speak.</p>
+
+<h3 id="runfiles-library">Runfiles library</h3>
+
+<p>If your rule provides a standard library for accessing runfiles, it should be
+in the form of a library target located at <code class="highlighter-rouge">//&lt;LANG&gt;/runfiles</code> (an abbreviation
+of <code class="highlighter-rouge">//&lt;LANG&gt;/runfiles:runfiles</code>). User targets that need to access their data
+dependencies will typically add this target to their <code class="highlighter-rouge">deps</code> attribute.</p>
+
+<h3 id="repository-rules">Repository Rules</h3>
+
+<h4 id="dependencies">Dependencies</h4>
+
+<p>Your rules might have external dependencies. To make depending on your rules
+simpler, please provide a WORKSPACE macro that will declare dependencies on
+those external dependencies. Do not declare dependencies of tests there, only
+dependencies that rules require to work. Put development dependencies into the
+WORKSPACE file.</p>
+
+<p>Create a file named <code class="highlighter-rouge">&lt;LANG&gt;/repositories.bzl</code> and provide a single entry point
+macro named <code class="highlighter-rouge">rules_&lt;LANG&gt;_dependencies</code>. Our directory will look as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/
+  mockascript/
+    constraints/
+      BUILD
+    BUILD
+    defs.bzl
+    repositories.bzl
+</code></pre></div></div>
+
+<h4 id="registering-toolchains">Registering Toolchains</h4>
+
+<p>Your rules might also register toolchains. Please provide a separate WORKSPACE
+macro that registers these toolchains. This way users can decide to omit the
+previous macro and control dependencies manually, while still being allowed to
+register toolchains.</p>
+
+<p>Therefore add a WORKSPACE macro named <code class="highlighter-rouge">rules_&lt;LANG&gt;_toolchains</code> into
+<code class="highlighter-rouge">&lt;LANG&gt;/repositories.bzl</code> file.</p>
+
+<p>Note that in order to resolve toolchains in the analysis phase Bazel needs to
+analyze all <code class="highlighter-rouge">toolchain</code> targets that are registered. Bazel will not need to
+analyze all targets referenced by <code class="highlighter-rouge">toolchain.toolchain</code> attribute. If in order
+to register toolchains you need to perform complex computation in the
+repository, consider splitting the repository with <code class="highlighter-rouge">toolchain</code> targets from the
+repository with <code class="highlighter-rouge">&lt;LANG&gt;_toolchain</code> targets. Former will be always fetched, and
+the latter will only be fetched when user actually needs to build <code class="highlighter-rouge">&lt;LANG&gt;</code> code.</p>
+
+<h4 id="release-snippet">Release snippet</h4>
+
+<p>In your release announcement provide a snippet that your users can copy-paste
+into their WORKSPACE file. This snippet in general will look as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+http_archive(
+    name = "rules_&lt;LANG&gt;",
+    urls = ["&lt;url_to_the_release.zip"],
+    sha256 = "4242424242",
+)
+load("@rules_&lt;LANG&gt;//&lt;LANG&gt;:repositories.bzl", "rules_&lt;LANG&gt;_dependencies", "rules_&lt;LANG&gt;_toolchains")
+rules_&lt;LANG&gt;_dependencies()
+rules_&lt;LANG&gt;_toolchains()
+</code></pre></div></div>
 
 <h3 id="tests">Tests</h3>
 
@@ -461,7 +530,9 @@ of basic ways that the rules can be used.</p>
 docs</a>. Then add a
 <code class="highlighter-rouge">.travis.yml</code> file to your repository with the following content:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># On trusty images, the Bazel apt repository can be used.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dist: xenial  # Ubuntu 16.04
+
+# On trusty (or later) images, the Bazel apt repository can be used.
 addons:
   apt:
     sources:
@@ -475,14 +546,9 @@ script:
   - bazel test //...
 </code></pre></div></div>
 
-<p>Right now Bazel has to be compiled from source, as Travis does not support a
-version of GCC that works with the precompiled Bazel binaries. Thus, the
-<code class="highlighter-rouge">before_install</code> steps download the Bazel source, compile it, and “install” the
-Bazel binary in /usr/bin.</p>
-
 <p>If your repository is under the <a href="https://github.com/bazelbuild">bazelbuild organization</a>,
-contact the <a href="https://groups.google.com/forum/#!forum/bazel-dev">bazel-dev</a> list
-to have it added to <a href="http://ci.bazel.build">ci.bazel.build</a>.</p>
+you can <a href="https://github.com/bazelbuild/continuous-integration/issues/new?template=adding-your-project-to-bazel-ci.html&amp;title=Request+to+add+new+project+%5BPROJECT_NAME%5D&amp;labels=new-project">ask to add</a>
+it to <a href="http://ci.bazel.build">ci.bazel.build</a>.</p>
 
 <h2 id="documentation">Documentation</h2>
 
@@ -503,19 +569,76 @@ GitHub repository. Getting submit access to Bazel itself is a much more involved
 process.</p>
 
 <p>The downside is a more complicated one-time installation process for our users:
-they have to copy-paste a rule into their WORKSPACE file, as shown in the
-README section above.</p>
+they have to copy-paste a rule into their <code class="highlighter-rouge">WORKSPACE</code> file, as shown in the
+<code class="highlighter-rouge">README.html</code> section above.</p>
 
 <p>We used to have all of the rules in the Bazel repository (under
 <code class="highlighter-rouge">//tools/build_rules</code> or <code class="highlighter-rouge">//tools/build_defs</code>). We still have a couple rules
 there, but we are working on moving the remaining rules out.</p>
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Deploying Rules&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/deploying.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#hosting-and-naming-rules">Hosting and naming rules</a></li>
+<li class="toc-entry toc-h2"><a href="#repository-content">Repository content</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#workspace">WORKSPACE</a></li>
+<li class="toc-entry toc-h3"><a href="#readme">README</a></li>
+<li class="toc-entry toc-h3"><a href="#rules">Rules</a></li>
+<li class="toc-entry toc-h3"><a href="#constraints">Constraints</a></li>
+<li class="toc-entry toc-h3"><a href="#runfiles-library">Runfiles library</a></li>
+<li class="toc-entry toc-h3"><a href="#repository-rules">Repository Rules</a></li>
+<li class="toc-entry toc-h3"><a href="#tests">Tests</a></li>
+<li class="toc-entry toc-h3"><a href="#optional-examples">Optional: Examples</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#testing">Testing</a></li>
+<li class="toc-entry toc-h2"><a href="#documentation">Documentation</a></li>
+<li class="toc-entry toc-h2"><a href="#faqs">FAQs</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#why-cant-we-add-our-rule-to-the-main-bazel-github-repository">Why can’t we add our rule to the main Bazel GitHub repository?</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -552,7 +675,7 @@ there, but we are working on moving the remaining rules out.</p>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

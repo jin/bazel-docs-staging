@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Toolchains - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Toolchains - Bazel </title>
 
     <link rel="canonical" href="/versions/master/toolchains.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/toolchains.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/toolchains.html">master</option>
-              
-              <option value="/versions/0.19.2/toolchains.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/toolchains.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/toolchains.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/toolchains.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/toolchains.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <h1 id="toolchains">Toolchains</h1>
 
 <ul>
@@ -382,7 +322,7 @@ decouple their rule logic from platform-based selection of tools. It is
 recommended to read the
 <a href="skylark/rules.html">rules</a>
 and
-<a href="platforms.html">platforms</a>.
+<a href="platforms.html">platforms</a>
 pages before continuing. This page covers why toolchains are needed, how to
 define and use them, and how Bazel selects an appropriate toolchain based on
 platform constraints.</p>
@@ -402,8 +342,8 @@ implicit dependency by adding it to the rule definition as a private attribute.<
         <span class="s">"srcs"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label_list</span><span class="p">(</span><span class="n">allow_files</span> <span class="o">=</span> <span class="bp">True</span><span class="p">),</span>
         <span class="o">...</span>
         <span class="s">"_compiler"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span>
-            <span class="n">default</span> <span class="o">=</span> <span class="s">"//bar_tools:barc_linux"</span><span class="p">,</span>  <span class="c"># the compiler running on linux</span>
-            <span class="n">providers</span> <span class="o">=</span> <span class="p">[</span><span class="n">BarcInfo</span><span class="p">],</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="s">"//bar_tools:barc_linux"</span><span class="p">,</span>  <span class="c1"># the compiler running on linux
+</span>            <span class="n">providers</span> <span class="o">=</span> <span class="p">[</span><span class="n">BarcInfo</span><span class="p">],</span>
         <span class="p">),</span>
     <span class="p">},</span>
 <span class="p">)</span>
@@ -415,10 +355,10 @@ implementation function just like any other attribute:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BarcInfo</span> <span class="o">=</span> <span class="n">provider</span><span class="p">(</span>
     <span class="n">doc</span> <span class="o">=</span> <span class="s">"Information about how to invoke the barc compiler."</span><span class="p">,</span>
-    <span class="c"># In the real world, compiler_path and system_lib might hold File objects,</span>
-    <span class="c"># but for simplicity we'll make them strings instead. arch_flags is a list</span>
-    <span class="c"># of strings.</span>
-    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">"compiler_path"</span><span class="p">,</span> <span class="s">"system_lib"</span><span class="p">,</span> <span class="s">"arch_flags"</span><span class="p">],</span>
+    <span class="c1"># In the real world, compiler_path and system_lib might hold File objects,
+</span>    <span class="c1"># but for simplicity we'll make them strings instead. arch_flags is a list
+</span>    <span class="c1"># of strings.
+</span>    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">"compiler_path"</span><span class="p">,</span> <span class="s">"system_lib"</span><span class="p">,</span> <span class="s">"arch_flags"</span><span class="p">],</span>
 <span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">_bar_binary_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
@@ -462,14 +402,14 @@ hardcoded to build for one platform or another.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config_setting</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"on_linux"</span><span class="p">,</span>
     <span class="n">constraint_values</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">"@bazel_tools//platforms:linux"</span><span class="p">,</span>
+        <span class="s">"@platforms//os:linux"</span><span class="p">,</span>
     <span class="p">],</span>
 <span class="p">)</span>
 
 <span class="n">config_setting</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"on_windows"</span><span class="p">,</span>
     <span class="n">constraint_values</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">"@bazel_tools//platforms:windows"</span><span class="p">,</span>
+        <span class="s">"@platforms//os:windows"</span><span class="p">,</span>
     <span class="p">],</span>
 <span class="p">)</span>
 
@@ -503,10 +443,10 @@ they instead depend on <em>toolchain types</em>. A toolchain type is a simple ta
 that represents a class of tools that serve the same role for different
 platforms. For instance, we can declare a type that represents the bar compiler:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># By convention, toolchain_type targets are named "toolchain_type" and</span>
-<span class="c"># distinguished by their package path. So the full path for this would be</span>
-<span class="c"># //bar_tools:toolchain_type.</span>
-<span class="n">toolchain_type</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"toolchain_type"</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># By convention, toolchain_type targets are named "toolchain_type" and
+# distinguished by their package path. So the full path for this would be
+# //bar_tools:toolchain_type.
+</span><span class="n">toolchain_type</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"toolchain_type"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>The rule definition in the previous section is modified so that instead of
@@ -518,8 +458,8 @@ taking in the compiler as an attribute, it declares that it consumes a
     <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s">"srcs"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label_list</span><span class="p">(</span><span class="n">allow_files</span> <span class="o">=</span> <span class="bp">True</span><span class="p">),</span>
         <span class="o">...</span>
-        <span class="c"># No `_compiler` attribute anymore.</span>
-    <span class="p">},</span>
+        <span class="c1"># No `_compiler` attribute anymore.
+</span>    <span class="p">},</span>
     <span class="n">toolchains</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//bar_tools:toolchain_type"</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div></div>
@@ -530,8 +470,8 @@ instead of <code class="highlighter-rouge">ctx.attr</code>, using the toolchain 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_bar_binary_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="n">info</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">toolchains</span><span class="p">[</span><span class="s">"//bar_tools:toolchain_type"</span><span class="p">]</span><span class="o">.</span><span class="n">barcinfo</span>
-    <span class="c"># The rest is unchanged.</span>
-    <span class="n">command</span> <span class="o">=</span> <span class="s">"</span><span class="si">%</span><span class="s">s -l </span><span class="si">%</span><span class="s">s </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span>
+    <span class="c1"># The rest is unchanged.
+</span>    <span class="n">command</span> <span class="o">=</span> <span class="s">"</span><span class="si">%</span><span class="s">s -l </span><span class="si">%</span><span class="s">s </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span>
         <span class="n">info</span><span class="o">.</span><span class="n">compiler_path</span><span class="p">,</span>
         <span class="n">info</span><span class="o">.</span><span class="n">system_lib</span><span class="p">,</span>
         <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">arch_flags</span><span class="p">),</span>
@@ -590,7 +530,7 @@ grouped underneath it.</p>
     <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s">"compiler_path"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">string</span><span class="p">(),</span>
         <span class="s">"system_lib"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">string</span><span class="p">(),</span>
-        <span class="s">"arch_flags"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">string</span><span class="p">(),</span>
+        <span class="s">"arch_flags"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">string_list</span><span class="p">(),</span>
     <span class="p">},</span>
 <span class="p">)</span>
 </code></pre></div></div>
@@ -619,10 +559,10 @@ above; this style may be useful for validation and code reuse.</p>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"barc_windows"</span><span class="p">,</span>
     <span class="n">arch_flags</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s">"--arch=Windows"</span><span class="p">,</span>
-        <span class="c"># Different flags, no debug support on windows.</span>
-    <span class="p">],</span>
+        <span class="c1"># Different flags, no debug support on windows.
+</span>    <span class="p">],</span>
     <span class="n">compiler_path</span> <span class="o">=</span> <span class="s">"C:</span><span class="se">\\</span><span class="s">path</span><span class="se">\\</span><span class="s">on</span><span class="se">\\</span><span class="s">windows</span><span class="se">\\</span><span class="s">barc.exe"</span><span class="p">,</span>
-    <span class="n">system_lib</span> <span class="o">=</span> <span class="s">"C:</span><span class="se">\\</span><span class="s">path</span><span class="se">\\</span><span class="s">on</span><span class="err">\</span><span class="s">windows</span><span class="se">\\</span><span class="s">barclib.dll"</span><span class="p">,</span>
+    <span class="n">system_lib</span> <span class="o">=</span> <span class="s">"C:</span><span class="se">\\</span><span class="s">path</span><span class="se">\\</span><span class="s">on</span><span class="se">\\</span><span class="s">windows</span><span class="se">\\</span><span class="s">barclib.dll"</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
@@ -634,12 +574,12 @@ appropriate for a given platform.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">toolchain</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"barc_linux_toolchain"</span><span class="p">,</span>
     <span class="n">exec_compatible_with</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">"@bazel_tools//platforms:linux"</span><span class="p">,</span>
-        <span class="s">"@bazel_tools//platforms:x86_64"</span><span class="p">,</span>
+        <span class="s">"@platforms//os:linux"</span><span class="p">,</span>
+        <span class="s">"@platforms//cpu:x86_64"</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="n">target_compatible_with</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">"@bazel_tools//platforms:linux"</span><span class="p">,</span>
-        <span class="s">"@bazel_tools//platforms:x86_64"</span><span class="p">,</span>
+        <span class="s">"@platforms//os:linux"</span><span class="p">,</span>
+        <span class="s">"@platforms//cpu:x86_64"</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="n">toolchain</span> <span class="o">=</span> <span class="s">":barc_linux"</span><span class="p">,</span>
     <span class="n">toolchain_type</span> <span class="o">=</span> <span class="s">":toolchain_type"</span><span class="p">,</span>
@@ -648,12 +588,12 @@ appropriate for a given platform.</p>
 <span class="n">toolchain</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"barc_windows_toolchain"</span><span class="p">,</span>
     <span class="n">exec_compatible_with</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">"@bazel_tools//platforms:windows"</span><span class="p">,</span>
-        <span class="s">"@bazel_tools//platforms:x86_64"</span><span class="p">,</span>
+        <span class="s">"@platforms//os:windows"</span><span class="p">,</span>
+        <span class="s">"@platforms//cpu:x86_64"</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="n">target_compatible_with</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">"@bazel_tools//platforms:windows"</span><span class="p">,</span>
-        <span class="s">"@bazel_tools//platforms:x86_64"</span><span class="p">,</span>
+        <span class="s">"@platforms//os:windows"</span><span class="p">,</span>
+        <span class="s">"@platforms//cpu:x86_64"</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="n">toolchain</span> <span class="o">=</span> <span class="s">":barc_windows"</span><span class="p">,</span>
     <span class="n">toolchain_type</span> <span class="o">=</span> <span class="s">":toolchain_type"</span><span class="p">,</span>
@@ -679,20 +619,20 @@ line using the <code class="highlighter-rouge">--extra_toolchains</code> flag.</
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">register_toolchains</span><span class="p">(</span>
     <span class="s">"//bar_tools:barc_linux_toolchain"</span><span class="p">,</span>
     <span class="s">"//bar_tools:barc_windows_toolchain"</span><span class="p">,</span>
-    <span class="c"># Target patterns are also permitted, so we could have also written:</span>
-    <span class="c"># "//bar_tools:all",</span>
-<span class="p">)</span>
+    <span class="c1"># Target patterns are also permitted, so we could have also written:
+</span>    <span class="c1"># "//bar_tools:all",
+</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Now when you build a target that depends on a toolchain type, an appropriate
 toolchain will be selected based on the target and execution platforms.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># my_pkg/BUILD</span>
-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># my_pkg/BUILD
+</span>
 <span class="n">platform</span><span class="p">(</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s">"my_target_platform"</span><span class="p">,</span>
     <span class="n">constraint_values</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">"@bazel_tools//platforms:linux"</span><span class="p">,</span>
+        <span class="s">"@platforms//os:linux"</span><span class="p">,</span>
     <span class="p">],</span>
 <span class="p">)</span>
 
@@ -706,14 +646,15 @@ toolchain will be selected based on the target and execution platforms.</p>
 </code></pre></div></div>
 
 <p>Bazel will see that <code class="highlighter-rouge">//my_pkg:my_bar_binary</code> is being built with a platform that
-has <code class="highlighter-rouge">@bazel_tools//platforms:linux</code> and therefore resolve the
+has <code class="highlighter-rouge">@platforms//os:linux</code> and therefore resolve the
 <code class="highlighter-rouge">//bar_tools:toolchain_type</code> reference to <code class="highlighter-rouge">//bar_tools:barc_linux_toolchain</code>.
 This will end up building <code class="highlighter-rouge">//bar_tools:barc_linux</code> but not
 <code class="highlighter-rouge">//barc_tools:barc_windows</code>.</p>
 
 <h2 id="toolchain-resolution">Toolchain Resolution</h2>
 
-<p><strong>Note:</strong> Some Bazel rules do not yet support toolchain resolution.</p>
+<p><strong>Note:</strong> <a href="platforms-intro.html#status">Some Bazel rules</a> do not yet support
+toolchain resolution.</p>
 
 <p>For each target that uses toolchains, Bazel’s toolchain resolution procedure
 determines the target’s concrete toolchain dependencies. The procedure takes as input a
@@ -733,16 +674,25 @@ command line via
 and
 <a href="command-line-reference.html#flag--extra_toolchains"><code class="highlighter-rouge">--extra_toolchains</code></a>.
 The host platform is automatically included as an available execution platform.
-Available platforms and toolchains are tracked as ordered lists for determinism,</p>
+Available platforms and toolchains are tracked as ordered lists for determinism,
+with preference given to earlier items in the list.</p>
 
 <p>The resolution steps are as follows.</p>
 
 <ol>
   <li>
-    <p>If the target specifies the
+    <p>A <code class="highlighter-rouge">target_compatible_with</code> or <code class="highlighter-rouge">exec_compatible_with</code> clause <em>matches</em> a
+platform iff, for each <code class="highlighter-rouge">constraint_value</code> in its list, the platform also has
+that <code class="highlighter-rouge">contraint_value</code> (either explicitly or as a default).</p>
+
+    <p>If the platform has <code class="highlighter-rouge">constraint_value</code>s from <code class="highlighter-rouge">constraint_setting</code>s not
+referenced by the clause, these do not affect matching.</p>
+  </li>
+  <li>
+    <p>If the target being built specifies the
 <a href="be/common-definitions.html#common.exec_compatible_with"><code class="highlighter-rouge">exec_compatible_with</code> attribute</a>
-(or the rule specifies the
-<a href="skylark/lib/globals.html#rule.exec_compatible_with"><code class="highlighter-rouge">exec_compatible_with</code> argument</a>,
+(or its rule definition specifies the
+<a href="skylark/lib/globals.html#rule.exec_compatible_with"><code class="highlighter-rouge">exec_compatible_with</code> argument</a>),
 the list of available execution platforms is filtered to remove
 any that do not match the execution constraints.</p>
   </li>
@@ -774,11 +724,55 @@ will output names of toolchains it is checking and skipping during the
 resolution process.</p>
 
         </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Toolchains&body=Documentation URL: https://docs.bazel.build/versions/master/toolchains.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#motivation">Motivation</a></li>
+<li class="toc-entry toc-h2"><a href="#writing-rules-that-use-toolchains">Writing rules that use toolchains</a></li>
+<li class="toc-entry toc-h2"><a href="#defining-toolchains">Defining toolchains</a></li>
+<li class="toc-entry toc-h2"><a href="#registering-and-building-with-toolchains">Registering and building with toolchains</a></li>
+<li class="toc-entry toc-h2"><a href="#toolchain-resolution">Toolchain Resolution</a></li>
+<li class="toc-entry toc-h2"><a href="#debugging-toolchains">Debugging toolchains</a></li>
+</ul>
+            </div>
+        </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -815,7 +809,7 @@ resolution process.</p>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>

@@ -1,15 +1,24 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>C / C++ Rules - Bazel</title>
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>C / C++ Rules - Bazel </title>
 
     <link rel="canonical" href="/versions/master/be/c-cpp.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -58,10 +67,10 @@
           </ul>
           <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
             <div class="form-group">
-              <input type="hidden" name="cx" value="012346921571893344015:xv_nfgpzbu4">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
               <input type="hidden" name="cof" value="FORID:10">
               <input type="hidden" name="ie" value="UTF-8">
-              <input type="search" name="q" class="form-control input-sm" placeholder="Search">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -82,30 +91,41 @@
     </nav>
 
 
-    <div class="page-title-bar">
-      <div class="container">
-        <h1>Documentation</h1>
-      </div>
-    </div>
+      <!-- <div class="page-title-bar"> -->
+      <!-- <div class="container"> -->
+      <!-- <h1>Documentation</h1> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
     <div class="container vpad">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="btn btn-default btn-lg btn-block sidebar-toggle"
               data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
               aria-controls="sidebar-nav">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
           </a>
+
           <nav class="sidebar collapse" id="sidebar-nav">
-           <h3>Home</h3>
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: master</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/be/c-cpp.html">
+                    master
+                </option>
+                
+            </select>
+
+            <h4>Home</h4>
             <ul class="sidebar-nav">
               <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
               <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
               <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/skylark/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
             </ul>
 
-           <h3>Using Bazel</h3>
+            <h4>Installing and Using Bazel</h4>
             <ul class="sidebar-nav">
 
               <li>
@@ -123,28 +143,50 @@
                    <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
                    <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
-                 </ul>
-                </li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#tutorials-menu" aria-expanded="false"
-                    aria-controls="tutorials-menu">
-                  Tutorials<span class="caret"></span>
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Using Bazel<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="tutorials-menu">
-                   <li><a href="/versions/master/tutorial/java.html">Building a Java Project</a></li>
-                   <li><a href="/versions/master/tutorial/cpp.html">Building a C++ Project</a></li>
-                   <li><a href="/versions/master/tutorial/android-app.html">Building an Android App</a></li>
-                   <li><a href="/versions/master/tutorial/ios-app.html">Building an iOS App</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                   <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
-                 </ul>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
+                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
+                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
+                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
+                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                </ul>
               </li>
 
-              <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-              <li><a href="/versions/master/guide.html">User's Guide</a></li>
-              <li><a href="/versions/master/external.html">External Dependencies</a></li>
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/master/rules.html">Rules</a></li>
+              
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -155,13 +197,11 @@
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
                   <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
                   <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/user-manual.html#aquery">Bazel aquery</a></li>
+                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
                   <li><a href="/versions/master/query.html">Query Language</a></li>
                 </ul>
               </li>
 
-              <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-              <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
@@ -180,89 +220,32 @@
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
                          <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
                          <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
                       </ul>
                   </li>
                    <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
                  </ul>
               </li>
 
-              <li><a href="/versions/master/remote-caching.html">Remote Caching</a></li>
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote Caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                  </ul>
+              </li>
+              
+              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
+              
              </ul>
 
-           <h3>Rules</h3>
-           <ul class="sidebar-nav">
-             <li><a href="/versions/master/be/overview.html">Build Encyclopedia</a></li>
+           
 
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#android-menu" aria-expanded="false"
-                    aria-controls="android-menu">
-                  Android<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
-                  <li><a href="/versions/master/bazel-and-android.html">Android Resources</a></li>
-                  <li><a href="/versions/master/mobile-install.html">Using mobile-install</a></li>
-                  <li><a href="/versions/master/android-instrumentation-test.html">Android Instrumentation Tests</a></li>
-                  <li><a href="/versions/master/android-ndk.html">Android NDK</a></li>
-                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio Plugin</a></li>
-                </ul>
-              </li>
-
-               <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#apple-menu" aria-expanded="false"
-                    aria-controls="apple-menu">
-                  Apple<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
-                  <li><a href="/versions/master/bazel-and-apple.html">Apple Resources</a></li>
-                  <li><a href="/versions/master/migrate-xcode.html">Migrating from Xcode</a></li>
-                  <li><a href="/versions/master/migrate-cocoapods.html">Converting CocoaPods</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#cpp-menu" aria-expanded="false"
-                    aria-controls="cpp-menu">
-                  C++<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
-                  <li><a href="/versions/master/bazel-and-cpp.html">C++ Resources</a></li>
-                  <li><a href="/versions/master/cpp-use-cases.html">C++ Use Cases</a></li>
-                  <li><a href="/versions/master/crosstool-reference.html">Understanding CROSSTOOL</a></li>
-                  <li><a href="/versions/master/tutorial/crosstool.html">Tutorial: CROSSTOOL</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#java-menu" aria-expanded="false"
-                    aria-controls="java-menu">
-                  Java<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
-                  <li><a href="/versions/master/bazel-and-java.html">Java Resources</a></li>
-                  <li><a href="/versions/master/migrate-maven.html">Migrating from Maven</a></li>
-                  <li><a href="/versions/master/generate-workspace.html">Converting Maven Dependencies</a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#javascript-menu" aria-expanded="false"
-                    aria-controls="javascript-menu">
-                  JavaScript<span class="caret"></span>
-                </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
-                  <li><a href="/versions/master/bazel-and-javascript.html">JavaScript Resources</a></li>
-                  <li><a href="/versions/master/build-javascript.html">Building JavaScript</a></li>
-                </ul>
-              </li>
-
-           </ul>
-
-           <h3>Reference</h3>
+           <h4>Reference</h4>
            <ul class="sidebar-nav">
              <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
              <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
@@ -274,7 +257,7 @@
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h3>Extending Bazel</h3>
+            <h4>Extending Bazel</h4>
            <ul class="sidebar-nav">
               <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
 
@@ -290,6 +273,7 @@
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
                   <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
                   <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
@@ -304,9 +288,10 @@
                   <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
                   <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
                   <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="/versions/master/skylark/skylint.html">Linter</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
                   <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
                   <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
@@ -317,52 +302,7 @@
           </nav>
         </div>
 
-        <div class="col-md-9">
-          <a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-          <script>
-            var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
-            var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
-            var editButton = document.getElementById('gh-edit');
-            // if there is an edit button and we are not in the Build Encyclopedia
-            if (editButton
-                && window.location.pathname.match(versionDocsURLRegex)
-                && window.location.pathname.lastIndexOf('/be/') == -1
-                && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
-              var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
-              // some pages are not using markdown :(
-              if (docFile !== 'user-manual.html'
-                  && docFile !== 'build-ref.html'
-                  && docFile !== 'query.html'
-                  && docFile !== 'test-encyclopedia.html') {
-                docFile = docFile.replace('html', 'md');
-              }
-              editButton.href = ghDocsBazeURL + docFile;
-              editButton.style.visibility = 'visible';
-            }
-          </script>
-
-          <!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
-          <!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
-          
-
-          <p>Documentation for Bazel master</p>
-          <select id="touchsplashmenu" onchange="location.href=this.value">
-              <option value="">Choose a Bazel version</option>
-              
-              <option value="/versions/master/be/c-cpp.html">master</option>
-              
-              <option value="/versions/0.19.2/be/c-cpp.html">0.19.2</option>
-              
-              <option value="/versions/0.19.1/be/c-cpp.html">0.19.1</option>
-              
-              <option value="/versions/0.18.1/be/c-cpp.html">0.18.1</option>
-              
-              <option value="/versions/0.17.2/be/c-cpp.html">0.17.2</option>
-              
-              <option value="/versions/0.17.1/be/c-cpp.html">0.17.1</option>
-              
-          </select>
-
+        <div class="col-md-7">
           <!--
  This document is synchronized with Bazel releases.
  To edit, submit changes to the Bazel source code.
@@ -371,6 +311,8 @@
 <!-- Generated by //src/main/java/com/google/devtools/build/docgen:build-encyclopedia.zip -->
 
 <h1>C / C++ Rules</h1>
+
+
 
 <div class="toc">
   <h2>Rules</h2>
@@ -403,6 +345,14 @@
       <a href="#cc_test">
         cc_test      </a>
     </li>
+    <li>
+      <a href="#cc_toolchain">
+        cc_toolchain      </a>
+    </li>
+    <li>
+      <a href="#cc_toolchain_suite">
+        cc_toolchain_suite      </a>
+    </li>
   </ul>
 </div>
 
@@ -410,7 +360,7 @@
     cc_binary
   </h2>
 
-  <pre class="rule-signature">cc_binary(<a href="#cc_binary.name">name</a>, <a href="#cc_binary.deps">deps</a>, <a href="#cc_binary.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#binary.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#cc_binary.copts">copts</a>, <a href="#cc_binary.defines">defines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#cc_binary.includes">includes</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#cc_binary.linkopts">linkopts</a>, <a href="#cc_binary.linkshared">linkshared</a>, <a href="#cc_binary.linkstatic">linkstatic</a>, <a href="#cc_binary.malloc">malloc</a>, <a href="#cc_binary.nocopts">nocopts</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#cc_binary.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#cc_binary.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#cc_binary.win_def_file">win_def_file</a>)</pre>
+  <pre class="rule-signature">cc_binary(<a href="#cc_binary.name">name</a>, <a href="#cc_binary.deps">deps</a>, <a href="#cc_binary.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#cc_binary.additional_linker_inputs">additional_linker_inputs</a>, <a href="common-definitions.html#binary.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#cc_binary.copts">copts</a>, <a href="#cc_binary.defines">defines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#cc_binary.includes">includes</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#cc_binary.linkopts">linkopts</a>, <a href="#cc_binary.linkshared">linkshared</a>, <a href="#cc_binary.linkstatic">linkstatic</a>, <a href="#cc_binary.local_defines">local_defines</a>, <a href="#cc_binary.malloc">malloc</a>, <a href="#cc_binary.nocopts">nocopts</a>, <a href="common-definitions.html#binary.output_licenses">output_licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#cc_binary.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#cc_binary.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#cc_binary.win_def_file">win_def_file</a>)</pre>
 
 
 <h4 id="cc_binary_implicit_outputs">Implicit output targets</h4>
@@ -502,7 +452,7 @@
             <li>C and C++ source files: <code>.c</code>, <code>.cc</code>, <code>.cpp</code>,
               <code>.cxx</code>, <code>.c++</code>, <code>.C</code></li>
             <li>C and C++ header files: <code>.h</code>, <code>.hh</code>, <code>.hpp</code>,
-              <code>.hxx</code>, <code>.inc</code></li>
+              <code>.hxx</code>, <code>.inc</code>, <code>.inl</code>, <code>.H</code></li>
             <li>Assembler with C preprocessor: <code>.S</code></li>
             <li>Archive: <code>.a</code>, <code>.pic.a</code></li>
             <li>"Always link" library: <code>.lo</code>, <code>.pic.lo</code></li>
@@ -518,7 +468,21 @@
 
         </td>
       </tr>
-                                                    <tr>
+                                <tr>
+        <td id="cc_binary.additional_linker_inputs">
+          <code>additional_linker_inputs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                               Pass these files to the C++ linker command.
+           <p>
+           For example, compiled Windows .res files can be provided here to be embedded in
+           the binary target.
+           </p>
+
+        </td>
+      </tr>
+                                          <tr>
         <td id="cc_binary.copts">
           <code>copts</code>
         </td>
@@ -551,16 +515,14 @@
           Subject to <a href="make-variables.html">"Make" variable</a> substitution and
           <a href="common-definitions.html#sh-tokenization">Bourne shell tokenization</a>.
           Each string, which must consist of a single Bourne shell token,
-          is prepended with <code>-D</code> (or <code>/D</code> on Windows) and added to
-          <code>COPTS</code>.
-          Unlike <a href="#cc_binary.copts"><code>copts</code></a>, these flags are added for the
-          target and every rule that depends on it!  Be very careful, since this may have
-          far-reaching effects.  When in doubt, add "-D" (or <code>/D</code> on Windows) flags to
-          <a href="#cc_binary.copts"><code>copts</code></a> instead.
+          is prepended with <code>-D</code> and added to the compile command line to this target,
+          as well as to every rule that depends on it. Be very careful, since this may have
+          far-reaching effects.  When in doubt, add define values to
+          <a href="#cc_binary.local_defines"><code>local_defines</code></a> instead.
 
         </td>
       </tr>
-                                                    <tr>
+                                                                        <tr>
         <td id="cc_binary.includes">
           <code>includes</code>
         </td>
@@ -610,7 +572,7 @@
           <code>linkshared</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is 0</code></p>
+                    <p><code>Boolean; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a>; default is False</code></p>
                             Create a shared library.
         To enable this attribute, include <code>linkshared=True</code> in your rule. By default
         this option is off. If you enable it, you must name your binary
@@ -641,7 +603,7 @@
           <code>linkstatic</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 1</code></p>
+                    <p><code>Boolean; optional; default is True</code></p>
                                For <a href="c-cpp.html#cc_binary"><code>cc_binary</code></a> and
            <a href="c-cpp.html#cc_test"><code>cc_test</code></a>: link the binary in static
            mode. For <code>cc_library.linkstatic</code>: see below.
@@ -660,7 +622,7 @@
            <li> STATIC with fully_static_link feature, in which everything is linked statically;
              e.g. "<code>gcc -static foo.o libbar.a libbaz.a -lm</code>".<br/>
              This mode is enabled by specifying <code>fully_static_link</code> in the
-             <a href="#cc_binary.features"><code>features</code></a> attribute.</li>
+             <a href="common-definitions.html#features"><code>features</code></a> attribute.</li>
            <li> STATIC, in which all user libraries are linked statically (if a static
              version is available), but where system libraries (excluding C/C++ runtime libraries)
              are linked dynamically, e.g. "<code>gcc foo.o libfoo.a libbaz.a -lm</code>".<br/>
@@ -681,6 +643,21 @@
            If <code>linkstatic=False</code>, then the build tool will create symlinks to
            depended-upon shared libraries in the <code>*.runfiles</code> area.
            </p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_binary.local_defines">
+          <code>local_defines</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of defines to add to the compile line.
+          Subject to <a href="make-variables.html">"Make" variable</a> substitution and
+          <a href="common-definitions.html#sh-tokenization">Bourne shell tokenization</a>.
+          Each string, which must consist of a single Bourne shell token,
+          is prepended with <code>-D</code> and added to the compile command line for this target,
+          but not to its dependents.
 
         </td>
       </tr>
@@ -922,7 +899,7 @@ cc_binary(
           <code>alwayslink</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                             If 1, any binary that depends (directly or indirectly) on this C++
         precompiled library will link in all the object files archived in the static library,
         even if some contain no symbols referenced by the binary.
@@ -931,7 +908,7 @@ cc_binary(
         provided by some service.
 
         <p>If alwayslink doesn't work with VS 2017 on Windows, that is due to a
-        [known issue](https://github.com/bazelbuild/bazel/issues/3949),
+        <a href="https://github.com/bazelbuild/bazel/issues/3949">known issue</a>,
         please upgrade your VS 2017 to the latest version.</p>
 
         </td>
@@ -989,7 +966,7 @@ cc_binary(
           <code>system_provided</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                             If 1, it indicates the shared library required at runtime is provided by the system. In
         this case, <code>interface_library</code> should be specified and
         <code>shared_library</code> should be empty.
@@ -1002,7 +979,7 @@ cc_binary(
     cc_library
   </h2>
 
-  <pre class="rule-signature">cc_library(<a href="#cc_library.name">name</a>, <a href="#cc_library.deps">deps</a>, <a href="#cc_library.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#cc_library.hdrs">hdrs</a>, <a href="#cc_library.alwayslink">alwayslink</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#cc_library.copts">copts</a>, <a href="#cc_library.defines">defines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#cc_library.include_prefix">include_prefix</a>, <a href="#cc_library.includes">includes</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#cc_library.linkopts">linkopts</a>, <a href="#cc_library.linkstatic">linkstatic</a>, <a href="#cc_library.nocopts">nocopts</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#cc_library.strip_include_prefix">strip_include_prefix</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#cc_library.textual_hdrs">textual_hdrs</a>, <a href="#cc_library.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#cc_library.win_def_file">win_def_file</a>)</pre>
+  <pre class="rule-signature">cc_library(<a href="#cc_library.name">name</a>, <a href="#cc_library.deps">deps</a>, <a href="#cc_library.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#cc_library.hdrs">hdrs</a>, <a href="#cc_library.alwayslink">alwayslink</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#cc_library.copts">copts</a>, <a href="#cc_library.defines">defines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#cc_library.include_prefix">include_prefix</a>, <a href="#cc_library.includes">includes</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#cc_library.linkopts">linkopts</a>, <a href="#cc_library.linkstatic">linkstatic</a>, <a href="#cc_library.local_defines">local_defines</a>, <a href="#cc_library.nocopts">nocopts</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#cc_library.strip_include_prefix">strip_include_prefix</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#cc_library.textual_hdrs">textual_hdrs</a>, <a href="#cc_library.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#cc_library.win_def_file">win_def_file</a>)</pre>
 
 
 <h4 id="hdrs">Header inclusion checking</h4>
@@ -1187,7 +1164,7 @@ cc_library(
             <li>C and C++ source files: <code>.c</code>, <code>.cc</code>, <code>.cpp</code>,
               <code>.cxx</code>, <code>.c++</code>, <code>.C</code></li>
             <li>C and C++ header files: <code>.h</code>, <code>.hh</code>, <code>.hpp</code>,
-              <code>.hxx</code>, <code>.inc</code></li>
+              <code>.hxx</code>, <code>.inc</code>, <code>.inl</code>, <code>.H</code></li>
             <li>Assembler with C preprocessor: <code>.S</code></li>
             <li>Archive: <code>.a</code>, <code>.pic.a</code></li>
             <li>"Always link" library: <code>.lo</code>, <code>.pic.lo</code></li>
@@ -1226,7 +1203,7 @@ cc_library(
           <code>alwayslink</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                             If 1, any binary that depends (directly or indirectly) on this C++
         library will link in all the object files for the files listed in
         <code>srcs</code>, even if some contain no symbols referenced by the binary.
@@ -1235,7 +1212,7 @@ cc_library(
         provided by some service.
 
         <p>If alwayslink doesn't work with VS 2017 on Windows, that is due to a
-        [known issue](https://github.com/bazelbuild/bazel/issues/3949),
+        <a href="https://github.com/bazelbuild/bazel/issues/3949">known issue</a>,
         please upgrade your VS 2017 to the latest version.</p>
 
         </td>
@@ -1273,16 +1250,14 @@ cc_library(
           Subject to <a href="make-variables.html">"Make" variable</a> substitution and
           <a href="common-definitions.html#sh-tokenization">Bourne shell tokenization</a>.
           Each string, which must consist of a single Bourne shell token,
-          is prepended with <code>-D</code> (or <code>/D</code> on Windows) and added to
-          <code>COPTS</code>.
-          Unlike <a href="#cc_binary.copts"><code>copts</code></a>, these flags are added for the
-          target and every rule that depends on it!  Be very careful, since this may have
-          far-reaching effects.  When in doubt, add "-D" (or <code>/D</code> on Windows) flags to
-          <a href="#cc_binary.copts"><code>copts</code></a> instead.
+          is prepended with <code>-D</code> and added to the compile command line to this target,
+          as well as to every rule that depends on it. Be very careful, since this may have
+          far-reaching effects.  When in doubt, add define values to
+          <a href="#cc_binary.local_defines"><code>local_defines</code></a> instead.
 
         </td>
       </tr>
-                                                    <tr>
+                                                                        <tr>
         <td id="cc_library.include_prefix">
           <code>include_prefix</code>
         </td>
@@ -1348,7 +1323,7 @@ cc_library(
           <code>linkstatic</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                                For <a href="c-cpp.html#cc_binary"><code>cc_binary</code></a> and
            <a href="c-cpp.html#cc_test"><code>cc_test</code></a>: link the binary in static
            mode. For <code>cc_library.linkstatic</code>: see below.
@@ -1367,7 +1342,7 @@ cc_library(
            <li> STATIC with fully_static_link feature, in which everything is linked statically;
              e.g. "<code>gcc -static foo.o libbar.a libbaz.a -lm</code>".<br/>
              This mode is enabled by specifying <code>fully_static_link</code> in the
-             <a href="#cc_binary.features"><code>features</code></a> attribute.</li>
+             <a href="common-definitions.html#features"><code>features</code></a> attribute.</li>
            <li> STATIC, in which all user libraries are linked statically (if a static
              version is available), but where system libraries (excluding C/C++ runtime libraries)
              are linked dynamically, e.g. "<code>gcc foo.o libfoo.a libbaz.a -lm</code>".<br/>
@@ -1388,6 +1363,21 @@ cc_library(
            If <code>linkstatic=False</code>, then the build tool will create symlinks to
            depended-upon shared libraries in the <code>*.runfiles</code> area.
            </p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_library.local_defines">
+          <code>local_defines</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of defines to add to the compile line.
+          Subject to <a href="make-variables.html">"Make" variable</a> substitution and
+          <a href="common-definitions.html#sh-tokenization">Bourne shell tokenization</a>.
+          Each string, which must consist of a single Bourne shell token,
+          is prepended with <code>-D</code> and added to the compile command line for this target,
+          but not to its dependents.
 
         </td>
       </tr>
@@ -1472,7 +1462,7 @@ cc_library(
     cc_proto_library
   </h2>
 
-  <pre class="rule-signature">cc_proto_library(<a href="#cc_proto_library.name">name</a>, <a href="#cc_proto_library.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">cc_proto_library(<a href="#cc_proto_library.name">name</a>, <a href="#cc_proto_library.deps">deps</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1538,7 +1528,7 @@ proto_library(
 
         </td>
       </tr>
-                                                                                                                  </tbody>
+                                                                                                                                      </tbody>
   </table>
     <h2 id="fdo_prefetch_hints">
     fdo_prefetch_hints
@@ -1679,7 +1669,7 @@ fdo_profile(
     cc_test
   </h2>
 
-  <pre class="rule-signature">cc_test(<a href="#cc_test.name">name</a>, <a href="#cc_test.deps">deps</a>, <a href="#cc_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#cc_test.copts">copts</a>, <a href="#cc_test.defines">defines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#cc_test.includes">includes</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#cc_test.linkopts">linkopts</a>, <a href="#cc_test.linkstatic">linkstatic</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#cc_test.malloc">malloc</a>, <a href="#cc_test.nocopts">nocopts</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#cc_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#cc_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#cc_test.win_def_file">win_def_file</a>)</pre>
+  <pre class="rule-signature">cc_test(<a href="#cc_test.name">name</a>, <a href="#cc_test.deps">deps</a>, <a href="#cc_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="#cc_test.additional_linker_inputs">additional_linker_inputs</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#cc_test.copts">copts</a>, <a href="#cc_test.defines">defines</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#cc_test.includes">includes</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#cc_test.linkopts">linkopts</a>, <a href="#cc_test.linkstatic">linkstatic</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#cc_test.local_defines">local_defines</a>, <a href="#cc_test.malloc">malloc</a>, <a href="#cc_test.nocopts">nocopts</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#cc_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#cc_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>, <a href="#cc_test.win_def_file">win_def_file</a>)</pre>
 
 
 
@@ -1758,7 +1748,7 @@ fdo_profile(
             <li>C and C++ source files: <code>.c</code>, <code>.cc</code>, <code>.cpp</code>,
               <code>.cxx</code>, <code>.c++</code>, <code>.C</code></li>
             <li>C and C++ header files: <code>.h</code>, <code>.hh</code>, <code>.hpp</code>,
-              <code>.hxx</code>, <code>.inc</code></li>
+              <code>.hxx</code>, <code>.inc</code>, <code>.inl</code>, <code>.H</code></li>
             <li>Assembler with C preprocessor: <code>.S</code></li>
             <li>Archive: <code>.a</code>, <code>.pic.a</code></li>
             <li>"Always link" library: <code>.lo</code>, <code>.pic.lo</code></li>
@@ -1774,7 +1764,21 @@ fdo_profile(
 
         </td>
       </tr>
-                                                    <tr>
+                                <tr>
+        <td id="cc_test.additional_linker_inputs">
+          <code>additional_linker_inputs</code>
+        </td>
+        <td>
+                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+                               Pass these files to the C++ linker command.
+           <p>
+           For example, compiled Windows .res files can be provided here to be embedded in
+           the binary target.
+           </p>
+
+        </td>
+      </tr>
+                                          <tr>
         <td id="cc_test.copts">
           <code>copts</code>
         </td>
@@ -1807,16 +1811,14 @@ fdo_profile(
           Subject to <a href="make-variables.html">"Make" variable</a> substitution and
           <a href="common-definitions.html#sh-tokenization">Bourne shell tokenization</a>.
           Each string, which must consist of a single Bourne shell token,
-          is prepended with <code>-D</code> (or <code>/D</code> on Windows) and added to
-          <code>COPTS</code>.
-          Unlike <a href="#cc_binary.copts"><code>copts</code></a>, these flags are added for the
-          target and every rule that depends on it!  Be very careful, since this may have
-          far-reaching effects.  When in doubt, add "-D" (or <code>/D</code> on Windows) flags to
-          <a href="#cc_binary.copts"><code>copts</code></a> instead.
+          is prepended with <code>-D</code> and added to the compile command line to this target,
+          as well as to every rule that depends on it. Be very careful, since this may have
+          far-reaching effects.  When in doubt, add define values to
+          <a href="#cc_binary.local_defines"><code>local_defines</code></a> instead.
 
         </td>
       </tr>
-                                                                        <tr>
+                                                                                  <tr>
         <td id="cc_test.includes">
           <code>includes</code>
         </td>
@@ -1866,7 +1868,7 @@ fdo_profile(
           <code>linkstatic</code>
         </td>
         <td>
-                    <p><code>Boolean; optional; default is 0</code></p>
+                    <p><code>Boolean; optional; default is False</code></p>
                                For <a href="c-cpp.html#cc_binary"><code>cc_binary</code></a> and
            <a href="c-cpp.html#cc_test"><code>cc_test</code></a>: link the binary in static
            mode. For <code>cc_library.linkstatic</code>: see below.
@@ -1885,7 +1887,7 @@ fdo_profile(
            <li> STATIC with fully_static_link feature, in which everything is linked statically;
              e.g. "<code>gcc -static foo.o libbar.a libbaz.a -lm</code>".<br/>
              This mode is enabled by specifying <code>fully_static_link</code> in the
-             <a href="#cc_binary.features"><code>features</code></a> attribute.</li>
+             <a href="common-definitions.html#features"><code>features</code></a> attribute.</li>
            <li> STATIC, in which all user libraries are linked statically (if a static
              version is available), but where system libraries (excluding C/C++ runtime libraries)
              are linked dynamically, e.g. "<code>gcc foo.o libfoo.a libbaz.a -lm</code>".<br/>
@@ -1910,6 +1912,21 @@ fdo_profile(
         </td>
       </tr>
                                 <tr>
+        <td id="cc_test.local_defines">
+          <code>local_defines</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                              List of defines to add to the compile line.
+          Subject to <a href="make-variables.html">"Make" variable</a> substitution and
+          <a href="common-definitions.html#sh-tokenization">Bourne shell tokenization</a>.
+          Each string, which must consist of a single Bourne shell token,
+          is prepended with <code>-D</code> and added to the compile command line for this target,
+          but not to its dependents.
+
+        </td>
+      </tr>
+                      <tr>
         <td id="cc_test.malloc">
           <code>malloc</code>
         </td>
@@ -1991,15 +2008,489 @@ fdo_profile(
       </tr>
               </tbody>
   </table>
+    <h2 id="cc_toolchain">
+    cc_toolchain
+  </h2>
+
+  <pre class="rule-signature">cc_toolchain(<a href="#cc_toolchain.name">name</a>, <a href="#cc_toolchain.all_files">all_files</a>, <a href="#cc_toolchain.ar_files">ar_files</a>, <a href="#cc_toolchain.as_files">as_files</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#cc_toolchain.compiler">compiler</a>, <a href="#cc_toolchain.compiler_files">compiler_files</a>, <a href="#cc_toolchain.compiler_files_without_includes">compiler_files_without_includes</a>, <a href="#cc_toolchain.coverage_files">coverage_files</a>, <a href="#cc_toolchain.cpu">cpu</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="#cc_toolchain.dwp_files">dwp_files</a>, <a href="#cc_toolchain.dynamic_runtime_lib">dynamic_runtime_lib</a>, <a href="common-definitions.html#common.features">features</a>, <a href="#cc_toolchain.libc_top">libc_top</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="#cc_toolchain.linker_files">linker_files</a>, <a href="#cc_toolchain.module_map">module_map</a>, <a href="#cc_toolchain.objcopy_files">objcopy_files</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#cc_toolchain.static_runtime_lib">static_runtime_lib</a>, <a href="#cc_toolchain.strip_files">strip_files</a>, <a href="#cc_toolchain.supports_header_parsing">supports_header_parsing</a>, <a href="#cc_toolchain.supports_param_files">supports_param_files</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#cc_toolchain.toolchain_config">toolchain_config</a>, <a href="#cc_toolchain.toolchain_identifier">toolchain_identifier</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>Represents a C++ toolchain.</p>
+
+<p>
+  This rule is responsible for:
+
+  <ul>
+    <li>
+      Collecting all artifacts needed for C++ actions to run. This is done by
+      attributes such as <code>all_files</code>, <code>compiler_files</code>,
+      <code>linker_files</code>, or other attributes ending with <code>_files</code>). These are
+      most commonly filegroups globbing all required files.
+    </li>
+    <li>
+      Generating correct command lines for C++ actions. This is done using
+      <code>CcToolchainConfigInfo</code> provider (details below).
+    </li>
+  </ul>
+</p>
+<p>
+  Use <code>toolchain_config</code> attribute to configure the C++ toolchain.
+  See also this
+  <a href="https://docs.bazel.build/versions/master/cc-toolchain-config-reference.html">
+    page
+  </a> for elaborate C++ toolchain configuration and toolchain selection documentation.
+</p>
+
+
+  <h3 id="cc_toolchain_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="cc_toolchain.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                <tr>
+        <td id="cc_toolchain.all_files">
+          <code>all_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; required</code></p>
+                            Collection of all cc_toolchain artifacts. These artifacts will be added as inputs to all
+        rules_cc related actions (with the exception of actions that are using more precise sets of
+        artifacts from attributes below). Bazel assumes that <code>all_files</code> is a superset
+        of all other artifact-providing attributes (e.g. linkstamp compilation needs both compile
+        and link files, so it takes <code>all_files</code>).
+
+        <p>
+        This is what <code>cc_toolchain.files</code> contains, and this is used by all Starlark
+        rules using C++ toolchain.</p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.ar_files">
+          <code>ar_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            <p>Collection of all cc_toolchain artifacts required for archiving actions.</p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.as_files">
+          <code>as_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            <p>Collection of all cc_toolchain artifacts required for assembly actions.</p>
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="cc_toolchain.compiler">
+          <code>compiler</code>
+        </td>
+        <td>
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                             Deprecated. Use <code>toolchain_identifier</code> attribute instead. It will be a noop
+         after
+         <a href="https://github.com/bazelbuild/bazel/issues/5380">
+           CROSSTOOL migration to Starlark
+         </a>, and will be removed by
+         <a href="https://github.com/bazelbuild/bazel/issues/7075">#7075</a>.
+
+         <p>When set, it will be used to perform crosstool_config.toolchain selection. It will take
+         precedence over --cpu Bazel option.</p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.compiler_files">
+          <code>compiler_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; required</code></p>
+                            Collection of all cc_toolchain artifacts required for compile actions.
+
+        <p>Currently only used by lto_backend actions, regular compile actions use all_files
+         (<a href="https://github.com/bazelbuild/bazel/issues/6927">#6927</a>).
+        </p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.compiler_files_without_includes">
+          <code>compiler_files_without_includes</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Collection of all cc_toolchain artifacts required for compile actions in case when
+        input discovery is supported (currently Google-only).
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.coverage_files">
+          <code>coverage_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Collection of all cc_toolchain artifacts required for coverage actions. If not specified,
+        all_files are used.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.cpu">
+          <code>cpu</code>
+        </td>
+        <td>
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                             Deprecated. Use toolchain_identifier attribute instead. It will be a noop after
+         <a href="https://github.com/bazelbuild/bazel/issues/5380">CROSSTOOL migration to Starlark
+         </a>, and will be removed by
+         <a href="https://github.com/bazelbuild/bazel/issues/7075">#7075</a>.
+
+         <p>When set, it will be used to perform crosstool_config.toolchain selection. It will take
+         precedence over --cpu Bazel option.</p>
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="cc_toolchain.dwp_files">
+          <code>dwp_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; required</code></p>
+                            Collection of all cc_toolchain artifacts required for dwp actions.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.dynamic_runtime_lib">
+          <code>dynamic_runtime_lib</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Dynamic library artifact for the C++ runtime library (e.g. libstdc++.so).
+
+        <p>This will be used when 'static_link_cpp_runtimes' feature is enabled, and we're linking
+        dependencies dynamically.</p>
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="cc_toolchain.libc_top">
+          <code>libc_top</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            A collection of artifacts for libc passed as inputs to compile/linking actions.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="cc_toolchain.linker_files">
+          <code>linker_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; required</code></p>
+                            Collection of all cc_toolchain artifacts required for linking actions.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.module_map">
+          <code>module_map</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Module map artifact to be used for modular builds.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.objcopy_files">
+          <code>objcopy_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; required</code></p>
+                            Collection of all cc_toolchain artifacts required for objcopy actions.
+
+        </td>
+      </tr>
+                                <tr>
+        <td id="cc_toolchain.static_runtime_lib">
+          <code>static_runtime_lib</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; optional</code></p>
+                            Static library artifact for the C++ runtime library (e.g. libstdc++.a).
+
+        <p>This will be used when 'static_link_cpp_runtimes' feature is enabled, and we're linking
+        dependencies statically.</p>
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.strip_files">
+          <code>strip_files</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; required</code></p>
+                            Collection of all cc_toolchain artifacts required for strip actions.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.supports_header_parsing">
+          <code>supports_header_parsing</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is False</code></p>
+                            Set to True when cc_toolchain supports header parsing actions.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.supports_param_files">
+          <code>supports_param_files</code>
+        </td>
+        <td>
+                    <p><code>Boolean; optional; default is True</code></p>
+                            Set to True when cc_toolchain supports using param files for linking actions.
+
+        </td>
+      </tr>
+                                          <tr>
+        <td id="cc_toolchain.toolchain_config">
+          <code>toolchain_config</code>
+        </td>
+        <td>
+                    <p><code><a href="../build-ref.html#labels">Label</a>; required</code></p>
+                            The label of the rule providing <code>cc_toolchain_config_info</code>.
+
+        </td>
+      </tr>
+                      <tr>
+        <td id="cc_toolchain.toolchain_identifier">
+          <code>toolchain_identifier</code>
+        </td>
+        <td>
+                    <p><code>String; optional; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                            The identifier used to match this cc_toolchain with the corresponding
+        crosstool_config.toolchain.
+
+        <p>
+          Until issue <a href="https://github.com/bazelbuild/bazel/issues/5380">#5380</a> is fixed
+          this is the recommended way of associating <code>cc_toolchain</code> with
+          <code>CROSSTOOL.toolchain</code>. It will be replaced by the <code>toolchain_config</code>
+          attribute (<a href="https://github.com/bazelbuild/bazel/issues/5380">#5380</a>).</p>
+
+        </td>
+      </tr>
+                        </tbody>
+  </table>
+    <h2 id="cc_toolchain_suite">
+    cc_toolchain_suite
+  </h2>
+
+  <pre class="rule-signature">cc_toolchain_suite(<a href="#cc_toolchain_suite.name">name</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="#cc_toolchain_suite.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+
+
+<p>Represents a collections of C++ toolchains.</p>
+
+<p>
+  This rule is responsible for:
+
+  <ul>
+    <li>Collecting all relevant C++ toolchains.</li>
+    <li>
+      Selecting one toolchain depending on <code>--cpu</code> and  <code>--compiler</code> options
+      passed to Bazel.
+    </li>
+  </ul>
+</p>
+
+<p>
+  See also this
+  <a href="https://docs.bazel.build/versions/master/cc-toolchain-config-reference.html">
+    page
+  </a> for elaborate C++ toolchain configuration and toolchain selection documentation.
+</p>
+
+
+  <h3 id="cc_toolchain_suite_args">Arguments</h3>
+  <table class="table table-condensed table-bordered table-params">
+    <colgroup>
+      <col class="col-param" />
+      <col class="param-description" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">Attributes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="cc_toolchain_suite.name"><code>name</code></td>
+        <td>
+          <p><code><a href="../build-ref.html#name">Name</a>; required</code></p>
+          <p>A unique name for this target.</p>
+
+        </td>
+      </tr>
+                                                                                                <tr>
+        <td id="cc_toolchain_suite.toolchains">
+          <code>toolchains</code>
+        </td>
+        <td>
+                    <p><code>Dictionary mapping strings to <a href="../build-ref.html#labels">labels</a>; required; <a href="common-definitions.html#configurable-attributes">nonconfigurable</a></code></p>
+                            A map from "&lt;cpu&gt;" or "&lt;cpu&gt;|&lt;compiler&gt;" strings to
+        a <code>cc_toolchain</code> label. "&lt;cpu&gt;" will be used when only <code>--cpu</code>
+        is passed to Bazel, and "&lt;cpu&gt;|&lt;compiler&gt;" will be used when both
+        <code>--cpu</code> and <code>--compiler</code>  are passed to Bazel. Example:
+
+        <p>
+          <pre>
+          cc_toolchain_suite(
+            name = "toolchain",
+            toolchains = {
+              "piii|gcc": ":my_cc_toolchain_for_piii_using_gcc",
+              "piii": ":my_cc_toolchain_for_piii_using_default_compiler",
+            },
+          )
+          </pre>
+        </p>
+
+        </td>
+      </tr>
+                        </tbody>
+  </table>
 
 <!-- Generated footer -->
 
+        </div>
+
+        <div class="col-md-3 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: C / C++ Rules&body=Documentation URL: https://docs.bazel.build/versions/master/be/c-cpp.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible'
+                     editButtonListItem.style.visibility = 'visible'
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#rules">Rules</a></li>
+<li class="toc-entry toc-h2"><a href="#cc_binary">
+    cc_binary
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#cc_binary_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#cc_import">
+    cc_import
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#cc_import_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#cc_library">
+    cc_library
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#cc_library_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#cc_proto_library">
+    cc_proto_library
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#cc_proto_library_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#fdo_prefetch_hints">
+    fdo_prefetch_hints
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#fdo_prefetch_hints_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#fdo_profile">
+    fdo_profile
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#fdo_profile_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#cc_test">
+    cc_test
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#cc_test_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#cc_toolchain">
+    cc_toolchain
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#cc_toolchain_args">Arguments</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#cc_toolchain_suite">
+    cc_toolchain_suite
+  </a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#cc_toolchain_suite_args">Arguments</a></li>
+</ul>
+</li>
+</ul>
+            </div>
         </div>
       </div>
     </div>
 
     <!-- Satisfaction Survey -->
-    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=oohdpic4fyfp3jcnym6aqkdf3e"></script>
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
 
         <footer class="footer">
       <div class="container">
@@ -2036,7 +2527,7 @@ fdo_profile(
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <p class="text-muted">&copy; 2018 Google</p>
+      <p class="text-muted">&copy; 2020 Google</p>
     </div>
   </div>
 </div>
