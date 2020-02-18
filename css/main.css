@@ -10,12 +10,12 @@ body {
   line-height: 1.5; }
 
 a {
-  color: #004300;
+  color: #00701a;
   font-weight: 500; }
   a:hover, a:focus {
-    color: #001000; }
+    color: #003d0e; }
   a code {
-    color: #004300; }
+    color: #00701a; }
 
 h1,
 h2,
