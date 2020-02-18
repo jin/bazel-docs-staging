@@ -194,7 +194,8 @@ dl > dt > code > a {
 .sidebar {
   border-right: 1px solid #dee2e6;
   background-color: rgba(67, 160, 71, 0.03);
-  padding-top: 40px; }
+  padding-top: 40px;
+  padding-left: 3rem; }
   .sidebar ul.sidebar-nav {
     list-style-type: none;
     padding: 0; }
