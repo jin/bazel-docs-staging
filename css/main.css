@@ -136,6 +136,10 @@ dd > code > a,
 dl > dt > code > a {
   color: #000; }
 
+dl > dt {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem; }
+
 .footer {
   margin-top: 40px;
   background-color: #424242;
