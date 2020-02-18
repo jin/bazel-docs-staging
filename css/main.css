@@ -89,10 +89,12 @@ code {
 @media (min-width: 992px) {
   .container {
     width: 100%;
-    max-width: 100%; } }
+    max-width: 100%; }
+
+  .content {
+    max-width: 80%; } }
 .content {
-  padding: 40px 30px;
-  max-width: 80%; }
+  padding: 40px 30px; }
   .content p {
     line-height: 22px;
     margin-bottom: 1rem; }
