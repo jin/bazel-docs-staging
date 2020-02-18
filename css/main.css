@@ -6,7 +6,7 @@ html {
 body {
   padding-top: 50px;
   color: #444;
-  font-family: "Open Sans", "RobotoDraft", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5; }
 
 a {
@@ -24,9 +24,8 @@ h4,
 h5,
 h6 {
   color: #444;
-  font-weight: 400;
-  margin-top: 30px;
-  margin-bottom: 15px; }
+  margin-top: 2rem;
+  margin-bottom: 1rem; }
 
 h1 code,
 h2 code,
@@ -39,12 +38,10 @@ h6 code {
 
 h1 {
   font-size: 31.5px;
-  margin-top: 40px;
   font-weight: 700; }
 
 h2 {
-  font-size: 28px;
-  margin-top: 30px; }
+  font-size: 28px; }
   h2 code {
     font-size: 24px; }
 
@@ -89,17 +86,16 @@ code {
   font-size: 14px;
   text-transform: uppercase; }
 
-@media (min-width: 1200px) {
-  .container {
-    width: 95%;
-    max-width: 95%; } }
 @media (min-width: 992px) {
   .container {
-    width: 95%;
-    max-width: 95%; } }
+    width: 100%;
+    max-width: 100%; } }
 .content {
-  padding-left: 30px;
-  padding-right: 30px; }
+  padding: 40px 30px;
+  max-width: 80%; }
+  .content p {
+    line-height: 22px;
+    margin-bottom: 1rem; }
 
 .btn-success {
   border-radius: 2px;
@@ -112,7 +108,7 @@ code {
   box-shadow: none; }
 
 .vpad {
-  padding-top: 20px; }
+  padding-top: 0px; }
 
 .page-title-bar {
   background-color: #76d275;
@@ -196,7 +192,9 @@ dl > dt > code > a {
     margin-top: 0;
     margin-bottom: 0; } }
 .sidebar {
-  border-right: 1px solid #dee2e6; }
+  border-right: 1px solid #dee2e6;
+  background-color: rgba(67, 160, 71, 0.03);
+  padding-top: 40px; }
   .sidebar ul.sidebar-nav {
     list-style-type: none;
     padding: 0; }

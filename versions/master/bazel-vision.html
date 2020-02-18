@@ -18,7 +18,7 @@
     <link rel="canonical" href="/versions/master/bazel-vision.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -401,12 +401,13 @@
           </nav>
         </div>
 
-        <div class="col-md-8 content">
-          <h1 id="bazel-vision">Bazel Vision</h1>
+        <div class="col-md-8">
+          <div class="content">
+            <h1 id="bazel-vision">Bazel Vision</h1>
 
-<font size="+1">Any software developer can efficiently build, test, and package
+<p><font size="+1">Any software developer can efficiently build, test, and package
 any project, of any size or complexity, with tooling that's easy to adopt and
-extend.</font>
+extend.</font></p>
 
 <ul>
   <li><strong>Engineers can take build fundamentals for granted.</strong> Software developers
@@ -432,14 +433,17 @@ developers to trade test coverage for build speed.</li>
 <p><strong>We believe Bazel has the potential to fulfill this vision.</strong> Bazel was built
 from the ground up to enable builds that are reproducible (a given set of inputs
 will always produce the same outputs) and portable (a build can be run on any
-machine without affecting the output). These characteristics support safe
-incrementality (rebuilding only changed inputs doesn’t introduce the risk of
-corruption) and distributability (build actions are isolated and can be
-offloaded). By minimizing the work needed to do a correct build and
-parallelizing that work across multiple cores and remote systems, Bazel can make
-any build fast. Bazel’s abstraction layer—instructions specific to languages,
-platforms, and toolchains implemented in a simple extensibility language —
-allows it to be easily applied to any context.</p>
+machine without affecting the output).</p>
+
+<p>These characteristics support safe incrementality (rebuilding only changed
+inputs doesn’t introduce the risk of corruption) and distributability (build
+actions are isolated and can be offloaded). By minimizing the work needed to do
+a correct build and parallelizing that work across multiple cores and remote
+systems, Bazel can make any build fast.</p>
+
+<p>Bazel’s abstraction layer—instructions specific to languages, platforms, and
+toolchains implemented in a simple extensibility language — allows it to be
+easily applied to any context.</p>
 
 <h2 id="bazel-core-competencies">Bazel Core Competencies</h2>
 
@@ -493,6 +497,7 @@ competencies for their particular ecosystem. They are also, by and large,
 sufficient - once all are fulfilled, Bazel fully delivers its value to members
 of that language community.</p>
 
+          </div>
         </div>
 
         <div class="col-md-2 sticky-sidebar">

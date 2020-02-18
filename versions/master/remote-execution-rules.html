@@ -18,7 +18,7 @@
     <link rel="canonical" href="/versions/master/remote-execution-rules.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -401,8 +401,9 @@
           </nav>
         </div>
 
-        <div class="col-md-8 content">
-          <h1 id="adapting-bazel-rules-for-remote-execution">Adapting Bazel Rules for Remote Execution</h1>
+        <div class="col-md-8">
+          <div class="content">
+            <h1 id="adapting-bazel-rules-for-remote-execution">Adapting Bazel Rules for Remote Execution</h1>
 
 <p>Remote execution allows Bazel to execute actions on a separate platform, such as
 a datacenter. A <a href="https://github.com/googleapis/googleapis/blob/master/google/devtools/remoteexecution/v1test/remote_execution.proto">gRPC protocol</a>
@@ -599,6 +600,7 @@ the repo. The <code class="highlighter-rouge">BUILD</code> files declare <a href
 that can run both locally and remotely, and perform the necessary processing
 that was previously done via <code class="highlighter-rouge">repository_ctx.symlink</code> as shown <a href="https://github.com/tensorflow/tensorflow/blob/d1ba01f81d8fa1d0171ba9ce871599063d5c7eb9/third_party/gpus/cuda_configure.bzl#L730">here</a>.</p>
 
+          </div>
         </div>
 
         <div class="col-md-2 sticky-sidebar">

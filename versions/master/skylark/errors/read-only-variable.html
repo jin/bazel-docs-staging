@@ -18,7 +18,7 @@
     <link rel="canonical" href="/versions/master/skylark/errors/read-only-variable.html">
 
     <!-- Webfont -->
-    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700|Source+Code+Pro:400,500,700|Open+Sans" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
 
@@ -401,8 +401,9 @@
           </nav>
         </div>
 
-        <div class="col-md-8 content">
-          <h1 id="error-variable-x-is-read-only">Error: Variable x is read only</h1>
+        <div class="col-md-8">
+          <div class="content">
+            <h1 id="error-variable-x-is-read-only">Error: Variable x is read only</h1>
 
 <p>A global variable cannot be reassigned. It will always point to the same object.
 However, its content might change, if the value is mutable (for example, the
@@ -427,6 +428,7 @@ overloading is not supported), for example:</p>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  <span class="c1"># forbidden
 </span></code></pre></div></div>
 
+          </div>
         </div>
 
         <div class="col-md-2 sticky-sidebar">
