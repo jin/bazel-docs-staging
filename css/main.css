@@ -86,11 +86,11 @@ code {
   font-size: 14px;
   text-transform: uppercase; }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .container {
     width: 100%;
-    max-width: 100%; }
-
+    max-width: 100%; } }
+@media (min-width: 992px) {
   .content {
     max-width: 80%; } }
 .content {
