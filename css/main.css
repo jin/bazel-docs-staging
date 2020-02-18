@@ -251,7 +251,7 @@ dl > dt {
     .sticky-sidebar {
       position: sticky;
       position: -webkit-sticky;
-      top: 0rem;
+      top: 50px;
       height: calc(100vh);
       overflow-y: auto; } } }
 .right-sidebar {
