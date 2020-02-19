@@ -485,7 +485,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Returns True if given action_config is enabled in the feature configuration.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -529,7 +530,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Should be used for C++ compilation. Returns tuple of (<code>CompilationContext</code>, <code>CcCompilationOutputs</code>).
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -712,7 +714,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Creates a feature_configuration instance.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -769,7 +772,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Creates a <code>CcToolchainConfigInfo</code> provider
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -943,7 +947,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Creates a <code>CompilationContext</code>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1020,7 +1025,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Create compilation outputs object.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1059,7 +1065,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Returns variables used for compilation actions.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1184,7 +1191,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Creates <code>LibraryToLink</code>
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1294,7 +1302,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Returns link variables used for linking actions.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1424,7 +1433,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Creates a <code>LinkingContext</code>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1481,7 +1491,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Should be used for creating library rules that can propagate information downstream in order to be linked later by a top level rule that does transitive linking to create an executable or dynamic library.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1625,7 +1636,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Returns environment variables to be set for given action.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1672,7 +1684,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Returns execution requirements for given action.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1710,7 +1723,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Returns flattened command line flags for given action, using given variables for expansion. Flattens nested sets and ideally should not be used, or at least should not outlive analysis. Work on memory efficient function returning Args is ongoing.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1757,7 +1771,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Returns tool path for given action.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1795,7 +1810,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Returns True if given feature is enabled in the feature configuration.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1833,7 +1849,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Should be used for C++ transitive linking.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1962,7 +1979,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Merges a list of <code>CcInfo</code>s into one.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1992,7 +2010,8 @@ Utilities for C++ compilation, linking, and command line generation.
 
     Merge compilation outputs.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -2025,7 +2044,7 @@ Utilities for C++ compilation, linking, and command line generation.
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: cc_common&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/cc_common.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: cc_common&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/cc_common.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -2049,8 +2068,8 @@ Utilities for C++ compilation, linking, and command line generation.
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

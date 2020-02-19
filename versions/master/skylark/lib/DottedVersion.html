@@ -425,7 +425,8 @@ A value representing a version with multiple components, separated by periods, s
 
     Compares based on most signifigant (first) not-matching version component. So, for example, 1.2.3 < 1.2.4
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -458,7 +459,7 @@ A value representing a version with multiple components, separated by periods, s
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: DottedVersion&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/DottedVersion.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: DottedVersion&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/DottedVersion.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -482,8 +483,8 @@ A value representing a version with multiple components, separated by periods, s
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

@@ -476,7 +476,8 @@ The context of the repository rule containing helper functions and information a
 
     Deletes a file or a directory. Returns a bool, indicating whether the file or directory was actually deleted by this call.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -506,7 +507,8 @@ The context of the repository rule containing helper functions and information a
 
     Downloads a file to the output path for the provided url and returns a struct containing a hash of the file with the fields <code>sha256</code> and <code>integrity</code>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -599,7 +601,8 @@ The context of the repository rule containing helper functions and information a
 
     Downloads a file to the output path for the provided url, extracts it, and returns a struct containing a hash of the downloaded file with the fields <code>sha256</code> and <code>integrity</code>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -702,7 +705,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Executes the command given by the list of arguments. The execution time of the command is limited by <code>timeout</code> (in seconds, default 600 seconds). This method returns an <code>exec_result</code> structure containing the output of the command. The <code>environment</code> map can be used to override some environment variables to be passed to the process.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -769,7 +773,8 @@ Can be relative to the repository root or absolute.</p>
 
     Extract an archive to the repository directory.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -818,7 +823,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Generates a file in the repository directory with the provided content.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -887,7 +893,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Apply a patch file to the root directory of external repository. The patch file should be a standard <a href="https://en.wikipedia.org/wiki/Diff#Unified_format">unified diff format</a> file. The Bazel-native patch implementation doesn't support fuzz match and binary patch like the patch command line tool.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -926,7 +933,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Returns a path from a string, label or path. If the path is relative, it will resolve relative to the repository directory. If the path is a label, it will resolve to the path of the corresponding file. Note that remote repositories are executed during the analysis phase and thus cannot depends on a target result (the label should point to a non-generated file). If path is a path, it will return that path as is.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -956,7 +964,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Reads the content of a file on the filesystem.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -986,7 +995,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Updates the progress status for the fetching of this repository
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1016,7 +1026,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Creates a symlink on the filesystem.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1055,7 +1066,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Generates a new file using a <code>template</code>. Every occurrence in <code>template</code> of a key of <code>substitutions</code> will be replaced by the corresponding value. The result is written in <code>path</code>. An optional<code>executable</code> argument (default to true) can be set to turn on or offthe executable bit.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1112,7 +1124,8 @@ Many archives contain a top-level directory that contains all files in the archi
 
     Returns the path of the corresponding program or None if there is no such program in the path.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1146,7 +1159,7 @@ Many archives contain a top-level directory that contains all files in the archi
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: repository_ctx&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/repository_ctx.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: repository_ctx&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/repository_ctx.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -1170,8 +1183,8 @@ Many archives contain a top-level directory that contains all files in the archi
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

@@ -534,7 +534,8 @@ A context object that is passed to the implementation function for a rule or asp
     DEPRECATED. Use <a href="actions.html#run">ctx.actions.run()</a> or <a href="actions.html#run_shell">ctx.actions.run_shell()</a>. <br>Creates an action that runs an executable or a shell command. You must specify either <code>command</code> or <code>executable</code>.
 Actions and genrules are very similar, but have different use cases. Actions are used inside rules, and genrules are used inside macros. Genrules also have make variable expansion.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -706,7 +707,8 @@ Actions and genrules are very similar, but have different use cases. Actions are
 
     Returns whether code coverage instrumentation should be generated when performing compilation actions for this rule or, if <code>target</code> is provided, the rule specified by that Target. (If a non-rule or a Starlark rule Target is provided, this returns False.) Checks if the sources of the current rule (if no Target is provided) or the sources of Target should be instrumented based on the --instrumentation_filter and --instrument_test_targets config settings. This differs from <code>coverage_enabled</code> in the <a href="configuration.html">configuration</a>, which notes whether coverage data collection is enabled for the entire run, but not whether a specific target should be instrumented.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -754,7 +756,8 @@ Actions and genrules are very similar, but have different use cases. Actions are
 
     DEPRECATED. Use <a href="actions.html#do_nothing">ctx.actions.do_nothing</a> instead. <br>Creates an empty action that neither executes a command nor produces any output, but that is useful for inserting 'extra actions'.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -800,7 +803,8 @@ Actions and genrules are very similar, but have different use cases. Actions are
 
     Expands all <code>$(location ...)</code> templates in the given string by replacing <code>$(location //x)</code> with the path of the output file of target //x. Expansion only works for labels that point to direct dependencies of this rule or that are explicitly listed in the optional argument <code>targets</code>. <br/><br/><code>$(location ...)</code> will cause an error if the referenced target has multiple outputs. In this case, please use <code>$(locations ...)</code> since it produces a space-separated list of output paths. It can be safely used for a single output file, too.<br/><br/>This function is useful to let the user specify a command in a BUILD file (like for <code>genrule</code>). In other cases, it is often better to manipulate labels directly.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -843,7 +847,8 @@ ctx.expand_make_variables("cmd", "$(MY_VAR)", {"MY_VAR": "Hi"})  # == "Hi"
 ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 </pre>Additional variables may come from other places, such as configurations. Note that this function is experimental.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -903,7 +908,8 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     DEPRECATED. Use <a href ="actions.html#write">ctx.actions.write</a> instead. <br>Creates a file write action.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -988,7 +994,8 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     DEPRECATED. Use <a href="actions.html#declare_file">ctx.actions.declare_file</a>. <br>Creates a file object. There are four possible signatures to this method:<br><ul><li>new_file(filename): Creates a file object with the given filename in the current package.</li><li>new_file(file_root, filename): Creates a file object with the given filename under the given file root.</li><li>new_file(sibling_file, filename): Creates a file object in the same directory as the given sibling file.</li><li>new_file(file_root, sibling_file, suffix): Creates a file object with same base name of the sibling_file but with different given suffix, under the given file root.</li></ul> <br>Does not actually create a file on the file system, just declares that some action will do so. You must create an action that generates the file. If the file should be visible to other rules, declare a rule output instead when possible. Doing so enables Bazel to associate a label with the file that rules can refer to (allowing finer dependency control) instead of referencing the whole rule.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1042,7 +1049,8 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     <i>(Experimental)</i> Returns a tuple <code>(inputs, command, input_manifests)</code> of the list of resolved inputs, the argv list for the resolved command, and the runfiles metadata required to run the command, all of them suitable for passing as the same-named arguments of the <code>ctx.action</code> method.<br/><b>Note for Windows users</b>: this method requires Bash (MSYS2). Consider using <code>resolve_tools()</code> instead (if that fits your needs).
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1126,7 +1134,8 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     Returns a tuple <code>(inputs, input_manifests)</code> of the depset of resolved inputs and the runfiles metadata required to run the tools, both of them suitable for passing as the same-named arguments of the <code>ctx.actions.run</code> method.<br/><br/>In contrast to <code>ctx.resolve_command</code>, this method does not require that Bash be installed on the machine, so it's suitable for rules built on Windows.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1162,7 +1171,8 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     Creates a runfiles object.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1243,7 +1253,8 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     Returns true if the given constraint value is part of the current target platform.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1273,7 +1284,8 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
 
     DEPRECATED. Use <a href="actions.html#expand_template">ctx.actions.expand_template()</a> instead. <br>Creates a template expansion action.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1352,7 +1364,7 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: ctx&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/ctx.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: ctx&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/ctx.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -1376,8 +1388,8 @@ ctx.expand_make_variables("cmd", "$$PWD", {})  # == "$PWD"
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

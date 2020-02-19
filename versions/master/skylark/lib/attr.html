@@ -458,7 +458,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a boolean attribute.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -506,7 +507,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an integer attribute.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -563,7 +565,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a list-of-integers attribute.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -629,7 +632,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a label attribute. This is a dependency attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time (within the rule's implementation function), when retrieving the attribute value from <code>ctx.attr</code>, labels are replaced by the corresponding <a href='Target.html'><code>Target</code></a>s. This allows you to access the providers of the currrent target's dependencies.<p>In addition to ordinary source files, this kind of attribute is often used to refer to a tool -- for example, a compiler. Such tools are considered to be dependencies, just like source files. To avoid requiring users to specify the tool's label every time they use the rule in their BUILD files, you can hard-code the label of a canonical tool as the <code>default</code> value of this attribute. If you also want to prevent users from overriding this default, you can make the attribute private by giving it a name that starts with an underscore. See the <a href='../rules.html#private-attributes'>Rules</a> page for more information.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -746,7 +750,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an attribute holding a dictionary, where the keys are labels and the values are strings. This is a dependency attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time (within the rule's implementation function), when retrieving the attribute value from <code>ctx.attr</code>, labels are replaced by the corresponding <a href='Target.html'><code>Target</code></a>s. This allows you to access the providers of the currrent target's dependencies.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -864,7 +869,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a list-of-labels attribute. This is a dependency attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time (within the rule's implementation function), when retrieving the attribute value from <code>ctx.attr</code>, labels are replaced by the corresponding <a href='Target.html'><code>Target</code></a>s. This allows you to access the providers of the currrent target's dependencies.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -982,7 +988,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an output (label) attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time, the corresponding <a href='File.html'><code>File</code></a> can be retrieved using <code>ctx.outputs</code>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1030,7 +1037,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a list-of-outputs attribute.<p>This attribute contains <a href='Label.html'><code>Label</code></a> values. If a string is supplied in place of a <code>Label</code>, it will be converted using the <a href='Label.html#Label'>label constructor</a>. The relative parts of the label path, including the (possibly renamed) repository, are resolved with respect to the instantiated target's package.<p>At analysis time, the corresponding <a href='File.html'><code>File</code></a> can be retrieved using <code>ctx.outputs</code>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1096,7 +1104,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a string attribute.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1153,7 +1162,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an attribute holding a dictionary, where the keys and values are strings.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1219,7 +1229,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for a list-of-strings attribute.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1285,7 +1296,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
 
     Creates a schema for an attribute holding a dictionary, where the keys are strings and the values are lists of strings.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -1354,7 +1366,7 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: attr&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/attr.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: attr&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/attr.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -1378,8 +1390,8 @@ This is a top-level module for defining the attribute schemas of a rule or aspec
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

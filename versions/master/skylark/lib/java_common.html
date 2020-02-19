@@ -449,7 +449,8 @@ Utilities for Java compilation support in Starlark.
 
     Compiles Java source files/jars from the implementation of a Starlark rule and returns a provider that represents the results of the compilation and can be added to the set of providers emitted by this rule.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -653,7 +654,8 @@ Utilities for Java compilation support in Starlark.
 
     Returns a new Java provider whose direct-jars part is the union of both the direct and indirect jars of the given Java provider.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -683,7 +685,8 @@ Utilities for Java compilation support in Starlark.
 
     Merges the given providers into a single JavaInfo.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -713,7 +716,8 @@ Utilities for Java compilation support in Starlark.
 
     Packs sources and source jars into a single source jar file. The return value is typically passed to<p><code><a class="anchor" href="JavaInfo.html">JavaInfo</a>#source_jar</code></p>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -795,7 +799,8 @@ Utilities for Java compilation support in Starlark.
 
     Runs ijar on a jar, stripping it of its method bodies. This helps reduce rebuilding of dependent jars during any recompiles consisting only of simple changes to method implementations. The return value is typically passed to <code><a class="anchor" href="JavaInfo.html">JavaInfo</a>#compile_jar</code>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -852,7 +857,8 @@ Utilities for Java compilation support in Starlark.
 
     Stamps a jar with a target label for <code>add_dep</code> support. The return value is typically passed to <code><a class="anchor" href="JavaInfo.html">JavaInfo</a>#compile_jar</code>. Prefer to use <code><a class="anchor" href="java_common.html#run_ijar">run_ijar</a></code> when possible.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -912,7 +918,7 @@ Utilities for Java compilation support in Starlark.
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: java_common&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/java_common.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: java_common&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/java_common.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -936,8 +942,8 @@ Utilities for Java compilation support in Starlark.
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

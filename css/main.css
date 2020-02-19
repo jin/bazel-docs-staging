@@ -223,14 +223,14 @@ dl > dt {
       .sidebar ul.sidebar-nav li a:focus {
         text-decoration: none; }
       .sidebar ul.sidebar-nav li a:active, .sidebar ul.sidebar-nav li a:hover {
-        border-right: 2px solid #66bb6a;
+        border-right: 4px solid #66bb6a;
         text-decoration: none; }
       .sidebar ul.sidebar-nav li a .caret {
         float: right;
         margin-top: 8px;
         margin-right: 0px; }
     .sidebar ul.sidebar-nav li.active a {
-      border-right: 2px solid #66bb6a;
+      border-right: 4px solid #66bb6a;
       font-weight: 700; }
     .sidebar ul.sidebar-nav ul.sidebar-nav {
       padding-left: 10px; }
@@ -238,7 +238,7 @@ dl > dt {
     padding: 3px 4px;
     border: 2px solid #dee2e6;
     border-radius: 3px;
-    overflow: hidden; }
+    width: 80%; }
 
 @media (min-width: 992px) {
   .sidebar-toggle {
@@ -262,6 +262,8 @@ dl > dt {
   .right-sidebar .gh-links {
     padding-left: 0;
     list-style-type: none; }
+    .right-sidebar .gh-links li {
+      padding-bottom: 0.4rem; }
   .right-sidebar a {
     font-weight: 400; }
 

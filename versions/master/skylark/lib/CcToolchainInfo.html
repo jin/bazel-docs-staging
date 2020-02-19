@@ -484,7 +484,8 @@ Information about the C++ compiler being used.
 
     Returns the files from `dynamic_runtime_lib` attribute (so they can be passed to actions using this toolchain as inputs). The caller can check whether the feature_configuration enables `static_link_cpp_runtimes` feature (if not, neither `static_runtime_lib` nor `dynamic_runtime_lib` have to be used), and use `static_runtime_lib` if static linking mode is active.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -521,7 +522,8 @@ Information about the C++ compiler being used.
 
     Returns true if this rule's compilations should apply -fPIC, false otherwise. Determines if we should apply -fPIC for this rule's C++ compilations depending on the C++ toolchain and presence of `--force_pic` Bazel option.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -551,7 +553,8 @@ Information about the C++ compiler being used.
 
     Returns the files from `static_runtime_lib` attribute (so they can be passed to actions using this toolchain as inputs). The caller should check whether the feature_configuration enables `static_link_cpp_runtimes` feature (if not, neither `static_runtime_lib` nor `dynamic_runtime_lib` should be used), and use `dynamic_runtime_lib` if dynamic linking mode is active.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -673,7 +676,7 @@ struct(foo={4: 3, 2: 1}).to_proto()
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: CcToolchainInfo&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/CcToolchainInfo.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: CcToolchainInfo&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/CcToolchainInfo.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -697,8 +700,8 @@ struct(foo={4: 3, 2: 1}).to_proto()
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

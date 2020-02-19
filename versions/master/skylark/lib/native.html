@@ -443,7 +443,8 @@ A built-in module to support native rules and other package helper functions. Al
 
     Returns a new mutable dict that describes the attributes of a rule instantiated in this thread's package, or <code>None</code> if no rule instance of that name exists.<p>The dict contains an entry for each attribute, except private ones, whose names do not start with a letter. In addition, the dict contains entries for the rule instance's <code>name</code> and <code>kind</code> (for example, <code>'cc_binary'</code>).<p>The values of the dict represent attribute values as follows:<ul><li>Attributes of type str, int, and bool are represented as is.</li><li>Labels are converted to strings of the form <code>':foo'</code> for targets in the same package or <code>'//pkg:name'</code> for targets in a different package.</li><li>Lists are represented as tuples, and dicts are converted to new, mutable dicts. Their elements are recursively converted in the same fashion.</li><li><code>select</code> values are returned as is.<li>Attributes for which no value was specified during rule instantiation and whose default value is computed are excluded from the result. (Computed defaults cannot be computed until the analysis phase.).</li></ul><p>If possible, avoid using this function. It makes BUILD files brittle and order-dependent. Also, beware that it differs subtly from the two other conversions of rule attribute values from internal form to Starlark: one used by computed defaults, the other used by <code>ctx.attr.foo</code>.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -479,7 +480,8 @@ A built-in module to support native rules and other package helper functions. Al
 
     Specifies a list of files belonging to this package that are exported to other packages.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -530,7 +532,8 @@ A built-in module to support native rules and other package helper functions. Al
 <li>Does not match any of the patterns in <code>exclude</code> (default <code>[]</code>).</li></ul>
 If the <code>exclude_directories</code> argument is enabled (set to <code>1</code>), files of type directory will be omitted from the results (default <code>1</code>).
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -586,7 +589,8 @@ If the <code>exclude_directories</code> argument is enabled (set to <code>1</cod
 
     This function defines a set of packages and assigns a label to the group. The label can be referenced in <code>visibility</code> attributes.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -649,7 +653,7 @@ If the <code>exclude_directories</code> argument is enabled (set to <code>1</cod
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: native&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/native.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: native&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/native.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -673,8 +677,8 @@ If the <code>exclude_directories</code> argument is enabled (set to <code>1</cod
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

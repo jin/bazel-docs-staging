@@ -482,7 +482,8 @@ Functions for Starlark to access internals of the apple rule implementations.
 
     Returns a <a href='dict.html'>dict</a> of environment variables that should be set for actions that need to run build tools on an Apple host system, such as the  version of Xcode that should be used. The keys are variable names and the values  are their corresponding values.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -572,7 +573,8 @@ p = dep[apple_common.AppleStaticLibrary]
 
     Creates a new <a href="DottedVersion.html">DottedVersion</a> instance.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -603,7 +605,8 @@ p = dep[apple_common.AppleStaticLibrary]
     Links a (potentially multi-architecture) binary targeting Apple platforms. This method comprises a bulk of the logic of the <code>apple_binary</code> rule, and is exposed as an API to iterate on migration of <code>apple_binary</code> to Starlark.
 <p>This API is <b>highly experimental</b> and subject to change at any time. Do not depend on the stability of this function at this time.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -657,7 +660,8 @@ p = dep[apple_common.AppleStaticLibrary]
 
     Creates a new AppleDynamicFramework provider instance.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -714,7 +718,8 @@ p = dep[apple_common.AppleStaticLibrary]
 
     Creates a new ObjcProvider instance.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -782,7 +787,8 @@ ctx.fragments.apple.multi_arch_platform(apple_common.platform_type.ios)
 
     Returns a <code>dict</code> of environment variables that should be set for actions that build targets of the given Apple platform type. For example, this dictionary contains variables that denote the platform name and SDK version with which to build. The keys are variable names and the values are their corresponding values.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -839,7 +845,7 @@ p = dep[apple_common.XcodeVersionProperties]
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: apple_common&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/apple_common.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: apple_common&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/apple_common.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -863,8 +869,8 @@ p = dep[apple_common.XcodeVersionProperties]
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 

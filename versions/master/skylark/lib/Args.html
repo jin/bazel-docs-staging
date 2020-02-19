@@ -451,7 +451,8 @@ ctx.actions.run(
 
     Appends an argument to this command line.<p><b>Deprecation note:</b> The <code>before_each</code>, <code>join_with</code> and <code>map_fn</code> params are replaced by the <a href='#add_all'><code>add_all()</code></a> and <a href='#add_joined'><code>add_joined()</code></a> methods. These parameters will be removed, and are currently disallowed if the <a href='../backward-compatibility.html#new-args-api'><code>--incompatible_disallow_old_style_args_add</code></a> flag is set. Likewise, <code>value</code> should now be a scalar value, not a list, tuple, or depset of items.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -524,7 +525,8 @@ ctx.actions.run(
 
     Appends multiple arguments to this command line. For depsets, the items are evaluated lazily during the execution phase.<p>Most of the processing occurs over a list of arguments to be appended, as per the following steps:<ol><li>Each directory <code>File</code> item is replaced by all <code>File</code>s recursively contained in that directory.</li><li>If <code>map_each</code> is given, it is applied to each item, and the     resulting lists of strings are concatenated to form the initial argument     list. Otherwise, the initial argument list is the result of applying the     standard conversion to each item.<li>Each argument in the list is formatted with <code>format_each</code>, if     present.<li>If <code>uniquify</code> is true, duplicate arguments are removed. The first     occurrence is the one that remains.<li>If a <code>before_each</code> string is given, it is inserted as a new     argument before each existing argument in the list. This effectively doubles     the number of arguments to be appended by this point.<li>Except in the case that the list is empty and <code>omit_if_empty</code> is     true (the default), the arg name and <code>terminate_with</code> are     inserted as the first and last arguments, respectively, if they are given.</ol>Note that empty strings are valid arguments that are subject to all these processing steps.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -625,7 +627,8 @@ ctx.actions.run(
 
     Appends an argument to this command line by concatenating together multiple values using a separator. For depsets, the items are evaluated lazily during the execution phase.<p>Processing is similar to <a href='#add_all'><code>add_all()</code></a>, but the list of arguments derived from <code>values</code> is combined into a single argument as if by <code>join_with.join(...)</code>, and then formatted using the given <code>format_joined</code> string template. Unlike <code>add_all()</code>, there is no <code>before_each</code> or <code>terminate_with</code> parameter since these are not generally useful when the items are combined into a single argument.<p>If after filtering there are no strings to join into an argument, and if <code>omit_if_empty</code> is true (the default), no processing is done. Otherwise if there are no strings to join but <code>omit_if_empty</code> is false, the joined string will be an empty string.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -726,7 +729,8 @@ ctx.actions.run(
 
     Sets the format of the param file when written to disk
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -756,7 +760,8 @@ ctx.actions.run(
 
     Spills the args to a params file, replacing them with a pointer to the param file. Use when your args may be too large for the system's command length limits.<p>Bazel may choose to elide writing the params file to the output tree during execution for efficiency.If you are debugging actions and want to inspect the param file, pass <code>--materialize_param_files</code> to your build.
 
-          <h3 class="no_toc">Parameters</h3>
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
       <table class="table table-bordered table-condensed table-params">
         <colgroup>
           <col class="col-param">
@@ -798,7 +803,7 @@ ctx.actions.run(
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Args&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/Args.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue for this page</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Args&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/lib/Args.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -822,8 +827,8 @@ ctx.actions.run(
                          docFile = docFile.replace('html', 'md');
                      }
                      editButton.href = ghDocsBazeURL + docFile;
-                     editButton.style.visibility = 'visible'
-                     editButtonListItem.style.visibility = 'visible'
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
                  }
                 </script>
 
