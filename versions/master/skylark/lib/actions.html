@@ -110,6 +110,26 @@
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/skylark/lib/actions.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/skylark/lib/actions.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/skylark/lib/actions.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/skylark/lib/actions.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/2.1.0/skylark/lib/actions.html">
                     2.1.0
                 </option>
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,39 +429,41 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
 
         <div class="col-md-8">
           <div class="content">
-            <a href="../concepts.html">Extensions</a> &gt;
+            <!--  -->
+
+<a href="../concepts.html">Extensions</a> &gt;
 <a href="skylark-overview.html">API reference</a> &gt;
 actions
 
@@ -672,7 +732,7 @@ Module providing functions to create actions. Access this module using <a href="
       </table>
 
         <h2 id="run">run</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run(outputs, inputs=[], unused_inputs_list=None, executable, tools=unbound, arguments=[], mnemonic=None, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run(outputs, inputs=[], unused_inputs_list=None, executable, tools=unbound, arguments=[], mnemonic=None, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None, exec_group=None)</pre></p>
 
     Creates an action that runs an executable. <a href="https://github.com/bazelbuild/examples/tree/master/rules/actions_run/execute.bzl">See example of use</a>.
 
@@ -798,11 +858,20 @@ Module providing functions to create actions. Access this module using <a href="
                           <p>(Experimental) sets the input runfiles metadata; they are typically generated by resolve_command.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="run.exec_group">
+              <code>exec_group</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_exec_groups</code> <br>(Experimental) runs the action on the given exec group's execution platform. If none, uses the target's default execution platform.</p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
         <h2 id="run_shell">run_shell</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run_shell(outputs, inputs=[], tools=unbound, arguments=[], mnemonic=None, command, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run_shell(outputs, inputs=[], tools=unbound, arguments=[], mnemonic=None, command, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None, exec_group=None)</pre></p>
 
     Creates an action that runs a shell command. <a href="https://github.com/bazelbuild/examples/tree/master/rules/shell_command/rules.bzl">See example of use</a>.
 
@@ -871,7 +940,7 @@ Module providing functions to create actions. Access this module using <a href="
             </td>
             <td>
                           <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
-                          <p>Shell command to execute. This may either be a string (preferred) or a sequence of strings <b>(deprecated)</b>.<p>If <code>command</code> is a string, then it is executed as if by <code>sh -c &lt;command&gt; "" &lt;arguments&gt;</code> -- that is, the elements in <code>arguments</code> are made available to the command as <code>$1</code>, <code>$2</code>, etc. If <code>arguments</code> contains any <a href="actions.html#args"><code>actions.args()</code></a> objects, their contents are appended one by one to the command line, so <code>$</code><i>i</i> can refer to individual strings within an Args object. Note that if an Args object of unknown size is passed as part of <code>arguments</code>, then the strings will be at unknown indices; in this case the <code>$@</code> shell substitution (retrieve all arguments) may be useful.<p><b>(Deprecated)</b> If <code>command</code> is a sequence of strings, the first item is the executable to run and the remaining items are its arguments. If this form is used, the <code>arguments</code> parameter must not be supplied. <i>Note that this form is deprecated and will soon be removed. It is disabled with `--incompatible_run_shell_command_string`. Use this flag to verify your code is compatible. </i><p>Bazel uses the same shell to execute the command as it does for genrules.</p>
+                          <p>Shell command to execute. This may either be a string (preferred) or a sequence of strings <b>(deprecated)</b>.<p>If <code>command</code> is a string, then it is executed as if by <code>sh -c &lt;command&gt; "" &lt;arguments&gt;</code> -- that is, the elements in <code>arguments</code> are made available to the command as <code>$1</code>, <code>$2</code> (or <code>%1</code>, <code>%2</code> if using Windows batch), etc. If <code>arguments</code> contains any <a href="actions.html#args"><code>actions.args()</code></a> objects, their contents are appended one by one to the command line, so <code>$</code><i>i</i> can refer to individual strings within an Args object. Note that if an Args object of unknown size is passed as part of <code>arguments</code>, then the strings will be at unknown indices; in this case the <code>$@</code> shell substitution (retrieve all arguments) may be useful.<p><b>(Deprecated)</b> If <code>command</code> is a sequence of strings, the first item is the executable to run and the remaining items are its arguments. If this form is used, the <code>arguments</code> parameter must not be supplied. <i>Note that this form is deprecated and will soon be removed. It is disabled with `--incompatible_run_shell_command_string`. Use this flag to verify your code is compatible. </i><p>Bazel uses the same shell to execute the command as it does for genrules.</p>
             </td>
           </tr>
                   <tr>
@@ -919,13 +988,22 @@ Module providing functions to create actions. Access this module using <a href="
                           <p>(Experimental) sets the input runfiles metadata; they are typically generated by resolve_command.</p>
             </td>
           </tr>
+                  <tr>
+            <td id="run_shell.exec_group">
+              <code>exec_group</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_exec_groups</code> <br>(Experimental) runs the action on the given exec group's execution platform. If none, uses the target's default execution platform.</p>
+            </td>
+          </tr>
                 </tbody>
       </table>
 
         <h2 id="symlink">symlink</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.symlink(output, target)</pre></p>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.symlink(output, target_file=None, target_path=None, is_executable=False, progress_message=None)</pre></p>
 
-    <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_allow_unresolved_symlinks</code></p><p>Creates a symlink in the file system. If the output file is a regular file, the symlink must point to a file. If the output is an unresolved symlink, a dangling symlink is allowed.
+    Creates an action that writes a symlink in the file system.<p>This function must be called with exactly one of <code>target_file</code> and <code>target_path</code> specified.</p><p>If <code>target_file</code> is used, then <code>output</code> must be declared as a regular file (such as by using <a href="#declare_file"><code>declare_file()</code></a>). It will actually be created as a symlink that points to the path of <code>target_file</code>.</p><p>If <code>target_path</code> is used instead, then <code>output</code> must be declared as a symlink (such as by using <a href="#declare_symlink"><code>declare_symlink()</code></a>). In this case, the symlink will point to whatever the content of <code>target_path</code> is. This can be used to create a dangling symlink.</p>
 
           <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
       <h3 class="no_toc">Parameters</h3>
@@ -947,16 +1025,43 @@ Module providing functions to create actions. Access this module using <a href="
             </td>
             <td>
                           <p><code><a class="anchor" href="File.html">File</a></code></p>
-                          <p>The output path.</p>
+                          <p>The output of this action.</p>
             </td>
           </tr>
                   <tr>
-            <td id="symlink.target">
-              <code>target</code>
+            <td id="symlink.target_file">
+              <code>target_file</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>The File that the output symlink will point to.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="symlink.target_path">
+              <code>target_path</code>
             </td>
             <td>
                           <p><code><a class="anchor" href="string.html">string</a></code></p>
-                          <p>The target.</p>
+                          <p>(Experimental) The exact path that the output symlink will point to. No normalization or other processing is applied. Access to this feature requires setting <code>--experimental_allow_unresolved_symlinks</code>.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="symlink.is_executable">
+              <code>is_executable</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>May only be used with <code>target_file</code>, not <code>target_path</code>. If true, when the action is executed, the <code>target_file</code>'s path is checked to confirm that it is executable, and an error is reported if it is not. Setting <code>is_executable</code> to False does not mean the target is not executable, just that no verification is done.<p>This feature does not make sense for <code>target_path</code> because dangling symlinks might not exist at build time.</p></p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="symlink.progress_message">
+              <code>progress_message</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>Progress message to show to the user during the build.</p>
             </td>
           </tr>
                 </tbody>
@@ -1012,6 +1117,7 @@ Module providing functions to create actions. Access this module using <a href="
       </table>
 
 
+<!--  -->
 
           </div>
         </div>
@@ -1033,7 +1139,8 @@ Module providing functions to create actions. Access this module using <a href="
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -1080,6 +1187,7 @@ Module providing functions to create actions. Access this module using <a href="
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -1099,6 +1207,7 @@ Module providing functions to create actions. Access this module using <a href="
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

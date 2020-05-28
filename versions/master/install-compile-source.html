@@ -110,6 +110,26 @@
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/install-compile-source.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/install-compile-source.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/install-compile-source.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/install-compile-source.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/2.1.0/install-compile-source.html">
                     2.1.0
                 </option>
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,32 +429,32 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
@@ -451,7 +509,7 @@ like and use immediately without further installation.</p>
 
 <p>Detailed instructions follow below.</p>
 
-<h3 id="build-bazel-install-bazel">1. Get the latest Bazel release</h3>
+<h3 id="build-bazel-install-bazel">Step 1: Get the latest Bazel release</h3>
 
 <p><strong>Goal</strong>: Install or download a release version of Bazel. Make sure you can run
 it by typing <code class="highlighter-rouge">bazel</code> in a terminal.</p>
@@ -490,7 +548,7 @@ binary’s name instead of <code class="highlighter-rouge">bazel</code>.</p>
   </li>
 </ul>
 
-<h3 id="build-bazel-git">2. Download Bazel's sources from GitHub</h3>
+<h3 id="build-bazel-git">Step 2: Download Bazel's sources from GitHub</h3>
 
 <p>If you are familiar with Git, then just git clone https://github.com/bazelbuild/bazel</p>
 
@@ -509,13 +567,14 @@ extract there.</p>
   </li>
 </ol>
 
-<h3 id="build-bazel-prerequisites">3. Install prerequisites</h3>
+<h3 id="build-bazel-prerequisites">Step 3: Install prerequisites</h3>
 
 <p>Install the same prerequisites as for bootstrapping (see below) – JDK, C++
 compiler, MSYS2 (if you are building on Windows), etc.</p>
 
-<h3 id="build-bazel-on-unixes">4. Build Bazel on Ubuntu Linux, macOS, and other
-Unix-like systems</h3>
+<h3 id="build-bazel-on-unixes">Step 4: Build Bazel</h3>
+
+<h4 id="build-bazel-on-unixes">Ubuntu Linux, macOS, and other Unix-like systems</h4>
 
 <p>(<a href="#build-bazel-on-windows">Scroll down</a> for instructions for Windows.)</p>
 
@@ -549,7 +608,7 @@ to yield a smaller binary but it’s slower to build.</p>
   </li>
 </ol>
 
-<h3 id="build-bazel-on-windows">4. Build Bazel on Windows</h3>
+<h4 id="build-bazel-on-windows">Windows</h4>
 
 <p>(<a href="#build-bazel-on-unixes">Scroll up</a> for instructions for Linux, macOS, and other
 Unix-like systems.)</p>
@@ -586,7 +645,7 @@ Unix-like systems.)</p>
   </li>
 </ol>
 
-<h3 id="build-bazel-install">5. Install the built binary</h3>
+<h3 id="build-bazel-install">Step 5: Install the built binary</h3>
 
 <p>Actually, there’s nothing to install.</p>
 
@@ -600,7 +659,7 @@ your PATH so that you can run “bazel” everywhere.)</p>
 
 <p>You can also build Bazel from scratch, without using an existing Bazel binary.</p>
 
-<h3 id="download-distfile">1. Download Bazel's sources (distribution archive)</h3>
+<h3 id="download-distfile">Step 1: Download Bazel's sources (distribution archive)</h3>
 
 <p>(This step is the same for all platforms.)</p>
 
@@ -630,7 +689,7 @@ of the normal Git source tree.)</li>
   </li>
 </ol>
 
-<h3 id="bootstrap-unix">2. Bootstrap Bazel on Ubuntu Linux, macOS, and other Unix-like systems</h3>
+<h3 id="bootstrap-unix">Step 2a: Bootstrap Bazel on Ubuntu Linux, macOS, and other Unix-like systems</h3>
 
 <p>(<a href="#bootstrap-windows">Scroll down</a> for instructions for Windows.)</p>
 
@@ -647,8 +706,7 @@ of the normal Git source tree.)</li>
     <p><strong>C++ build toolchain</strong></p>
   </li>
   <li>
-    <p><strong>JDK 8.</strong> You must install version 8 of the JDK. Versions other than 8 are
-<em>not</em> supported.</p>
+    <p><strong>JDK.</strong> Versions 8 and 11 are supported.</p>
   </li>
   <li>
     <p><strong>Python</strong>. Versions 2 and 3 are supported, installing one of them is
@@ -659,7 +717,7 @@ enough.</p>
 <p>For example on Ubuntu Linux you can install these requirements using the
 following command:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential openjdk-8-jdk python zip unzip
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential openjdk-11-jdk python zip unzip
 </code></pre></div></div>
 
 <h4 id="bootstrap-unix-bootstrap">2.2. Bootstrap Bazel</h4>
@@ -685,7 +743,7 @@ on your <code class="highlighter-rouge">PATH</code> (such as <code class="highli
 <a href="https://reproducible-builds.org/specs/source-date-epoch/"><code class="highlighter-rouge">SOURCE_DATE_EPOCH</code></a>
 in the “Run the compilation script” step.</p>
 
-<h3 id="bootstrap-windows">2. Bootstrap Bazel on Windows</h3>
+<h3 id="bootstrap-windows">Step 2b: Bootstrap Bazel on Windows</h3>
 
 <p>(<a href="#bootstrap-unix">Scroll up</a> for instructions for Linux, macOS, and other
 Unix-like systems.)</p>
@@ -796,7 +854,8 @@ Command Prompt (<code class="highlighter-rouge">cmd.exe</code>) or PowerShell.</
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -814,20 +873,18 @@ Command Prompt (<code class="highlighter-rouge">cmd.exe</code>) or PowerShell.</
                 <ul class="page-toc">
 <li class="toc-entry toc-h2"><a href="#build-bazel-using-bazel">Build Bazel using Bazel</a>
 <ul class="page-toc-sublist">
-<li class="toc-entry toc-h3"><a href="#build-bazel-install-bazel">1. Get the latest Bazel release</a></li>
-<li class="toc-entry toc-h3"><a href="#build-bazel-git">2. Download Bazel&#39;s sources from GitHub</a></li>
-<li class="toc-entry toc-h3"><a href="#build-bazel-prerequisites">3. Install prerequisites</a></li>
-<li class="toc-entry toc-h3"><a href="#build-bazel-on-unixes">4. Build Bazel on Ubuntu Linux, macOS, and other
-Unix-like systems</a></li>
-<li class="toc-entry toc-h3"><a href="#build-bazel-on-windows">4. Build Bazel on Windows</a></li>
-<li class="toc-entry toc-h3"><a href="#build-bazel-install">5. Install the built binary</a></li>
+<li class="toc-entry toc-h3"><a href="#build-bazel-install-bazel">Step 1: Get the latest Bazel release</a></li>
+<li class="toc-entry toc-h3"><a href="#build-bazel-git">Step 2: Download Bazel&#39;s sources from GitHub</a></li>
+<li class="toc-entry toc-h3"><a href="#build-bazel-prerequisites">Step 3: Install prerequisites</a></li>
+<li class="toc-entry toc-h3"><a href="#build-bazel-on-unixes">Step 4: Build Bazel</a></li>
+<li class="toc-entry toc-h3"><a href="#build-bazel-install">Step 5: Install the built binary</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#bootstrap-bazel">Build Bazel from scratch (bootstrapping)</a>
 <ul class="page-toc-sublist">
-<li class="toc-entry toc-h3"><a href="#download-distfile">1. Download Bazel&#39;s sources (distribution archive)</a></li>
-<li class="toc-entry toc-h3"><a href="#bootstrap-unix">2. Bootstrap Bazel on Ubuntu Linux, macOS, and other Unix-like systems</a></li>
-<li class="toc-entry toc-h3"><a href="#bootstrap-windows">2. Bootstrap Bazel on Windows</a></li>
+<li class="toc-entry toc-h3"><a href="#download-distfile">Step 1: Download Bazel&#39;s sources (distribution archive)</a></li>
+<li class="toc-entry toc-h3"><a href="#bootstrap-unix">Step 2a: Bootstrap Bazel on Ubuntu Linux, macOS, and other Unix-like systems</a></li>
+<li class="toc-entry toc-h3"><a href="#bootstrap-windows">Step 2b: Bootstrap Bazel on Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -850,6 +907,7 @@ Unix-like systems</a></li>
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -869,6 +927,7 @@ Unix-like systems</a></li>
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

@@ -110,6 +110,26 @@
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/skylark/lib/skylark-overview.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/skylark/lib/skylark-overview.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/skylark/lib/skylark-overview.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/skylark/lib/skylark-overview.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/2.1.0/skylark/lib/skylark-overview.html">
                     2.1.0
                 </option>
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,32 +429,32 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
@@ -410,7 +468,7 @@ A list of all modules and globals that are available:
 <h2>
 
 
-  <a href="/versions/master/skylark/lib/globals.html">Global Functions</a>
+  <a href="globals.html">Global Functions</a>
 
 
 </h2>
@@ -421,7 +479,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc">__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc</a>
+      <a href="globals.html#all">all</a>
 
 
     </li>
@@ -430,7 +488,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#all">all</a>
+      <a href="globals.html#analysis_test_transition">analysis_test_transition</a>
 
 
     </li>
@@ -439,7 +497,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#analysis_test_transition">analysis_test_transition</a>
+      <a href="globals.html#any">any</a>
 
 
     </li>
@@ -448,7 +506,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#any">any</a>
+      <a href="globals.html#aspect">aspect</a>
 
 
     </li>
@@ -457,7 +515,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#aspect">aspect</a>
+      <a href="globals.html#bind">bind</a>
 
 
     </li>
@@ -466,7 +524,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#bind">bind</a>
+      <a href="globals.html#bool">bool</a>
 
 
     </li>
@@ -475,7 +533,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#bool">bool</a>
+      <a href="globals.html#configuration_field">configuration_field</a>
 
 
     </li>
@@ -484,7 +542,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#configuration_field">configuration_field</a>
+      <a href="globals.html#depset">depset</a>
 
 
     </li>
@@ -493,7 +551,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#depset">depset</a>
+      <a href="globals.html#dict">dict</a>
 
 
     </li>
@@ -502,7 +560,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#dict">dict</a>
+      <a href="globals.html#dir">dir</a>
 
 
     </li>
@@ -511,7 +569,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#dir">dir</a>
+      <a href="globals.html#enumerate">enumerate</a>
 
 
     </li>
@@ -520,7 +578,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#enumerate">enumerate</a>
+      <a href="globals.html#exec_group">exec_group</a>
 
 
     </li>
@@ -529,7 +587,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#fail">fail</a>
+      <a href="globals.html#fail">fail</a>
 
 
     </li>
@@ -538,7 +596,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#getattr">getattr</a>
+      <a href="globals.html#getattr">getattr</a>
 
 
     </li>
@@ -547,7 +605,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#hasattr">hasattr</a>
+      <a href="globals.html#hasattr">hasattr</a>
 
 
     </li>
@@ -556,7 +614,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#hash">hash</a>
+      <a href="globals.html#hash">hash</a>
 
 
     </li>
@@ -565,7 +623,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#int">int</a>
+      <a href="globals.html#int">int</a>
 
 
     </li>
@@ -574,7 +632,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#len">len</a>
+      <a href="globals.html#len">len</a>
 
 
     </li>
@@ -583,7 +641,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#list">list</a>
+      <a href="globals.html#list">list</a>
 
 
     </li>
@@ -592,7 +650,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#max">max</a>
+      <a href="globals.html#max">max</a>
 
 
     </li>
@@ -601,7 +659,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#min">min</a>
+      <a href="globals.html#min">min</a>
 
 
     </li>
@@ -610,7 +668,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#print">print</a>
+      <a href="globals.html#print">print</a>
 
 
     </li>
@@ -619,7 +677,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#provider">provider</a>
+      <a href="globals.html#provider">provider</a>
 
 
     </li>
@@ -628,7 +686,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#range">range</a>
+      <a href="globals.html#range">range</a>
 
 
     </li>
@@ -637,7 +695,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#register_execution_platforms">register_execution_platforms</a>
+      <a href="globals.html#register_execution_platforms">register_execution_platforms</a>
 
 
     </li>
@@ -646,7 +704,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#register_toolchains">register_toolchains</a>
+      <a href="globals.html#register_toolchains">register_toolchains</a>
 
 
     </li>
@@ -655,7 +713,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#repository_rule">repository_rule</a>
+      <a href="globals.html#repository_rule">repository_rule</a>
 
 
     </li>
@@ -664,7 +722,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#repr">repr</a>
+      <a href="globals.html#repr">repr</a>
 
 
     </li>
@@ -673,7 +731,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#reversed">reversed</a>
+      <a href="globals.html#reversed">reversed</a>
 
 
     </li>
@@ -682,7 +740,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#rule">rule</a>
+      <a href="globals.html#rule">rule</a>
 
 
     </li>
@@ -691,7 +749,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#select">select</a>
+      <a href="globals.html#select">select</a>
 
 
     </li>
@@ -700,7 +758,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#sorted">sorted</a>
+      <a href="globals.html#sorted">sorted</a>
 
 
     </li>
@@ -709,7 +767,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#str">str</a>
+      <a href="globals.html#str">str</a>
 
 
     </li>
@@ -718,7 +776,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#tuple">tuple</a>
+      <a href="globals.html#tuple">tuple</a>
 
 
     </li>
@@ -727,7 +785,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#type">type</a>
+      <a href="globals.html#type">type</a>
 
 
     </li>
@@ -736,7 +794,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#workspace">workspace</a>
+      <a href="globals.html#workspace">workspace</a>
 
 
     </li>
@@ -745,7 +803,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/globals.html#zip">zip</a>
+      <a href="globals.html#zip">zip</a>
 
 
     </li>
@@ -756,7 +814,7 @@ A list of all modules and globals that are available:
 <h2>
 
 
-  <a href="/versions/master/skylark/lib/globals.html">Global Constants</a>
+  <a href="globals.html">Global Constants</a>
 
 
 </h2>
@@ -776,7 +834,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/AnalysisTestResultInfo.html">AnalysisTestResultInfo</a>
+      <a href="AnalysisTestResultInfo.html">AnalysisTestResultInfo</a>
 
 
 
@@ -786,7 +844,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/apple_common.html">apple_common</a>
+      <a href="apple_common.html">apple_common</a>
 
 
 
@@ -796,7 +854,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/apple_toolchain.html">apple_toolchain</a>
+      <a href="apple_toolchain.html">apple_toolchain</a>
 
 
 
@@ -806,7 +864,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/attr.html">attr</a>
+      <a href="attr.html">attr</a>
 
 
 
@@ -816,7 +874,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/cc_common.html">cc_common</a>
+      <a href="cc_common.html">cc_common</a>
 
 
 
@@ -826,7 +884,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/cmd_helper.html">cmd_helper</a>
+      <a href="cmd_helper.html">cmd_helper</a>
 
 
         (Deprecated)
@@ -837,7 +895,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/config_common.html">config_common</a>
+      <a href="config_common.html">config_common</a>
 
 
 
@@ -847,7 +905,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/coverage_common.html">coverage_common</a>
+      <a href="coverage_common.html">coverage_common</a>
 
 
 
@@ -857,7 +915,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/java_common.html">java_common</a>
+      <a href="java_common.html">java_common</a>
 
 
 
@@ -867,7 +925,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/java_proto_common.html">java_proto_common</a>
+      <a href="java_proto_common.html">java_proto_common</a>
 
 
 
@@ -877,7 +935,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/platform_common.html">platform_common</a>
+      <a href="platform_common.html">platform_common</a>
 
 
 
@@ -887,7 +945,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/proto_common.html">proto_common</a>
+      <a href="proto_common.html">proto_common</a>
 
 
 
@@ -897,7 +955,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/testing.html">testing</a>
+      <a href="testing.html">testing</a>
 
 
 
@@ -909,7 +967,7 @@ A list of all modules and globals that are available:
 <h2>
 
 
-  <a href="/versions/master/skylark/lib/skylark-configuration-fragment.html">Configuration Fragments</a>
+  <a href="skylark-configuration-fragment.html">Configuration Fragments</a>
 
 
 </h2>
@@ -919,7 +977,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/apple.html">apple</a>
+      <a href="apple.html">apple</a>
 
           </li>
 
@@ -927,7 +985,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/cpp.html">cpp</a>
+      <a href="cpp.html">cpp</a>
 
           </li>
 
@@ -935,7 +993,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/go.html">go</a>
+      <a href="go.html">go</a>
 
           </li>
 
@@ -943,7 +1001,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/j2objc.html">j2objc</a>
+      <a href="j2objc.html">j2objc</a>
 
           </li>
 
@@ -951,7 +1009,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/java.html">java</a>
+      <a href="java.html">java</a>
 
           </li>
 
@@ -959,7 +1017,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/objc.html">objc</a>
+      <a href="objc.html">objc</a>
 
           </li>
 
@@ -967,7 +1025,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/platform.html">platform</a>
+      <a href="platform.html">platform</a>
 
           </li>
 
@@ -975,7 +1033,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/proto.html">proto</a>
+      <a href="proto.html">proto</a>
 
           </li>
 
@@ -983,15 +1041,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/py.html">py</a>
-
-          </li>
-
-
-    <li>
-
-
-      <a href="/versions/master/skylark/lib/swift.html">swift</a>
+      <a href="swift.html">swift</a>
 
           </li>
 
@@ -1000,7 +1050,7 @@ A list of all modules and globals that are available:
 <h2>
 
 
-  <a href="/versions/master/skylark/lib/skylark-provider.html">Providers</a>
+  <a href="skylark-provider.html">Providers</a>
 
 
 </h2>
@@ -1010,7 +1060,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/AppleDebugOutputs.html">AppleDebugOutputs</a>
+      <a href="AppleDebugOutputs.html">AppleDebugOutputs</a>
 
           </li>
 
@@ -1018,7 +1068,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/AppleDylibBinary.html">AppleDylibBinary</a>
+      <a href="AppleDylibBinary.html">AppleDylibBinary</a>
 
           </li>
 
@@ -1026,7 +1076,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/AppleDynamicFramework.html">AppleDynamicFramework</a>
+      <a href="AppleDynamicFramework.html">AppleDynamicFramework</a>
 
           </li>
 
@@ -1034,7 +1084,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/AppleExecutableBinary.html">AppleExecutableBinary</a>
+      <a href="AppleExecutableBinary.html">AppleExecutableBinary</a>
 
           </li>
 
@@ -1042,7 +1092,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/AppleLoadableBundleBinary.html">AppleLoadableBundleBinary</a>
+      <a href="AppleLoadableBundleBinary.html">AppleLoadableBundleBinary</a>
 
           </li>
 
@@ -1050,7 +1100,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/AppleStaticLibrary.html">AppleStaticLibrary</a>
+      <a href="AppleStaticLibrary.html">AppleStaticLibrary</a>
 
           </li>
 
@@ -1058,7 +1108,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/CcInfo.html">CcInfo</a>
+      <a href="CcInfo.html">CcInfo</a>
 
           </li>
 
@@ -1066,7 +1116,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/CcSkylarkApiProvider.html">CcSkylarkApiProvider</a>
+      <a href="CcStarlarkApiProvider.html">CcStarlarkApiProvider</a>
 
           </li>
 
@@ -1074,7 +1124,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/CcToolchainConfigInfo.html">CcToolchainConfigInfo</a>
+      <a href="CcToolchainConfigInfo.html">CcToolchainConfigInfo</a>
 
           </li>
 
@@ -1082,7 +1132,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/CcToolchainInfo.html">CcToolchainInfo</a>
+      <a href="CcToolchainInfo.html">CcToolchainInfo</a>
 
           </li>
 
@@ -1090,7 +1140,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/CompilationContext.html">CompilationContext</a>
+      <a href="CompilationContext.html">CompilationContext</a>
 
           </li>
 
@@ -1098,7 +1148,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ConstraintCollection.html">ConstraintCollection</a>
+      <a href="ConstraintCollection.html">ConstraintCollection</a>
 
           </li>
 
@@ -1106,7 +1156,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ConstraintSettingInfo.html">ConstraintSettingInfo</a>
+      <a href="ConstraintSettingInfo.html">ConstraintSettingInfo</a>
 
           </li>
 
@@ -1114,7 +1164,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ConstraintValueInfo.html">ConstraintValueInfo</a>
+      <a href="ConstraintValueInfo.html">ConstraintValueInfo</a>
 
           </li>
 
@@ -1122,7 +1172,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/DefaultInfo.html">DefaultInfo</a>
+      <a href="DefaultInfo.html">DefaultInfo</a>
 
           </li>
 
@@ -1130,7 +1180,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/FeatureFlagInfo.html">FeatureFlagInfo</a>
+      <a href="FeatureFlagInfo.html">FeatureFlagInfo</a>
 
           </li>
 
@@ -1138,7 +1188,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/file_provider.html">file_provider</a>
+      <a href="file_provider.html">file_provider</a>
 
           </li>
 
@@ -1146,7 +1196,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/FilesToRunProvider.html">FilesToRunProvider</a>
+      <a href="FilesToRunProvider.html">FilesToRunProvider</a>
 
           </li>
 
@@ -1154,7 +1204,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/GeneratedExtensionRegistryProvider.html">GeneratedExtensionRegistryProvider</a>
+      <a href="GeneratedExtensionRegistryProvider.html">GeneratedExtensionRegistryProvider</a>
 
           </li>
 
@@ -1162,7 +1212,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/InstrumentedFilesInfo.html">InstrumentedFilesInfo</a>
+      <a href="InstrumentedFilesInfo.html">InstrumentedFilesInfo</a>
 
           </li>
 
@@ -1170,7 +1220,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/JavaSkylarkApiProvider.html">java</a>
+      <a href="JavaStarlarkApiProvider.html">java</a>
 
             (Deprecated)
           </li>
@@ -1179,7 +1229,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/java_compilation_info.html">java_compilation_info</a>
+      <a href="java_compilation_info.html">java_compilation_info</a>
 
           </li>
 
@@ -1187,7 +1237,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/java_output_jars.html">java_output_jars</a>
+      <a href="java_output_jars.html">java_output_jars</a>
 
           </li>
 
@@ -1195,7 +1245,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/JavaCcLinkParamsInfo.html">JavaCcLinkParamsInfo</a>
+      <a href="JavaCcLinkParamsInfo.html">JavaCcLinkParamsInfo</a>
 
           </li>
 
@@ -1203,7 +1253,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/JavaInfo.html">JavaInfo</a>
+      <a href="JavaInfo.html">JavaInfo</a>
 
           </li>
 
@@ -1211,7 +1261,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/JavaRuntimeInfo.html">JavaRuntimeInfo</a>
+      <a href="JavaRuntimeInfo.html">JavaRuntimeInfo</a>
 
           </li>
 
@@ -1219,7 +1269,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/JavaToolchainInfo.html">JavaToolchainInfo</a>
+      <a href="JavaToolchainInfo.html">JavaToolchainInfo</a>
 
           </li>
 
@@ -1227,7 +1277,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ObjcProvider.html">ObjcProvider</a>
+      <a href="ObjcProvider.html">ObjcProvider</a>
 
           </li>
 
@@ -1235,7 +1285,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/OutputGroupInfo.html">OutputGroupInfo</a>
+      <a href="OutputGroupInfo.html">OutputGroupInfo</a>
 
           </li>
 
@@ -1243,7 +1293,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/PlatformInfo.html">PlatformInfo</a>
+      <a href="PlatformInfo.html">PlatformInfo</a>
 
           </li>
 
@@ -1251,7 +1301,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ProguardSpecProvider.html">ProguardSpecProvider</a>
+      <a href="ProguardSpecProvider.html">ProguardSpecProvider</a>
 
           </li>
 
@@ -1259,7 +1309,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ProtoInfo.html">ProtoInfo</a>
+      <a href="ProtoInfo.html">ProtoInfo</a>
 
           </li>
 
@@ -1267,7 +1317,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ProtoRegistryProvider.html">ProtoRegistryProvider</a>
+      <a href="ProtoRegistryProvider.html">ProtoRegistryProvider</a>
 
           </li>
 
@@ -1275,7 +1325,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/PyInfo.html">PyInfo</a>
+      <a href="PyInfo.html">PyInfo</a>
 
           </li>
 
@@ -1283,7 +1333,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/PyRuntimeInfo.html">PyRuntimeInfo</a>
+      <a href="PyRuntimeInfo.html">PyRuntimeInfo</a>
 
           </li>
 
@@ -1291,7 +1341,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/TemplateVariableInfo.html">TemplateVariableInfo</a>
+      <a href="TemplateVariableInfo.html">TemplateVariableInfo</a>
 
           </li>
 
@@ -1299,7 +1349,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ToolchainInfo.html">ToolchainInfo</a>
+      <a href="ToolchainInfo.html">ToolchainInfo</a>
 
           </li>
 
@@ -1307,7 +1357,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ToolchainTypeInfo.html">ToolchainTypeInfo</a>
+      <a href="ToolchainTypeInfo.html">ToolchainTypeInfo</a>
 
           </li>
 
@@ -1315,7 +1365,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/XcodeProperties.html">XcodeProperties</a>
+      <a href="XcodeProperties.html">XcodeProperties</a>
 
           </li>
 
@@ -1323,7 +1373,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/XcodeVersionConfig.html">XcodeVersionConfig</a>
+      <a href="XcodeVersionConfig.html">XcodeVersionConfig</a>
 
           </li>
 
@@ -1332,7 +1382,7 @@ A list of all modules and globals that are available:
 <h2>
 
 
-  <a href="/versions/master/skylark/lib/skylark-builtin.html">Built-in Types</a>
+  <a href="skylark-builtin.html">Built-in Types</a>
 
 
 </h2>
@@ -1342,7 +1392,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/Action.html">Action</a>
+      <a href="Action.html">Action</a>
 
           </li>
 
@@ -1350,7 +1400,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/actions.html">actions</a>
+      <a href="actions.html">actions</a>
 
           </li>
 
@@ -1358,7 +1408,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/apple_bitcode_mode.html">apple_bitcode_mode</a>
+      <a href="apple_bitcode_mode.html">apple_bitcode_mode</a>
 
           </li>
 
@@ -1366,7 +1416,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/apple_platform.html">apple_platform</a>
+      <a href="apple_platform.html">apple_platform</a>
 
           </li>
 
@@ -1374,7 +1424,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/apple_platform_type.html">apple_platform_type</a>
+      <a href="apple_platform_type.html">apple_platform_type</a>
 
           </li>
 
@@ -1382,7 +1432,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/Args.html">Args</a>
+      <a href="Args.html">Args</a>
 
           </li>
 
@@ -1390,7 +1440,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/Aspect.html">Aspect</a>
+      <a href="Aspect.html">Aspect</a>
 
           </li>
 
@@ -1398,7 +1448,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/Attribute.html">Attribute</a>
+      <a href="Attribute.html">Attribute</a>
 
           </li>
 
@@ -1406,7 +1456,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/bool.html">bool</a>
+      <a href="bool.html">bool</a>
 
           </li>
 
@@ -1414,7 +1464,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/BuildSetting.html">BuildSetting</a>
+      <a href="BuildSetting.html">BuildSetting</a>
 
           </li>
 
@@ -1422,7 +1472,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/CcCompilationOutputs.html">CcCompilationOutputs</a>
+      <a href="CcCompilationOutputs.html">CcCompilationOutputs</a>
 
           </li>
 
@@ -1430,7 +1480,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/CcLinkingOutputs.html">CcLinkingOutputs</a>
+      <a href="CcLinkingOutputs.html">CcLinkingOutputs</a>
 
           </li>
 
@@ -1438,7 +1488,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/config.html">config</a>
+      <a href="config.html">config</a>
 
           </li>
 
@@ -1446,7 +1496,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/configuration.html">configuration</a>
+      <a href="configuration.html">configuration</a>
 
           </li>
 
@@ -1454,7 +1504,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ctx.html">ctx</a>
+      <a href="ctx.html">ctx</a>
 
           </li>
 
@@ -1462,7 +1512,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/depset.html">depset</a>
+      <a href="depset.html">depset</a>
 
           </li>
 
@@ -1470,7 +1520,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/dict.html">dict</a>
+      <a href="dict.html">dict</a>
 
           </li>
 
@@ -1478,7 +1528,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/DottedVersion.html">DottedVersion</a>
+      <a href="DottedVersion.html">DottedVersion</a>
 
           </li>
 
@@ -1486,7 +1536,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/exec_result.html">exec_result</a>
+      <a href="exec_result.html">exec_result</a>
 
           </li>
 
@@ -1494,7 +1544,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/FeatureConfiguration.html">FeatureConfiguration</a>
+      <a href="ExecGroupCollection.html">ExecGroupCollection</a>
 
           </li>
 
@@ -1502,7 +1552,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/File.html">File</a>
+      <a href="ExecGroupContext.html">ExecGroupContext</a>
 
           </li>
 
@@ -1510,7 +1560,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/fragments.html">fragments</a>
+      <a href="ExecTransitionFactory.html">ExecTransitionFactory</a>
 
           </li>
 
@@ -1518,7 +1568,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/int.html">int</a>
+      <a href="FeatureConfiguration.html">FeatureConfiguration</a>
 
           </li>
 
@@ -1526,7 +1576,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/java_annotation_processing.html">java_annotation_processing</a>
+      <a href="File.html">File</a>
 
           </li>
 
@@ -1534,7 +1584,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/java_output.html">java_output</a>
+      <a href="fragments.html">fragments</a>
 
           </li>
 
@@ -1542,7 +1592,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/Label.html">Label</a>
+      <a href="int.html">int</a>
 
           </li>
 
@@ -1550,7 +1600,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/LateBoundDefault.html">LateBoundDefault</a>
+      <a href="java_annotation_processing.html">java_annotation_processing</a>
 
           </li>
 
@@ -1558,7 +1608,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/LibraryToLink.html">LibraryToLink</a>
+      <a href="java_output.html">java_output</a>
 
           </li>
 
@@ -1566,7 +1616,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/License.html">License</a>
+      <a href="Label.html">Label</a>
 
           </li>
 
@@ -1574,7 +1624,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/LinkerInput.html">LinkerInput</a>
+      <a href="LateBoundDefault.html">LateBoundDefault</a>
 
           </li>
 
@@ -1582,7 +1632,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/LinkingContext.html">LinkingContext</a>
+      <a href="LibraryToLink.html">LibraryToLink</a>
 
           </li>
 
@@ -1590,7 +1640,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/list.html">list</a>
+      <a href="License.html">License</a>
 
           </li>
 
@@ -1598,7 +1648,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/native.html">native</a>
+      <a href="LinkerInput.html">LinkerInput</a>
 
           </li>
 
@@ -1606,7 +1656,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/path.html">path</a>
+      <a href="LinkingContext.html">LinkingContext</a>
 
           </li>
 
@@ -1614,7 +1664,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/Provider.html">Provider</a>
+      <a href="list.html">list</a>
 
           </li>
 
@@ -1622,7 +1672,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/range.html">range</a>
+      <a href="native.html">native</a>
 
           </li>
 
@@ -1630,7 +1680,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/repository_ctx.html">repository_ctx</a>
+      <a href="path.html">path</a>
 
           </li>
 
@@ -1638,7 +1688,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/repository_os.html">repository_os</a>
+      <a href="Provider.html">Provider</a>
 
           </li>
 
@@ -1646,7 +1696,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/root.html">root</a>
+      <a href="range.html">range</a>
 
           </li>
 
@@ -1654,7 +1704,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/rule_attributes.html">rule_attributes</a>
+      <a href="repository_ctx.html">repository_ctx</a>
 
           </li>
 
@@ -1662,7 +1712,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/runfiles.html">runfiles</a>
+      <a href="repository_os.html">repository_os</a>
 
           </li>
 
@@ -1670,7 +1720,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/string.html">string</a>
+      <a href="root.html">root</a>
 
           </li>
 
@@ -1678,7 +1728,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/struct.html">struct</a>
+      <a href="rule_attributes.html">rule_attributes</a>
 
           </li>
 
@@ -1686,7 +1736,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/SymlinkEntry.html">SymlinkEntry</a>
+      <a href="runfiles.html">runfiles</a>
 
           </li>
 
@@ -1694,7 +1744,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/Target.html">Target</a>
+      <a href="string.html">string</a>
 
           </li>
 
@@ -1702,7 +1752,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/ToolchainContext.html">ToolchainContext</a>
+      <a href="struct.html">struct</a>
 
           </li>
 
@@ -1710,7 +1760,7 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/transition.html">transition</a>
+      <a href="SymlinkEntry.html">SymlinkEntry</a>
 
           </li>
 
@@ -1718,7 +1768,31 @@ A list of all modules and globals that are available:
     <li>
 
 
-      <a href="/versions/master/skylark/lib/tuple.html">tuple</a>
+      <a href="Target.html">Target</a>
+
+          </li>
+
+
+    <li>
+
+
+      <a href="ToolchainContext.html">ToolchainContext</a>
+
+          </li>
+
+
+    <li>
+
+
+      <a href="transition.html">transition</a>
+
+          </li>
+
+
+    <li>
+
+
+      <a href="tuple.html">tuple</a>
 
           </li>
 
@@ -1745,7 +1819,8 @@ A list of all modules and globals that are available:
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -1819,6 +1894,7 @@ A list of all modules and globals that are available:
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -1838,6 +1914,7 @@ A list of all modules and globals that are available:
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

@@ -110,6 +110,26 @@
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/be/android.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/be/android.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/be/android.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/be/android.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/2.1.0/be/android.html">
                     2.1.0
                 </option>
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,32 +429,32 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
@@ -1481,7 +1539,7 @@ android_library(
     android_instrumentation_test
   </h2>
 
-  <pre class="rule-signature">android_instrumentation_test(<a href="#android_instrumentation_test.name">name</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#android_instrumentation_test.support_apks">support_apks</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#android_instrumentation_test.target_device">target_device</a>, <a href="#android_instrumentation_test.test_app">test_app</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#android_instrumentation_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">android_instrumentation_test(<a href="#android_instrumentation_test.name">name</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.distribs">distribs</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#android_instrumentation_test.support_apks">support_apks</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#android_instrumentation_test.target_device">target_device</a>, <a href="#android_instrumentation_test.test_app">test_app</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="common-definitions.html#common.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1601,25 +1659,13 @@ android_instrumentation_test(
 
         </td>
       </tr>
-                                          <tr>
-        <td id="android_instrumentation_test.toolchains">
-          <code>toolchains</code>
-        </td>
-        <td>
-                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
-                              The set of toolchains that supply <a href="make-variables.html">"Make variables"</a>
-          that this target can use in some of its attributes. Some rules have toolchains whose Make
-          variables they can use by default.
-
-        </td>
-      </tr>
-                        </tbody>
+                                                      </tbody>
   </table>
     <h2 id="android_local_test">
     android_local_test
   </h2>
 
-  <pre class="rule-signature">android_local_test(<a href="#android_local_test.name">name</a>, <a href="#android_local_test.deps">deps</a>, <a href="#android_local_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_local_test.custom_package">custom_package</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#android_local_test.javacopts">javacopts</a>, <a href="#android_local_test.jvm_flags">jvm_flags</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#android_local_test.manifest">manifest</a>, <a href="#android_local_test.manifest_values">manifest_values</a>, <a href="#android_local_test.nocompress_extensions">nocompress_extensions</a>, <a href="#android_local_test.plugins">plugins</a>, <a href="#android_local_test.resource_jars">resource_jars</a>, <a href="#android_local_test.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#android_local_test.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#android_local_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#android_local_test.test_class">test_class</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="#android_local_test.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
+  <pre class="rule-signature">android_local_test(<a href="#android_local_test.name">name</a>, <a href="#android_local_test.deps">deps</a>, <a href="#android_local_test.srcs">srcs</a>, <a href="common-definitions.html#common.data">data</a>, <a href="common-definitions.html#test.args">args</a>, <a href="common-definitions.html#common.compatible_with">compatible_with</a>, <a href="#android_local_test.custom_package">custom_package</a>, <a href="#android_local_test.densities">densities</a>, <a href="common-definitions.html#common.deprecation">deprecation</a>, <a href="common-definitions.html#common.exec_compatible_with">exec_compatible_with</a>, <a href="common-definitions.html#common.exec_properties">exec_properties</a>, <a href="common-definitions.html#common.features">features</a>, <a href="common-definitions.html#test.flaky">flaky</a>, <a href="#android_local_test.javacopts">javacopts</a>, <a href="#android_local_test.jvm_flags">jvm_flags</a>, <a href="common-definitions.html#common.licenses">licenses</a>, <a href="common-definitions.html#test.local">local</a>, <a href="#android_local_test.manifest">manifest</a>, <a href="#android_local_test.manifest_values">manifest_values</a>, <a href="#android_local_test.nocompress_extensions">nocompress_extensions</a>, <a href="#android_local_test.plugins">plugins</a>, <a href="#android_local_test.resource_configuration_filters">resource_configuration_filters</a>, <a href="#android_local_test.resource_jars">resource_jars</a>, <a href="#android_local_test.resource_strip_prefix">resource_strip_prefix</a>, <a href="common-definitions.html#common.restricted_to">restricted_to</a>, <a href="#android_local_test.runtime_deps">runtime_deps</a>, <a href="common-definitions.html#test.shard_count">shard_count</a>, <a href="common-definitions.html#test.size">size</a>, <a href="#android_local_test.stamp">stamp</a>, <a href="common-definitions.html#common.tags">tags</a>, <a href="#android_local_test.test_class">test_class</a>, <a href="common-definitions.html#common.testonly">testonly</a>, <a href="common-definitions.html#test.timeout">timeout</a>, <a href="common-definitions.html#common.toolchains">toolchains</a>, <a href="common-definitions.html#common.visibility">visibility</a>)</pre>
 
 
 <p>
@@ -1770,6 +1816,18 @@ android_library(
 
         </td>
       </tr>
+                      <tr>
+        <td id="android_local_test.densities">
+          <code>densities</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            Densities to filter for when building the apk. A corresponding compatible-screens
+        section will also be added to the manifest if it does not already contain a
+        superset StarlarkListing.
+
+        </td>
+      </tr>
                                                                         <tr>
         <td id="android_local_test.javacopts">
           <code>javacopts</code>
@@ -1864,6 +1922,17 @@ android_library(
         </td>
       </tr>
                       <tr>
+        <td id="android_local_test.resource_configuration_filters">
+          <code>resource_configuration_filters</code>
+        </td>
+        <td>
+                    <p><code>List of strings; optional</code></p>
+                            A list of resource configuration filters, such as 'en' that will limit the resources in the
+        apk to only the ones in the 'en' configuration.
+
+        </td>
+      </tr>
+                      <tr>
         <td id="android_local_test.resource_jars">
           <code>resource_jars</code>
         </td>
@@ -1944,19 +2013,7 @@ android_library(
 
         </td>
       </tr>
-                                          <tr>
-        <td id="android_local_test.toolchains">
-          <code>toolchains</code>
-        </td>
-        <td>
-                    <p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
-                              The set of toolchains that supply <a href="make-variables.html">"Make variables"</a>
-          that this target can use in some of its attributes. Some rules have toolchains whose Make
-          variables they can use by default.
-
-        </td>
-      </tr>
-                        </tbody>
+                                                      </tbody>
   </table>
     <h2 id="android_device">
     android_device
@@ -2064,7 +2121,7 @@ ro.product.name=soju
           <code>cache</code>
         </td>
         <td>
-                    <p><code>Integer; required; default is 0</code></p>
+                    <p><code>Integer; required</code></p>
                             The size in megabytes of the emulator's cache partition.
         The minimum value of this is 16 megabytes.
 
@@ -2090,7 +2147,7 @@ ro.product.name=soju
           <code>horizontal_resolution</code>
         </td>
         <td>
-                    <p><code>Integer; required; default is 0</code></p>
+                    <p><code>Integer; required</code></p>
                             The horizontal screen resolution in pixels to emulate.
         The minimum value is 240.
 
@@ -2111,7 +2168,7 @@ ro.product.name=soju
           <code>ram</code>
         </td>
         <td>
-                    <p><code>Integer; required; default is 0</code></p>
+                    <p><code>Integer; required</code></p>
                             The amount of ram in megabytes to emulate for the device.
         This is for the entire device, not just for a particular app installed on the device. The
         minimum value is 64 megabytes.
@@ -2123,7 +2180,7 @@ ro.product.name=soju
           <code>screen_density</code>
         </td>
         <td>
-                    <p><code>Integer; required; default is 0</code></p>
+                    <p><code>Integer; required</code></p>
                             The density of the emulated screen in pixels per inch.
         The minimum value of this is 30 ppi.
 
@@ -2154,7 +2211,7 @@ ro.product.name=soju
           <code>vertical_resolution</code>
         </td>
         <td>
-                    <p><code>Integer; required; default is 0</code></p>
+                    <p><code>Integer; required</code></p>
                             The vertical screen resolution in pixels to emulate.
         The minimum value is 240.
 
@@ -2165,7 +2222,7 @@ ro.product.name=soju
           <code>vm_heap</code>
         </td>
         <td>
-                    <p><code>Integer; required; default is 0</code></p>
+                    <p><code>Integer; required</code></p>
                             The size in megabytes of the virtual machine heap Android will use for each process.
         The minimum value is 16 megabytes.
 
@@ -2177,11 +2234,11 @@ ro.product.name=soju
     android_ndk_repository
   </h2>
 
-  <pre class="rule-signature">android_ndk_repository(<a href="#android_ndk_repository.name">name</a>, <a href="#android_ndk_repository.api_level">api_level</a>, <a href="#android_ndk_repository.path">path</a>)</pre>
+  <pre class="rule-signature">android_ndk_repository(<a href="#android_ndk_repository.name">name</a>, <a href="#android_ndk_repository.api_level">api_level</a>, <a href="#android_ndk_repository.path">path</a>, <a href="#android_ndk_repository.repo_mapping">repo_mapping</a>)</pre>
 
 
 <p>Configures Bazel to use an Android NDK to support building Android targets with native
-code. NDK versions 10 up to 16 are currently supported.
+code.
 
 <p>Note that building for Android also requires an <code>android_sdk_repository</code> rule in your
 <code>WORKSPACE</code> file.
@@ -2205,13 +2262,13 @@ the highest API level that it supports.
 <pre class="code">
 android_ndk_repository(
     name = "androidndk",
-    path = "./android-ndk-r12b",
+    path = "./android-ndk-r20",
     api_level = 24,
 )
 </pre>
 
 <p>The above example will use the Android NDK located inside your workspace in
-<code>./android-ndk-r12b</code>. It will use the API level 24 libraries when compiling your JNI
+<code>./android-ndk-r20</code>. It will use the API level 24 libraries when compiling your JNI
 code.
 
 <h4 id="android_ndk_repository_cpufeatures">cpufeatures</h4>
@@ -2284,13 +2341,29 @@ cc_library(
 
         </td>
       </tr>
+                      <tr>
+        <td id="android_ndk_repository.repo_mapping">
+          <code>repo_mapping</code>
+        </td>
+        <td>
+                    <p><code>Dictionary: String -> String; optional</code></p>
+                            A dictionary from local repository name to global repository name. This allows controls over
+        workspace dependency resolution for dependencies of this repository.
+
+        <p>For example, an entry <code>"@foo": "@bar"</code> declares that, for any time this
+        repository depends on <code>"@foo"</code> (such as a dependency on
+        <code>"@foo//some:target"</code>), it should actually resolve that dependency within
+        globally-declared <code>"@bar"</code> (<code>"@bar//some:target"</code>).
+
+        </td>
+      </tr>
               </tbody>
   </table>
     <h2 id="android_sdk_repository">
     android_sdk_repository
   </h2>
 
-  <pre class="rule-signature">android_sdk_repository(<a href="#android_sdk_repository.name">name</a>, <a href="#android_sdk_repository.api_level">api_level</a>, <a href="#android_sdk_repository.build_tools_version">build_tools_version</a>, <a href="#android_sdk_repository.path">path</a>)</pre>
+  <pre class="rule-signature">android_sdk_repository(<a href="#android_sdk_repository.name">name</a>, <a href="#android_sdk_repository.api_level">api_level</a>, <a href="#android_sdk_repository.build_tools_version">build_tools_version</a>, <a href="#android_sdk_repository.path">path</a>, <a href="#android_sdk_repository.repo_mapping">repo_mapping</a>)</pre>
 
 
 <p>Configures Bazel to use a local Android SDK to support building Android targets.</p>
@@ -2418,6 +2491,22 @@ android_library(
 
         </td>
       </tr>
+                      <tr>
+        <td id="android_sdk_repository.repo_mapping">
+          <code>repo_mapping</code>
+        </td>
+        <td>
+                    <p><code>Dictionary: String -> String; optional</code></p>
+                            A dictionary from local repository name to global repository name. This allows controls over
+        workspace dependency resolution for dependencies of this repository.
+
+        <p>For example, an entry <code>"@foo": "@bar"</code> declares that, for any time this
+        repository depends on <code>"@foo"</code> (such as a dependency on
+        <code>"@foo//some:target"</code>), it should actually resolve that dependency within
+        globally-declared <code>"@bar"</code> (<code>"@bar//some:target"</code>).
+
+        </td>
+      </tr>
               </tbody>
   </table>
 
@@ -2443,7 +2532,8 @@ android_library(
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -2536,6 +2626,7 @@ android_library(
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -2555,6 +2646,7 @@ android_library(
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

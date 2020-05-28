@@ -1,0 +1,1674 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Concepts and Terminology - Bazel 0.29.0</title>
+
+    <link rel="canonical" href="/versions/0.29.0/build-ref.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Concepts and Terminology"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-2">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+
+          <nav class="sidebar collapse" id="sidebar-nav">
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: 0.29.0</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/build-ref.html">
+                    master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/build-ref.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/build-ref.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/build-ref.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/build-ref.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.1.0/build-ref.html">
+                    2.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.0.0/build-ref.html">
+                    2.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.2.0/build-ref.html">
+                    1.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.1.0/build-ref.html">
+                    1.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.0.0/build-ref.html">
+                    1.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.1/build-ref.html">
+                    0.29.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.0/build-ref.html">
+                    0.29.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.28.0/build-ref.html">
+                    0.28.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.27.0/build-ref.html">
+                    0.27.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.26.0/build-ref.html">
+                    0.26.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.25.0/build-ref.html">
+                    0.25.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.24.0/build-ref.html">
+                    0.24.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.23.0/build-ref.html">
+                    0.23.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.22.0/build-ref.html">
+                    0.22.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.21.0/build-ref.html">
+                    0.21.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.20.0/build-ref.html">
+                    0.20.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.2/build-ref.html">
+                    0.19.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.1/build-ref.html">
+                    0.19.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.18.1/build-ref.html">
+                    0.18.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.2/build-ref.html">
+                    0.17.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.1/build-ref.html">
+                    0.17.1
+                </option>
+                
+            </select>
+
+            <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/0.29.0/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/0.29.0/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/0.29.0/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/0.29.0/backward-compatibility.html">Backward compatibility</a></li>
+            </ul>
+
+            <h3>Installing Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/0.29.0/install.html">Installation overview</a>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installation steps<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+
+                   <li><a href="/versions/0.29.0/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/0.29.0/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/0.29.0/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/0.29.0/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/0.29.0/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/0.29.0/completion.html">Command-line completion</a></li>
+                   <li><a href="/versions/0.29.0/ide.html">Integrating with IDEs</a></li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/0.29.0/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
+            </ul>
+
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/0.29.0/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/0.29.0/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/0.29.0/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/0.29.0/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/0.29.0/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/0.29.0/external.html">External dependencies</a></li>
+                  <li><a href="/versions/0.29.0/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#guides-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  Guides<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/0.29.0/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/0.29.0/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/0.29.0/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/0.29.0/windows.html">Building on Windows</a></li>
+                </ul>
+              </li>
+
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/0.29.0/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/0.29.0/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/0.29.0/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/0.29.0/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/0.29.0/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/0.29.0/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/0.29.0/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/0.29.0/remote-execution-rules.html">Guidelines</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/0.29.0/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/0.29.0/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/0.29.0/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/0.29.0/remote-execution-ci.html">Remote execution and CI</a></li>
+                 </ul>
+              </li>
+
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/0.29.0/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/0.29.0/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
+                  </ul>
+              </li>
+              
+             </ul>
+
+           
+           <h4>Rules</h4>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.29.0/be/overview.html">Build encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/0.29.0/tutorial/android-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.29.0/bazel-and-android.html">Android resources</a></li>
+                  <li><a href="/versions/0.29.0/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/0.29.0/android-instrumentation-test.html">Android instrumentation tests</a></li>
+                  <li><a href="/versions/0.29.0/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/0.29.0/tutorial/ios-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.29.0/bazel-and-apple.html">Apple resources</a></li>
+                  <li><a href="/versions/0.29.0/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/0.29.0/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/0.29.0/tutorial/cpp.html">Tutorial</a></li>
+                  <li><a href="/versions/0.29.0/bazel-and-cpp.html">C++ resources</a></li>
+                  <li><a href="/versions/0.29.0/cpp-use-cases.html">C++ use cases</a></li>
+                  <li>
+                    <a href="/versions/0.29.0/cc-toolchain-config-reference.html">
+                      C++ Toolchain Configuration
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.29.0/tutorial/cc-toolchain-config.html">
+                      Tutorial: Configuring C++ Toolchains
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.29.0/integrating-with-rules-cc.html">
+                      Integrating with C++ rules
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/0.29.0/tutorial/java.html">Tutorial</a></li>
+                  <li><a href="/versions/0.29.0/bazel-and-java.html">Java resources</a></li>
+                  <li><a href="/versions/0.29.0/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/0.29.0/generate-workspace.html">Converting Maven dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/0.29.0/bazel-and-javascript.html">JavaScript resources</a></li>
+                  <li><a href="/versions/0.29.0/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+           
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.29.0/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/0.29.0/glossary.html">Glossary</a></li>
+             <li><a href="/versions/0.29.0/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/0.29.0/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/0.29.0/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/0.29.0/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/0.29.0/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/0.29.0/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/0.29.0/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
+             <li><a href="/versions/0.29.0/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/0.29.0/output_directories.html">Output directory layout</a></li>
+             <li><a href="/versions/0.29.0/platforms.html">Platforms</a></li>
+             <li><a href="/versions/0.29.0/toolchains.html">Toolchains</a></li>
+           </ul>
+
+           <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/0.29.0/skylark/concepts.html">Extension overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/0.29.0/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/0.29.0/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/0.29.0/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/0.29.0/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/0.29.0/skylark/repository_rules.html">Repository rules</a></li>
+                  <li><a href="/versions/0.29.0/skylark/config.html">Configurations</a></li>
+                </ul>
+              </li>
+
+	            <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/0.29.0/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/0.29.0/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/0.29.0/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/0.29.0/skylark/deploying.html">Deploying rules</a></li>
+                  <li><a href="/versions/0.29.0/skylark/windows_tips.html">Writing rules on Windows</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/0.29.0/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/0.29.0/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/0.29.0/skylark/language.html">Starlark language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-8">
+          <div class="content">
+            <h1>Concepts and Terminology</h1>
+<p>
+  This document provides an overview of the source tree layout and the
+  terminology used in Bazel.
+</p>
+<h2>Table of Contents</h2>
+
+<ul>
+  <li><a href="#intro">Introduction</a></li>
+
+  <li><a href="#packages_targets">Workspace, Packages and Targets</a>
+    <ul>
+      <li><a href="#workspace">Workspace</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#targets">Targets</a></li>
+      <li><a href="#labels">Labels</a></li>
+      <li><a href="#lexi">Lexical Specifications of a Label</a></li>
+      <li><a href="#rules">Rules</a></li>
+    </ul>
+  </li>
+  <li><a href="#BUILD_files">BUILD Files</a>
+    <ul>
+      <li><a href="#load">Loading an extension</a></li>
+    </ul>
+  </li>
+  <li><a href="#funcs">Types of Build Rules</a></li>
+
+  <li><a href="#dependencies">Dependencies</a>
+    <ul>
+      <li><a href="#actual_and_declared_dependencies">Actual and Declared Dependencies</a></li>
+      <li><a href="#types_of_dependencies">Types of Dependencies</a></li>
+      <li><a href="#label_directory">Using Labels to Reference Directories</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="intro">Introduction</h2>
+
+<p>Bazel builds software from source code organized in a directory called
+   a workspace. Source files in the workspace are organized in a nested
+   hierarchy of packages, where each package is a directory that contains a set
+   of related source files and one BUILD file. The BUILD file specifies what
+   software outputs can be built from the source.
+</p>
+<h2 id="packages_targets">Workspace, Packages and Targets</h2>
+<h3 id="workspace">Workspace</h3>
+
+<p>A <em>workspace</em> is a directory on your filesystem that contains the
+   source files for the software you want to build, as well as symbolic links
+   to directories that contain the build outputs. Each workspace directory has
+   a text file named <code>WORKSPACE</code> which may be empty,  or may contain
+   references to <a href="external.html">external dependencies</a>
+   required to build the outputs. See also the <a
+   href="be/workspace.html">Workspace Rules</a> section in the Build
+   Encyclopedia.
+</p>
+<h3 id="packages">Packages</h3>
+<p>
+  The primary unit of code organization in a workspace is
+  the <i>package</i>.  A package is a collection of related files and a
+  specification of the dependencies among them.
+</p>
+
+<p>
+  A package is defined as a directory containing a file
+  named <code>BUILD</code> or <code>BUILD.bazel</code>,
+  residing beneath the top-level directory in the
+  workspace.  A package includes all files in its directory, plus all
+  subdirectories beneath it, except those which themselves contain a BUILD
+  file.
+</p>
+
+<p>
+  For example, in the following directory tree
+  there are two packages, <code>my/app</code>,
+  and the subpackage <code>my/app/tests</code>.
+  Note that <code>my/app/data</code> is not a package, but a directory
+  belonging to package <code>my/app</code>.
+</p>
+
+<pre>
+src/my/app/BUILD
+src/my/app/app.cc
+src/my/app/data/input.txt
+src/my/app/tests/BUILD
+src/my/app/tests/test.cc
+</pre>
+<h3 id="targets">Targets</h3>
+
+<p>
+  A package is a container. The elements of a package are called
+  <i>targets</i>. Most targets are one of two principal kinds, <i>files</i>
+  and <i>rules</i>. Additionally, there is another kind of target,
+  <a href="be/functions.html#package_group">package groups</a>,
+  but they are far less numerous.
+</p>
+
+<p>
+  Files are further divided into two kinds.
+  <i>Source files</i> are usually written by the efforts of people,
+  and checked in to the repository.
+  <i>Generated files</i>, sometimes called derived files,
+  are not checked in, but are generated by the build tool from source
+  files according to specific rules.
+</p>
+
+<p>
+  The second kind of target is the <i>rule</i>.  A rule specifies the
+  relationship between a set of input and a set of output files,
+  including the necessary steps to derive the outputs from the inputs.
+  The outputs of a rule are always generated files.  The inputs to a
+  rule may be source files, but they may be generated files also;
+  consequently, outputs of one rule may be the inputs to another,
+  allowing long chains of rules to be constructed.
+</p>
+
+<p>
+  Whether the input to a rule is a source file or a generated file is
+  in most cases immaterial; what matters is only the contents of that
+  file.  This fact makes it easy to replace a complex source file with
+  a generated file produced by a rule, such as happens when the burden
+  of manually maintaining a highly structured file becomes too
+  tiresome, and someone writes a program to derive it.  No change is
+  required to the consumers of that file.  Conversely, a generated
+  file may easily be replaced by a source file with only local
+  changes.
+</p>
+
+<p>
+  The inputs to a rule may also include <i>other rules</i>.  The
+  precise meaning of such relationships is often quite complex and
+  language- or rule-dependent, but intuitively it is simple: a C++
+  library rule A might have another C++ library rule B for an input.
+  The effect of this dependency is that B's header files are
+  available to A during compilation, B's symbols are available to A
+  during linking, and B's runtime data is available to A during
+  execution.
+</p>
+
+<p>
+  An invariant of all rules is that the files generated by a rule
+  always belong to the same package as the rule itself; it is not
+  possible to generate files into another package.  It is not uncommon
+  for a rule's inputs to come from another package, though.
+</p>
+
+<p>
+  Package groups are sets of packages whose purpose is to limit accessibility
+  of certain rules. Package groups are defined by the
+  <code>package_group</code> function. They have two properties: the list of
+  packages they contain and their name. The only allowed ways to refer to them
+  are from the <code>visibility</code> attribute of rules or from the
+  <code>default_visibility</code> attribute of the <code>package</code>
+  function; they do not generate or consume files. For more information, refer
+  to the appropriate section of the <a
+  href='be/functions.html#package_group'>Build Encyclopedia</a>.
+</p>
+
+
+<h3 id="labels">Labels</h3>
+
+<p>
+  All targets belong to exactly one package.  The name of a target is
+  called its <em>label</em>, and a typical label in canonical form
+  looks like this:
+</p>
+
+<pre>
+//my/app/main:app_binary
+</pre>
+
+<p>
+
+  Each label has two parts, a package name (<code>my/app/main</code>)
+  and a target name (<code>app_binary</code>).  Every label uniquely
+  identifies a target.  Labels sometimes appear in other forms; when
+  the colon is omitted, the target name is assumed to be the same as
+  the last component of the package name, so these two labels are
+  equivalent:
+</p>
+
+<pre>
+//my/app
+//my/app:app
+</pre>
+
+<p>
+  Short-form labels such as <code>//my/app</code> are not to
+  be confused with package names.  Labels start with <code>//</code>,
+  but package names never do, thus <code>my/app</code> is the
+  package containing <code>//my/app</code>.
+
+  (A common misconception is that <code>//my/app</code> refers
+  to a package, or to <em>all</em> the targets in a package; neither
+  is true.)
+</p>
+
+<p>
+  Within a BUILD file, the package-name part of label may be omitted,
+  and optionally the colon too.  So within the BUILD file for package
+  <code>my/app</code> (i.e. <code>//my/app:BUILD</code>),
+  the following "relative" labels are all equivalent:
+</p>
+
+<pre>
+//my/app:app
+//my/app
+:app
+app
+</pre>
+
+<p>
+  (It is a matter of convention that the colon is omitted for files,
+  but retained for rules, but it is not otherwise significant.)
+</p>
+
+<p>
+  Similarly, within a BUILD file, files belonging to the package may
+  be referenced by their unadorned name relative to the package
+  directory:
+</p>
+
+
+<pre>
+generate.cc
+testdata/input.txt
+</pre>
+
+<p>
+  But from other packages, or from the command-line, these file
+  targets must always be referred to by their complete label, e.g.
+  <code>//my/app:generate.cc</code>.
+</p>
+
+<p>
+  Relative labels cannot be used to refer to targets in other
+  packages; the complete package name must always be specified in this
+  case.  For example, if the source tree contains both the package
+  <code>my/app</code> and the package
+  <code>my/app/testdata</code> (i.e., each of these two
+  packages has its own BUILD file).  The latter package contains a
+  file named <code>testdepot.zip</code>.  Here are two ways (one
+  wrong, one correct) to refer to this file within
+  <code>//my/app:BUILD</code>:
+</p>
+
+<pre>
+<span class="discouraged">testdata/testdepot.zip</span>  # Wrong: testdata is a different package.
+//my/app/testdata:testdepot.zip   # Right.
+</pre>
+
+<p>
+  If, by mistake, you refer to <code>testdepot.zip</code> by the wrong
+  label, such as <code>//my/app:testdata/testdepot.zip</code>
+  or <code>//my:app/testdata/testdepot.zip</code>, you will get an
+  error from the build tool saying that the label "crosses a package
+  boundary".  You should correct the label by putting the colon after
+  the directory containing the innermost enclosing BUILD file, i.e.,
+  <code>//my/app/testdata:testdepot.zip</code>.
+</p>
+
+<h3 id="lexi">Lexical specification of a label</h3>
+
+<p>
+  The syntax of labels is intentionally strict, so as to
+  forbid metacharacters that have special meaning to the shell.  This
+  helps to avoid inadvertent quoting problems, and makes it easier to
+  construct tools and scripts that manipulate labels, such as the
+
+  <a href='query.html'>Bazel Query Language</a>.
+
+  All of the following are forbidden in labels: any sort of white
+  space, braces, brackets, or parentheses; wildcards such
+  as <code>*</code>; shell metacharacters such
+  as <code>&gt;</code>, <code>&amp;</code> and <code>|</code>; etc.
+  This list is not comprehensive; the precise details are below.
+</p>
+
+<h4 id="name">Target names, <code>//...:<b>target-name</b></code></h4>
+
+<p><code>target-name</code> is the name of the target within the package.
+  The name of a rule is the value of the <code>name</code>
+  attribute in the rule's declaration in a BUILD file; the name
+  of a file is its pathname relative to the directory containing
+  the BUILD file.
+  Target names must be composed entirely of
+  characters drawn from the set <code>a</code>–<code>z</code>,
+  <code>A</code>–<code>Z</code>, <code>0</code>–<code>9</code>,
+  and the punctuation symbols <code>_/.+-=,@~</code>.
+  Do not use <code>..</code> to refer to files in other packages; use
+  <code>//<var>packagename</var>:<var>filename</var></code> instead.
+  Filenames must be relative pathnames in normal form, which means
+  they must neither start nor end with a slash
+  (e.g. <code>/foo</code> and <code>foo/</code> are forbidden) nor
+  contain multiple consecutive slashes as path separators
+  (e.g. <code>foo//bar</code>).  Similarly, up-level references
+  (<code>..</code>) and current-directory references
+  (<code>./</code>) are forbidden.  The sole exception to this
+  rule is that a target name may consist of exactly
+  '<code>.</code>'.
+</p>
+
+<p>While it is common to use <code>/</code> in the name of a file
+  target, we recommend that you avoid the use of <code>/</code> in the
+  names of rules.  Especially when the shorthand form of a label is
+  used, it may confuse the reader.  The
+  label <code>//foo/bar/wiz</code> is always a shorthand
+  for <code>//foo/bar/wiz:wiz</code>, even if there is no such package
+  <code>foo/bar/wiz</code>; it never refers to <code>//foo:bar/wiz</code>,
+  even if that target exists.</p>
+
+<p>However, there are some situations where use of a slash is
+  convenient, or sometimes even necessary.  For example, the name of
+  certain rules must match their principal source file, which may
+  reside in a subdirectory of the package.</p>
+
+<h4>Package names, <code>//<b>package-name</b>:...</code></h4>
+<p>
+  The name of a package is the name of the directory containing its
+
+  BUILD file, relative to the top-level directory of the source tree.
+  For example: <code>my/app</code>.
+
+  Package names must be composed entirely of characters drawn from
+  the set <code>A</code>-<code>Z</code>, <code>a</code>–<code>z</code>,
+  <code>0</code>–<code>9</code>, '<code>/</code>', '<code>-</code>',
+  '<code>.</code>', and '<code>_</code>', and cannot start with
+  a slash.
+<p>
+  For a language with a directory structure that is significant
+  to its module system (e.g. Java), it is important to choose directory names
+  that are valid identifiers in the language.
+</p>
+
+<p>
+  Although Bazel allows a package at the build root (e.g. <code>//:foo</code>), this
+  is not advised and projects should attempt to use more descriptively named
+  packages.
+</p>
+<p>
+  Package names may not contain the substring <code>//</code>, nor
+  end with a slash.
+</p>
+
+<h3 id="rules">Rules</h3>
+
+<p>
+  A rule specifies the relationship between inputs and outputs, and the
+  steps to build the outputs.  Rules can be of one of many different
+  kinds or <i>classes</i>, which produce compiled
+  executables and libraries, test executables and other supported
+  outputs as described in the
+  <a href="be/overview.html">Build Encyclopedia</a>.
+</p>
+
+<p>
+  Every rule has a name, specified by the <code>name</code> attribute,
+  of type string.  The name must be a syntactically valid target name,
+  as specified <a href='#name'>above</a>.  In some cases, the name is
+  somewhat arbitrary, and more interesting are the names of the files
+  generated by the rule; this is true of genrules.  In other
+  cases, the name is significant: for <code>*_binary</code>
+  and <code>*_test</code> rules, for example, the rule name determines
+  the name of the executable produced by the build.
+</p>
+
+<pre>
+cc_binary(
+    name = "my_app",
+    srcs = ["my_app.cc"],
+    deps = [
+        "//absl/base",
+        "//absl/strings",
+    ],
+)
+</pre>
+
+<p>
+  Every rule has a set of <i>attributes</i>; the applicable attributes
+  for a given rule, and the significance and semantics of each
+  attribute are a function of the rule's class; see
+  the <a href='be/overview.html'>Build
+  Encyclopedia</a> for a list of rules and their
+  corresponding attributes.  Each attribute has a name and a
+  type.  Some of the common types an attribute can have are integer,
+  label, list of labels, string, list of strings, output label,
+  list of output labels.  Not all attributes need to be specified in
+  every rule.  Attributes thus form a dictionary from keys (names) to
+  optional, typed values.
+</p>
+
+<p>
+  The <code>srcs</code> attribute present in many rules has type "list
+  of labels"; its value, if present, is a list of labels, each being
+  the name of a target that is an input to this rule.
+</p>
+
+<p>
+  The <code>outs</code> attribute present in many rules has type "list
+  of output labels"; this is similar to the type of
+  the <code>srcs</code> attribute, but differs in two significant
+  ways.  Firstly, due to the invariant that the outputs of a rule
+  belong to the same package as the rule itself, output labels cannot
+  include a package component; they must be in one of the "relative"
+  forms shown above.  Secondly, the relationship implied by an
+  (ordinary) label attribute is inverse to that implied by an output
+  label: a rule <i>depends on</i> its <code>srcs</code>, whereas a rule <i>is
+    depended on by</i> its <code>outs</code>.  The two types of label attributes
+  thus assign direction to the edges between targets, giving rise to a
+  dependency graph.
+</p>
+
+<p>
+  This directed acyclic graph over targets is called the
+  "target graph" or "build dependency graph", and is the domain over
+  which the <a href='query.html'>Bazel Query tool</a> operates.
+</p>
+
+
+<h2 id="BUILD_files">BUILD Files</h2>
+
+<p>
+  The previous section described packages, targets and labels, and the
+  build dependency graph abstractly.  In this section, we'll look at
+  the concrete syntax used to define a package.
+</p>
+
+<p>
+  By definition, every package contains a BUILD file, which is a short
+  program.
+  BUILD files are evaluated using an imperative language,
+  <a href="https://github.com/bazelbuild/starlark/">Starlark</a>.
+
+  They are interpreted as a sequential list of statements.
+</p>
+
+<p>
+  In general, order does matter: variables must be defined before they are used, for
+  example.  However, most BUILD files consist only of declarations of
+  build rules, and the relative order of these statements is
+  immaterial; all that matters is <em>which</em> rules were declared,
+  and with what values, by the time package evaluation completes.
+
+  When a build rule function, such as <code>cc_library</code>, is
+  executed, it creates a new target in the graph. This target can later be
+  referred using a label.
+
+  So, in simple BUILD files, rule declarations can be re-ordered
+  freely without changing the behavior.
+</p>
+
+
+<p>
+  To encourage a clean separation between code and data, BUILD files cannot
+  contain function definitions, <code>for</code> statements or
+  <code>if</code> statements (but list comprehensions and <code>if</code>
+  expressions are allowed). Functions should be declared in <code>.bzl</code>
+  files instead. Additionally, <code>*args</code> and <code>**kwargs</code>
+  arguments are not allowed in BUILD files; instead list all the arguments
+  explicitly.
+</p>
+
+<p>
+  Crucially, programs in Starlark are unable to perform
+  arbitrary I/O.  This invariant makes the
+  interpretation of BUILD files hermetic, i.e. dependent only on a
+  known set of inputs, which is essential for ensuring that builds are
+  reproducible.
+</p>
+
+<p>
+  BUILD files should be written using only ASCII characters,
+  although technically they are interpreted using the Latin-1
+  character set.
+</p>
+
+<p>
+  Since BUILD files need to be updated whenever the dependencies of the
+  underlying code change, they are typically maintained by multiple
+  people on a team. BUILD file authors are encouraged to use comments
+  liberally to document the role of each build target, whether or not it
+  is intended for public use, and to document the role of the package
+  itself.
+</p>
+
+<h3 id="load">Loading an extension</h3>
+
+Bazel extensions are files ending in <code>.bzl</code>. Use
+the <code>load</code> statement to import a symbol from an extension.
+
+<pre>
+load("//foo/bar:file.bzl", "some_library")
+</pre>
+
+This code will load the file <code>foo/bar/file.bzl</code> and add the
+<code>some_library</code> symbol to the environment. This can be used to load
+new rules, functions or constants (e.g. a string, a list, etc.). Multiple
+symbols can be imported by using additional arguments to the call
+to <code>load</code>. Arguments must be string literals (no variable)
+and <code>load</code> statements must appear at top-level, i.e. they cannot be
+in a function body.
+
+The first argument of <code>load</code> is a <a href="#labels">label</a>
+identifying a <code>.bzl</code> file. If it is a relative label, it is resolved
+with respect to the package (not directory) containing the current
+<code>bzl</code> file. Relative labels in <code>load</code> statements should
+use a leading <code>:</code>.
+
+<code>load</code> also supports aliases, i.e. you can assign different names to
+the imported symbols.
+
+<pre>
+load("//foo/bar:file.bzl", library_alias = "some_library")
+</pre>
+
+You can define multiple aliases within one <code>load</code> statement.
+Moreover, the argument list can contain both aliases and regular symbol names.
+The following example is perfectly legal (please note when to use quotation
+marks).
+
+<pre>
+load(":my_rules.bzl", "some_rule", nice_alias = "some_other_rule")
+</pre>
+
+In a <code>.bzl</code> file, symbols starting with <code>_</code> are not
+exported and cannot be loaded from another file. Visibility doesn't affect
+loading (yet): you don't need to use <code>exports_files</code> to make
+a <code>.bzl</code> file visible.
+
+<h2 id="funcs">Types of build rule</h2>
+
+<p>
+  The majority of build rules come in families, grouped together by
+  language.  For
+  example, <code>cc_binary</code>, <code>cc_library</code>
+  and <code>cc_test</code> are the build rules for C++ binaries,
+  libraries, and tests, respectively.  Other languages use the same
+  naming scheme, with a different prefix, e.g. <code>java_*</code> for
+  Java. Some of these functions are documented in the
+  <a href="be/overview.html">Build Encyclopedia</a>, but it is possible
+  for anyone to create new rules.
+</p>
+
+<ul>
+  <li><p><code>*_binary</code>
+      rules build executable programs in a given language.  After a
+      build, the executable will reside in the build tool's binary
+      output tree at the corresponding name for the rule's label,
+      so <code>//my:program</code> would appear at
+      (e.g.) <code>$(BINDIR)/my/program</code>. </p>
+
+    <p>Such rules also create a runfiles directory
+
+      containing all the files mentioned in a <code>data</code>
+      attribute belonging to the rule, or any rule in its transitive
+      closure of dependencies; this set of files is gathered together in
+      one place for ease of deployment to production.</p>
+  </li>
+
+  <li><p><code>*_test</code>
+      rules are a specialization of a <code>*_binary</code> rule, used for automated
+      testing.  Tests are simply programs that return zero on success.
+
+      </p>
+
+    <p>
+      Like binaries, tests also have runfiles trees, and the files
+      beneath it are the only files that a test may legitimately open
+      at runtime.  For example, a program <code>cc_test(name='x',
+      data=['//foo:bar'])</code> may open and
+
+      read <code>$TEST_SRCDIR/workspace/foo/bar</code> during execution.
+      (Each programming language has its own utility function for
+      accessing the value of <code>$TEST_SRCDIR</code>, but they are all
+      equivalent to using the environment variable directly.)
+      Failure to observe the rule will cause the test to fail when it is
+      executed on a remote testing host.
+
+    </p>
+  </li>
+
+  <li><code>*_library</code>
+    rules specify separately-compiled modules in the given
+    programming language.  Libraries can depend on other libraries,
+    and binaries and tests can depend on libraries, with the expected
+    separate-compilation behavior.
+  </li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>
+  A target <code>A</code> <i>depends upon</i> a target
+  <code>B</code> if <code>B</code> is needed by <code>A</code> at
+  build or execution time.  The <i>depends upon</i> relation induces a
+  <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed
+  Acyclic Graph</a> (DAG) over targets, and we call this a
+  <em>dependency graph</em>.
+
+  A target's <em>direct</em> dependencies are those other targets
+  reachable by a path of length 1 in the dependency graph.  A target's
+  <em>transitive</em> dependencies are those targets upon which it
+  depends via a path of any length through the graph.
+</p>
+
+<p>
+  In fact, in the context of builds, there are two dependency graphs,
+  the graph of <em>actual dependencies</em> and the graph of
+  <em>declared dependencies</em>.  Most of the time, the two graphs
+  are so similar that this distinction need not be made, but it is
+  useful for the discussion below.
+</p>
+
+<h3 id="actual_and_declared_dependencies">Actual and declared dependencies</h3>
+
+<p>
+  A target <code>X</code> is <i>actually dependent</i> on target
+  <code>Y</code> iff <code>Y</code> must be present, built and
+  up-to-date in order for <code>X</code> to be built correctly.
+  "Built" could mean generated, processed, compiled, linked,
+  archived, compressed, executed, or any of the other kinds of tasks
+  that routinely occur during a build.
+</p>
+
+<p>
+  A target <code>X</code> has a <i>declared dependency</i> on target
+  <code>Y</code> iff there is a dependency edge from <code>X</code> to
+  <code>Y</code> in the package of <code>X</code>.
+</p>
+
+<p>
+  For correct builds, the graph of actual dependencies <i>A</i> must
+  be a subgraph of the graph of declared dependencies <i>D</i>.  That
+  is, every pair of directly-connected nodes <code>x --&gt; y</code>
+  in <i>A</i> must also be directly connected in <i>D</i>.  We say
+  <i>D</i> is an <em>overapproximation</em> of <i>A</i>.
+</p>
+
+<p>
+  It is important that it not be too much of an overapproximation,
+  though, since redundant declared dependencies can make builds slower and
+  binaries larger.
+</p>
+
+<p>
+  What this means for BUILD file writers is that every rule must
+  explicitly declare all of its actual direct dependencies to the
+  build system, and no more.
+
+  Failure to observe this principle causes undefined behavior: the
+  build may fail, but worse, the build may depend on some prior
+  operations, or upon which transitive declared dependencies the target
+  happens to have.  The build tool attempts aggressively to check for
+  missing dependencies and report errors, but it is not possible for
+  this checking to be complete in all cases.
+</p>
+
+<p>
+
+  You need not (and should not) attempt to list everything indirectly imported,
+  even if it is "needed" by A at execution time.
+</p>
+
+<p>
+  During a build of target <code>X</code>, the build tool inspects the
+  entire transitive closure of dependencies of <code>X</code> to ensure that
+  any changes in those targets are reflected in the final result,
+  rebuilding intermediates as needed.
+</p>
+
+<p>
+  The transitive nature of dependencies leads to a common mistake.
+  Through careless programming, code in one file may use code provided
+  by an <em>indirect</em> dependency, i.e. a transitive but not direct
+  edge in the declared dependency graph.  Indirect dependencies do not
+  appear in the BUILD file.  Since the rule doesn't
+  directly depend on the provider, there is no way to track changes,
+  as shown in the following example timeline:
+</p>
+
+<div class="greenbox">
+<p><b>1. At first, everything works</b></p>
+
+<p>The code in package <code>a</code> uses code in package <code>b</code>.
+The code in package <code>b</code> uses code in package <code>c</code>,
+and thus <code>a</code> transitively depends on <code>c</code>.</p>
+
+<div style="float:left; width: 49%; margin-top: -20px;">
+<p><code>a/BUILD</code></p>
+<pre class="code">
+<b>rule(
+    name = "a",
+    srcs = "a.in",
+    deps = "//b:b",
+)</b>
+</pre>
+<p><code>a/a.in</code></p>
+<pre class="code">
+<b>import b;
+b.foo();</b>
+</pre>
+</div>
+<div style="float:right; width: 49%; margin-top: -20px; ">
+<p><code>b/BUILD</code></p>
+<pre class="code">
+<b>rule(
+    name = "b",
+    srcs = "b.in",
+    deps = "//c:c",
+)</b>
+</pre>
+<p><code>b/b.in</code></p>
+<pre class="code">
+<b>import c;
+function foo() {
+  c.bar();
+}</b>
+</pre>
+</div>
+<pre style="clear: both;">
+Declared dependency graph:  a --&gt; b --&gt; c
+
+Actual dependency graph:    a --&gt; b --&gt; c
+</pre>
+The declared dependencies overapproximate the actual dependencies.
+All is well.
+</div>
+
+<div class="greenbox">
+<p><b>2. A latent hazard is introduced.</b></p>
+<p>
+  Someone carelessly adds code to <code>a</code> that creates a direct
+  actual dependency on <code>c</code>, but forgets to declare it.
+</p>
+<div style="float:left; width: 49%; margin-top: -20px; ">
+<p><code>a/a.in</code></p>
+<pre class="code">
+import b;
+<b>import c;</b>
+b.foo();
+<b>c.garply();</b>
+</pre>
+</div>
+
+<pre style="clear: both;">
+Declared dependency graph:  a --&gt; b --&gt; c
+
+Actual dependency graph:    a --&gt; b --&gt;_c
+                             \_________/|
+</pre>
+The declared dependencies no longer overapproximate the actual
+dependencies.  This may build ok, because the transitive closures of
+the two graphs are equal, but masks a problem: <code>a</code> has an
+actual but undeclared dependency on <code>c</code>.
+</div>
+
+<div class="greenbox">
+<p><b>3. The hazard is revealed</b> </p>
+<p>
+  Someone refactors <code>b</code> so that it no longer depends on
+  <code>c</code>, inadvertently breaking <code>a</code> through no
+  fault of their own.
+</p>
+<div style="float:right; width: 49%; margin-top: -20px; ">
+<p><code>b/BUILD</code></p>
+<pre class="code">
+rule(
+    name = "b",
+    srcs = "b.in",
+    <b>deps = "//d:d"</b>,
+)
+</pre>
+<p><code>b/b.in</code></p>
+<pre class="code">
+<b>import d;</b>
+function foo() {
+  <b>d.baz();</b>
+}
+</pre>
+</div>
+<pre style="clear: both;">
+Declared dependency graph:  a --&gt; b     c
+
+Actual dependency graph:    a --&gt; b    _c
+                             \_________/|
+</pre>
+<p>
+  The declared dependency graph is now an underapproximation of the
+  actual dependencies, even when transitively closed; the build is
+  likely to fail.
+
+  The problem could have been averted by ensuring that the actual
+  dependency from <code>a</code> to <code>c</code> introduced in Step
+  2 was properly declared in the BUILD file.
+</div>
+
+<h3 id="types_of_dependencies">Types of dependencies</h3>
+
+<p>
+  Most build rules have three attributes for specifying different kinds
+  of generic dependencies: <code>srcs</code>, <code>deps</code> and
+  <code>data</code>. These are explained below. See also
+  <a href='be/common-definitions.html'>Attributes common
+  to all rules</a> in the Build Encyclopedia.
+</p>
+
+<p>
+  Many rules also have additional attributes for rule-specific kinds
+  of dependency, e.g. <code>compiler</code>, <code>resources</code>,
+  etc.  These are detailed in the Build Encyclopedia.
+</p>
+
+<h4 id="srcs"><code>srcs</code> dependencies</h4>
+<p>
+  Files consumed directly by the rule or rules that output source files.
+</p>
+
+<h4 id="deps"><code>deps</code> dependencies</h4>
+<p>
+  Rule pointing to separately-compiled modules providing header files,
+  symbols, libraries, data, etc.
+</p>
+
+<h4 id="data"><code>data</code> dependencies</h4>
+<p>A build target might need some data files to run correctly.  These
+   data files aren't source code: they don't affect how the target is
+   built.  For example, a unit test might compare a function's output
+   to the contents of a file.  When we build the unit test, we
+   don't need the file; but we do need it when we run the test. The
+   same applies to tools that are launched during execution.
+
+<p>The build system runs tests in an isolated directory where only files
+   listed as "data" are available. Thus, if a binary/library/test
+   needs some files to run, specify them (or a build rule containing
+   them) in data. For example:
+</p>
+
+<pre>
+# I need a config file from a directory named env:
+java_binary(
+    name = "setenv",
+    ...
+    data = [":env/default_env.txt"],
+)
+
+# I need test data from another directory
+sh_test(
+    name = "regtest",
+    srcs = ["regtest.sh"],
+    data = [
+        "//data:file1.txt",
+        "//data:file2.txt",
+        ...
+    ],
+)
+</pre>
+
+<p>These files are available using the relative path
+<code>path/to/data/file</code>. In tests, it is also possible to refer to
+them by joining the paths of the test's source directory and the workspace-relative
+path, e.g.
+
+<code>${TEST_SRCDIR}/workspace/path/to/data/file</code>.
+   <h3 id="label_directory">Using Labels to Reference Directories</h3>
+
+   <p>As you look over our <code>BUILD</code> files, you might notice
+      that some <code>data</code> labels refer to directories.
+      These labels end with <code>/.</code> or <code>/</code> like so:
+
+<pre>
+<span style="text-decoration: line-through">data = ["//data/regression:unittest/."]</span>  # don't use this
+</pre>
+<p>
+or like so:
+</p>
+<pre>
+<span style="text-decoration: line-through">data = ["testdata/."]</span>  # don't use this
+</pre>
+
+<p>
+or like so:
+</p>
+
+<pre>
+<span style="text-decoration: line-through">data = ["testdata/"]</span>  # don't use this
+</pre>
+   <p>This seems convenient, particularly for tests (since it allows a test to
+      use all the data files in the directory).
+   </p>
+
+    <p>But try not to do this.  In order to ensure correct incremental rebuilds (and
+       re-execution of tests) after a change, the build system must be
+       aware of the complete set of files that are inputs to the build (or
+       test).  When you specify a directory, the build system will perform
+       a rebuild only when the directory itself changes (due to addition or
+       deletion of files), but won't be able to detect edits to individual
+       files as those changes do not affect the enclosing directory.
+       Rather than specifying directories as inputs to the build system,
+       you should enumerate the set of files contained within them, either
+       explicitly or using the
+       <a href='be/functions.html#glob'><code>glob()</code></a> function.
+       (Use <code>**</code> to force the <a href='be/functions.html#glob'>
+       <code>glob()</code></a> to be recursive.)
+   </p>
+
+<pre>
+data = glob(["testdata/**"])  # use this instead
+</pre>
+
+   <p>Unfortunately, there are some scenarios where directory labels must be used.
+      For example, if the <code>testdata</code> directory contains files whose
+      names do not conform to the strict <a href='#lexi'>label syntax</a>
+      (e.g. they contain certain punctuation symbols), then explicit
+      enumeration of files, or use of the
+      <a href='be/functions.html#glob'><code>glob()</code></a> function will
+      produce an invalid labels error.  You must use directory labels in this case,
+      but beware of the concomitant risk of incorrect rebuilds described above.
+   </p>
+
+   <p>If you must use directory labels, keep in mind that you can't refer to the parent
+      package with a relative "<code>../</code>" path; instead, use an absolute path like
+      "<code>//data/regression:unittest/.</code>".
+   </p>
+
+   <p>Note that directory labels are only valid for data dependencies.  If you try to use
+      a directory as a label in an argument other than <code>data</code>, it
+      will fail and you will get a (probably cryptic) error message.
+   </p>
+
+
+          </div>
+        </div>
+
+        <div class="col-md-2 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Concepts and Terminology&body=Documentation URL: https://docs.bazel.build/versions/0.29.0/build-ref.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-entry toc-h2"><a href="#intro">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#packages_targets">Workspace, Packages and Targets</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#workspace">Workspace</a></li>
+<li class="toc-entry toc-h3"><a href="#packages">Packages</a></li>
+<li class="toc-entry toc-h3"><a href="#targets">Targets</a></li>
+<li class="toc-entry toc-h3"><a href="#labels">Labels</a></li>
+<li class="toc-entry toc-h3"><a href="#lexi">Lexical specification of a label</a></li>
+<li class="toc-entry toc-h3"><a href="#rules">Rules</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#BUILD_files">BUILD Files</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#load">Loading an extension</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#funcs">Types of build rule</a></li>
+<li class="toc-entry toc-h2"><a href="#dependencies">Dependencies</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#actual_and_declared_dependencies">Actual and declared dependencies</a></li>
+<li class="toc-entry toc-h3"><a href="#types_of_dependencies">Types of dependencies</a></li>
+<li class="toc-entry toc-h3"><a href="#label_directory">Using Labels to Reference Directories</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2020 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

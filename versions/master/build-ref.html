@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Only show Bazel version in title if it's a release -->
-    <title>Concepts and Terminology - Bazel </title>
+    <title>Concepts and terminology - Bazel </title>
 
     <link rel="canonical" href="/versions/master/build-ref.html">
 
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
     <!-- metadata -->
-    <meta name="og:title" content="Concepts and Terminology"/>
+    <meta name="og:title" content="Concepts and terminology"/>
     <meta name="og:image" content="/images/bazel-og-image.png"/>
 
     <!-- google search console verification -->
@@ -107,6 +107,26 @@
                 <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/master/build-ref.html">
                     master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/build-ref.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/build-ref.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/build-ref.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/build-ref.html">
+                    2.2.0
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,75 +429,43 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
 
         <div class="col-md-8">
           <div class="content">
-            <h1>Concepts and Terminology</h1>
+            <h1>Concepts and terminology</h1>
 <p>
   This document provides an overview of the source tree layout and the
   terminology used in Bazel.
 </p>
-<h2>Table of Contents</h2>
-
-<ul>
-  <li><a href="#intro">Introduction</a></li>
-
-  <li><a href="#packages_targets">Workspace, Packages and Targets</a>
-    <ul>
-      <li><a href="#workspace">Workspace</a></li>
-      <li><a href="#repositories">Repositories</a></li>
-      <li><a href="#packages">Packages</a></li>
-      <li><a href="#targets">Targets</a></li>
-      <li><a href="#labels">Labels</a></li>
-      <li><a href="#lexi">Lexical Specifications of a Label</a></li>
-      <li><a href="#rules">Rules</a></li>
-    </ul>
-  </li>
-  <li><a href="#BUILD_files">BUILD Files</a>
-    <ul>
-      <li><a href="#load">Loading an extension</a></li>
-    </ul>
-  </li>
-  <li><a href="#funcs">Types of Build Rules</a></li>
-
-  <li><a href="#dependencies">Dependencies</a>
-    <ul>
-      <li><a href="#actual_and_declared_dependencies">Actual and Declared Dependencies</a></li>
-      <li><a href="#types_of_dependencies">Types of Dependencies</a></li>
-      <li><a href="#label_directory">Using Labels to Reference Directories</a></li>
-    </ul>
-  </li>
-</ul>
-
 <h2 id="intro">Introduction</h2>
 
 <p>Bazel builds software from source code organized in a directory called
@@ -448,7 +474,7 @@
    of related source files and one BUILD file. The BUILD file specifies what
    software outputs can be built from the source.
 </p>
-<h2 id="packages_targets">Workspace, Packages and Targets</h2>
+<h2 id="packages_targets">Workspace, packages and targets</h2>
 <h3 id="workspace">Workspace</h3>
 
 <p>A <em>workspace</em> is a directory on your filesystem that contains the
@@ -476,7 +502,7 @@
 <p>The workspace rules bundled with Bazel are documented in the
    <a href="be/workspace.html">Workspace Rules</a> section in the Build
    Encyclopedia and the documentation on
-   <a href="repo/index.html">embeded Starlark repository rules</a>.</p>
+   <a href="repo/index.html">embedded Starlark repository rules</a>.</p>
 
 <p>As external repositories are repositories themselves, they often contain
    a <code>WORKSPACE</code> file as well. However, these additional
@@ -865,7 +891,7 @@ cc_binary(
 </p>
 
 
-<h2 id="BUILD_files">BUILD Files</h2>
+<h2 id="BUILD_files">BUILD files</h2>
 
 <p>
   The previous section described packages, targets and labels, and the
@@ -1085,7 +1111,7 @@ a <code>.bzl</code> file visible.
 </p>
 
 <p>
-  It is important that it not be too much of an overapproximation,
+  It is important that it is not too much of an overapproximation,
   though, since redundant declared dependencies can make builds slower and
   binaries larger.
 </p>
@@ -1097,7 +1123,7 @@ a <code>.bzl</code> file visible.
 
   Failure to observe this principle causes undefined behavior: the
   build may fail, but worse, the build may depend on some prior
-  operations, or upon which transitive declared dependencies the target
+  operations, or upon transitive declared dependencies the target
   happens to have.  The build tool attempts aggressively to check for
   missing dependencies and report errors, but it is not possible for
   this checking to be complete in all cases.
@@ -1195,7 +1221,8 @@ All is well.
 <p><b>2. A latent hazard is introduced.</b></p>
 <p>
   Someone carelessly adds code to <code>a</code> that creates a direct
-  actual dependency on <code>c</code>, but forgets to declare it.
+  actual dependency on <code>c</code>, but forgets to declare it in
+  the build file <code>a/BUILD</code>.
 </p>
 <div style="float:left; width: 49%; margin-top: -20px; ">
 <p><code>a/a.in</code></p>
@@ -1362,7 +1389,7 @@ them by joining the paths of the test's source directory and the workspace-relat
 path, e.g.
 
 <code>${TEST_SRCDIR}/workspace/path/to/data/file</code>.
-   <h3 id="label_directory">Using Labels to Reference Directories</h3>
+   <h3 id="label_directory">Using labels to reference directories</h3>
 
    <p>As you look over our <code>BUILD</code> files, you might notice
       that some <code>data</code> labels refer to directories.
@@ -1435,7 +1462,7 @@ data = glob(["testdata/**"])  # use this instead
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Concepts and Terminology&body=Documentation URL: https://docs.bazel.build/versions/master/build-ref.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Concepts and terminology&body=Documentation URL: https://docs.bazel.build/versions/master/build-ref.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -1449,7 +1476,8 @@ data = glob(["testdata/**"])  # use this instead
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -1465,9 +1493,8 @@ data = glob(["testdata/**"])  # use this instead
                 </script>
 
                 <ul class="page-toc">
-<li class="toc-entry toc-h2"><a href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-entry toc-h2"><a href="#intro">Introduction</a></li>
-<li class="toc-entry toc-h2"><a href="#packages_targets">Workspace, Packages and Targets</a>
+<li class="toc-entry toc-h2"><a href="#packages_targets">Workspace, packages and targets</a>
 <ul class="page-toc-sublist">
 <li class="toc-entry toc-h3"><a href="#workspace">Workspace</a></li>
 <li class="toc-entry toc-h3"><a href="#repositories">Repositories</a></li>
@@ -1478,7 +1505,7 @@ data = glob(["testdata/**"])  # use this instead
 <li class="toc-entry toc-h3"><a href="#rules">Rules</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#BUILD_files">BUILD Files</a>
+<li class="toc-entry toc-h2"><a href="#BUILD_files">BUILD files</a>
 <ul class="page-toc-sublist">
 <li class="toc-entry toc-h3"><a href="#load">Loading an extension</a></li>
 </ul>
@@ -1488,7 +1515,7 @@ data = glob(["testdata/**"])  # use this instead
 <ul class="page-toc-sublist">
 <li class="toc-entry toc-h3"><a href="#actual_and_declared_dependencies">Actual and declared dependencies</a></li>
 <li class="toc-entry toc-h3"><a href="#types_of_dependencies">Types of dependencies</a></li>
-<li class="toc-entry toc-h3"><a href="#label_directory">Using Labels to Reference Directories</a></li>
+<li class="toc-entry toc-h3"><a href="#label_directory">Using labels to reference directories</a></li>
 </ul>
 </li>
 </ul>
@@ -1511,6 +1538,7 @@ data = glob(["testdata/**"])  # use this instead
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -1530,6 +1558,7 @@ data = glob(["testdata/**"])  # use this instead
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

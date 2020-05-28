@@ -110,6 +110,26 @@
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/skylark/lib/globals.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/skylark/lib/globals.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/skylark/lib/globals.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/skylark/lib/globals.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/2.1.0/skylark/lib/globals.html">
                     2.1.0
                 </option>
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,39 +429,41 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
 
         <div class="col-md-8">
           <div class="content">
-            <a href="../concepts.html">Extensions</a> &gt;
+            <!--  -->
+
+<a href="../concepts.html">Extensions</a> &gt;
 <a href="skylark-overview.html">API reference</a> &gt;
 Globals
 
@@ -415,9 +475,6 @@ Objects, functions and modules registered in the global environment.
   <h2>Members</h2>
   <ul>
           <li>
-      <a href="#__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc">__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc</a>
-          </li>
-              <li>
       <a href="#all">all</a>
           </li>
               <li>
@@ -449,6 +506,9 @@ Objects, functions and modules registered in the global environment.
           </li>
               <li>
       <a href="#enumerate">enumerate</a>
+          </li>
+              <li>
+      <a href="#exec_group">exec_group</a>
           </li>
               <li>
       <a href="#fail">fail</a>
@@ -528,13 +588,7 @@ Objects, functions and modules registered in the global environment.
         </ul>
 </div>
 
-      <h2 id="__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc">__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc</h2>
-        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> __do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc()</pre></p>
-
-    When --incompatible_use_cc_configure_from_rules_cc is set to true, Bazel will fail the build. Please see https://github.com/bazelbuild/bazel/issues/10134 for details and migration instructions.
-
-
-        <h2 id="all">all</h2>
+      <h2 id="all">all</h2>
         <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> all(elements)</pre></p>
 
     Returns true if all elements evaluate to True or if the collection is empty. Elements are converted to boolean using the <a href="#bool">bool</a> function.<pre class="language-python">all(["hello", 3, True]) == True
@@ -568,7 +622,7 @@ all([-1, 0, 1]) == False</pre>
         <h2 id="analysis_test_transition">analysis_test_transition</h2>
         <p><pre class="rule-signature"><a class="anchor" href="transition.html">transition</a> analysis_test_transition(settings)</pre></p>
 
-    <p> Creates a configuration transition to be applied on an analysis-test rule's dependencies. This transition may only be applied on attributes of rules with <code>analysis_test = True</code>. Such rules are restricted in capabilities (for example, the size of their dependency tree is limited), so transitions created using this function are limited in potential scope as compared to transitions created using <a href="#transition">transition</a>.
+    <p> Creates a configuration transition to be applied on an analysis-test rule's dependencies. This transition may only be applied on attributes of rules with <code>analysis_test = True</code>. Such rules are restricted in capabilities (for example, the size of their dependency tree is limited), so transitions created using this function are limited in potential scope as compared to transitions created using <a href="transition.html">transition</a>. <p>This function is primarily designed to facilitate the <a href="../testing.html">Analysis Test Framework</a> core library. See its documentation (or its implementation) for best practices.
 
           <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
       <h3 class="no_toc">Parameters</h3>
@@ -715,7 +769,7 @@ any([False, 0, ""]) == False</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
-                          <p><i>(Experimental)</i><br/><br/>If set, the set of toolchains this rule requires. Toolchains will be found by checking the current platform, and provided to the rule implementation via <code>ctx.toolchain</code>.</p>
+                          <p>If set, the set of toolchains this rule requires. Toolchains will be found by checking the current platform, and provided to the rule implementation via <code>ctx.toolchain</code>.</p>
             </td>
           </tr>
                   <tr>
@@ -733,7 +787,7 @@ any([False, 0, ""]) == False</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="bool.html">bool</a></code></p>
-                          <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_aspect_output_propagation</code> <br>If true, the aspect will, when applied to an output file, instead apply to the output file's generating rule. <p>For example, suppose an aspect propagates transitively through attribute `deps` and it is applied to target `alpha`. Suppose `alpha` has `deps = [':beta_output']`, where `beta_output` is a declared output of a target `beta`. Suppose `beta` has a target `charlie` as one of its `deps`. If `apply_to_generating_rules=True` for the aspect, then the aspect will propagate through `alpha`, `beta`, and `charlie`. If False, then the aspect will propagate only to `alpha`. </p><p>False by default.</p></p>
+                          <p>If true, the aspect will, when applied to an output file, instead apply to the output file's generating rule. <p>For example, suppose an aspect propagates transitively through attribute `deps` and it is applied to target `alpha`. Suppose `alpha` has `deps = [':beta_output']`, where `beta_output` is a declared output of a target `beta`. Suppose `beta` has a target `charlie` as one of its `deps`. If `apply_to_generating_rules=True` for the aspect, then the aspect will propagate through `alpha`, `beta`, and `charlie`. If False, then the aspect will propagate only to `alpha`. </p><p>False by default.</p></p>
             </td>
           </tr>
                 </tbody>
@@ -855,7 +909,13 @@ any([False, 0, ""]) == False</pre>
         <h2 id="depset">depset</h2>
         <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> depset(x=None, order="default", *, direct=None, transitive=None, items=[])</pre></p>
 
-    Creates a <a href="depset.html">depset</a>. The <code>direct</code> parameter is a list of direct elements of the depset, and <code>transitive</code> parameter is a list of depsets whose elements become indirect elements of the created depset. The order in which elements are returned when the depset is converted to a list is specified by the <code>order</code> parameter. See the <a href="../depsets.html">Depsets overview</a> for more information. <p>All elements (direct and indirect) of a depset must be of the same type, as obtained by the expression <code>type(x)</code>.<p>Because a hash-based set is used to eliminate duplicates during iteration, all elements of a depset should be hashable. However, this invariant is not currently checked consistently in all constructors. Use the --incompatible_always_check_depset_elements flag to enable consistent checking; this will be the default behavior in future releases;  see <a href='https://github.com/bazelbuild/bazel/issues/10313'>Issue 10313</a>.<p>In addition, elements must currently be immutable, though this restriction will be relaxed in future.<p> The order of the created depset should be <i>compatible</i> with the order of its <code>transitive</code> depsets. <code>"default"</code> order is compatible with any other order, all other orders are only compatible with themselves.<p> Note on backward/forward compatibility. This function currently accepts a positional <code>items</code> parameter. It is deprecated and will be removed in the future, and after its removal <code>direct</code> will become a sole positional parameter of the <code>depset</code> function. Thus, both of the following calls are equivalent and future-proof:<br><pre class=language-python>depset(['a', 'b'], transitive = [...])
+    Creates a <a href="depset.html">depset</a>. The <code>direct</code> parameter is a list of direct elements of the depset, and <code>transitive</code> parameter is a list of depsets whose elements become indirect elements of the created depset. The order in which elements are returned when the depset is converted to a list is specified by the <code>order</code> parameter. See the <a href="../depsets.html">Depsets overview</a> for more information.
+<p>All elements (direct and indirect) of a depset must be of the same type, as obtained by the expression <code>type(x)</code>.
+<p>Because a hash-based set is used to eliminate duplicates during iteration, all elements of a depset should be hashable. However, this invariant is not currently checked consistently in all constructors. Use the --incompatible_always_check_depset_elements flag to enable consistent checking; this will be the default behavior in future releases;  see <a href='https://github.com/bazelbuild/bazel/issues/10313'>Issue 10313</a>.
+<p>In addition, elements must currently be immutable, though this restriction will be relaxed in future.
+<p> The order of the created depset should be <i>compatible</i> with the order of its <code>transitive</code> depsets. <code>"default"</code> order is compatible with any other order, all other orders are only compatible with themselves.
+<p> Note on backward/forward compatibility. This function currently accepts a positional <code>items</code> parameter. It is deprecated and will be removed in the future, and after its removal <code>direct</code> will become a sole positional parameter of the <code>depset</code> function. Thus, both of the following calls are equivalent and future-proof:<br>
+<pre class=language-python>depset(['a', 'b'], transitive = [...])
 depset(direct = ['a', 'b'], transitive = [...])
 </pre>
 
@@ -878,7 +938,10 @@ depset(direct = ['a', 'b'], transitive = [...])
               <code>x</code>
             </td>
             <td>
-                          <p>A positional parameter distinct from other parameters for legacy support. <p>If <code>--incompatible_disable_depset_inputs</code> is false, this parameter serves as the value of <code>items</code>.</p> <p>If <code>--incompatible_disable_depset_inputs</code> is true, this parameter serves as the value of <code>direct</code>.</p> <p>See the documentation for these parameters for more details.</p>
+                          <p>A positional parameter distinct from other parameters for legacy support.
+<p>If <code>--incompatible_disable_depset_inputs</code> is false, this parameter serves as the value of <code>items</code>.</p>
+<p>If <code>--incompatible_disable_depset_inputs</code> is true, this parameter serves as the value of <code>direct</code>.</p>
+<p>See the documentation for these parameters for more details.</p>
             </td>
           </tr>
                   <tr>
@@ -1022,6 +1085,46 @@ depset(direct = ['a', 'b'], transitive = [...])
             <td>
                           <p><code><a class="anchor" href="int.html">int</a></code></p>
                           <p>start index.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="exec_group">exec_group</h2>
+        <p><pre class="rule-signature">exec_group exec_group(toolchains=[], exec_compatible_with=[])</pre></p>
+
+    <i>experimental</i> Creates an execution group which can be used to createactions for a specific execution platform during rule implementation. This is ongoing work and not yet functional - DO NOT USE.
+
+          <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
+      <h3 class="no_toc">Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="exec_group.toolchains">
+              <code>toolchains</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p><i>Experimental</i> The set of toolchains this execution group requires.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="exec_group.exec_compatible_with">
+              <code>exec_compatible_with</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p><i>Experimental</i> A list of constraints on the execution platform.</p>
             </td>
           </tr>
                 </tbody>
@@ -1395,7 +1498,7 @@ min([5, 6, 3]) == 3</pre>
 
     Creates a declared provider 'constructor'. The return value of this function can be used to create "struct-like" values. Example:<br><pre class="language-python">data = provider()
 d = data(x = 2, y = 3)
-print(d.x + d.y) # prints 5</pre>
+print(d.x + d.y) # prints 5</pre><p>See <a href='../rules.html#providers'>Rules (Providers)</a> for a comprehensive guide on how to use providers.
 
           <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
       <h3 class="no_toc">Parameters</h3>
@@ -1487,7 +1590,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
         <h2 id="register_execution_platforms">register_execution_platforms</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> register_execution_platforms(*platform_labels)</pre></p>
 
-    Registers a platform so that it is available to execute actions.
+    Register an already-defined platform so that Bazel can use it as an <a href="../../toolchains.html#toolchain-resolution">execution platform</a> during <a href="../../toolchains.html">toolchain resolution</a>.
 
           <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
       <h3 class="no_toc">Parameters</h3>
@@ -1519,7 +1622,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
         <h2 id="register_toolchains">register_toolchains</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> register_toolchains(*toolchain_labels)</pre></p>
 
-    Registers a toolchain created with the toolchain() rule so that it is available for toolchain resolution.
+    Register an already-defined toolchain so that Bazel can use it during <a href="../../toolchains.html">toolchain resolution</a>. See examples of <a href="../../toolchains.html#defining-toolchains">defining</a> and <a href="../../toolchains.html#registering-and-building-with-toolchains">registering toolchains</a>.
 
           <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
       <h3 class="no_toc">Parameters</h3>
@@ -1573,7 +1676,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code>function</code></p>
-                          <p>the Starlark function that implements this rule. Must have a single parameter, <code><a href="repository_ctx.html">repository_ctx</a></code>. The function is called during the loading phase for each instance of the rule.</p>
+                          <p>the function that implements this rule. Must have a single parameter, <code><a href="repository_ctx.html">repository_ctx</a></code>. The function is called during the loading phase for each instance of the rule.</p>
             </td>
           </tr>
                   <tr>
@@ -1695,7 +1798,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
       </table>
 
         <h2 id="rule">rule</h2>
-        <p><pre class="rule-signature">function rule(implementation, test=False, attrs=None, outputs=None, executable=False, output_to_genfiles=False, fragments=[], host_fragments=[], _skylark_testable=False, toolchains=[], doc='', *, provides=[], exec_compatible_with=[], analysis_test=False, build_setting=None, cfg=None)</pre></p>
+        <p><pre class="rule-signature">function rule(implementation, test=False, attrs=None, outputs=None, executable=False, output_to_genfiles=False, fragments=[], host_fragments=[], _skylark_testable=False, toolchains=[], doc='', *, provides=[], exec_compatible_with=[], analysis_test=False, build_setting=None, cfg=None, exec_groups=None)</pre></p>
 
     Creates a new rule, which can be called from a BUILD file or a macro to create targets.<p>Rules must be assigned to global variables in a .bzl file; the name of the global variable is the rule's name.<p>Test rules are required to have a name ending in <code>_test</code>, while all other rules must not have this suffix. (This restriction applies only to rules, not to their targets.)
 
@@ -1737,7 +1840,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="dict.html">dict</a></code></p>
-                          <p>dictionary to declare all the attributes of the rule. It maps from an attribute name to an attribute object (see <a href="attr.html">attr</a> module). Attributes starting with <code>_</code> are private, and can be used to add an implicit dependency on a label. The attribute <code>name</code> is implicitly added and must not be specified. Attributes <code>visibility</code>, <code>deprecation</code>, <code>tags</code>, <code>testonly</code>, and <code>features</code> are implicitly added and cannot be overridden.</p>
+                          <p>dictionary to declare all the attributes of the rule. It maps from an attribute name to an attribute object (see <a href="attr.html">attr</a> module). Attributes starting with <code>_</code> are private, and can be used to add an implicit dependency on a label. The attribute <code>name</code> is implicitly added and must not be specified. Attributes <code>visibility</code>, <code>deprecation</code>, <code>tags</code>, <code>testonly</code>, and <code>features</code> are implicitly added and cannot be overridden. Most rules need only a handful of attributes. To limit memory usage, the rule function imposes a cap on the size of attrs.</p>
             </td>
           </tr>
                   <tr>
@@ -1800,7 +1903,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
-                          <p><i>(Experimental)</i><br/><br/>If set, the set of toolchains this rule requires. Toolchains will be found by checking the current platform, and provided to the rule implementation via <code>ctx.toolchain</code>.</p>
+                          <p>If set, the set of toolchains this rule requires. Toolchains will be found by checking the current platform, and provided to the rule implementation via <code>ctx.toolchain</code>.</p>
             </td>
           </tr>
                   <tr>
@@ -1845,7 +1948,7 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p><code><a class="anchor" href="BuildSetting.html">BuildSetting</a></code></p>
-                          <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_build_setting_api</code> <br>If set, describes what kind of <a href = '../config.html#user-defined-build-settings'><code>build setting</code></a> this rule is. See the <a href='config.html'><code>config</code></a> module. If this is set, a mandatory attribute named "build_setting_default" is automatically added to this rule, with a type corresponding to the value passed in here.</p>
+                          <p>If set, describes what kind of <a href = '../config.html#user-defined-build-settings'><code>build setting</code></a> this rule is. See the <a href='config.html'><code>config</code></a> module. If this is set, a mandatory attribute named "build_setting_default" is automatically added to this rule, with a type corresponding to the value passed in here.</p>
             </td>
           </tr>
                   <tr>
@@ -1854,6 +1957,15 @@ range(3, 0, -1) == [3, 2, 1]</pre>
             </td>
             <td>
                           <p>If set, points to the configuration transition the rule will apply to its own configuration before analysis.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="rule.exec_groups">
+              <code>exec_groups</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p><b>Experimental</b>. This parameter is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--experimental_exec_groups</code> <br>Dictionary to declare execution groups. DO NOT USE - not function yet.</p>
             </td>
           </tr>
                 </tbody>
@@ -2044,7 +2156,7 @@ type(struct(a = 2)) == "struct"</pre>This function might change in the future. T
         <h2 id="workspace">workspace</h2>
         <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> workspace(name, managed_directories={})</pre></p>
 
-    <p>This command can only be used in a <code>WORKSPACE</code> file and must come before all other commands in the <code>WORKSPACE</code> file. Each <code>WORKSPACE</code> file should have a <code>workspace</code> command.</p><p>Sets the name for this workspace. Workspace names should be a Java-package-style description of the project, using underscores as separators, e.g., github.com/bazelbuild/bazel should use com_github_bazelbuild_bazel. <p>This name is used for the directory that the repository's runfiles are stored in. For example, if there is a runfile <code>foo/bar</code> in the local repository and the WORKSPACE file contains <code>workspace(name = 'baz')</code>, then the runfile will be available under <code>mytarget.runfiles/baz/foo/bar</code>.  If no workspace name is specified, then the runfile will be symlinked to <code>bar.runfiles/foo/bar</code>.</p> <p><a href="../../external.html">Remote repository</a> rule names must be  valid workspace names. For example, you could have  <code>maven_jar(name = 'foo')</code>, but not  <code>maven_jar(name = 'foo.bar')</code>, as Bazel would attempt to write a  WORKSPACE file for the <code>maven_jar</code> containing  <code>workspace(name = 'foo.bar')</code>.</p>
+    <p>This function can only be used in a <code>WORKSPACE</code> file and must be declared before all other functions in the <code>WORKSPACE</code> file. Each <code>WORKSPACE</code> file should have a <code>workspace</code> function.</p><p>Sets the name for this workspace. Workspace names should be a Java-package-style description of the project, using underscores as separators, e.g., github.com/bazelbuild/bazel should use com_github_bazelbuild_bazel. <p>This name is used for the directory that the repository's runfiles are stored in. For example, if there is a runfile <code>foo/bar</code> in the local repository and the WORKSPACE file contains <code>workspace(name = 'baz')</code>, then the runfile will be available under <code>mytarget.runfiles/baz/foo/bar</code>.  If no workspace name is specified, then the runfile will be symlinked to <code>bar.runfiles/foo/bar</code>.</p> <p><a href="../../external.html">Remote repository</a> rule names must be  valid workspace names. For example, you could have  <code>maven_jar(name = 'foo')</code>, but not  <code>maven_jar(name = 'foo.bar')</code>, as Bazel would attempt to write a  WORKSPACE file for the <code>maven_jar</code> containing  <code>workspace(name = 'foo.bar')</code>.</p>
 
           <!-- no_toc is a class used by the jekyll-toc plugin for docs.bazel.build -->
       <h3 class="no_toc">Parameters</h3>
@@ -2117,6 +2229,7 @@ zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
       </table>
 
 
+<!--  -->
 
           </div>
         </div>
@@ -2138,7 +2251,8 @@ zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -2155,7 +2269,6 @@ zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
 
                 <ul class="page-toc">
 <li class="toc-entry toc-h2"><a href="#members">Members</a></li>
-<li class="toc-entry toc-h2"><a href="#__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc">__do_not_use_fail_with_incompatible_use_cc_configure_from_rules_cc</a></li>
 <li class="toc-entry toc-h2"><a href="#all">all</a></li>
 <li class="toc-entry toc-h2"><a href="#analysis_test_transition">analysis_test_transition</a></li>
 <li class="toc-entry toc-h2"><a href="#any">any</a></li>
@@ -2167,6 +2280,7 @@ zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
 <li class="toc-entry toc-h2"><a href="#dict">dict</a></li>
 <li class="toc-entry toc-h2"><a href="#dir">dir</a></li>
 <li class="toc-entry toc-h2"><a href="#enumerate">enumerate</a></li>
+<li class="toc-entry toc-h2"><a href="#exec_group">exec_group</a></li>
 <li class="toc-entry toc-h2"><a href="#fail">fail</a></li>
 <li class="toc-entry toc-h2"><a href="#getattr">getattr</a></li>
 <li class="toc-entry toc-h2"><a href="#hasattr">hasattr</a></li>
@@ -2212,6 +2326,7 @@ zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -2231,6 +2346,7 @@ zip([1, 2], [3, 4, 5])  # == [(1, 3), (2, 4)]</pre>
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Only show Bazel version in title if it's a release -->
-    <title>User Manual - Bazel </title>
+    <title>User manual - Bazel </title>
 
     <link rel="canonical" href="/versions/master/user-manual.html">
 
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
     <!-- metadata -->
-    <meta name="og:title" content="User Manual"/>
+    <meta name="og:title" content="User manual"/>
     <meta name="og:image" content="/images/bazel-og-image.png"/>
 
     <!-- google search console verification -->
@@ -107,6 +107,26 @@
                 <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/master/user-manual.html">
                     master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/user-manual.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/user-manual.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/user-manual.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/user-manual.html">
+                    2.2.0
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,41 +429,41 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
 
         <div class="col-md-8">
           <div class="content">
-            <h1>Commands and Options</h1>
+            <h1>Commands and options</h1>
 
-<h2 id='target-patterns'>Target Syntax</h2>
+<h2 id='target-patterns'>Target syntax</h2>
 
 Some commands, like <code>build</code> or <code>test</code>, can operate
 on a list of targets. They use a syntax more flexible than labels, which is
@@ -427,7 +485,7 @@ targets to build</a>" section of the User's Guide.
   identified in the on-line help with the text 'may be used multiple times'.
 </p>
 
-<h3>Options that affect how packages are located</h3>
+<h3>Package location</h3>
 
 <h4 id='flag--package_path'><code class='flag'>--package_path</code></h4>
 <p>
@@ -493,7 +551,7 @@ Package path elements may be specified in three formats:
   % touch WORKSPACE
   % bazel build --package_path /some/other/path //foo
 </pre>
-<h3 id='checking-options'>Error checking options</h3>
+<h3 id='checking-options'>Error checking</h3>
 <p>
   These options control Bazel's error-checking and/or warnings.
 </p>
@@ -558,7 +616,7 @@ Package path elements may be specified in three formats:
   </tr>
 </table>
 
-<h3 id='flags-options'>Flags options</h3>
+<h3 id='flags-options'>Tool flags</h3>
 <p>
   These options control which options Bazel will pass to other tools.
 </p>
@@ -848,7 +906,7 @@ Package path elements may be specified in three formats:
   </li>
 </ul>
 
-<h3 id='semantics-options'>Semantics options</h3>
+<h3 id='semantics-options'>Build semantics</h3>
 <p>
   These options affect the build commands and/or the output file contents.
 </p>
@@ -892,6 +950,18 @@ the compilation of binaries during the build.
   used CROSSTOOL file.
 </p>
 
+<h4 id='flag--action_env'>
+  <code class='flag'>--action_env=<var>VAR=VALUE</var></code>
+</h4>
+<p>
+  Specifies the set of environment variables available during the execution of all actions.
+  Variables can be either specified by name, in which case the value will be taken from the
+  invocation environment, or by the `name=value` pair which sets the value independent of the
+  invocation environment.
+
+  This `--action_env` flag can be specified multiple times. If a value is assigned to the same
+  variable across multiple `--action_env` flags, the latest assignment wins.
+</p>
 
 <h4 id='flag--experimental_action_listener'>
   <code class='flag'>--experimental_action_listener=<var>label</var></code>
@@ -1192,7 +1262,7 @@ The default is <code>armeabi-v7a</code>.
   option.
 </p>
 
-<h3 id='strategy-options'>Build strategy options</h3>
+<h3 id='strategy-options'>Execution strategy</h3>
 <p>
   These options affect how Bazel will execute the build.
   They should not have any significant effect on the output files
@@ -1289,7 +1359,7 @@ other flags for specifying strategy.
   that will use up more resources (RAM or CPU) than are available,
   based on some (very crude) estimates of the resource consumption
   of each job.  The behavior of the scheduler can be controlled by
-  the <code class='flag'>--ram_utilization_factor</code> option.
+  the <code class='flag'>--local_ram_resources</code> option.
 </p>
 
 <h4 id='flag--progress_report_interval'><code class='flag'>--progress_report_interval <var>n</var></code></h4>
@@ -1306,20 +1376,6 @@ other flags for specifying strategy.
   that progress is reported once every minute.
 </p>
 
-<h4 id='flag--ram_utilization_factor'><code class='flag'>--ram_utilization_factor</code> <var>percentage</var></h4>
-<p>
-  This option, which takes an integer argument, specifies what percentage
-  of the system's RAM Bazel should try to use for its subprocesses.
-  This option affects how many processes Bazel will try to run
-  in parallel.  The default value is 67.
-  If you run several Bazel builds in parallel, using a lower
-  value for this option may avoid thrashing and thus improve overall
-  throughput. Using a value higher than the default is NOT recommended. Note
-  that Bazel's estimates are very coarse, so the actual RAM usage may be much
-  higher or much lower than specified. Note also that this option does not
-  affect the amount of memory that the Bazel server itself will use.
-</p>
-
 <h4 id='flag--local_{ram,cpu}_resources'><code class='flag'>--local_{ram,cpu}_resources</code>
   <var>resources or resource expression</var></h4>
 <p>
@@ -1331,9 +1387,6 @@ other flags for specifying strategy.
   <code class='flag'>--local_cpu_resources=HOST_CPUS-1</code>).
   The flags are independent; one or both may be set. By default Bazel will estimate amount of RAM
   and number of CPU cores directly from system configuration.
-</p>
-<p>
-  If this option is used, Bazel will ignore --ram_utilization_factor.
 </p>
 
 <h4 id='flag--build_runfile_links'><code class='flag'>--[no]build_runfile_links</code></h4>
@@ -1435,7 +1488,7 @@ memory-saving mode</a>.
   unnecessarily.
 </p>
 
-<h3 id='output-selection-options'>Output selection options</h3>
+<h3 id='output-selection-options'>Output selection</h3>
 <p>
   These options determine what to build or test.
 </p>
@@ -1642,7 +1695,7 @@ memory-saving mode</a>.
   but not all frameworks support it.
 </p>
 
-<h3 id='verbosity'>Verbosity options: options that control what Bazel prints</h3>
+<h3 id='verbosity'>Verbosity</h3>
 
 These options control the verbosity of Bazel's output,
 either to the terminal, or to additional log files.
@@ -1797,8 +1850,7 @@ either to the terminal, or to additional log files.
   for copying and pasting to a shell prompt.
 </p>
 
-<h3 id='workspace_status'>Options that control how Bazel embeds workspace status information
-into binaries ("stamping")</h3>
+<h3 id='workspace_status'>Workspace status</h3>
 
 <p>
   Use these options to "stamp" Bazel-built binaries: to embed additional information into the
@@ -1925,7 +1977,7 @@ echo "STABLE_USER_NAME $USER"
   built for the host configuration, regardless of the stamp attribute.
 </p>
 
-<h3 id='platform_build_options'>Platform options</h3>
+<h3 id='platform_build_options'>Platform</h3>
 
 <p>
   Use these options to control the host and target platforms that configure how builds work, and to
@@ -1969,18 +2021,11 @@ echo "STABLE_USER_NAME $USER"
 <h4 id="flag--toolchain_resolution_debug"><code class='flag'>--toolchain_resolution_debug=false</code></h4>
 <p>
   Print debug information while finding toolchains for a rule. This might help
-  developers of Bazel or Skylark rules with debugging failures due to missing
+  developers of Bazel or Starlark rules with debugging failures due to missing
   toolchains.
 </p>
 
-<h4 id="flag--enabled_toolchain_types"><code class='flag'>--enabled_toolchain_types <var>labels</var></code></h4>
-<p>
-  Enable toolchain resolution for the given toolchain type, if the rules used support that.
-  This does not directly change the core Bazel machinery, but is a signal to participating rule
-  implementations that toolchain resolution should be used.
-</p>
-
-<h3 id='misc_build_options'>Miscellaneous options</h3>
+<h3 id='misc_build_options'>Miscellaneous</h3>
 
 <h4 id='flag--symlink_prefix'><code class='flag'>--symlink_prefix <var>string</var></code></h4>
 <p>
@@ -2098,7 +2143,7 @@ Showing nodes accounting for 3.34s, 100% of 3.34s total
 </ul>
 
 <p>
-  These options (q.v.) are also important:
+  These options are also important:
 </p>
 
 <ul>
@@ -2112,7 +2157,7 @@ Showing nodes accounting for 3.34s, 100% of 3.34s total
   </li>
 </ul>
 
-<h2 id='test'>Running tests with Bazel</h2>
+<h2 id='test'>Running tests</h2>
 <p>
   To build and run tests with bazel, type <code>bazel test</code> followed by
   the name of the test targets.
@@ -2423,11 +2468,10 @@ Some caveats apply:
 Examples:
 </p>
 <pre>
-        --run_under=/usr/bin/valgrind
         --run_under=/usr/bin/strace
         --run_under='/usr/bin/strace -c'
+        --run_under=/usr/bin/valgrind
         --run_under='/usr/bin/valgrind --quiet --num-callers=20'
-
 </pre>
 
 <h4>Test selection</h4>
@@ -2448,7 +2492,7 @@ Examples:
 </p>
 
 
-<h3 id='clean'>Deleting the outputs of a build</h3>
+<h3 id='clean'>Cleaning build outputs</h3>
 
 <h4>The <code>clean</code> command</h4>
 
@@ -2503,7 +2547,7 @@ Examples:
 </p>
 
 
-<h2 id='run'>Running executables with Bazel</h2>
+<h2 id='run'>Running executables</h2>
 <p>
   The <code>bazel run</code> command is similar to <code>bazel build</code>, except
   it is used to build <em>and run</em> a single target.  Here is a typical session:
@@ -2580,11 +2624,11 @@ a user-friendly way.
   <code>bazel run</code> can also execute test binaries, which has the effect of
   running the test in a close approximation of the environment described at
   <a href='test-encyclopedia.html'>Writing Tests</a>. Note that none of the
-  <code>--test_*</code>code> arguments have an effect when running a test in this manner except
+  <code>--test_*</code> arguments have an effect when running a test in this manner except
   <code>--test_arg</code> .
 </p>
 
-<h2 id='query'>Querying the dependency graph with Bazel</h2>
+<h2 id='query'>Querying the dependency graph</h2>
 
 <p>
   Bazel includes a query language for asking questions about the
@@ -2630,7 +2674,7 @@ a user-friendly way.
   bazel query --output location 'kind(genrule, deps(kind(".*_test rule", foo/bar/pebl/...)))'
 </pre>
 
-<h2 id='aquery'>Querying the action graph with Bazel</h2>
+<h2 id='aquery'>Querying the action graph</h2>
 
 <b>Caution</b>: The aquery command is still experimental and its API will change.
 
@@ -2659,9 +2703,9 @@ a user-friendly way.
   More details on aquery can be found <a href="aquery.html">here</a>.
 </p>
 
-<h2 id='misc'>Miscellaneous Bazel commands and options</h2>
+<h2 id='misc'>Miscellaneous commands and options</h2>
 
-<h3 id='help'>The <code>help</code> command</h3>
+<h3 id='help'><code>help</code></h3>
 
 <p>
   The <code>help</code> command provides on-line help.  By default, it
@@ -2681,7 +2725,7 @@ a user-friendly way.
   and full description of each option is also printed.
 </p>
 
-<h3 id='shutdown'>The <code>shutdown</code> command</h3>
+<h3 id='shutdown'><code>shutdown</code></h3>
 
 <p>
   Bazel server processes (see <a href='guide.html#client/server'>Client/server
@@ -2704,7 +2748,7 @@ a user-friendly way.
   occasion; performing a conditional restart preempts this condition.
 </p>
 
-<h3 id='info'>The <code>info</code> command</h3>
+<h3 id='info'><code>info</code></h3>
 
 <p>
   The <code>info</code> command prints various values associated with
@@ -2754,9 +2798,14 @@ a user-friendly way.
     generated as a result of build commands. If the workspace directory is
     writable, a symlink named <code>bazel-out</code> is placed there pointing
     to this directory.
-    </li>
+  </li>
   <li><code>server_pid</code>: the process ID of the Bazel server
-     process. </li>
+     process.
+  </li>
+  <li><code>server_log</code>: the absolute path to the Bazel server's debug log file.
+    This file contains debugging information for all commands over the lifetime of the
+    Bazel server, and is intended for human consumption by Bazel developers and power users.
+  </li>
   <li><code>command_log</code>: the absolute path to the command log file;
     this contains the interleaved stdout and stderr streams of the most recent
     Bazel command. Note that running <code>bazel info</code> will overwrite the
@@ -2841,7 +2890,12 @@ a user-friendly way.
   (e.g. you are building from a read-only directory).
 </p>
 
-<h3 id='version'>The <code>version</code> command</h3>
+<pre>% bazel info --cpu=piii bazel-bin
+/var/tmp/_bazel_johndoe/fbd0e8a34f61ce5d491e3da69d959fe6/execroot/io_bazel/bazel-out/piii-opt/bin
+% bazel info --cpu=k8 bazel-bin
+/var/tmp/_bazel_johndoe/fbd0e8a34f61ce5d491e3da69d959fe6/execroot/io_bazel/bazel-out/k8-opt/bin
+</pre>
+<h3 id='version'><code>version</code> and <code>--version</code></h3>
 
 <p>
   The version command prints version details about the built Bazel
@@ -2860,17 +2914,14 @@ a user-friendly way.
   </li>
 </ul>
 
-<h3 id='--version'><code>bazel --version</code></h3>
 <p>
   <code>bazel --version</code>, with no other args, will emit the same output as
   <code>bazel version --gnu_format</code>, except without the side-effect of potentially starting
-  a Bazel server or unpacking the server archive.
-</p>
-<p>
-  <code>bazel --version</code> can be run from anywhere - it does not require a workspace directory.
+  a Bazel server or unpacking the server archive. <code>bazel --version</code> can be run from
+  anywhere - it does not require a workspace directory.
 </p>
 
-<h3 id='mobile-install'>The <code>mobile-install</code> command</h3>
+<h3 id='mobile-install'><code>mobile-install</code></h3>
 <p>
   The <code>mobile-install</code> command installs apps to mobile devices.
   Currently only Android devices running ART are supported.
@@ -2958,7 +3009,7 @@ adb -s deadbeef install ...
 </p>
 
 
-<h3 id='dump'>The <code>dump</code> command</h3>
+<h3 id='dump'><code>dump</code></h3>
 
 <p>
   The <code>dump</code> command prints to stdout a dump of the
@@ -2980,7 +3031,7 @@ adb -s deadbeef install ...
   <li><code class='flag'>--packages</code> dumps package cache content.</li>
   <li><code class='flag'>--skyframe</code> dumps state of internal Bazel dependency graph.</li>
   <li><code class='flag'>--rules</code> dumps rule summary for each rule and aspect class,
-    including counts and action counts. This includes both native and Skylark rules.
+    including counts and action counts. This includes both native and Starlark rules.
     If memory tracking is enabled, then the rules' memory consumption is also printed.</li>
   <li><code class='flag'>--skylark_memory</code> dumps a
     <href a=https://github.com/google/pprof>pprof</href> compatible .gz file to the specified path.
@@ -3027,13 +3078,13 @@ adb -s deadbeef install ...
     --host_jvm_args=-DRULE_MEMORY_TRACKER=1 \
     dump --rules
 
-    # Dump Skylark heap and analyze it with pprof
+    # Dump Starlark heap and analyze it with pprof
     % bazel --host_jvm_args=-javaagent:$BAZEL/third_party/allocation_instrumenter/java-allocation-instrumenter-3.0.1.jar \
     --host_jvm_args=-DRULE_MEMORY_TRACKER=1 \
     dump --skylark_memory=$HOME/prof.gz
     % pprof -flame $HOME/prof.gz
   </pre>
-<h3 id='analyze-profile'>The <code>analyze-profile</code> command</h3>
+<h3 id='analyze-profile'><code>analyze-profile</code></h3>
 
 <p>
   The <code>analyze-profile</code> command analyzes data previously gathered
@@ -3080,7 +3131,7 @@ adb -s deadbeef install ...
 
 </p>
 
-<h3 id='canonicalize'>The <code>canonicalize-flags</code> command</h3>
+<h3 id='canonicalize'><code>canonicalize-flags</code></h3>
 
 <p>
   The <code>canonicalize-flags</code> command, which takes a list of options for
@@ -3098,7 +3149,7 @@ adb -s deadbeef install ...
   ensure that the effect is identical.
 </p>
 
-<h3 id='startup_options'>Bazel startup options</h3>
+<h3 id='startup_options'>Startup options</h3>
 
 <p>
   The options described in this section affect the startup of the Java
@@ -3136,9 +3187,10 @@ adb -s deadbeef install ...
 </p>
 
 <p>For example:</p>
-<pre>
-  % bazel --output_base /tmp/1 build //foo  &amp;  bazel --output_base /tmp/2 build //bar
-</pre>
+<pre><code>
+  OUTPUT_BASE=/var/tmp/google/_bazel_johndoe/custom_output_base
+  % bazel --output_base $OUTPUT_BASE build //foo  &amp;  bazel --output_base $OUTPUT_BASE build //bar
+</code></pre>
 <p>
   In this command, the two Bazel commands run concurrently (because of
   the shell <code>&amp;</code> operator), each using a different Bazel
@@ -3156,19 +3208,13 @@ adb -s deadbeef install ...
 
 <h4 id='flag--output_user_root'><code class='flag'>--output_user_root=<var>dir</var></code></h4>
 <p>
-  By default, the <code>output_base</code> value is chosen to as to
-  avoid conflicts between multiple users building in the same workspace directory.
-  In some situations, though, it is desirable to build from a directory
-  shared between multiple users; release engineers often do this.  In
-  those cases it may be useful to deliberately override the default so
-  as to ensure "conflicts" (i.e., sharing) between multiple users.
-  Use the <code class='flag'>--output_user_root</code> option to achieve this: the
-  output base is placed in a subdirectory of the output user root,
-  with a unique name based on the workspace, so the result of using an
-  output user root that is not a function of <code>$USER</code> is
-  sharing.  Of course, it is important to ensure (via umask and group
-  membership) that all the cooperating users can read/write each
-  others files.
+  Points to the root directory where output bases are created unless
+  overriden with <code class='flag'>--output_base</code>. The directory
+  must either not exist or be owned by the calling user. In the past,
+  this was allowed to point to a directory shared among various users
+  but it's not allowed any longer. (We can reconsider allowing this once
+  <a href='https://github.com/bazelbuild/bazel/issues/11100'>#11100</a>
+  is addressed.)
 </p>
 <p>
   If the <code class='flag'>--output_base</code> option is specified, it overrides
@@ -3193,7 +3239,7 @@ adb -s deadbeef install ...
   This option should appear before any Bazel command, for example:
 </p>
 <pre>
-  % bazel --server_javabase=/usr/local/buildtools/java/jdk9 build //foo
+  % bazel --server_javabase=/usr/local/buildtools/java/jdk11 build //foo
 </pre>
 <p>
   This flag does <i>not</i> affect the JVMs used by Bazel subprocesses such as applications, tests,
@@ -3401,7 +3447,7 @@ adb -s deadbeef install ...
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: User Manual&body=Documentation URL: https://docs.bazel.build/versions/master/user-manual.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: User manual&body=Documentation URL: https://docs.bazel.build/versions/master/user-manual.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -3415,7 +3461,8 @@ adb -s deadbeef install ...
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -3431,20 +3478,19 @@ adb -s deadbeef install ...
                 </script>
 
                 <ul class="page-toc">
-<li class="toc-entry toc-h2"><a href="#target-patterns">Target Syntax</a></li>
+<li class="toc-entry toc-h2"><a href="#target-patterns">Target syntax</a></li>
 <li class="toc-entry toc-h2"><a href="#options">Options</a>
 <ul class="page-toc-sublist">
-<li class="toc-entry toc-h3"><a href="#options-that-affect-how-packages-are-located">Options that affect how packages are located</a></li>
-<li class="toc-entry toc-h3"><a href="#checking-options">Error checking options</a></li>
-<li class="toc-entry toc-h3"><a href="#flags-options">Flags options</a></li>
-<li class="toc-entry toc-h3"><a href="#semantics-options">Semantics options</a></li>
-<li class="toc-entry toc-h3"><a href="#strategy-options">Build strategy options</a></li>
-<li class="toc-entry toc-h3"><a href="#output-selection-options">Output selection options</a></li>
-<li class="toc-entry toc-h3"><a href="#verbosity">Verbosity options: options that control what Bazel prints</a></li>
-<li class="toc-entry toc-h3"><a href="#workspace_status">Options that control how Bazel embeds workspace status information
-into binaries (&quot;stamping&quot;)</a></li>
-<li class="toc-entry toc-h3"><a href="#platform_build_options">Platform options</a></li>
-<li class="toc-entry toc-h3"><a href="#misc_build_options">Miscellaneous options</a></li>
+<li class="toc-entry toc-h3"><a href="#package-location">Package location</a></li>
+<li class="toc-entry toc-h3"><a href="#checking-options">Error checking</a></li>
+<li class="toc-entry toc-h3"><a href="#flags-options">Tool flags</a></li>
+<li class="toc-entry toc-h3"><a href="#semantics-options">Build semantics</a></li>
+<li class="toc-entry toc-h3"><a href="#strategy-options">Execution strategy</a></li>
+<li class="toc-entry toc-h3"><a href="#output-selection-options">Output selection</a></li>
+<li class="toc-entry toc-h3"><a href="#verbosity">Verbosity</a></li>
+<li class="toc-entry toc-h3"><a href="#workspace_status">Workspace status</a></li>
+<li class="toc-entry toc-h3"><a href="#platform_build_options">Platform</a></li>
+<li class="toc-entry toc-h3"><a href="#misc_build_options">Miscellaneous</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#bazel-releng">Using Bazel for releases</a>
@@ -3452,32 +3498,31 @@ into binaries (&quot;stamping&quot;)</a></li>
 <li class="toc-entry toc-h3"><a href="#significant-options">Significant options</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#test">Running tests with Bazel</a>
+<li class="toc-entry toc-h2"><a href="#test">Running tests</a>
 <ul class="page-toc-sublist">
 <li class="toc-entry toc-h3"><a href="#options-for-bazel-test">Options for bazel test</a></li>
-<li class="toc-entry toc-h3"><a href="#clean">Deleting the outputs of a build</a></li>
+<li class="toc-entry toc-h3"><a href="#clean">Cleaning build outputs</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#run">Running executables with Bazel</a>
+<li class="toc-entry toc-h2"><a href="#run">Running executables</a>
 <ul class="page-toc-sublist">
 <li class="toc-entry toc-h3"><a href="#options-for-bazel-run">Options for bazel run</a></li>
 <li class="toc-entry toc-h3"><a href="#executing-tests">Executing tests</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#query">Querying the dependency graph with Bazel</a></li>
-<li class="toc-entry toc-h2"><a href="#aquery">Querying the action graph with Bazel</a></li>
-<li class="toc-entry toc-h2"><a href="#misc">Miscellaneous Bazel commands and options</a>
+<li class="toc-entry toc-h2"><a href="#query">Querying the dependency graph</a></li>
+<li class="toc-entry toc-h2"><a href="#aquery">Querying the action graph</a></li>
+<li class="toc-entry toc-h2"><a href="#misc">Miscellaneous commands and options</a>
 <ul class="page-toc-sublist">
-<li class="toc-entry toc-h3"><a href="#help">The help command</a></li>
-<li class="toc-entry toc-h3"><a href="#shutdown">The shutdown command</a></li>
-<li class="toc-entry toc-h3"><a href="#info">The info command</a></li>
-<li class="toc-entry toc-h3"><a href="#version">The version command</a></li>
-<li class="toc-entry toc-h3"><a href="#--version">bazel --version</a></li>
-<li class="toc-entry toc-h3"><a href="#mobile-install">The mobile-install command</a></li>
-<li class="toc-entry toc-h3"><a href="#dump">The dump command</a></li>
-<li class="toc-entry toc-h3"><a href="#analyze-profile">The analyze-profile command</a></li>
-<li class="toc-entry toc-h3"><a href="#canonicalize">The canonicalize-flags command</a></li>
-<li class="toc-entry toc-h3"><a href="#startup_options">Bazel startup options</a></li>
+<li class="toc-entry toc-h3"><a href="#help">help</a></li>
+<li class="toc-entry toc-h3"><a href="#shutdown">shutdown</a></li>
+<li class="toc-entry toc-h3"><a href="#info">info</a></li>
+<li class="toc-entry toc-h3"><a href="#version">version and --version</a></li>
+<li class="toc-entry toc-h3"><a href="#mobile-install">mobile-install</a></li>
+<li class="toc-entry toc-h3"><a href="#dump">dump</a></li>
+<li class="toc-entry toc-h3"><a href="#analyze-profile">analyze-profile</a></li>
+<li class="toc-entry toc-h3"><a href="#canonicalize">canonicalize-flags</a></li>
+<li class="toc-entry toc-h3"><a href="#startup_options">Startup options</a></li>
 <li class="toc-entry toc-h3"><a href="#misc_options">Miscellaneous options</a></li>
 </ul>
 </li>
@@ -3501,6 +3546,7 @@ into binaries (&quot;stamping&quot;)</a></li>
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -3520,6 +3566,7 @@ into binaries (&quot;stamping&quot;)</a></li>
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

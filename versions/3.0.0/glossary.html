@@ -1,0 +1,1298 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Bazel Glossary - Bazel 3.0.0</title>
+
+    <link rel="canonical" href="/versions/3.0.0/glossary.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Bazel Glossary"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-2">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+
+          <nav class="sidebar collapse" id="sidebar-nav">
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: 3.0.0</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/glossary.html">
+                    master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/glossary.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/glossary.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/glossary.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/glossary.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.1.0/glossary.html">
+                    2.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.0.0/glossary.html">
+                    2.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.2.0/glossary.html">
+                    1.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.1.0/glossary.html">
+                    1.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.0.0/glossary.html">
+                    1.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.1/glossary.html">
+                    0.29.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.0/glossary.html">
+                    0.29.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.28.0/glossary.html">
+                    0.28.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.27.0/glossary.html">
+                    0.27.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.26.0/glossary.html">
+                    0.26.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.25.0/glossary.html">
+                    0.25.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.24.0/glossary.html">
+                    0.24.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.23.0/glossary.html">
+                    0.23.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.22.0/glossary.html">
+                    0.22.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.21.0/glossary.html">
+                    0.21.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.20.0/glossary.html">
+                    0.20.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.2/glossary.html">
+                    0.19.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.1/glossary.html">
+                    0.19.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.18.1/glossary.html">
+                    0.18.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.2/glossary.html">
+                    0.17.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.1/glossary.html">
+                    0.17.1
+                </option>
+                
+            </select>
+
+            <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/3.0.0/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/3.0.0/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/3.0.0/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/3.0.0/backward-compatibility.html">Backward compatibility</a></li>
+            </ul>
+
+            <h3>Installing Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/3.0.0/install.html">Installation overview</a>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installation steps<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+
+                   <li><a href="/versions/3.0.0/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/3.0.0/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/3.0.0/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/3.0.0/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/3.0.0/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/3.0.0/completion.html">Command-line completion</a></li>
+                   <li><a href="/versions/3.0.0/ide.html">Integrating with IDEs</a></li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/3.0.0/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
+            </ul>
+
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/3.0.0/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/3.0.0/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/3.0.0/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/3.0.0/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/3.0.0/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/3.0.0/external.html">External dependencies</a></li>
+                  <li><a href="/versions/3.0.0/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#guides-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  Guides<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/3.0.0/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/3.0.0/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/3.0.0/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/3.0.0/windows.html">Building on Windows</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/3.0.0/rules.html">Rules</a></li>
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/3.0.0/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/3.0.0/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/3.0.0/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/3.0.0/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/3.0.0/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/3.0.0/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/3.0.0/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/3.0.0/remote-execution-rules.html">Guidelines</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/3.0.0/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/3.0.0/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/3.0.0/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/3.0.0/remote-execution-ci.html">Remote execution and CI</a></li>
+                 </ul>
+              </li>
+
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/3.0.0/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/3.0.0/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
+                  </ul>
+              </li>
+              
+             </ul>
+
+           
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/3.0.0/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/3.0.0/glossary.html">Glossary</a></li>
+             <li><a href="/versions/3.0.0/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/3.0.0/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/3.0.0/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/3.0.0/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/3.0.0/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/3.0.0/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/3.0.0/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
+             <li><a href="/versions/3.0.0/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/3.0.0/output_directories.html">Output directory layout</a></li>
+             <li><a href="/versions/3.0.0/platforms.html">Platforms</a></li>
+             <li><a href="/versions/3.0.0/toolchains.html">Toolchains</a></li>
+           </ul>
+
+           <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/3.0.0/skylark/concepts.html">Extension overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/3.0.0/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/3.0.0/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/3.0.0/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/3.0.0/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/3.0.0/skylark/repository_rules.html">Repository rules</a></li>
+                  <li><a href="/versions/3.0.0/skylark/config.html">Configurations</a></li>
+                </ul>
+              </li>
+
+	            <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/3.0.0/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/3.0.0/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/3.0.0/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/3.0.0/skylark/deploying.html">Deploying rules</a></li>
+                  <li><a href="/versions/3.0.0/skylark/windows_tips.html">Writing rules on Windows</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/3.0.0/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/3.0.0/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/3.0.0/skylark/language.html">Starlark language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-8">
+          <div class="content">
+            <h1 id="bazel-glossary">Bazel Glossary</h1>
+
+<h3 id="action">Action</h3>
+
+<p>A command to run during the build, for example, a call to a compiler that takes
+<a href="#artifact">artifacts</a> as inputs and produces other artifacts as outputs.
+Includes metadata like the command line arguments, action key, environment
+variables, and declared input/output artifacts.</p>
+
+<p><strong>See also:</strong> <a href="skylark/rules.html#actions">Rules documentation</a></p>
+
+<h3 id="action-cache">Action cache</h3>
+
+<p>An on-disk cache that stores a mapping of executed <a href="#action">actions</a> to the
+outputs they created. The cache key is known as the <a href="#action-key">action key</a>. A
+core component for Bazel’s incrementality model. The cache is stored in the
+output base directory and thus survives Bazel server restarts.</p>
+
+<h3 id="action-graph">Action graph</h3>
+
+<p>An in-memory graph of <a href="#action">actions</a> and the <a href="#artifact">artifacts</a> that
+these actions read and generate. The graph might include artifacts that exist as
+source files (for example, in the file system) as well as generated
+intermediate/final artifacts that are not mentioned in BUILD files. Produced
+during the <a href="#analysis-phase">analysis phase</a> and used during the <a href="#execution-phase">execution
+phase</a>.</p>
+
+<h3 id="action-graph-query-aquery">Action graph query (aquery)</h3>
+
+<p>A <a href="#query-concept">query</a> tool that can query over build <a href="#action">actions</a>.
+This provides the ability to analyze how <a href="#rule">build rules</a> translate into the
+actual work builds do.</p>
+
+<h3 id="action-key">Action key</h3>
+
+<p>The cache key of an <a href="#action">action</a>. Computed based on action metadata, which
+might include the command to be execution in the action, compiler flags, library
+locations, or system headers, depending on the action. Enables Bazel to cache or
+invalidate individual actions deterministically.</p>
+
+<h3 id="analysis-phase">Analysis phase</h3>
+
+<p>The second phase of a build. Processes the <a href="#target-graph">target graph</a>
+specified in <a href="#build-file">BUILD files</a> to produce an in-memory <a href="#action-graph">action
+graph</a> that determines the order of actions to run during the
+<a href="#execution-phase">execution phase</a>. This is the phase in which rule
+implementations are evaluated.</p>
+
+<h3 id="artifact">Artifact</h3>
+
+<p>A source file or a generated file. Can also be a directory of files, known as
+“tree artifacts”. Tree artifacts are black boxes to Bazel: Bazel does not treat
+the files in tree artifacts as individual artifacts and thus cannot reference
+them directly as action inputs / outputs. An artifact can be an input to
+multiple actions, but must only be generated by at most one action.</p>
+
+<h3 id="aspect">Aspect</h3>
+
+<p>A mechanism for rules to create additional <a href="#action">actions</a> in their
+dependencies. For example, if target A depends on B, one can apply an aspect on
+A that traverses <em>up</em> a dependency edge to B, and runs additional actions in B
+to generate and collect additional output files. These additional actions are
+cached and reused between targets requiring the same aspect. Created with the
+<code class="highlighter-rouge">aspect()</code> Starlark Build API function. Can be used, for example, to generate
+metadata for IDEs, and create actions for linting.</p>
+
+<p><strong>See also:</strong> <a href="skylark/aspects.html">Aspects documentation</a></p>
+
+<h3 id="aspect-on-aspect">Aspect-on-aspect</h3>
+
+<p>An aspect composition mechanism, where aspects can be applied on other aspects.
+For an aspect A to inspect aspect B, aspect A must declare the <em>providers</em> it
+needs from aspect B (with the <code class="highlighter-rouge">required_aspect_providers</code> attribute), and aspect
+B must declare the providers it returns (with the <code class="highlighter-rouge">provides</code> attribute). For
+example, this can be used by IDE aspects to generate files using information
+also generated by aspects, like the <code class="highlighter-rouge">java_proto_library</code> aspect.</p>
+
+<h3 id="bazelrc">.bazelrc</h3>
+
+<p>Bazel’s configuration file used to change the default values for <a href="#startup-flags">startup
+flags</a> and <a href="#command-flags">command flags</a>, and to define common
+groups of options that can then be set together on the Bazel command line using
+a <code class="highlighter-rouge">--config</code> flag. Bazel can combine settings from multiple bazelrc files
+(systemwide, per-workspace, per-user, or from a custom location), and a
+bazelrc file may also import settings from other bazelrcs.</p>
+
+<h3 id="bazel">Bazel</h3>
+
+<p>The Google-internal version of Bazel. Google’s main build system for its
+mono-repository.</p>
+
+<h3 id="build-file">BUILD File</h3>
+
+<p>A BUILD file is the main configuration file that tells Bazel what software
+outputs to build, what their dependencies are, and how to build them. Bazel
+takes a BUILD file as input and uses the file to create a graph of dependencies
+and to derive the actions that must be completed to build intermediate and final
+software outputs. A BUILD file marks a directory and any sub-directories not
+containing a BUILD file as a <a href="#package">package</a>, and can contain
+<a href="#target">targets</a> created by <a href="#rule">rules</a>. The file can also be named
+BUILD.bazel.</p>
+
+<h3 id="buildbazel-file">BUILD.bazel File</h3>
+
+<p>See <a href="#build-file">BUILD File</a>. Takes precedence over a <code class="highlighter-rouge">BUILD</code> file in the same
+directory.</p>
+
+<h3 id="bzl-file">.bzl File</h3>
+
+<p>A file that defines rules, <a href="#macro">macros</a>, and constants written in
+<a href="#starlark">Starlark</a>. These can then be imported into <a href="#build-file">BUILD
+files</a> using the load() function.</p>
+
+<!-- TODO: ### Build event protocol -->
+
+<!-- TODO: ### Build flag -->
+
+<h3 id="build-graph">Build graph</h3>
+
+<p>The dependency graph that Bazel constructs and traverses to perform a build.
+Includes nodes like <a href="#target">targets</a>, <a href="#configured-target">configured
+targets</a>, <a href="#action">actions</a>, and <a href="#artifact">artifacts</a>. A
+build is considered complete when all <a href="#artifact">artifacts</a> on which a set of
+requested targets depend are verified as up-to-date.</p>
+
+<h3 id="build-setting">Build setting</h3>
+
+<p>A Starlark-defined piece of <a href="#configuration">configuration</a>.
+<a href="#transition">Transitions</a> can set build settings to change a subgraph’s
+configuration. If exposed to the user as a <a href="#command-flags">command-line flag</a>,
+also known as a build flag.</p>
+
+<h3 id="clean-build">Clean build</h3>
+
+<p>A build that doesn’t use the results of earlier builds. This is generally slower
+than an <a href="#incremental-build">incremental build</a> but commonly considered to be
+more <a href="#correctness">correct</a>. Bazel guarantees both clean and incremental builds
+are always correct.</p>
+
+<h3 id="client-server-model">Client-server model</h3>
+
+<p>The <code class="highlighter-rouge">bazel</code> command-line client automatically starts a background server on the
+local machine to execute Bazel <a href="#command">commands</a>. The server persists across
+commands but automatically stops after a period of inactivity (or explicitly via
+bazel shutdown). Splitting Bazel into a server and client helps amortize JVM
+startup time and supports faster <a href="#incremental-build">incremental builds</a>
+because the <a href="#action-graph">action graph</a> remains in memory across commands.</p>
+
+<h3 id="command">Command</h3>
+
+<p>Used on the command line to invoke different Bazel functions, like <code class="highlighter-rouge">bazel
+build</code>, <code class="highlighter-rouge">bazel test</code>, <code class="highlighter-rouge">bazel run</code>, and <code class="highlighter-rouge">bazel query</code>.</p>
+
+<h3 id="command-flags">Command flags</h3>
+
+<p>A set of flags specific to a <a href="#command">command</a>. Command flags are specified
+<em>after</em> the command (<code class="highlighter-rouge">bazel build &lt;command flags&gt;</code>). Flags can be applicable to
+one or more commands. For example, <code class="highlighter-rouge">--configure</code> is a flag exclusively for the
+<code class="highlighter-rouge">bazel sync</code> command, but <code class="highlighter-rouge">--keep_going</code> is applicable to <code class="highlighter-rouge">sync</code>, <code class="highlighter-rouge">build</code>,
+<code class="highlighter-rouge">test</code> and more. Flags are often used for <a href="#configuration">configuration</a>
+purposes, so changes in flag values can cause Bazel to invalidate in-memory
+graphs and restart the <a href="#analysis-phase">analysis phase</a>.</p>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Information outside of <a href="#rule">rule</a> definitions that impacts how rules generate
+<a href="#action">actions</a>. Every build has at least one configuration specifying the
+target platform, action environment variables, and command-line <a href="#command-flags">build
+flags</a>. <a href="#transition">Transitions</a> may create additional
+configurations, e.g. for host tools or cross-compilation.</p>
+
+<p><strong>See also:</strong> <a href="skylark/rules.html#configurations">Configurations</a></p>
+
+<!-- TODO: ### Configuration fragment -->
+
+<h3 id="configuration-trimming">Configuration trimming</h3>
+
+<p>The process of only including the pieces of <a href="#configuration">configuration</a> a
+target actually needs. For example, if you build Java binary <code class="highlighter-rouge">//:j</code> with C++
+dependency <code class="highlighter-rouge">//:c</code>, it’s wasteful to include the value of <code class="highlighter-rouge">--javacopt</code> in the
+configuration of <code class="highlighter-rouge">//:c</code> because changing <code class="highlighter-rouge">--javacopt</code> unnecessarily breaks C++
+build cacheability.</p>
+
+<h3 id="configured-query-cquery">Configured query (cquery)</h3>
+
+<p>A <a href="#query-concept">query</a> tool that queries over <a href="#configured-target">configured
+targets</a> (after the <a href="#analysis-phase">analysis phase</a>
+completes). This means <code class="highlighter-rouge">select()</code> and <a href="#command-flags">build flags</a> (e.g.
+<code class="highlighter-rouge">--platforms</code>) are accurately reflected in the results.</p>
+
+<p><strong>See also:</strong> <a href="cquery.html">cquery documentation</a></p>
+
+<h3 id="configured-target">Configured target</h3>
+
+<p>The result of evaluating a <a href="#target">target</a> with a
+<a href="#configuration">configuration</a>. The <a href="#analysis-phase">analysis phase</a> produces
+this by combining the build’s options with the targets that need to be built.
+For example, if <code class="highlighter-rouge">//:foo</code> builds for two different architectures in the same
+build, it has two configured targets: <code class="highlighter-rouge">&lt;//:foo, x86&gt;</code> and <code class="highlighter-rouge">&lt;//:foo, arm&gt;</code>.</p>
+
+<h3 id="correctness">Correctness</h3>
+
+<p>A build is correct when its output faithfully reflects the state of its
+transitive inputs. To achieve correct builds, Bazel strives to be
+<a href="#hermeticity">hermetic</a>, reproducible, and making <a href="#analysis-phase">build
+analysis</a> and <a href="#execution-phase">action execution</a>
+deterministic.</p>
+
+<h3 id="dependency">Dependency</h3>
+
+<p>A directed edge between two <a href="#target">targets</a>. A target <code class="highlighter-rouge">//:foo</code> has a <em>target
+dependency</em> on target <code class="highlighter-rouge">//:bar</code> if <code class="highlighter-rouge">//:foo</code>’s attribute values contain a
+reference to <code class="highlighter-rouge">//:bar</code>. <code class="highlighter-rouge">//:foo</code> has an <em>action dependency</em> on <code class="highlighter-rouge">//:bar</code> if an
+action in <code class="highlighter-rouge">//:foo</code> depends on an input <a href="#artifact">artifact</a> created by an
+action in <code class="highlighter-rouge">//:bar</code>.</p>
+
+<h3 id="depset">Depset</h3>
+
+<p>A data structure for collecting data on transitive dependencies. Optimized so
+that merging depsets is time and space efficient, because it’s common to have
+very large depsets (e.g. hundreds of thousands of files). Implemented to
+recursively refer to other depsets for space efficiency reasons. <a href="#rule">Rule</a>
+implementations should not “flatten” depsets by converting them to lists unless
+the rule is at the top level of the build graph. Flattening large depsets incurs
+huge memory consumption. Also known as <em>nested sets</em> in Bazel’s internal
+implementation.</p>
+
+<p><strong>See also:</strong> <a href="skylark/depsets.html">Depset documentation</a></p>
+
+<h3 id="disk-cache">Disk cache</h3>
+
+<p>A local on-disk blob store for the remote caching feature. Can be used in
+conjunction with an actual remote blob store.</p>
+
+<h3 id="distdir">Distdir</h3>
+
+<p>A read-only directory containing files that Bazel would otherwise fetch from the
+internet using repository rules. Enables builds to run fully offline.</p>
+
+<h3 id="dynamic-execution">Dynamic execution</h3>
+
+<p>An execution strategy that selects between local and remote execution based on
+various heuristics, and uses the execution results of the faster successful
+method. Certain <a href="#action">actions</a> are executed faster locally (for example,
+linking) and others are faster remotely (for example, highly parallelizable
+compilation). A dynamic execution strategy can provide the best possible
+incremental and clean build times.</p>
+
+<h3 id="execution-phase">Execution phase</h3>
+
+<p>The third phase of a build. Executes the <a href="#action">actions</a> in the <a href="#action-graph">action
+graph</a> created during the <a href="#analysis-phase">analysis phase</a>.
+These actions invoke executables (compilers, scripts) to read and write
+<a href="#artifact">artifacts</a>. <em>Spawn strategies</em> control how these actions are
+executed: locally, remotely, dynamically, sandboxed, docker, and so on.</p>
+
+<h3 id="execution-root">Execution root</h3>
+
+<p>A directory in the <a href="#workspace">workspace</a>’s <a href="#output-base">output base</a>
+directory where local <a href="#action">actions</a> are executed in
+non-<a href="#sandboxing">sandboxed</a> builds. The directory contents are mostly symlinks
+of input <a href="#artifact">artifacts</a> from the workspace. The execution root also
+contains symlinks to external repositories as other inputs and the <code class="highlighter-rouge">bazel-out</code>
+directory to store outputs. Prepared during the <a href="#loading-phase">loading phase</a>
+by creating a <em>symlink forest</em> of the directories that represent the transitive
+closure of packages on which a build depends. Accessible with <code class="highlighter-rouge">bazel info
+execution_root</code> on the command line.</p>
+
+<h3 id="file">File</h3>
+
+<p>See <a href="#artifact">Artifact</a>.</p>
+
+<h3 id="hermeticity">Hermeticity</h3>
+
+<p>A build is hermetic if there are no external influences on its build and test
+operations, which helps to make sure that results are deterministic and
+<a href="#correctness">correct</a>. For example, hermetic builds typically disallow network
+access to actions, restrict access to declared inputs, use fixed timestamps and
+timezones, restrict access to environment variables, and use fixed seeds for
+random number generators</p>
+
+<h3 id="incremental-build">Incremental build</h3>
+
+<p>An incremental build reuses the results of earlier builds to reduce build time
+and resource usage. Dependency checking and caching aim to produce correct
+results for this type of build. An incremental build is the opposite of a clean
+build.</p>
+
+<!-- TODO: ### Install base -->
+
+<h3 id="label">Label</h3>
+
+<p>An identifier for a <a href="#target">target</a>. A fully-qualified label such as
+<code class="highlighter-rouge">//path/to/package:target</code> consists of <code class="highlighter-rouge">//</code> to mark the workspace root
+directory, <code class="highlighter-rouge">path/to/package</code> as the directory that contains the <a href="#build-file">BUILD
+file</a> declaring the target, and <code class="highlighter-rouge">:target</code> as the name of the target
+declared in the aforementioned BUILD file. May also be prefixed with
+<code class="highlighter-rouge">@my_repository//&lt;..&gt;</code> to indicate that the target is declared in an ]external
+repository] named <code class="highlighter-rouge">my_repository</code>.</p>
+
+<h3 id="loading-phase">Loading phase</h3>
+
+<p>The first phase of a build where Bazel parses <code class="highlighter-rouge">WORKSPACE</code>, <code class="highlighter-rouge">BUILD</code>, and <a href="#bzl-file">.bzl
+files</a> to create <a href="#package">packages</a>. <a href="#macro">Macros</a> and certain
+functions like <code class="highlighter-rouge">glob()</code> are evaluated in this phase. Interleaved with the second
+phase of the build, the <a href="#analysis-phase">analysis phase</a>, to build up a <a href="#target-graph">target
+graph</a>.</p>
+
+<h3 id="macro">Macro</h3>
+
+<p>A mechanism to compose multiple <a href="#rule">rule</a> target declarations together under
+a single <a href="#starlark">Starlark</a> function. Enables reusing common rule declaration
+patterns across BUILD files. Expanded to the underlying rule target declarations
+during the <a href="#loading-phase">loading phase</a>.</p>
+
+<p><strong>See also:</strong> <a href="skylark/macros.html">Macro documentation</a></p>
+
+<h3 id="mnemonic">Mnemonic</h3>
+
+<p>A short, human-readable string selected by a rule author to quickly understand
+what an <a href="#action">action</a> in the rule is doing. Mnemonics can be used as
+identifiers for <em>spawn strategy</em> selections. Some examples of action mnemonics
+are <code class="highlighter-rouge">Javac</code> from Java rules, <code class="highlighter-rouge">CppCompile</code> from C++ rules, and
+<code class="highlighter-rouge">AndroidManifestMerger</code> from Android rules.</p>
+
+<h3 id="native-rules">Native rules</h3>
+
+<p><a href="#rule">Rules</a> that are built into Bazel and implemented in Java. Such rules
+appear in <a href="#bzl-file"><code class="highlighter-rouge">.bzl</code> files</a> as functions in the native module (for
+example, <code class="highlighter-rouge">native.cc_library</code> or <code class="highlighter-rouge">native.java_library</code>). User-defined rules
+(non-native) are created using <a href="#starlark">Starlark</a>.</p>
+
+<h3 id="output-base">Output base</h3>
+
+<p>A <a href="#workspace">workspace</a>-specific directory to store Bazel output files. Used
+to separate outputs from the <em>workspace</em>’s source tree. Located in the <a href="#output-user-root">output
+user root</a>.</p>
+
+<h3 id="output-groups">Output groups</h3>
+
+<p>A group of files that is expected to be built when Bazel finishes building a
+target. <a href="#rule">Rules</a> put their usual outputs in the “default output group”
+(e.g the <code class="highlighter-rouge">.jar</code> file of a <code class="highlighter-rouge">java_library</code>, <code class="highlighter-rouge">.a</code> and <code class="highlighter-rouge">.so</code> for <code class="highlighter-rouge">cc_library</code>
+targets). The default output group is the output group whose
+<a href="#artifact">artifacts</a> are built when a target is requested on the command line.
+Rules can define more named output groups that can be explicitly specified in
+<a href="#build-file">BUILD files</a> (<code class="highlighter-rouge">filegroup</code> rule) or the command line
+(<code class="highlighter-rouge">--output_groups</code> flag).</p>
+
+<h3 id="output-user-root">Output user root</h3>
+
+<p>A user-specific directory to store Bazel’s outputs. The directory name is
+derived from the user’s system username. Prevents output file collisions if
+multiple users are building the same project on the system at the same time.
+Contains subdirectories corresponding to build outputs of individual workspaces,
+also known as <a href="#output-base">output bases</a>.</p>
+
+<h3 id="package">Package</h3>
+
+<p>The set of <a href="#target">targets</a> defined by a <a href="#build-file">BUILD file</a>. A
+package’s name is the BUILD file’s path relative to the workspace root. A
+package can contain subpackages, or subdirectories containing BUILD files, thus
+forming a package hierarchy.</p>
+
+<h3 id="package-group">Package group</h3>
+
+<p>A <a href="#target">target</a> representing a set of packages. Often used in visibility
+attribute values.</p>
+
+<h3 id="platform">Platform</h3>
+
+<p>A “machine type” involved in a build. This includes the machine Bazel runs on
+(the “host” platform), the machines build tools execute on (“exec” platforms),
+and the machines targets are built for (“target platforms”).</p>
+
+<h3 id="provider">Provider</h3>
+
+<p>A set of information passed from a rule <a href="#target">target</a> to other rule targets.
+Usually contains information like: compiler options, transitive source files,
+transitive output files, and build metadata. Frequently used in conjunction with
+<a href="#depset">depsets</a>.</p>
+
+<p><strong>See also:</strong> <a href="rules.html#providers">Provider documentation</a></p>
+
+<h3 id="query-concept">Query (concept)</h3>
+
+<p>The process of analyzing a <a href="#build-graph">build graph</a> to understand
+<a href="#target">target</a> properties and dependency structures. Bazel supports three
+query variants: <a href="#query-command">query</a>, <a href="#configured-query-cquery">cquery</a>, and
+<a href="#action-graph-query-aquery">aquery</a>.</p>
+
+<h3 id="query-command">query (command)</h3>
+
+<p>A <a href="#query-concept">query</a> tool that operates over the build’s post-<a href="#loading-phase">loading
+phase</a> <a href="#target-graph">target graph</a>. This is relatively fast,
+but can’t analyze the effects of <code class="highlighter-rouge">select()</code>, <a href="#command-flags">build flags</a>,
+<a href="#artifact">artifacts</a>, or build <a href="#action">actions</a>.</p>
+
+<p><strong>See also:</strong> <a href="query-how-to.html">Query how-to</a>, <a href="query.html">Query reference</a></p>
+
+<h3 id="repository-cache">Repository cache</h3>
+
+<p>A shared content-addressable cache of files downloaded by Bazel for builds,
+shareable across <a href="#workspace">workspaces</a>. Enables offline builds after the
+initial download. Commonly used to cache files downloaded through repository
+rules like <code class="highlighter-rouge">http_archive</code> and repository rule APIs like
+<code class="highlighter-rouge">repository_ctx.download</code>. Files are cached only if their SHA-256 checksums are
+specified for the download.</p>
+
+<!-- TODO: ### Repository rule -->
+
+<h3 id="reproducibility">Reproducibility</h3>
+
+<p>The property of a build or test that a set of inputs to the build or test will
+always produce the same set of outputs every time, regardless of time, method,
+or environment. Note that this does not necessarily imply that the outputs are
+<a href="#correctness">correct</a> or the desired outputs.</p>
+
+<h3 id="rule">Rule</h3>
+
+<p>A function implementation that registers a series of <a href="#action">actions</a> to be
+performed on input <a href="#artifact">artifacts</a> to produce a set of output artifacts.
+Rules can read values from <em>attributes</em> as inputs (e.g. deps, testonly, name).
+Rule targets also produce and pass along information that may be useful to other
+rule targets in the form of <a href="#provider">providers</a> (e.g. <code class="highlighter-rouge">DefaultInfo</code>
+provider).</p>
+
+<p><strong>See also:</strong> <a href="skylark/rules.html">Rules documentation</a></p>
+
+<h3 id="runfiles">Runfiles</h3>
+
+<p>The runtime dependencies of an executable <a href="#target">target</a>. Most commonly, the
+executable is the executable output of a test rule, and the runfiles are runtime
+data dependencies of the test. Before the invocation of the executable (during
+bazel test), Bazel prepares the tree of runfiles alongside the test executable
+according to their source directory structure.</p>
+
+<p><strong>See also:</strong> <a href="skylark/rules.html#runfiles">Runfiles documentation</a></p>
+
+<h3 id="sandboxing">Sandboxing</h3>
+
+<p>A technique to isolate a running <a href="#action">action</a> inside a restricted and
+temporary <a href="#execution-root">execution root</a>, helping to ensure that it doesn’t
+read undeclared inputs or write undeclared outputs. Sandboxing greatly improves
+<a href="#hermeticity">hermeticity</a>, but usually has a performance cost, and requires
+support from the operating system. The performance cost depends on the platform.
+On Linux, it’s not significant, but on macOS it can make sandboxing unusable.</p>
+
+<h3 id="skyframe">Skyframe</h3>
+
+<p>The core parallel, functional, and incremental evaluation framework of Bazel.
+<a href="https://bazel.build/designs/skyframe.html">https://bazel.build/designs/skyframe.html</a></p>
+
+<!-- TODO: ### Spawn strategy -->
+
+<h3 id="stamping">Stamping</h3>
+
+<p>A feature to embed additional information into Bazel-built
+<a href="#artifact">artifacts</a>. For example, this can be used for source control, build
+time and other workspace or environment-related information for release builds.
+Enable through the <code class="highlighter-rouge">--workspace_status_command</code> flag and <a href="rules">rules</a> that
+support the stamp attribute.</p>
+
+<h3 id="starlark">Starlark</h3>
+
+<p>The extension language for writing <a href="rules">rules</a> and <a href="#macro">macros</a>. A
+restricted subset of Python (syntactically and grammatically) aimed for the
+purpose of configuration, and for better performance. Uses the <a href="#bzl-file"><code class="highlighter-rouge">.bzl</code>
+file</a> extension. <a href="#build-file">BUILD files</a> use an even more
+restricted version of Starlark (e.g. no <code class="highlighter-rouge">def</code> function definitions). Formerly
+known as Skylark.</p>
+
+<p><strong>See also:</strong> <a href="skylark/language.html">Starlark language documentation</a></p>
+
+<!-- TODO: ### Starlark rules -->
+
+<!-- TODO: ### Starlark rule sandwich -->
+
+<h3 id="startup-flags">Startup flags</h3>
+
+<p>The set of flags specified between <code class="highlighter-rouge">bazel</code> and the <a href="#query-command">command</a>,
+for example, bazel <code class="highlighter-rouge">--host_jvm_debug</code> build. These flags modify the
+<a href="#configuration">configuration</a> of the Bazel server, so any modification to
+startup flags causes a server restart. Startup flags are not specific to any
+command.</p>
+
+<h3 id="target">Target</h3>
+
+<p>A buildable unit. Can be a <a href="#rule">rule</a> target, file target, or a <a href="#package-group">package
+group</a>. Rule targets are instantiated from rule declarations in
+<a href="#build-file">BUILD files</a>. Depending on the rule implementation, rule targets
+can also be testable or runnable. Every file used in BUILD files is a file
+target. Targets can depend on other targets via attributes (most commonly but
+not necessarily <code class="highlighter-rouge">deps</code>). A <a href="#configured-target">configured target</a> is a pair of
+target and <a href="#configuration">build configuration</a>.</p>
+
+<h3 id="target-graph">Target graph</h3>
+
+<p>An in-memory graph of <a href="#target">targets</a> and their dependencies. Produced during
+the <a href="#loading-phase">loading phase</a> and used as an input to the <a href="#analysis-phase">analysis
+phase</a>.</p>
+
+<h3 id="target-pattern">Target pattern</h3>
+
+<p>A way to specify a group of <a href="#target">targets</a> on the command line. Commonly
+used patterns are <code class="highlighter-rouge">:all</code> (all rule targets), <code class="highlighter-rouge">:*</code> (all rule + file targets),
+<code class="highlighter-rouge">...</code> (current <a href="#package">package</a> and all subpackages recursively). Can be used
+in combination, for example, <code class="highlighter-rouge">//...:*</code> means all rule and file targets in all
+packages recursively from the root of the <a href="#workspace">workspace</a>.</p>
+
+<h3 id="tests">Tests</h3>
+
+<p>Rule <a href="#target">targets</a> instantiated from test rules, and therefore contains a
+test executable. A return code of zero from the completion of the executable
+indicates test success. The exact contract between Bazel and tests (e.g. test
+environment variables, test result collection methods) is specified in the <a href="test-encyclopedia.html">Test
+Encyclopedia</a>.</p>
+
+<h3 id="toolchain">Toolchain</h3>
+
+<p>A set of tools to build outputs for a language. Typically, a toolchain includes
+compilers, linkers, interpreters or/and linters. A toolchain can also vary by
+platform, that is, a Unix compiler toolchain’s components may differ for the
+Windows variant, even though the toolchain is for the same language. Selecting
+the right toolchain for the platform is known as toolchain resolution.</p>
+
+<h3 id="top-level-target">Top-level target</h3>
+
+<p>A build <a href="#target">target</a> is top-level if it’s requested on the Bazel command
+line. For example, if <code class="highlighter-rouge">//:foo</code> depends on <code class="highlighter-rouge">//:bar</code>, and <code class="highlighter-rouge">bazel build //:foo</code> is
+called, then for this build, <code class="highlighter-rouge">//:foo</code> is top-level, and <code class="highlighter-rouge">//:bar</code> isn’t
+top-level, although both targets will need to be built. An important difference
+between top-level and non-top-level targets is that <a href="#command-flags">command
+flags</a> set on the Bazel command line (or via
+<a href="#bazelrc">.bazelrc</a>) will set the <a href="#configuration">configuration</a> for top-level
+targets, but might be modified by a <a href="#transition">transition</a> for non-top-level
+targets.</p>
+
+<h3 id="transition">Transition</h3>
+
+<p>A mapping of <a href="#configuration">configuration</a> state from one value to another.
+Enables <a href="#target">targets</a> in the <a href="#build-graph">build graph</a> to have different
+configurations, even if they were instantiated from the same <a href="#rule">rule</a>. A
+common usage of transitions is with <em>split</em> transitions, where certain parts of
+the <a href="#target-graph">target graph</a> is forked with distinct configurations for
+each fork. For example, one can build an Android APK with native binaries
+compiled for ARM and x86 using split transitions in a single build.</p>
+
+<p><strong>See also:</strong> <a href="skylark/config.html#user-defined-transitions">User-defined transitions</a></p>
+
+<h3 id="tree-artifact">Tree artifact</h3>
+
+<p>See <a href="#artifact">Artifact</a>.</p>
+
+<h3 id="visibility">Visibility</h3>
+
+<p>Defines whether a <a href="#target">target</a> can be depended upon by other targets. By
+default, target visibility is private. That is, the target can only be depended
+upon by other targets in the same <a href="#package">package</a>. Can be made visible to
+specific packages or be completely public.</p>
+
+<p><strong>See also:</strong> <a href="be/common-definitions.html#common-attributes">Visibility documentation</a></p>
+
+<h3 id="workspace">Workspace</h3>
+
+<p>A directory containing a <code class="highlighter-rouge">WORKSPACE</code> file and source code for the software you
+want to build. Labels that start with <code class="highlighter-rouge">//</code> are relative to the workspace
+directory.</p>
+
+<h3 id="workspace-file">WORKSPACE file</h3>
+
+<p>Defines a directory to be a <a href="#workspace">workspace</a>. The file can be empty,
+although it usually contains external repository declarations to fetch
+additional dependencies from the network or local filesystem.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>We welcome contributions to this glossary.</p>
+
+<p>The definitions should strive to be crisp, concise, and easy to understand.</p>
+
+<p>Principles:</p>
+
+<ul>
+  <li>Use the simplest words possible. Try to avoid technical jargon.</li>
+  <li>Use the simplest grammar possible. Try not to string too many concepts into a
+sentence.</li>
+  <li>Make the last word of each sentence count.</li>
+  <li>Make each adjective <em>really</em> count.</li>
+  <li>Avoid adverbs.</li>
+  <li>Keep definitions as self-contained as possible.</li>
+  <li>Calibrate a word’s value by considering what would be lost without it.</li>
+  <li>Hit core concepts foremost. Avoid pedantry.</li>
+  <li>Enlightening the reader is more important than being thorough.</li>
+  <li>Links can provide deeper dives, for those who want it.</li>
+</ul>
+
+          </div>
+        </div>
+
+        <div class="col-md-2 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Bazel Glossary&body=Documentation URL: https://docs.bazel.build/versions/3.0.0/glossary.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h3"><a href="#action">Action</a></li>
+<li class="toc-entry toc-h3"><a href="#action-cache">Action cache</a></li>
+<li class="toc-entry toc-h3"><a href="#action-graph">Action graph</a></li>
+<li class="toc-entry toc-h3"><a href="#action-graph-query-aquery">Action graph query (aquery)</a></li>
+<li class="toc-entry toc-h3"><a href="#action-key">Action key</a></li>
+<li class="toc-entry toc-h3"><a href="#analysis-phase">Analysis phase</a></li>
+<li class="toc-entry toc-h3"><a href="#artifact">Artifact</a></li>
+<li class="toc-entry toc-h3"><a href="#aspect">Aspect</a></li>
+<li class="toc-entry toc-h3"><a href="#aspect-on-aspect">Aspect-on-aspect</a></li>
+<li class="toc-entry toc-h3"><a href="#bazelrc">.bazelrc</a></li>
+<li class="toc-entry toc-h3"><a href="#bazel">Bazel</a></li>
+<li class="toc-entry toc-h3"><a href="#build-file">BUILD File</a></li>
+<li class="toc-entry toc-h3"><a href="#buildbazel-file">BUILD.bazel File</a></li>
+<li class="toc-entry toc-h3"><a href="#bzl-file">.bzl File</a></li>
+<li class="toc-entry toc-h3"><a href="#build-graph">Build graph</a></li>
+<li class="toc-entry toc-h3"><a href="#build-setting">Build setting</a></li>
+<li class="toc-entry toc-h3"><a href="#clean-build">Clean build</a></li>
+<li class="toc-entry toc-h3"><a href="#client-server-model">Client-server model</a></li>
+<li class="toc-entry toc-h3"><a href="#command">Command</a></li>
+<li class="toc-entry toc-h3"><a href="#command-flags">Command flags</a></li>
+<li class="toc-entry toc-h3"><a href="#configuration">Configuration</a></li>
+<li class="toc-entry toc-h3"><a href="#configuration-trimming">Configuration trimming</a></li>
+<li class="toc-entry toc-h3"><a href="#configured-query-cquery">Configured query (cquery)</a></li>
+<li class="toc-entry toc-h3"><a href="#configured-target">Configured target</a></li>
+<li class="toc-entry toc-h3"><a href="#correctness">Correctness</a></li>
+<li class="toc-entry toc-h3"><a href="#dependency">Dependency</a></li>
+<li class="toc-entry toc-h3"><a href="#depset">Depset</a></li>
+<li class="toc-entry toc-h3"><a href="#disk-cache">Disk cache</a></li>
+<li class="toc-entry toc-h3"><a href="#distdir">Distdir</a></li>
+<li class="toc-entry toc-h3"><a href="#dynamic-execution">Dynamic execution</a></li>
+<li class="toc-entry toc-h3"><a href="#execution-phase">Execution phase</a></li>
+<li class="toc-entry toc-h3"><a href="#execution-root">Execution root</a></li>
+<li class="toc-entry toc-h3"><a href="#file">File</a></li>
+<li class="toc-entry toc-h3"><a href="#hermeticity">Hermeticity</a></li>
+<li class="toc-entry toc-h3"><a href="#incremental-build">Incremental build</a></li>
+<li class="toc-entry toc-h3"><a href="#label">Label</a></li>
+<li class="toc-entry toc-h3"><a href="#loading-phase">Loading phase</a></li>
+<li class="toc-entry toc-h3"><a href="#macro">Macro</a></li>
+<li class="toc-entry toc-h3"><a href="#mnemonic">Mnemonic</a></li>
+<li class="toc-entry toc-h3"><a href="#native-rules">Native rules</a></li>
+<li class="toc-entry toc-h3"><a href="#output-base">Output base</a></li>
+<li class="toc-entry toc-h3"><a href="#output-groups">Output groups</a></li>
+<li class="toc-entry toc-h3"><a href="#output-user-root">Output user root</a></li>
+<li class="toc-entry toc-h3"><a href="#package">Package</a></li>
+<li class="toc-entry toc-h3"><a href="#package-group">Package group</a></li>
+<li class="toc-entry toc-h3"><a href="#platform">Platform</a></li>
+<li class="toc-entry toc-h3"><a href="#provider">Provider</a></li>
+<li class="toc-entry toc-h3"><a href="#query-concept">Query (concept)</a></li>
+<li class="toc-entry toc-h3"><a href="#query-command">query (command)</a></li>
+<li class="toc-entry toc-h3"><a href="#repository-cache">Repository cache</a></li>
+<li class="toc-entry toc-h3"><a href="#reproducibility">Reproducibility</a></li>
+<li class="toc-entry toc-h3"><a href="#rule">Rule</a></li>
+<li class="toc-entry toc-h3"><a href="#runfiles">Runfiles</a></li>
+<li class="toc-entry toc-h3"><a href="#sandboxing">Sandboxing</a></li>
+<li class="toc-entry toc-h3"><a href="#skyframe">Skyframe</a></li>
+<li class="toc-entry toc-h3"><a href="#stamping">Stamping</a></li>
+<li class="toc-entry toc-h3"><a href="#starlark">Starlark</a></li>
+<li class="toc-entry toc-h3"><a href="#startup-flags">Startup flags</a></li>
+<li class="toc-entry toc-h3"><a href="#target">Target</a></li>
+<li class="toc-entry toc-h3"><a href="#target-graph">Target graph</a></li>
+<li class="toc-entry toc-h3"><a href="#target-pattern">Target pattern</a></li>
+<li class="toc-entry toc-h3"><a href="#tests">Tests</a></li>
+<li class="toc-entry toc-h3"><a href="#toolchain">Toolchain</a></li>
+<li class="toc-entry toc-h3"><a href="#top-level-target">Top-level target</a></li>
+<li class="toc-entry toc-h3"><a href="#transition">Transition</a></li>
+<li class="toc-entry toc-h3"><a href="#tree-artifact">Tree artifact</a></li>
+<li class="toc-entry toc-h3"><a href="#visibility">Visibility</a></li>
+<li class="toc-entry toc-h3"><a href="#workspace">Workspace</a></li>
+<li class="toc-entry toc-h3"><a href="#workspace-file">WORKSPACE file</a></li>
+<li class="toc-entry toc-h2"><a href="#contributing">Contributing</a></li>
+</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2020 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

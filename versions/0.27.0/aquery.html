@@ -1,0 +1,1129 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Aquery (Action Graph Query) - Bazel 0.27.0</title>
+
+    <link rel="canonical" href="/versions/0.27.0/aquery.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Aquery (Action Graph Query)"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-2">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+
+          <nav class="sidebar collapse" id="sidebar-nav">
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: 0.27.0</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/aquery.html">
+                    master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/aquery.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/aquery.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/aquery.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/aquery.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.1.0/aquery.html">
+                    2.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.0.0/aquery.html">
+                    2.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.2.0/aquery.html">
+                    1.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.1.0/aquery.html">
+                    1.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.0.0/aquery.html">
+                    1.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.1/aquery.html">
+                    0.29.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.0/aquery.html">
+                    0.29.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.28.0/aquery.html">
+                    0.28.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.27.0/aquery.html">
+                    0.27.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.26.0/aquery.html">
+                    0.26.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.25.0/aquery.html">
+                    0.25.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.24.0/aquery.html">
+                    0.24.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.23.0/aquery.html">
+                    0.23.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.22.0/aquery.html">
+                    0.22.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.21.0/aquery.html">
+                    0.21.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.20.0/aquery.html">
+                    0.20.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.2/aquery.html">
+                    0.19.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.1/aquery.html">
+                    0.19.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.18.1/aquery.html">
+                    0.18.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.2/aquery.html">
+                    0.17.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.1/aquery.html">
+                    0.17.1
+                </option>
+                
+            </select>
+
+            <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/0.27.0/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/0.27.0/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/0.27.0/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/0.27.0/backward-compatibility.html">Backward compatibility</a></li>
+            </ul>
+
+            <h3>Installing Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/0.27.0/install.html">Installation overview</a>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installation steps<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+
+                   <li><a href="/versions/0.27.0/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/0.27.0/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/0.27.0/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/0.27.0/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/0.27.0/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/0.27.0/completion.html">Command-line completion</a></li>
+                   <li><a href="/versions/0.27.0/ide.html">Integrating with IDEs</a></li>
+                </ul>
+              </li>
+
+              
+            </ul>
+
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/0.27.0/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/0.27.0/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/0.27.0/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/0.27.0/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/0.27.0/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/0.27.0/external.html">External dependencies</a></li>
+                  <li><a href="/versions/0.27.0/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#guides-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  Guides<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/0.27.0/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/0.27.0/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/0.27.0/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/0.27.0/windows.html">Building on Windows</a></li>
+                </ul>
+              </li>
+
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/0.27.0/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/0.27.0/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/0.27.0/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/0.27.0/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/0.27.0/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/0.27.0/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/0.27.0/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/0.27.0/remote-execution-rules.html">Guidelines</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/0.27.0/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/0.27.0/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/0.27.0/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/0.27.0/remote-execution-ci.html">Remote execution and CI</a></li>
+                 </ul>
+              </li>
+
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/0.27.0/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/0.27.0/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
+                  </ul>
+              </li>
+              
+             </ul>
+
+           
+           <h4>Rules</h4>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.27.0/be/overview.html">Build encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/0.27.0/tutorial/android-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.27.0/bazel-and-android.html">Android resources</a></li>
+                  <li><a href="/versions/0.27.0/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/0.27.0/android-instrumentation-test.html">Android instrumentation tests</a></li>
+                  <li><a href="/versions/0.27.0/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/0.27.0/tutorial/ios-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.27.0/bazel-and-apple.html">Apple resources</a></li>
+                  <li><a href="/versions/0.27.0/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/0.27.0/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/0.27.0/tutorial/cpp.html">Tutorial</a></li>
+                  <li><a href="/versions/0.27.0/bazel-and-cpp.html">C++ resources</a></li>
+                  <li><a href="/versions/0.27.0/cpp-use-cases.html">C++ use cases</a></li>
+                  <li>
+                    <a href="/versions/0.27.0/cc-toolchain-config-reference.html">
+                      C++ Toolchain Configuration
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.27.0/tutorial/cc-toolchain-config.html">
+                      Tutorial: Configuring C++ Toolchains
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.27.0/integrating-with-rules-cc.html">
+                      Integrating with C++ rules
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/0.27.0/tutorial/java.html">Tutorial</a></li>
+                  <li><a href="/versions/0.27.0/bazel-and-java.html">Java resources</a></li>
+                  <li><a href="/versions/0.27.0/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/0.27.0/generate-workspace.html">Converting Maven dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/0.27.0/bazel-and-javascript.html">JavaScript resources</a></li>
+                  <li><a href="/versions/0.27.0/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+           
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.27.0/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/0.27.0/glossary.html">Glossary</a></li>
+             <li><a href="/versions/0.27.0/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/0.27.0/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/0.27.0/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/0.27.0/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/0.27.0/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/0.27.0/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/0.27.0/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
+             <li><a href="/versions/0.27.0/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/0.27.0/output_directories.html">Output directory layout</a></li>
+             <li><a href="/versions/0.27.0/platforms.html">Platforms</a></li>
+             <li><a href="/versions/0.27.0/toolchains.html">Toolchains</a></li>
+           </ul>
+
+           <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/0.27.0/skylark/concepts.html">Extension overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/0.27.0/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/0.27.0/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/0.27.0/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/0.27.0/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/0.27.0/skylark/repository_rules.html">Repository rules</a></li>
+                  <li><a href="/versions/0.27.0/skylark/config.html">Configurations</a></li>
+                </ul>
+              </li>
+
+	            <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/0.27.0/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/0.27.0/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/0.27.0/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/0.27.0/skylark/deploying.html">Deploying rules</a></li>
+                  <li><a href="/versions/0.27.0/skylark/windows_tips.html">Writing rules on Windows</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/0.27.0/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/0.27.0/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/0.27.0/skylark/language.html">Starlark language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-8">
+          <div class="content">
+            <h1>Aquery (Action Graph Query)</h1>
+
+
+<ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#basic-syntax">Basic Syntax</a></li>
+  <li><a href="#functions">Aquery Functions</a></li>
+  <li><a href="#options">Options</a></li>
+  <li>
+    <a href="#misc">Other Tools and Features</a>
+    <ul>
+      <li><a href="#skyframe-state">Querying Against the State of Skyframe</a></li>
+      <li><a href="#diff-tool">Comparing Aquery Outputs</a></li>
+      <li><a href="#aspect-on-aspect">Handling Aspect-on-aspect</a></li>
+    </ul>
+  </li>
+  <li><a href="#known-issues">Known Issues</a></li>
+  <li><a href="#updates">Updates</a></li>
+</ul>
+
+<h2 id='overview'>Overview</h2>
+
+<p>
+  The <code>aquery</code> command allows you to query for actions in your build graph.
+  It operates on the post-analysis Configured Target Graph and exposes
+  information about <b>Actions, Artifacts and their relationships.</b>
+</p>
+
+<p>
+  <code>aquery</code> is useful when we are interested in the properties of the Actions/Artifacts
+  generated from the Configured Target Graph. For example, the actual commands run
+  and their inputs/outputs/mnemonics.
+</p>
+
+<p>
+  The tool accepts several command-line <a href="#aquery-options">options</a>.
+  Notably, the aquery command runs on top of a regular Bazel build and inherits
+  the set of options available during a build.
+</p>
+
+<p>
+  It supports the same set of functions that is also available to traditional
+  <code>query</code> but <code>siblings</code>, <code>buildfiles</code> and
+  <code>tests</code>.
+</p>
+
+<p>An example <code>aquery</code> output (without specific details):</p>
+
+<pre>
+$ bazel aquery 'deps(//some:label)'
+action 'Writing file some_file_name'
+  Mnemonic: ...
+  Target: ...
+  Configuration: ...
+  ActionKey: ...
+  Inputs: [...]
+  Outputs: [...]
+</pre>
+
+<h2 id='basic-syntax'>Basic Syntax</h2>
+
+<p>A simple example of the syntax for <code>aquery</code> is as follows:</p>
+
+<p><code>bazel aquery "aquery_function(function(//target))"</code></p>
+
+<p>The query expression (in quotes) consists of the following:
+
+<ul>
+  <li>
+    <code>aquery_function(...)</code>: functions specific to <code>aquery</code>.
+    More details <a href="#functions">below</a>.
+  </li>
+  <li>
+    <code>function(...)</code>: the standard <a href="query.html#functions">functions</a>
+    as traditional <code>query</code>.
+  </li>
+  <li>
+    <code>//target</code> is the label to the interested target.
+   </li>
+</ul>
+
+<pre>
+# aquery examples:
+# Get the action graph generated while building //src/target_a
+$ bazel aquery '//src/target_a'
+
+# Get the action graph generated while building all dependencies of //src/target_a
+$ bazel aquery 'deps(//src/target_a)'
+
+# Get the action graph generated while building all dependencies of //src/target_a
+# whose inputs filenames match the regex ".*cpp".
+$ bazel aquery 'inputs(".*cpp, deps(//src/target_a))'
+</pre>
+
+<h2 id='functions'>Aquery Functions</h2>
+
+<p>There are currently 3 <code>aquery</code> functions:</p>
+<ul>
+  <li><code>inputs</code>: filter actions by inputs.</li>
+  <li><code>outputs</code>: filter actions by outputs</li>
+  <li><code>mnemonic</code>: filter actions by mnemonic</li>
+</ul>
+
+<p><code>expr ::= inputs(word, expr)</code></p>
+
+<p>
+  The <code>inputs</code> operator returns the actions generated from building <code>expr</code>,
+  whose input filenames match the regex provided by <code>word</code>.
+</p>
+
+<p><code>$ bazel aquery 'inputs(".*cpp", deps(//src/target_a))'</code></p>
+
+<p><code>outputs</code> and <code>mnemonic</code> functions share a similar syntax.</p>
+
+<p>You can also combine functions to achieve the AND operation. For example:</p>
+<pre>
+  $ bazel aquery 'mnemonic("Cpp.*", (inputs(".*cpp", inputs("foo.*", //src/target_a))))'
+</pre>
+<p>
+  The above command would find all actions involved in building <code>//src/target_a</code>,
+  whose mnemonics match <code>"Cpp.*"</code> and inputs match the patterns
+  <code>".*cpp"</code> and <code>"foo.*"</code>.
+</p>
+
+<h3>Important: aquery functions can't be nested inside non-aquery functions</h3>
+<ul>
+  <li>Conceptually this makes sense since the output of aquery functions is Actions,
+    not Configured Targets.</li>
+  <li>
+    An example of the syntax error produced:
+    <pre>
+        $ bazel aquery 'deps(inputs(".*cpp", //src/target_a))'
+        ERROR: aquery filter functions (inputs, outputs, mnemonic) produce actions,
+        and therefore can't be the input of other function types: deps
+        deps(inputs(".*cpp", //src/target_a))
+      </pre>
+  </li>
+</ul>
+
+<h2 id='options'>Options</h2>
+
+<h3>Build Options</h3>
+
+<p>
+  <code>aquery</code> runs on top of a regular Bazel build and thus inherits the set of
+  <a href="command-line-reference.html#build-options">options</a>
+  available during a build.
+</p>
+
+<h3 id="aquery-options">Aquery options</h3>
+
+<h4><code class='flag'>--output=(text|proto|textproto), default=text</code></h4>
+
+<p>
+  The default output format (<code>text</code>) is human-readable,
+  use <code>proto</code> or <code>textproto</code> for machine-readable format.
+</p>
+
+<h4><code class='flag'>--include_commandline, default=true</code></h4>
+
+<p>
+  Includes the content of the action command lines in the output (potentially large).
+</p>
+
+<h4><code class='flag'>--include_aspects, default=false</code></h4>
+
+<p>
+  Whether to include Aspect-generated actions in the output.
+</p>
+
+<h4><code class='flag'>--include_param_files, default=false</code></h4>
+
+<p>
+  Include the content of the param files used in the command (potentially large).
+  Warning: Enabling this flag will automatically enable the <code>--include_commandline</code> flag.
+</p>
+
+<h4><code class='flag'>--skyframe_state, default=false</code></h4>
+
+<p>
+  Without performing extra analysis, dump the current Action Graph from Skyframe.
+  Note: Specifying a target with <code>--skyframe_state</code> is currently not supported.
+  This flag is only available with <code>--output=proto</code> or <code>--output=textproto</code>.
+</p>
+
+<h2 id='misc'>Other Tools and Features</h2>
+
+<h3 id="skyframe-state">Querying against the state of Skyframe</h3>
+
+<p>
+  <a href="https://bazel.build/designs/skyframe.html">Skyframe</a> is the evaluation and
+  incrementality model of Bazel. On each instance of Bazel server, Skyframe stores the dependency graph
+  constructed from the previous runs of the <a href="guide.html#analysis-phase">Analysis phase</a>.
+</p>
+
+<p>
+  In some cases, it is useful to query the Action Graph currently on Skyframe.
+  An example use case would be:
+</p>
+
+<ol>
+  <li>Run <code>bazel build //target_a</code></li>
+  <li>Run <code>bazel build //target_b</code></li>
+  <li>File <code>foo.out</code> was generated.</li>
+</ol>
+
+<p>
+  <i>As a Bazel user, I want to determine if <code>foo.out</code> was generated from building
+  <code>//target_a</code> or <code>//target_b</code></i>.
+</p>
+
+<p>
+  One could run <code>bazel aquery 'outputs("foo.out", //target_a)'</code> and
+  <code>bazel aquery 'outputs("foo.out", //target_b)'</code> to figure out the action responsible
+  for creating <code>foo.out</code>, and in turn the target. However, the number of different
+  targets previously built can be larger than 2, which makes running multiple <code>aquery</code>
+  commands a hassle.
+</p>
+
+<p>As an alternative, the <code>--skyframe_state</code> flag can be used:</p>
+
+<pre>
+  # List all actions on Skyframe's action graph
+  $ bazel aquery --output=proto --skyframe_state
+
+  # or
+
+  # List all actions on Skyframe's action graph, whose output matches "foo.out"
+  $ bazel aquery --output=proto --skyframe_state 'outputs("foo.out")'
+</pre>
+
+<p>
+  With <code>--skyframe_state</code> mode, <code>aquery</code> takes the content of the Action Graph
+  that Skyframe keeps on the current instance of Bazel, (optionally) performs filtering on it and
+  outputs the content, without re-running the analysis phase.
+</p>
+
+<h4>Special considerations</h4>
+
+<h5>Output format</h5>
+
+<p><code>--skyframe_state</code> is currently only available for <code>--output=proto</code>
+  and <code>--output=textproto</code></p>
+
+<h5>Non-inclusion of target labels in the query expression</h5>
+
+<p>
+  Currently, <code>--skyframe_state</code> queries the whole action graph that exists on Skyframe,
+  regardless of the targets. Having the target label specified in the query together with
+  <code>--skyframe_state</code> is considered a syntax error:
+</p>
+
+<pre>
+  # WRONG: Target Included
+  $ bazel aquery --output=proto --skyframe_state <b>//target_a</b>
+  ERROR: Error while parsing '//target_a)': Specifying build target(s) [//target_a] with --skyframe_state is currently not supported.
+
+  # WRONG: Target Included
+  $ bazel aquery --output=proto --skyframe_state 'inputs(".*.java", <b>//target_a</b>)'
+  ERROR: Error while parsing '//target_a)': Specifying build target(s) [//target_a] with --skyframe_state is currently not supported.
+
+  # CORRECT: Without Target
+  $ bazel aquery --output=proto --skyframe_state
+  $ bazel aquery --output=proto --skyframe_state 'inputs(".*.java")'
+</pre>
+
+<h3 id="diff-tool">Comparing Aquery Outputs</h3>
+
+<p>
+  You can compare the outputs of two different aquery invocations using the <code>aquery_differ</code> tool.
+  For instance: when you make some changes to your rule definition and want to verify that the
+  command lines being run did not change. <code>aquery_differ</code> is the tool for that.
+</p>
+
+<p>
+  The tool is available in the <a href="https://github.com/bazelbuild/bazel/tree/master/tools/aquery_differ">bazelbuild/bazel</a> repository.
+  To use it, clone the repository to your local machine. An example usage:
+</p>
+
+<pre>
+  $ bazel run //tools/aquery_differ -- \
+  --before=/path/to/before.proto \
+  --after=/path/to/after.proto \
+  --input_type=proto \
+  --attrs=cmdline \
+  --attrs=inputs
+</pre>
+
+<p>
+  The above command returns the difference between the <code>before</code> and <code>after</code> aquery outputs:
+  which actions were present in one but not the other, which actions have different
+  command line/inputs in each aquery output, ...). The result of running the above command would be:
+</p>
+
+<pre>
+  Aquery output 'after' change contains an action that generates the following outputs that aquery output 'before' change doesn't:
+  ...
+  /list of output files/
+  ...
+
+  [cmdline]
+  Difference in the action that generates the following output(s):
+    /path/to/abc.out
+  --- /path/to/before.proto
+  +++ /path/to/after.proto
+  @@ -1,3 +1,3 @@
+    ...
+    /cmdline diff, in unified diff format/
+    ...
+</pre>
+
+<h4>Command options</h4>
+<p><code class='flag'>--before, --after</code>: The aquery output files to be compared</p>
+<p>
+  <code class='flag'>--input_type=(proto|text_proto), default=proto</code>: the format of the input
+  files. We currently support <code>proto</code> and <code>textproto</code> aquery output.
+</p>
+<p>
+  <code class='flag'>--attrs=(cmdline|inputs), default=cmdline</code>: the attributes of actions
+  to be compared.
+</p>
+
+<h3 id="aspect-on-aspect">Aspect-on-Aspect</h3>
+
+<p>
+  It is possible for <a href="https://docs.bazel.build/versions/master/skylark/aspects.html">Aspects</a>
+  to be applied on top of each other. The aquery output of the action generated by these Aspects would
+  then include the <i>Aspect path</i>, which is the sequence of Aspects applied to the target which generated the action.
+</p>
+
+<p>An example of Aspect-on-Aspect:</p>
+
+<pre>
+  t0
+  ^
+  | <- a1
+  t1
+  ^
+  | <- a2
+  t2
+</pre>
+
+<p>
+  Let t<sub>i</sub> be a target of rule r<sub>i</sub>, which applies an Aspect a<sub>i</sub>
+  to its dependencies.
+</p>
+
+<p>Assume that a2 generates an action X when applied to target t0. The text output of
+  <code>bazel aquery --include_aspects 'deps(//t2)'</code> for action X would be:</p>
+
+<pre>
+  action ...
+  Mnemonic: ...
+  Target: //my_pkg:t0
+  Configuration: ...
+  AspectDescriptors: [//my_pkg:rule.bzl%<b>a2</b>(foo=...)
+    -> //my_pkg:rule.bzl%<b>a1</b>(bar=...)]
+  ...
+</pre>
+
+<p>
+  This means that action <code>X</code> was generated by Aspect <code>a2</code> applied onto
+  <code>a1(t0)</code>, where <code>a1(t0)</code> is the result of Aspect <code>a1</code> applied
+  onto target <code>t0</code>.
+</p>
+
+<p>Each <code>AspectDescriptor</code> has the following format:</p>
+
+<pre>
+  AspectClass([param=value,...])
+</pre>
+
+<p>
+  <code>AspectClass</code> could be the name of the Aspect class (for native Aspects) or
+  <code>bzl_file%aspect_name</code> (for Starlark Aspects). <code>AspectDescriptor</code> are
+  sorted in topological order of the
+  <a href="https://docs.bazel.build/versions/master/skylark/aspects.html#aspect-basics">dependency graph</a>.
+</p>
+
+<h2 id='known-issues'>Known Issues</h2>
+
+<p>
+  The list of aquery issues/planned features can be found on
+  <a href="https://github.com/bazelbuild/bazel/labels/team-Performance">GitHub</a>.
+</p>
+
+<h2 id='updates'>Updates</h2>
+
+<p>
+  Please contact twerth@google.com and leba@google.com for any issue/feature request.
+</p>
+
+          </div>
+        </div>
+
+        <div class="col-md-2 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Aquery (Action Graph Query)&body=Documentation URL: https://docs.bazel.build/versions/0.27.0/aquery.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#basic-syntax">Basic Syntax</a></li>
+<li class="toc-entry toc-h2"><a href="#functions">Aquery Functions</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#important-aquery-functions-cant-be-nested-inside-non-aquery-functions">Important: aquery functions can&#39;t be nested inside non-aquery functions</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#options">Options</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#build-options">Build Options</a></li>
+<li class="toc-entry toc-h3"><a href="#aquery-options">Aquery options</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#misc">Other Tools and Features</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#skyframe-state">Querying against the state of Skyframe</a></li>
+<li class="toc-entry toc-h3"><a href="#diff-tool">Comparing Aquery Outputs</a></li>
+<li class="toc-entry toc-h3"><a href="#aspect-on-aspect">Aspect-on-Aspect</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#known-issues">Known Issues</a></li>
+<li class="toc-entry toc-h2"><a href="#updates">Updates</a></li>
+</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2020 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

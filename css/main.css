@@ -5,7 +5,7 @@ html {
 
 body {
   padding-top: 50px;
-  color: #444;
+  color: #000;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5; }
 
@@ -13,7 +13,7 @@ a {
   color: #00701a;
   font-weight: 500; }
   a:hover, a:focus {
-    color: #003d0e; }
+    color: #00d632; }
   a code {
     color: #00701a; }
 
@@ -23,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #444;
+  color: #000;
   margin-top: 2rem;
   margin-bottom: 1rem; }
 
@@ -33,7 +33,7 @@ h3 code,
 h4 code,
 h5 code,
 h6 code {
-  color: #444;
+  color: #000;
   background: transparent; }
 
 h1 {
@@ -74,7 +74,9 @@ pre {
   border: 0;
   font-size: 100%;
   line-height: 20px;
-  color: #000; }
+  color: #000;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px #aaa; }
 
 code {
   font-family: "Monaco", "Source Code Pro", monospace;
@@ -94,7 +96,7 @@ code {
   .content {
     max-width: 85%; } }
 .content {
-  padding: 40px 30px; }
+  padding: 40px 10px; }
   .content p {
     line-height: 22px;
     margin-bottom: 1rem; }
@@ -138,7 +140,7 @@ dl > dt > code > a {
 
 dl > dt {
   margin-top: 1.5rem;
-  margin-bottom: 0.5rem; }
+  margin-bottom: .5rem; }
 
 .footer {
   margin-top: 40px;
@@ -201,7 +203,10 @@ dl > dt {
   border-right: 1px solid #dee2e6;
   background-color: rgba(67, 160, 71, 0.03);
   padding-top: 40px;
-  padding-left: 1.5rem; }
+  padding-left: 1.5rem;
+  margin-left: -15px; }
+  .sidebar li {
+    font-size: 13.3px; }
   .sidebar h4 {
     padding-right: 1rem; }
   .sidebar ul.sidebar-nav {
@@ -240,6 +245,12 @@ dl > dt {
     border-radius: 3px;
     width: 80%; }
 
+.sidebar-toggle {
+  margin-top: 50px; }
+
+@media (max-width: 991px) {
+  .right-sidebar {
+    display: none; } }
 @media (min-width: 992px) {
   .sidebar-toggle {
     display: none; }
@@ -250,9 +261,8 @@ dl > dt {
   @supports (position: sticky) {
     .sticky-sidebar {
       position: sticky;
-      position: -webkit-sticky;
       top: 50px;
-      height: calc(100vh);
+      height: calc(95vh);
       overflow-y: auto; } } }
 .right-sidebar {
   border-left: 1px solid #dee2e6;
@@ -263,7 +273,7 @@ dl > dt {
     padding-left: 0;
     list-style-type: none; }
     .right-sidebar .gh-links li {
-      padding-bottom: 0.4rem; }
+      padding-bottom: .4rem; }
   .right-sidebar a {
     font-weight: 400; }
 
@@ -271,8 +281,9 @@ dl > dt {
   padding-left: 0;
   list-style-type: none; }
   .page-toc li {
-    margin-top: 0.3rem;
-    line-height: 1.7; }
+    margin-top: .3rem;
+    line-height: 1.7;
+    font-size: 13.3px; }
     .page-toc li a {
       color: #444; }
 
@@ -284,14 +295,6 @@ dl > dt {
     .page-toc-sublist li a {
       color: #666; }
 
-@media screen and (min-width: 0px) and (max-width: 992px) {
-  .page-toc-nav {
-    display: none; }
-
-  #my-content {
-    display: block; }
-
-  /* show it on small screens */ }
 .gh-edit {
   padding-top: 0px; }
 

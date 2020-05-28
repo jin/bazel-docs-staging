@@ -1,0 +1,1108 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Build Tutorial - iOS - Bazel 0.20.0</title>
+
+    <link rel="canonical" href="/versions/0.20.0/tutorial/ios-app.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Build Tutorial - iOS"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-2">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+
+          <nav class="sidebar collapse" id="sidebar-nav">
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: 0.20.0</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/tutorial/ios-app.html">
+                    master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/tutorial/ios-app.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/tutorial/ios-app.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/tutorial/ios-app.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/tutorial/ios-app.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.1.0/tutorial/ios-app.html">
+                    2.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.0.0/tutorial/ios-app.html">
+                    2.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.2.0/tutorial/ios-app.html">
+                    1.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.1.0/tutorial/ios-app.html">
+                    1.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.0.0/tutorial/ios-app.html">
+                    1.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.1/tutorial/ios-app.html">
+                    0.29.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.0/tutorial/ios-app.html">
+                    0.29.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.28.0/tutorial/ios-app.html">
+                    0.28.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.27.0/tutorial/ios-app.html">
+                    0.27.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.26.0/tutorial/ios-app.html">
+                    0.26.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.25.0/tutorial/ios-app.html">
+                    0.25.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.24.0/tutorial/ios-app.html">
+                    0.24.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.23.0/tutorial/ios-app.html">
+                    0.23.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.22.0/tutorial/ios-app.html">
+                    0.22.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.21.0/tutorial/ios-app.html">
+                    0.21.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.20.0/tutorial/ios-app.html">
+                    0.20.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.2/tutorial/ios-app.html">
+                    0.19.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.1/tutorial/ios-app.html">
+                    0.19.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.18.1/tutorial/ios-app.html">
+                    0.18.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.2/tutorial/ios-app.html">
+                    0.17.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.1/tutorial/ios-app.html">
+                    0.17.1
+                </option>
+                
+            </select>
+
+            <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/0.20.0/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/0.20.0/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/0.20.0/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/0.20.0/backward-compatibility.html">Backward compatibility</a></li>
+            </ul>
+
+            <h3>Installing Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/0.20.0/install.html">Installation overview</a>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installation steps<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+
+                   <li><a href="/versions/0.20.0/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/0.20.0/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/0.20.0/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/0.20.0/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/0.20.0/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/0.20.0/completion.html">Command-line completion</a></li>
+                   <li><a href="/versions/0.20.0/ide.html">Integrating with IDEs</a></li>
+                </ul>
+              </li>
+
+              
+            </ul>
+
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/0.20.0/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/0.20.0/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/0.20.0/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/0.20.0/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/0.20.0/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/0.20.0/external.html">External dependencies</a></li>
+                  <li><a href="/versions/0.20.0/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#guides-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  Guides<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/0.20.0/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/0.20.0/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/0.20.0/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/0.20.0/windows.html">Building on Windows</a></li>
+                </ul>
+              </li>
+
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/0.20.0/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/0.20.0/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/0.20.0/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/0.20.0/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/0.20.0/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/0.20.0/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/0.20.0/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/0.20.0/remote-execution-rules.html">Guidelines</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/0.20.0/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/0.20.0/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/0.20.0/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/0.20.0/remote-execution-ci.html">Remote execution and CI</a></li>
+                 </ul>
+              </li>
+
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/0.20.0/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/0.20.0/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
+                  </ul>
+              </li>
+              
+             </ul>
+
+           
+           <h4>Rules</h4>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.20.0/be/overview.html">Build encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/0.20.0/tutorial/android-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.20.0/bazel-and-android.html">Android resources</a></li>
+                  <li><a href="/versions/0.20.0/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/0.20.0/android-instrumentation-test.html">Android instrumentation tests</a></li>
+                  <li><a href="/versions/0.20.0/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/0.20.0/tutorial/ios-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.20.0/bazel-and-apple.html">Apple resources</a></li>
+                  <li><a href="/versions/0.20.0/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/0.20.0/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/0.20.0/tutorial/cpp.html">Tutorial</a></li>
+                  <li><a href="/versions/0.20.0/bazel-and-cpp.html">C++ resources</a></li>
+                  <li><a href="/versions/0.20.0/cpp-use-cases.html">C++ use cases</a></li>
+                  <li>
+                    <a href="/versions/0.20.0/cc-toolchain-config-reference.html">
+                      C++ Toolchain Configuration
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.20.0/tutorial/cc-toolchain-config.html">
+                      Tutorial: Configuring C++ Toolchains
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.20.0/integrating-with-rules-cc.html">
+                      Integrating with C++ rules
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/0.20.0/tutorial/java.html">Tutorial</a></li>
+                  <li><a href="/versions/0.20.0/bazel-and-java.html">Java resources</a></li>
+                  <li><a href="/versions/0.20.0/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/0.20.0/generate-workspace.html">Converting Maven dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/0.20.0/bazel-and-javascript.html">JavaScript resources</a></li>
+                  <li><a href="/versions/0.20.0/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+           
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.20.0/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/0.20.0/glossary.html">Glossary</a></li>
+             <li><a href="/versions/0.20.0/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/0.20.0/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/0.20.0/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/0.20.0/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/0.20.0/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/0.20.0/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/0.20.0/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
+             <li><a href="/versions/0.20.0/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/0.20.0/output_directories.html">Output directory layout</a></li>
+             <li><a href="/versions/0.20.0/platforms.html">Platforms</a></li>
+             <li><a href="/versions/0.20.0/toolchains.html">Toolchains</a></li>
+           </ul>
+
+           <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/0.20.0/skylark/concepts.html">Extension overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/0.20.0/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/0.20.0/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/0.20.0/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/0.20.0/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/0.20.0/skylark/repository_rules.html">Repository rules</a></li>
+                  <li><a href="/versions/0.20.0/skylark/config.html">Configurations</a></li>
+                </ul>
+              </li>
+
+	            <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/0.20.0/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/0.20.0/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/0.20.0/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/0.20.0/skylark/deploying.html">Deploying rules</a></li>
+                  <li><a href="/versions/0.20.0/skylark/windows_tips.html">Writing rules on Windows</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/0.20.0/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/0.20.0/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/0.20.0/skylark/language.html">Starlark language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-8">
+          <div class="content">
+            <h1 id="introduction-to-bazel-building-an-ios-app">Introduction to Bazel: Building an iOS App</h1>
+
+<p>In this tutorial, you will learn how to build a simple iOS app. You’ll do the
+following:</p>
+
+<ul>
+  <li><a href="#set-up-your-environment">Set up your environment</a>
+    <ul>
+      <li><a href="#install-bazel">Install Bazel</a></li>
+      <li><a href="#install-xcode">Install Xcode</a></li>
+      <li><a href="#get-the-sample-project">Get the sample project</a></li>
+    </ul>
+  </li>
+  <li><a href="#set-up-a-workspace">Set up a workspace</a>
+    <ul>
+      <li><a href="#create-a-workspace-file">Create a WORKSPACE file</a></li>
+      <li><a href="#update-the-workspace-file">Update the WORKSPACE file</a></li>
+    </ul>
+  </li>
+  <li><a href="#review-the-source-files">Review the source files</a></li>
+  <li><a href="#create-a-build-file">Create a BUILD file</a>
+    <ul>
+      <li><a href="#add-the-rule-load-statement">Add the rule load statement</a></li>
+      <li><a href="#add-an-objc_library-rule">Add an objc_library rule</a></li>
+      <li><a href="#add_an-ios_application-rule">Add an ios_application rule</a></li>
+    </ul>
+  </li>
+  <li><a href="#build-and-deploy-the-app">Build and deploy the app</a>
+    <ul>
+      <li><a href="#build-the-app-for-the-simulator">Build the app for the simulator</a></li>
+      <li><a href="#find-the-build-outputs">Find the build outputs</a></li>
+      <li><a href="#run-and-debug-the-app-in-the-simulator">Run and debug the app in the simulator</a></li>
+      <li><a href="#build-the-app-for-a-device">Build the app for a device</a></li>
+      <li><a href="#install-the-app-on-a-device">Install the app on a device</a></li>
+    </ul>
+  </li>
+  <li><a href="#review-your-work">Review  your work</a></li>
+</ul>
+
+<h2 id="set-up-your-environment">Set up your environment</h2>
+
+<p>To get started, install Bazel and Xcode, and get the sample project.</p>
+
+<h3 id="install-bazel">Install Bazel</h3>
+
+<p>Follow the <a href="../install.html">installation instructions</a> to install Bazel and
+its dependencies.</p>
+
+<h3 id="install-xcode">Install Xcode</h3>
+
+<p>Download and install <a href="https://developer.apple.com/xcode/downloads/">Xcode</a>.
+Xcode contains the compilers, SDKs, and other tools required by Bazel to build
+Apple applications.</p>
+
+<h3 id="get-the-sample-project">Get the sample project</h3>
+
+<p>You also need to get the sample project for the tutorial from GitHub. The GitHub
+repo has two branches: <code class="highlighter-rouge">source-only</code> and <code class="highlighter-rouge">master</code>. The <code class="highlighter-rouge">source-only</code> branch
+contains the source files for the project only. You’ll use the files in this
+branch in this tutorial. The <code class="highlighter-rouge">master</code> branch contains both the source files
+and completed Bazel <code class="highlighter-rouge">WORKSPACE</code> and <code class="highlighter-rouge">BUILD</code> files. You can use the files in this
+branch to check your work when you’ve completed the tutorial steps.</p>
+
+<p>Enter the following at the command line to get the files in the <code class="highlighter-rouge">source-only</code>
+branch:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="nv">$HOME</span>
+git clone <span class="nt">-b</span> source-only https://github.com/bazelbuild/examples
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">git clone</code> command creates a directory named <code class="highlighter-rouge">$HOME/examples/</code>. This
+directory contains several sample projects for Bazel. The project files for this
+tutorial are in <code class="highlighter-rouge">$HOME/examples/tutorial/ios-app</code>.</p>
+
+<h2 id="set-up-a-workspace">Set up a workspace</h2>
+
+<p>A <a href="../build-ref.html#workspaces">workspace</a> is a directory that contains the
+source files for one or more software projects, as well as a <code class="highlighter-rouge">WORKSPACE</code> file
+and <code class="highlighter-rouge">BUILD</code> files that contain the instructions that Bazel uses to build
+the software. The workspace may also contain symbolic links to output
+directories.</p>
+
+<p>A workspace directory can be located anywhere on your filesystem and is denoted
+by the presence of the <code class="highlighter-rouge">WORKSPACE</code> file at its root. In this tutorial, your
+workspace directory is <code class="highlighter-rouge">$HOME/examples/tutorial/</code>, which contains the sample
+project files you cloned from the GitHub repo in the previous step.</p>
+
+<p>Note that Bazel itself doesn’t impose any requirements for organizing source
+files in your workspace. The sample source files in this tutorial are organized
+according to conventions for the target platform.</p>
+
+<p>For your convenience, set the <code class="highlighter-rouge">$WORKSPACE</code> environment variable now to refer to
+your workspace directory. At the command line, enter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">WORKSPACE</span><span class="o">=</span><span class="nv">$HOME</span>/examples/tutorial
+</code></pre></div></div>
+
+<h3 id="create-a-workspace-file">Create a WORKSPACE file</h3>
+
+<p>Every workspace must have a text file named <code class="highlighter-rouge">WORKSPACE</code> located in the top-level
+workspace directory. This file may be empty or it may contain references
+to <a href="../external.html">external dependencies</a> required to build the
+software.</p>
+
+<p>For now, you’ll create an empty <code class="highlighter-rouge">WORKSPACE</code> file, which simply serves to
+identify the workspace directory. In later steps, you’ll update the file to add
+external dependency information.</p>
+
+<p>Enter the following at the command line:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> <span class="nv">$WORKSPACE</span>/WORKSPACE
+open <span class="nt">-a</span> Xcode <span class="nv">$WORKSPACE</span>/WORKSPACE
+</code></pre></div></div>
+
+<p>This creates and opens the empty <code class="highlighter-rouge">WORKSPACE</code> file.</p>
+
+<h3 id="update-the-workspace-file">Update the WORKSPACE file</h3>
+
+<p>To build applications for Apple devices, Bazel needs to pull the latest
+<a href="https://github.com/bazelbuild/rules_apple">Apple build rules</a> from its GitHub
+repository. To enable this, add the following <a href="../be/workspace.html#git_repository"><code class="highlighter-rouge">git_repository</code></a>
+rules to your <code class="highlighter-rouge">WORKSPACE</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git_repository(
+    name = "build_bazel_rules_apple",
+    remote = "https://github.com/bazelbuild/rules_apple.git",
+    tag = "0.4.0",
+)
+git_repository(
+    name = "bazel_skylib",
+    remote = "https://github.com/bazelbuild/bazel-skylib.git",
+    tag = "0.3.1",
+)
+</code></pre></div></div>
+
+<p><strong>NOTE:</strong> “Always use the <a href="https://github.com/bazelbuild/rules_apple/releases">latest version of the build_apple rules</a>
+in the <code class="highlighter-rouge">tag</code> attribute. Make sure to check the latest dependencies required in
+<code class="highlighter-rouge">rules_apple</code>’s <a href="https://github.com/bazelbuild/rules_apple">project</a>.”</p>
+
+<p><strong>NOTE:</strong> You <strong>must</strong> set the value of the <code class="highlighter-rouge">name</code> attribute in the
+<code class="highlighter-rouge">git_repository</code> rule to <code class="highlighter-rouge">build_bazel_rules_apple</code> or the build will fail.</p>
+
+<h2 id="review-the-source-files">Review the source files</h2>
+
+<p>Take a look at the source files for the app located in
+<code class="highlighter-rouge">$WORKSPACE/ios-app/UrlGet</code>. Again, you’re just looking at these files now to
+become familiar with the structure of the app. You don’t have to edit any of the
+source files to complete this tutorial.</p>
+
+<h2 id="create-a-build-file">Create a BUILD file</h2>
+
+<p>At a command-line prompt, open a new <code class="highlighter-rouge">BUILD</code> file for editing:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> <span class="nv">$WORKSPACE</span>/ios-app/BUILD
+open <span class="nt">-a</span> Xcode <span class="nv">$WORKSPACE</span>/ios-app/BUILD
+</code></pre></div></div>
+
+<h3 id="add-the-rule-load-statement">Add the rule load statement</h3>
+
+<p>To build iOS targets, Bazel needs to load build rules from its GitHub repository
+whenever the build runs. To make these rules available to your project, add the
+following load statement to the beginning of your <code class="highlighter-rouge">BUILD</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
+</code></pre></div></div>
+
+<p>We only need to load the <code class="highlighter-rouge">ios_application</code> rule because the <code class="highlighter-rouge">objc_library</code> rule
+is built into the Bazel package.</p>
+
+<h3 id="add-an-objc_library-rule">Add an objc_library rule</h3>
+
+<p>Bazel provides several build rules that you can use to build an app for the
+iOS platform. For this tutorial, you’ll first use the
+<a href="../be/objective-c.html#objc_library"><code class="highlighter-rouge">objc_library</code></a> rule to tell Bazel
+how to build a static library from the app source code and Xib files. Then
+you’ll use the <a href="https://github.com/bazelbuild/rules_apple"><code class="highlighter-rouge">ios_application</code></a>
+rule to tell it how to build the application binary and the <code class="highlighter-rouge">.ipa</code> bundle.</p>
+
+<p><strong>NOTE:</strong> This tutorial presents a minimal use case of the Objective-C rules in
+Bazel. For example, you have to use the <code class="highlighter-rouge">ios_application</code> rule to build
+multi-architecture iOS apps.</p>
+
+<p>Add the following to your <code class="highlighter-rouge">BUILD</code> file:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">objc_library</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"UrlGetClasses"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span>
+         <span class="s">"UrlGet/AppDelegate.m"</span><span class="p">,</span>
+         <span class="s">"UrlGet/UrlGetViewController.m"</span><span class="p">,</span>
+         <span class="s">"UrlGet/main.m"</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">hdrs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">([</span><span class="s">"UrlGet/*.h"</span><span class="p">]),</span>
+    <span class="n">xibs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"UrlGet/UrlGetViewController.xib"</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Note the name of the rule, <code class="highlighter-rouge">UrlGetClasses</code>.</p>
+
+<h3 id="add-an-ios_application-rule">Add an ios_application rule</h3>
+
+<p>The <a href="../be/objective-c.html#ios_application"><code class="highlighter-rouge">ios_application</code></a> rule builds
+the application binary and creates the <code class="highlighter-rouge">.ipa</code> bundle file.</p>
+
+<p>Add the following to your <code class="highlighter-rouge">BUILD</code> file:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ios_application</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"ios-app"</span><span class="p">,</span>
+    <span class="n">bundle_id</span> <span class="o">=</span> <span class="s">"Google.UrlGet"</span><span class="p">,</span>
+    <span class="n">families</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"iphone"</span><span class="p">,</span>
+        <span class="s">"ipad"</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">minimum_os_version</span> <span class="o">=</span> <span class="s">"9.0"</span><span class="p">,</span>
+    <span class="n">infoplists</span> <span class="o">=</span> <span class="p">[</span><span class="s">":UrlGet/UrlGet-Info.plist"</span><span class="p">],</span>
+    <span class="n">visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//visibility:public"</span><span class="p">],</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span><span class="s">":UrlGetClasses"</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>NOTE:</strong> Please update the <code class="highlighter-rouge">minimum_os_version</code> attribute to the minimum
+version of iOS that you plan to support.</p>
+
+<p>Note how the <code class="highlighter-rouge">deps</code> attribute references the output of the <code class="highlighter-rouge">UrlGetClasses</code> rule
+you added to the <code class="highlighter-rouge">BUILD</code> file above.</p>
+
+<p>Now, save and close the file. You can compare your <code class="highlighter-rouge">BUILD</code> file to the
+<a href="https://github.com/bazelbuild/examples/blob/master/tutorial/ios-app/BUILD">completed example</a>
+in the <code class="highlighter-rouge">master</code> branch of the GitHub repo.</p>
+
+<h2 id="build-and-deploy-the-app">Build and deploy the app</h2>
+
+<p>You are now ready to build your app and deploy it to a simulator and onto an
+iOS device.</p>
+
+<p><strong>NOTE:</strong> The app launches standalone but requires a backend server in order to
+produce output. See the README file in the sample project directory to find out
+how to build the backend server.</p>
+
+<h3 id="build-the-app-for-the-simulator">Build the app for the simulator</h3>
+
+<p>Make sure that your current working directory is inside your Bazel workspace:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="nv">$WORKSPACE</span>
+</code></pre></div></div>
+
+<p>Now, enter the following to build the sample app:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel build //ios-app:ios-app
+</code></pre></div></div>
+
+<p>Bazel launches and builds the sample app. During the build process, its
+output will appear similar to the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INFO: Found 1 target...
+Target //ios-app:ios-app up-to-date:
+  bazel-bin/ios-app/ios-app.ipa
+INFO: Elapsed <span class="nb">time</span>: 0.565s, Critical Path: 0.44s
+</code></pre></div></div>
+
+<h3 id="find-the-build-outputs">Find the build outputs</h3>
+
+<p>The <code class="highlighter-rouge">.ipa</code> file and other outputs are located in the
+<code class="highlighter-rouge">$WORKSPACE/bazel-bin/ios-app</code> directory.</p>
+
+<h3 id="run-and-debug-the-app-in-the-simulator">Run and debug the app in the simulator</h3>
+
+<p>You can now run the app from Xcode using the iOS Simulator. First, <a href="http://tulsi.bazel.io/">generate an Xcode project using Tulsi</a>.</p>
+
+<p>Then, open the project in Xcode, choose an iOS Simulator as the runtime scheme,
+and click <strong>Run</strong>.</p>
+
+<p><strong>Note:</strong> If you modify any project files in Xcode (for example, if you add or
+remove a file, or add or change a dependency), you must rebuild the app using
+Bazel, re-generate the Xcode project in Tulsi, and then re-open the project in
+Xcode.</p>
+
+<h3 id="build-the-app-for-a-device">Build the app for a device</h3>
+
+<p>To build your app so that it installs and launches on an iOS device, Bazel needs
+the appropriate provisioning profile for that device model. Do the following:</p>
+
+<ol>
+  <li>
+    <p>Go to your <a href="https://developer.apple.com/account">Apple Developer Account</a> and
+download the appropriate provisioning profile for your device. See
+<a href="https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html">Apple’s documentation</a>
+for more information.</p>
+  </li>
+  <li>
+    <p>Move your profile into <code class="highlighter-rouge">$WORKSPACE</code>.</p>
+  </li>
+  <li>
+    <p>(Optional) Add your profile to your <code class="highlighter-rouge">.gitignore</code> file.</p>
+  </li>
+  <li>
+    <p>Add the following line to the <code class="highlighter-rouge">ios_application</code> target in your <code class="highlighter-rouge">BUILD</code> file:</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">provisioning_profile</span> <span class="o">=</span> <span class="s">"&lt;your_profile_name&gt;.mobileprovision"</span><span class="p">,</span>
+</code></pre></div>    </div>
+
+    <p><strong>NOTE:</strong> Ensure the profile is correct so that the app can be installed on
+a device.</p>
+  </li>
+</ol>
+
+<p>Now build the app for your device:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel build //ios-app:ios-app <span class="nt">--ios_multi_cpus</span><span class="o">=</span>armv7,arm64
+</code></pre></div></div>
+
+<p>This builds the app as a fat binary. To build for a specific device
+architecture, designate it in the build options.</p>
+
+<p>To build for a specific Xcode version, use the <code class="highlighter-rouge">--xcode_version</code> option. To
+build for a specific SDK version, use the <code class="highlighter-rouge">--ios_sdk_version</code> option. The
+<code class="highlighter-rouge">--xcode_version</code> option is sufficient in most scenarios.</p>
+
+<p>To specify a minimum required iOS version, add the <code class="highlighter-rouge">minimum_os_version</code>
+parameter to the <code class="highlighter-rouge">ios_application</code> build rule in your <code class="highlighter-rouge">BUILD</code> file.</p>
+
+<p>You can also use <a href="http://tulsi.bazel.io/docs/gettingstarted.html">Tulsi</a> to
+build your app using a GUI rather than the command line.</p>
+
+<h3 id="install-the-app-on-a-device">Install the app on a device</h3>
+
+<p>The easiest way to install the app on the device is to launch Xcode and use the
+<code class="highlighter-rouge">Windows &gt; Devices</code> command. Select your plugged-in device from the list on the
+left, then add the app by clicking the <strong>Add</strong> (plus sign) button under
+“Installed Apps” and selecting the <code class="highlighter-rouge">.ipa</code> file that you built.</p>
+
+<p>If your app fails to install on your device, ensure that you are specifying the
+correct provisioning profile in your <code class="highlighter-rouge">BUILD</code> file (step 4 in the previous
+section).</p>
+
+<p>If your app fails to launch, make sure that your device is part of your
+provisioning profile. The <code class="highlighter-rouge">View Device Logs</code> button on the <code class="highlighter-rouge">Devices</code> screen in
+Xcode may provide other information as to what has gone wrong.</p>
+
+<h2 id="review-your-work">Review your work</h2>
+
+<p>In this tutorial, you used Bazel to build an iOS app. To accomplish that, you:</p>
+
+<ul>
+  <li>Set up your environment by installing Bazel and Xcode, and downloading the
+sample project</li>
+  <li>Set up a Bazel <a href="workspace.html">workspace</a> that contained the source code
+for the app and a <code class="highlighter-rouge">WORKSPACE</code> file that identifies the top level of the
+workspace directory</li>
+  <li>Updated the <code class="highlighter-rouge">WORKSPACE</code> file to contain references to the required
+external dependencies</li>
+  <li>Created a <code class="highlighter-rouge">BUILD</code> file</li>
+  <li>Ran Bazel to build the app for the simulator and an iOS device</li>
+  <li>Ran the app in the simulator and on an iOS device</li>
+</ul>
+
+<p>The built app is located in the <code class="highlighter-rouge">$WORKSPACE/bazel-bin</code> directory.</p>
+
+<p>Completed <code class="highlighter-rouge">WORKSPACE</code> and <code class="highlighter-rouge">BUILD</code> files for this tutorial are located in the
+<a href="https://github.com/bazelbuild/examples/tree/master/tutorial">master branch</a>
+of the GitHub repo. You can compare your work to the completed files for
+additional help or troubleshooting.</p>
+
+          </div>
+        </div>
+
+        <div class="col-md-2 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Build Tutorial - iOS&body=Documentation URL: https://docs.bazel.build/versions/0.20.0/tutorial/ios-app.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#set-up-your-environment">Set up your environment</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#install-bazel">Install Bazel</a></li>
+<li class="toc-entry toc-h3"><a href="#install-xcode">Install Xcode</a></li>
+<li class="toc-entry toc-h3"><a href="#get-the-sample-project">Get the sample project</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#set-up-a-workspace">Set up a workspace</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#create-a-workspace-file">Create a WORKSPACE file</a></li>
+<li class="toc-entry toc-h3"><a href="#update-the-workspace-file">Update the WORKSPACE file</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#review-the-source-files">Review the source files</a></li>
+<li class="toc-entry toc-h2"><a href="#create-a-build-file">Create a BUILD file</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#add-the-rule-load-statement">Add the rule load statement</a></li>
+<li class="toc-entry toc-h3"><a href="#add-an-objc_library-rule">Add an objc_library rule</a></li>
+<li class="toc-entry toc-h3"><a href="#add-an-ios_application-rule">Add an ios_application rule</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#build-and-deploy-the-app">Build and deploy the app</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#build-the-app-for-the-simulator">Build the app for the simulator</a></li>
+<li class="toc-entry toc-h3"><a href="#find-the-build-outputs">Find the build outputs</a></li>
+<li class="toc-entry toc-h3"><a href="#run-and-debug-the-app-in-the-simulator">Run and debug the app in the simulator</a></li>
+<li class="toc-entry toc-h3"><a href="#build-the-app-for-a-device">Build the app for a device</a></li>
+<li class="toc-entry toc-h3"><a href="#install-the-app-on-a-device">Install the app on a device</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#review-your-work">Review your work</a></li>
+</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2020 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

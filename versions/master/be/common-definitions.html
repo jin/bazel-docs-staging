@@ -110,6 +110,26 @@
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/be/common-definitions.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/be/common-definitions.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/be/common-definitions.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/be/common-definitions.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/2.1.0/be/common-definitions.html">
                     2.1.0
                 </option>
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,32 +429,32 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
@@ -517,133 +575,36 @@ specific rule.
         <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional;
 default <a href="functions.html#package.default_visibility">default_visibility</a> from
 <a href="functions.html#package">package</a> if specified, or //visibility:private
-  otherwise.</code></p>
+  otherwise; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
-The <code>visibility</code> attribute on a rule controls whether
-the rule can be used by other packages. Rules are always visible to
-other rules declared in the same package.
+The <code>visibility</code> attribute on a rule controls whether the rule can
+be used by other packages. See the documentation for <a href="../visibility.html">visibility</a>.
 </p>
-
-<p>There are five forms (and one temporary form) a visibility label can take:
-<ul>
-<li><code>["//visibility:public"]</code>: Anyone can use this rule.</li>
-<li><code>["//visibility:private"]</code>: Only rules in this package
-can use this rule.  Rules in <code>javatests/foo/bar</code>
-can always use rules in <code>java/foo/bar</code>.
-</li>
-<li><code>["//some/package:__pkg__", "//other/package:__pkg__"]</code>:
-Only rules in <code>some/package</code> and <code>other/package</code>
-(defined in <code>some/package/BUILD</code> and
-<code>other/package/BUILD</code>) have access to this rule. Note that
-sub-packages do not have access to the rule; for example,
-<code>//some/package/foo:bar</code> or
-<code>//other/package/testing:bla</code> wouldn't have access.
-<code>__pkg__</code> is a special target and must be used verbatim.
-It represents all of the rules in the package.
-</li>
-<li><code>["//project:__subpackages__", "//other:__subpackages__"]</code>:
-Only rules in packages <code>project</code> or <code>other</code> or
-in one of their sub-packages have access to this rule. For example,
-<code>//project:rule</code>, <code>//project/library:lib</code> or
-<code>//other/testing/internal:munge</code> are allowed to depend on
-this rule (but not <code>//independent:evil</code>)
-</li>
-<li><code>["//some/package:my_package_group"]</code>:
-A <a href="functions.html#package_group">package group</a> is
-a named set of package names. Package groups can also grant access rights
-to entire subtrees, e.g.<code>//myproj/...</code>.
-</li>
-
-</ul>
-<p>The visibility specifications of
-
-<code>//visibility:public</code> and <code>//visibility:private</code>
-can not be combined with any other visibility specifications.
-A visibility specification may contain a combination of package labels
-(i.e. <code>//foo:__pkg__</code>) and <code>package_group</code>s.</p>
-<p>If a rule does specify the visibility attribute, that specification
-overrides any
-<code><a href="functions.html#package.default_visibility">default_visibility</a></code>
-attribute of the <code><a href="functions.html#package">package</a></code>
-statement in the BUILD file containing the rule.</p>
-<p>Otherwise, if a rule does not specify the visibility attribute, the default_visibility
-of the package is used (except for
-<a href="functions.html#exports_files">exports_files</a>).</p>
-<p>Otherwise, if the default_visibility for the package is not specified,
-<code>//visibility:private</code> is used.</p>
-<p><b>Example</b>:</p>
-<p>
-File <code>//frobber/bin/BUILD</code>:
-</p>
-<pre class="code">
-# This rule is visible to everyone
-cc_binary(
-    name = "executable",
-    visibility = ["//visibility:public"],
-    deps = [":library"],
-)
-
-# This rule is visible only to rules declared in the same package
-cc_library(
-    name = "library",
-    visibility = ["//visibility:private"],
-)
-
-# This rule is visible to rules in package //object and //noun
-cc_library(
-    name = "subject",
-    visibility = [
-        "//noun:__pkg__",
-        "//object:__pkg__",
-    ],
-)
-
-# See package group "//frobber:friends" (below) for who can
-# access this rule.
-cc_library(
-    name = "thingy",
-    visibility = ["//frobber:friends"],
-)
-</pre>
-<p>
-File <code>//frobber/BUILD</code>:
-</p>
-<pre class="code">
-# This is the package group declaration to which rule
-# //frobber/bin:thingy refers.
-#
-# Our friends are packages //frobber, //fribber and any
-# subpackage of //fribber.
-package_group(
-    name = "friends",
-    packages = [
-        "//fribber/...",
-        "//frobber",
-    ],
-)
-</pre>
 </td>
       </tr>
         <tr>
         <td id="common.toolchains"><code>toolchains</code></td>
-        <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+        <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
-The set of
-<a href="../toolchains.html">toolchains</a>
-this rule has access to.
-</p>
-
-</p>Targets listed here are the set of toolchains whose <a href="make-variables.html">Make
-variables</a> the rule is allowed to access.</a> These rules are either rules that provide
-the <code>TemplateVariableInfo</code> provider or special targets for toolchain types built into
-Bazel. These include:
+  The set of targets whose <a href="make-variables.html">Make variables</a> the rule is allowed
+  to access. These rules are either rules that provide
+  the <code>TemplateVariableInfo</code> provider or special targets for toolchain types built into
+Bazel.
+These include:
 
 <ul>
     <li><code>@bazel_tools//tools/cpp:current_cc_toolchain</code>
   <li><code>@bazel_tools//tools/cpp:current_java_runtime</code>
   </ul>
+
+<p>
+  Note that this is distinct from the concept of
+    <a href="../toolchains.html">toolchain resolution</a>
+    that is used by rule implementations for platform-dependenct configuration. You cannot use this
+  attribute to determine which specific cc_toolchain or java_toolchain a target will use.
+</p>
 </td>
       </tr>
         <tr>
@@ -684,7 +645,7 @@ specific rule.
       </tr>
         <tr>
         <td id="common.deprecation"><code>deprecation</code></td>
-        <td><p><code>String; optional</code></p>
+        <td><p><code>String; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
 An explanatory warning message associated with this rule.
@@ -724,7 +685,7 @@ Once people have stopped using it, the package can be removed.
         <td id="common.tags"><code>tags</code></td>
         <td><p>
   <code>List of arbitrary text tags.  Tags may be any valid string; default is
-  the empty list.</code>
+  the empty list; <a href="#configurable-attributes">nonconfigurable</a></code>
 </p>
 
 <p>
@@ -733,7 +694,7 @@ Once people have stopped using it, the package can be removed.
   <i>Tags</i> on non-test rules are used to control sandboxed execution of
   <code>genrule</code>s and
 
-<a href="/versions/master/skylark/index.html">Starlark</a>
+<a href="/versions/3.2.0/skylark/index.html">Starlark</a>
   actions, and for parsing by humans and/or external tools.
 </p>
 
@@ -746,9 +707,8 @@ Once people have stopped using it, the package can be removed.
 
 <ul>
   <li><code>no-sandbox</code> keyword results in the action or test never being
-    <a href="../user-manual.html#sandboxing">sandboxed</a>; it can still be
-    cached or run remotely - use <code>no-cache</code> or <code>no-remote</code>
-    to prevent either or both of those.
+    sandboxed; it can still be cached or run remotely - use <code>no-cache</code>
+    or <code>no-remote</code> to prevent either or both of those.
   </li>
 
   <li><code>no-cache</code> keyword results in the action or test never being
@@ -772,8 +732,7 @@ Once people have stopped using it, the package can be removed.
   </li>
 
   <li><code>local</code> keyword precludes the action or test from being remotely cached,
-    remotely executed, or run inside the
-    <a href="../user-manual.html#sandboxing">sandbox</a>.
+    remotely executed, or run inside the sandbox.
     For genrules and tests, marking the rule with the <code>local = True</code>
     attribute has the same effect.
   </li>
@@ -837,7 +796,7 @@ Test Encyclopedia for more conventions on tags attached to test rules.
       </tr>
         <tr>
         <td id="common.testonly"><code>testonly</code></td>
-        <td><p><code>Boolean; optional; default False except as noted</code></p>
+        <td><p><code>Boolean; optional; default False except as noted; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
 If True, only testonly targets (such as tests) can depend on this target.
@@ -875,18 +834,23 @@ override normal behavior, should definitely be marked testonly.
         <td id="common.features"><code>features</code></td>
         <td><p><code>List of <i>features</i>. Default is the empty list.</code></p>
 
-<p><i>Features</i> on a rule modify the <i>features</i> currently enabled on
-  the <a href="functions.html#package">package</a> level via the <i>features</i> attribute.<br/>
-For example, if the features ['a', 'b'] are enabled on the package level,
-and a rule <i>features</i> attribute contains ['-a', 'c'], the features
-enabled for the rule will be 'b' and 'c'.
+<p>A feature is string tag that can be enabled or disabled on a target. The
+  meaning of a feature depends on the rule itself.</p>
+
+<p>This <code>features</code> attribute is combined with the <a href="${link
+package}">package</a> level <code>features</code> attribute. For example, if
+the features ["a", "b"] are enabled on the package level, and a rule
+<code>features</code> attribute contains ["-a", "c"], the features enabled for the
+rule will be "b" and "c".
+  <a href="https://github.com/bazelbuild/examples/blob/master/rules/features/BUILD">
+    See example</a>.
 </p>
 
 </td>
       </tr>
         <tr>
         <td id="common.licenses"><code>licenses</code></td>
-        <td><p><code>List of strings; optional</code></p>
+        <td><p><code>List of strings; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
   A list of license-type strings to be used for this particular build rule.
@@ -898,7 +862,7 @@ use this.
       </tr>
         <tr>
         <td id="common.compatible_with"><code>compatible_with</code></td>
-        <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+        <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
 The list of environments this rule can be built for, in addition to
@@ -926,7 +890,7 @@ ConstraintSemantics</a> for details.
       </tr>
         <tr>
         <td id="common.distribs"><code>distribs</code></td>
-        <td><p><code>List of strings; optional</code></p>
+        <td><p><code>List of strings; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
   A list of distribution-method strings to be used for this particular build rule.
@@ -938,7 +902,7 @@ use this.
       </tr>
         <tr>
         <td id="common.exec_compatible_with"><code>exec_compatible_with</code></td>
-        <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+        <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
 A list of
@@ -958,7 +922,7 @@ This attribute is available only on <code><a href="general.html#genrule">genrule
       </tr>
         <tr>
         <td id="common.restricted_to"><code>restricted_to</code></td>
-        <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional</code></p>
+        <td><p><code>List of <a href="../build-ref.html#labels">labels</a>; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
 The list of environments this rule can be built for, <i>instead</i> of
@@ -1010,7 +974,7 @@ specified on the <code>bazel test</code> command line.
         <tr>
         <td id="test.size"><code>size</code></td>
         <td><p><code>String "enormous", "large" "medium" or "small",
-default is "medium"; optional</code></p>
+default is "medium"; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>How "heavy" the test is.</p>
 
@@ -1060,7 +1024,7 @@ run. Test sizes correspond to the following resources and default timeouts:</p>
         <tr>
         <td id="test.timeout"><code>timeout</code></td>
         <td><p><code>String "short", "moderate", "long", "eternal"
-(with the default derived from the test's size attribute)</code></p>
+(with the default derived from the test's size attribute); <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
 How long the test is expected to run before returning.
@@ -1110,7 +1074,7 @@ timeout to two minutes.
       </tr>
         <tr>
         <td id="test.flaky"><code>flaky</code></td>
-        <td><p><code>Boolean; optional</code></p>
+        <td><p><code>Boolean; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>
 Marks test as flaky.
@@ -1126,7 +1090,7 @@ all tests to be stable.
       </tr>
         <tr>
         <td id="test.local"><code>local</code></td>
-        <td><p><code>Boolean; optional</code></p>
+        <td><p><code>Boolean; optional; <a href="#configurable-attributes">nonconfigurable</a></code></p>
 
 <p>Forces the test to be run locally, without sandboxing.</p>
 
@@ -1178,7 +1142,8 @@ is not what you want.</p>
 <code>List of strings; optional; subject to
   <a href="make-variables.html#location">$(location)</a> and
   <a href="make-variables.html">"Make variable"</a> substitution, and
-<a href="#sh-tokenization">Bourne shell tokenization</a></code>
+  <a href="#sh-tokenization">Bourne shell tokenization</a>;
+  <a href="#configurable-attributes">nonconfigurable</a></code>
 </p>
 
 <p>
@@ -1361,7 +1326,8 @@ config_setting(
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -1404,6 +1370,7 @@ config_setting(
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -1423,6 +1390,7 @@ config_setting(
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

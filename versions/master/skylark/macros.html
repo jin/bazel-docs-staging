@@ -110,6 +110,26 @@
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/skylark/macros.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/skylark/macros.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/skylark/macros.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/skylark/macros.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/2.1.0/skylark/macros.html">
                     2.1.0
                 </option>
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,32 +429,32 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
@@ -407,12 +465,122 @@
 
 <!-- [TOC] -->
 
-<h2 id="macro-creation">Macro creation</h2>
+<h2 id="introduction">Introduction</h2>
 
 <p>A macro is a function called from the BUILD file that can instantiate rules.
-Macros don’t give additional power, they are just used for encapsulation and
-code reuse. By the end of the <a href="concepts.html#evaluation-model">loading phase</a>,
-macros don’t exist anymore, and Bazel sees only the set of rules they created.</p>
+Macros are mainly used for encapsulation and code reuse of existing rules
+and other macros. By the end of the
+<a href="concepts.html#evaluation-model">loading phase</a>, macros don’t exist anymore,
+and Bazel sees only the concrete set of instantiated rules.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>The typical use-case for a macro is when you want to reuse a rule.</p>
+
+<p>For example, we have a genrule in a BUILD file that generates a file
+using <code class="highlighter-rouge">//:generator</code> with a <code class="highlighter-rouge">some_arg</code> argument hardcoded in the command:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">genrule</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"file"</span><span class="p">,</span>
+    <span class="n">outs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"file.txt"</span><span class="p">],</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s">"$(location //:generator) some_arg &gt; $@"</span><span class="p">,</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//:generator"</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Tip: <code class="highlighter-rouge">$@</code> is a <a href="../be/make-variables.html#predefined_genrule_variables">Make variable</a>
+that refers to the execution-time locations of the files in the <code class="highlighter-rouge">outs</code> attribute list.
+It is equivalent to <code class="highlighter-rouge">$(locations :file.txt)</code>.</p>
+</blockquote>
+
+<p>If you want to generate more files with different arguments, you may want to
+extract this code to a macro function. Let’s call the macro <code class="highlighter-rouge">file_generator</code>, which
+has <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">arg</code> parameters. Replace the genrule with the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"//path:generator.bzl"</span><span class="p">,</span> <span class="s">"file_generator"</span><span class="p">)</span>
+
+<span class="n">file_generator</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"file"</span><span class="p">,</span>
+    <span class="n">arg</span> <span class="o">=</span> <span class="s">"some_arg"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">file_generator</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"file-two"</span><span class="p">,</span>
+    <span class="n">arg</span> <span class="o">=</span> <span class="s">"some_arg_two"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">file_generator</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"file-three"</span><span class="p">,</span>
+    <span class="n">arg</span> <span class="o">=</span> <span class="s">"some_arg_three"</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here, we are loading the <code class="highlighter-rouge">file_generator</code> symbol from a <code class="highlighter-rouge">.bzl</code> file located
+in the <code class="highlighter-rouge">//path</code> package. By putting macro function definitions in a separate
+<code class="highlighter-rouge">.bzl</code> file, we can keep our BUILD files clean and declarative, The <code class="highlighter-rouge">.bzl</code>
+file can be loaded from any package in the workspace.</p>
+
+<p>Finally, in <code class="highlighter-rouge">path/generator.bzl</code>, let’s write the definition of the macro to
+encapsulate and parameterize our original genrule definition:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">file_generator</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">visibility</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="n">native</span><span class="o">.</span><span class="n">genrule</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+    <span class="n">outs</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="o">+</span> <span class="s">".txt"</span><span class="p">],</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s">"$(location //:generator) </span><span class="si">%</span><span class="s">s &gt; $@"</span> <span class="o">%</span> <span class="n">arg</span><span class="p">,</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//:generator"</span><span class="p">],</span>
+    <span class="n">visibility</span> <span class="o">=</span> <span class="n">visibility</span><span class="p">,</span>
+  <span class="p">)</span>
+</code></pre></div></div>
+
+<p>You can also use macros to chain rules together. This example shows chained
+genrules, where a genrule uses the outputs of a previous genrule as inputs:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">chained_genrules</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">visibility</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="n">native</span><span class="o">.</span><span class="n">genrule</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"-one"</span><span class="p">,</span>
+    <span class="n">outs</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="o">+</span> <span class="s">".one"</span><span class="p">],</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s">"$(location :tool-one) $@"</span><span class="p">,</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="s">":tool-one"</span><span class="p">],</span>
+    <span class="n">visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//visibility:private"</span><span class="p">],</span>
+  <span class="p">)</span>
+
+  <span class="n">native</span><span class="o">.</span><span class="n">genrule</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"-two"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="o">+</span> <span class="s">".one"</span><span class="p">],</span>
+    <span class="n">outs</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="o">+</span> <span class="s">".two"</span><span class="p">],</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s">"$(location :tool-two) $&lt; $@"</span><span class="p">,</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="s">":tool-two"</span><span class="p">],</span>
+    <span class="n">visibility</span> <span class="o">=</span> <span class="n">visibility</span><span class="p">,</span>
+  <span class="p">)</span>
+</code></pre></div></div>
+
+<p>Note that we only assigned the value of <code class="highlighter-rouge">visibility</code> to the second genrule.
+This enables macro authors hide outputs of intermediate rules from being
+depended upon by other targets in the workspace.</p>
+
+<blockquote>
+  <p>Tip: Similar to <code class="highlighter-rouge">$@</code> for outputs, <code class="highlighter-rouge">$&lt;</code> expands to the locations of files in
+the <code class="highlighter-rouge">srcs</code> attribute list.</p>
+</blockquote>
+
+<h2 id="expanding-macros">Expanding macros</h2>
+
+<p>When you want to investigate what a macro does, use the <code class="highlighter-rouge">query</code> command with
+<code class="highlighter-rouge">--output=build</code> to see the expanded form:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bazel query --output=build :file
+# /absolute/path/test/ext.bzl:42:3
+genrule(
+  name = "file",
+  tools = ["//:generator"],
+  outs = ["//test:file.txt"],
+  cmd = "$(location //:generator) some_arg &gt; $@",
+)
+</code></pre></div></div>
+
+<h2 id="instantiating-native-rules">Instantiating native rules</h2>
 
 <p>Native rules (i.e. rules that don’t need a <code class="highlighter-rouge">load()</code> statement) can be
 instantiated from the <a href="lib/native.html">native</a> module, e.g.</p>
@@ -462,11 +630,11 @@ the depot.</li>
 Explain clearly to the user what went wrong and how to fix their BUILD file. It
 is not possible to catch an error.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def my_macro(name, deps, visibility=None):
-  if len(deps) &lt; 2:
-    fail("Expected at least two values in deps")
-  # ...
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_macro</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">deps</span><span class="p">,</span> <span class="n">visibility</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">deps</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">fail</span><span class="p">(</span><span class="s">"Expected at least two values in deps"</span><span class="p">)</span>
+  <span class="c1"># ...
+</span></code></pre></div></div>
 
 <h2 id="conventions">Conventions</h2>
 
@@ -504,58 +672,6 @@ through the query language or build-system internals.</p>
   </li>
 </ul>
 
-<h2 id="full-example">Full example</h2>
-
-<p>The typical use-case for a macro is when you want to reuse a genrule, e.g.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>genrule(
-    name = "file",
-    outs = ["file.txt"],
-    cmd = "$(location generator) some_arg &gt; $@",
-    tools = [":generator"],
-)
-</code></pre></div></div>
-
-<p>If you want to generate another file with different arguments, you may want to
-extract this code to a function.</p>
-
-<p>The BUILD file will become simply:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>load("//path:generator.bzl", "file_generator")
-
-file_generator(
-    name = "file",
-    arg = "some_arg",
-)
-</code></pre></div></div>
-
-<p>In order to keep BUILD files clean and declarative, you must put the function in
-a separate <code class="highlighter-rouge">.bzl</code> file. For example, write the definition of the macro in
-<code class="highlighter-rouge">path/generator.bzl</code>:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def file_generator(name, arg, visibility=None):
-  native.genrule(
-    name = name,
-    outs = [name + ".txt"],
-    cmd = "$(location generator) %s &gt; $@" % arg,
-    tools = ["//test:generator"],
-    visibility = visibility,
-  )
-</code></pre></div></div>
-
-<p>When you want to investigate what a macro does, use the following command to
-see the expanded form:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bazel query --output=build :file
-# /absolute/path/test/ext.bzl:42:3
-genrule(
-  name = "file",
-  tools = ["//test:generator"],
-  outs = ["//test:file.txt"],
-  cmd = "$(location generator) some_arg &gt; $@",
-)
-</code></pre></div></div>
-
 
           </div>
         </div>
@@ -577,7 +693,8 @@ genrule(
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -593,11 +710,13 @@ genrule(
                 </script>
 
                 <ul class="page-toc">
-<li class="toc-entry toc-h2"><a href="#macro-creation">Macro creation</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#usage">Usage</a></li>
+<li class="toc-entry toc-h2"><a href="#expanding-macros">Expanding macros</a></li>
+<li class="toc-entry toc-h2"><a href="#instantiating-native-rules">Instantiating native rules</a></li>
 <li class="toc-entry toc-h2"><a href="#debugging">Debugging</a></li>
 <li class="toc-entry toc-h2"><a href="#errors">Errors</a></li>
 <li class="toc-entry toc-h2"><a href="#conventions">Conventions</a></li>
-<li class="toc-entry toc-h2"><a href="#full-example">Full example</a></li>
 </ul>
             </div>
         </div>
@@ -618,6 +737,7 @@ genrule(
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -637,6 +757,7 @@ genrule(
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

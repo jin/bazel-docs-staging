@@ -110,6 +110,26 @@
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/tutorial/cc-toolchain-config.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/tutorial/cc-toolchain-config.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/tutorial/cc-toolchain-config.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/tutorial/cc-toolchain-config.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/2.1.0/tutorial/cc-toolchain-config.html">
                     2.1.0
                 </option>
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,32 +429,32 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
@@ -446,10 +504,10 @@ from GitHub and place it in an empty directory on your local machine.</p>
   <li>
     <p>Add the following <code class="highlighter-rouge">cc_binary</code> target to the <code class="highlighter-rouge">main/BUILD</code> file:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cc_binary(
-    name = "helloworld.js",
-    srcs = ["hello-world.cc"],
-)
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cc_binary</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"helloworld.js"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"hello-world.cc"</span><span class="p">],</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -512,8 +570,9 @@ and an empty <code class="highlighter-rouge">BUILD</code> file inside the <code 
 
     <p>In the <code class="highlighter-rouge">toolchain/BUILD</code> file, define an empty filegroup as follows:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package(default_visibility = ['//visibility:public'])
-filegroup(name = "emscripten")
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">package</span><span class="p">(</span><span class="n">default_visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">'//visibility:public'</span><span class="p">])</span>
+
+<span class="n">filegroup</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"emscripten"</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -528,12 +587,12 @@ doesn’t provide the necessary <code class="highlighter-rouge">ToolchainInfo</c
 <code class="highlighter-rouge">cc_toolchain_suite</code> rule. In the <code class="highlighter-rouge">toolchain/BUILD</code> file, replace the empty
 filegroup with the following:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cc_toolchain_suite(
-    name = "emscripten",
-    toolchains = {
-        "asmjs": ":asmjs_toolchain",
-    },
-)
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cc_toolchain_suite</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"emscripten"</span><span class="p">,</span>
+    <span class="n">toolchains</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"asmjs"</span><span class="p">:</span> <span class="s">":asmjs_toolchain"</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
 
     <p>The <code class="highlighter-rouge">toolchains</code> attribute automatically maps the <code class="highlighter-rouge">--cpu</code> (and also
@@ -552,20 +611,20 @@ shortly.</p>
 files that comprise the toolchain so that Bazel can set up sandboxing. Add
 the following to the <code class="highlighter-rouge">toolchain/BUILD</code> file:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filegroup(name = "empty")
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filegroup</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"empty"</span><span class="p">)</span>
 
-cc_toolchain(
-    name = "asmjs_toolchain",
-    toolchain_identifier = "asmjs-toolchain",
-    toolchain_config = ":asmjs_toolchain_config",
-    all_files = ":empty",
-    compiler_files = ":empty",
-    dwp_files = ":empty",
-    linker_files = ":empty",
-    objcopy_files = ":empty",
-    strip_files = ":empty",
-    supports_param_files = 0,
-)
+<span class="n">cc_toolchain</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"asmjs_toolchain"</span><span class="p">,</span>
+    <span class="n">toolchain_identifier</span> <span class="o">=</span> <span class="s">"asmjs-toolchain"</span><span class="p">,</span>
+    <span class="n">toolchain_config</span> <span class="o">=</span> <span class="s">":asmjs_toolchain_config"</span><span class="p">,</span>
+    <span class="n">all_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">compiler_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">dwp_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">linker_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">objcopy_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">strip_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">supports_param_files</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -574,9 +633,9 @@ cc_toolchain(
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Rule '//toolchain:asmjs-toolchain' does not exist
 </code></pre></div>    </div>
 
-    <p>Let’s add a “:asmjs-toolchain-config” target to the <code class="highlighter-rouge">toolchain/BUILD</code> file:</p>
+    <p>Let’s add a “:asmjs_toolchain_config” target to the <code class="highlighter-rouge">toolchain/BUILD</code> file:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filegroup(name = "asmjs_toolchain_config")
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filegroup</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"asmjs_toolchain_config"</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -590,24 +649,25 @@ cc_toolchain(
 toolchains. We are going to create a Starlark rule that will provide
 <code class="highlighter-rouge">CcToolchainConfigInfo</code>. Create a <code class="highlighter-rouge">toolchain/cc_toolchain_config.bzl</code>
 file with the following content:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def _impl(ctx):
-    return cc_common.create_cc_toolchain_config_info(
-        ctx = ctx,
-        toolchain_identifier = "asmjs-toolchain",
-        host_system_name = "i686-unknown-linux-gnu",
-        target_system_name = "asmjs-unknown-emscripten",
-        target_cpu = "asmjs",
-        target_libc = "unknown",
-        compiler = "emscripten",
-        abi_version = "unknown",
-        abi_libc_version = "unknown",
-    )
 
-cc_toolchain_config = rule(
-    implementation = _impl,
-    attrs = {},
-    provides = [CcToolchainConfigInfo],
-)
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">cc_common</span><span class="o">.</span><span class="n">create_cc_toolchain_config_info</span><span class="p">(</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">,</span>
+        <span class="n">toolchain_identifier</span> <span class="o">=</span> <span class="s">"asmjs-toolchain"</span><span class="p">,</span>
+        <span class="n">host_system_name</span> <span class="o">=</span> <span class="s">"i686-unknown-linux-gnu"</span><span class="p">,</span>
+        <span class="n">target_system_name</span> <span class="o">=</span> <span class="s">"asmjs-unknown-emscripten"</span><span class="p">,</span>
+        <span class="n">target_cpu</span> <span class="o">=</span> <span class="s">"asmjs"</span><span class="p">,</span>
+        <span class="n">target_libc</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+        <span class="n">compiler</span> <span class="o">=</span> <span class="s">"emscripten"</span><span class="p">,</span>
+        <span class="n">abi_version</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+        <span class="n">abi_libc_version</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">cc_toolchain_config</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_impl</span><span class="p">,</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">provides</span> <span class="o">=</span> <span class="p">[</span><span class="n">CcToolchainConfigInfo</span><span class="p">],</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
 
     <p><code class="highlighter-rouge">cc_common.create_cc_toolchain_config_info()</code> creates the needed provider
@@ -615,13 +675,13 @@ cc_toolchain_config = rule(
 the newly implemented <code class="highlighter-rouge">cc_toolchain_config</code> rule. Add a load statement to
 <code class="highlighter-rouge">toolchains/BUILD</code>:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>load(":cc_toolchain_config.bzl", "cc_toolchain_config")
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">":cc_toolchain_config.bzl"</span><span class="p">,</span> <span class="s">"cc_toolchain_config"</span><span class="p">)</span>
 </code></pre></div>    </div>
 
     <p>And replace the “asmjs_toolchain_config” filegroup with a declaration of a
 <code class="highlighter-rouge">cc_toolchain_config</code> rule:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cc_toolchain_config(name = "asmjs_toolchain_config")
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cc_toolchain_config</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"asmjs_toolchain_config"</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -639,56 +699,56 @@ actions. We will modify our Starlark rule implementation to tell Bazel what
 tools to use. For that, we’ll need the tool_path() constructor from
 <a href="https://source.bazel.build/bazel/+/4eea5c62a566d21832c93e4c18ec559e75d5c1ce:tools/cpp/cc_toolchain_config_lib.bzl;l=400"><code class="highlighter-rouge">@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl</code></a>:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># toolchain/cc_toolchain_config.bzl:
-load("@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl", "tool_path")
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># toolchain/cc_toolchain_config.bzl:
+</span><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl"</span><span class="p">,</span> <span class="s">"tool_path"</span><span class="p">)</span>
 
-def _impl(ctx):
-    tool_paths = [
-        tool_path(
-            name = "gcc",
-            path = "emcc.sh",
-        ),
-        tool_path(
-            name = "ld",
-            path = "emcc.sh",
-        ),
-        tool_path(
-            name = "ar",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "cpp",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "gcov",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "nm",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "objdump",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "strip",
-            path = "/bin/false",
-        ),
-    ]
-    return cc_common.create_cc_toolchain_config_info(
-        ctx = ctx,
-        toolchain_identifier = "asmjs-toolchain",
-        host_system_name = "i686-unknown-linux-gnu",
-        target_system_name = "asmjs-unknown-emscripten",
-        target_cpu = "asmjs",
-        target_libc = "unknown",
-        compiler = "emscripten",
-        abi_version = "unknown",
-        abi_libc_version = "unknown",
-        tool_paths = tool_paths,
-    )
+<span class="k">def</span> <span class="nf">_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="n">tool_paths</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"gcc"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"emcc.sh"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"ld"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"emcc.sh"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"ar"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"cpp"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"gcov"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"nm"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"objdump"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"strip"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">cc_common</span><span class="o">.</span><span class="n">create_cc_toolchain_config_info</span><span class="p">(</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">,</span>
+        <span class="n">toolchain_identifier</span> <span class="o">=</span> <span class="s">"asmjs-toolchain"</span><span class="p">,</span>
+        <span class="n">host_system_name</span> <span class="o">=</span> <span class="s">"i686-unknown-linux-gnu"</span><span class="p">,</span>
+        <span class="n">target_system_name</span> <span class="o">=</span> <span class="s">"asmjs-unknown-emscripten"</span><span class="p">,</span>
+        <span class="n">target_cpu</span> <span class="o">=</span> <span class="s">"asmjs"</span><span class="p">,</span>
+        <span class="n">target_libc</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+        <span class="n">compiler</span> <span class="o">=</span> <span class="s">"emscripten"</span><span class="p">,</span>
+        <span class="n">abi_version</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+        <span class="n">abi_libc_version</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+        <span class="n">tool_paths</span> <span class="o">=</span> <span class="n">tool_paths</span><span class="p">,</span>
+    <span class="p">)</span>
 </code></pre></div>    </div>
 
     <p>You may notice the <code class="highlighter-rouge">emcc.sh</code> wrapper script, which delegates to the external
@@ -709,21 +769,21 @@ pull it from its GitHub repository. This tutorial uses the latter approach.
 To pull the toolchain from the GitHub repository, add the following
 <code class="highlighter-rouge">http_archive</code> repository definitions to your <code class="highlighter-rouge">WORKSPACE</code> file:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span class="p">,</span> <span class="s">"http_archive"</span><span class="p">)</span>
 
-http_archive(
-  name = 'emscripten_toolchain',
-  url = 'https://github.com/kripken/emscripten/archive/1.37.22.tar.gz',
-  build_file = '//:emscripten-toolchain.BUILD',
-  strip_prefix = "emscripten-1.37.22",
-)
+<span class="n">http_archive</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">'emscripten_toolchain'</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://github.com/kripken/emscripten/archive/1.37.22.tar.gz'</span><span class="p">,</span>
+    <span class="n">build_file</span> <span class="o">=</span> <span class="s">'//:emscripten-toolchain.BUILD'</span><span class="p">,</span>
+    <span class="n">strip_prefix</span> <span class="o">=</span> <span class="s">"emscripten-1.37.22"</span><span class="p">,</span>
+<span class="p">)</span>
 
-http_archive(
-  name = 'emscripten_clang',
-  url = 'https://s3.amazonaws.com/mozilla-games/emscripten/packages/llvm/tag/linux_64bit/emscripten-llvm-e1.37.22.tar.gz',
-  build_file = '//:emscripten-clang.BUILD',
-  strip_prefix = "emscripten-llvm-e1.37.22",
-)
+<span class="n">http_archive</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">'emscripten_clang'</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://s3.amazonaws.com/mozilla-games/emscripten/packages/llvm/tag/linux_64bit/emscripten-llvm-e1.37.22.tar.gz'</span><span class="p">,</span>
+    <span class="n">build_file</span> <span class="o">=</span> <span class="s">'//:emscripten-clang.BUILD'</span><span class="p">,</span>
+    <span class="n">strip_prefix</span> <span class="o">=</span> <span class="s">"emscripten-llvm-e1.37.22"</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
 
     <p>In the workspace directory root, create the <code class="highlighter-rouge">emscripten-toolchain.BUILD</code> and
@@ -739,22 +799,22 @@ If not, create an empty one.</p>
     <p>First create the <code class="highlighter-rouge">emscripten-toolchain.BUILD</code> file with the following
 contents:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package(default_visibility = ['//visibility:public'])
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">package</span><span class="p">(</span><span class="n">default_visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">'//visibility:public'</span><span class="p">])</span>
 
-filegroup(
-  name = "all",
-  srcs = glob(["**/*"]),
-)
+<span class="n">filegroup</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"all"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">([</span><span class="s">"**/*"</span><span class="p">]),</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
 
     <p>Next, create the <code class="highlighter-rouge">emscripten-clang.BUILD</code> file with the following contents:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package(default_visibility = ['//visibility:public'])`
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">package</span><span class="p">(</span><span class="n">default_visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">'//visibility:public'</span><span class="p">])</span><span class="err">`</span>
 
-filegroup(
-  name = "all",
-  srcs = glob(["**/*"]),
-)
+<span class="n">filegroup</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"all"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">([</span><span class="s">"**/*"</span><span class="p">]),</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
 
     <p>You may notice that the targets simply parse all of the files contained in
@@ -775,40 +835,40 @@ step. In particular, the <code class="highlighter-rouge">emcc.sh</code> script m
 a dependency of the corresponding <code class="highlighter-rouge">cc_toolchain</code> rule. Modify the
 <code class="highlighter-rouge">toolchain/BUILD</code> file to look as follows:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package(default_visibility = ["//visibility:public"])
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">package</span><span class="p">(</span><span class="n">default_visibility</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//visibility:public"</span><span class="p">])</span>
 
-load(":cc_toolchain_config.bzl", "cc_toolchain_config")
+<span class="n">load</span><span class="p">(</span><span class="s">":cc_toolchain_config.bzl"</span><span class="p">,</span> <span class="s">"cc_toolchain_config"</span><span class="p">)</span>
 
-cc_toolchain_config(name = "asmjs_toolchain_config")
+<span class="n">cc_toolchain_config</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"asmjs_toolchain_config"</span><span class="p">)</span>
 
-cc_toolchain_suite(
-    name = "emscripten",
-    toolchains = {
-        "asmjs": ":asmjs_toolchain",
-    },
-)
+<span class="n">cc_toolchain_suite</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"emscripten"</span><span class="p">,</span>
+    <span class="n">toolchains</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"asmjs"</span><span class="p">:</span> <span class="s">":asmjs_toolchain"</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
 
-filegroup(
-    name = "all",
-    srcs = [
-        "emcc.sh",
-        "@emscripten_clang//:all",
-        "@emscripten_toolchain//:all",
-    ],
-)
+<span class="n">filegroup</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"all"</span><span class="p">,</span>
+    <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"emcc.sh"</span><span class="p">,</span>
+        <span class="s">"@emscripten_clang//:all"</span><span class="p">,</span>
+        <span class="s">"@emscripten_toolchain//:all"</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 
-cc_toolchain(
-   name = "asmjs_toolchain",
-   toolchain_identifier = "asmjs-toolchain",
-   toolchain_config = ":asmjs_toolchain_config",
-   all_files = ":all",
-   compiler_files = ":all",
-   dwp_files = ":empty",
-   linker_files = ":all",
-   objcopy_files = ":empty",
-   strip_files = ":empty",
-   supports_param_files = 0,
-)
+<span class="n">cc_toolchain</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"asmjs_toolchain"</span><span class="p">,</span>
+    <span class="n">toolchain_identifier</span> <span class="o">=</span> <span class="s">"asmjs-toolchain"</span><span class="p">,</span>
+    <span class="n">toolchain_config</span> <span class="o">=</span> <span class="s">":asmjs_toolchain_config"</span><span class="p">,</span>
+    <span class="n">all_files</span> <span class="o">=</span> <span class="s">":all"</span><span class="p">,</span>
+    <span class="n">compiler_files</span> <span class="o">=</span> <span class="s">":all"</span><span class="p">,</span>
+    <span class="n">dwp_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">linker_files</span> <span class="o">=</span> <span class="s">":all"</span><span class="p">,</span>
+    <span class="n">objcopy_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">strip_files</span> <span class="o">=</span> <span class="s">":empty"</span><span class="p">,</span>
+    <span class="n">supports_param_files</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
 
     <p>Congratulations! You are now using the <code class="highlighter-rouge">emscripten</code> toolchain to build your
@@ -832,20 +892,20 @@ completeness.</p>
     <p>For our example project, make the following modifications to the
  <code class="highlighter-rouge">toolchain/BUILD</code> file:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> filegroup(
-   name = "all",
-   srcs = [
-     "emcc.sh",
-     "@emscripten_toolchain//:all",
-     "@emscripten_clang//:all",
-     ":emscripten_cache_content"
-     ],
-  )
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">filegroup</span><span class="p">(</span>
+     <span class="n">name</span> <span class="o">=</span> <span class="s">"all"</span><span class="p">,</span>
+     <span class="n">srcs</span> <span class="o">=</span> <span class="p">[</span>
+         <span class="s">"emcc.sh"</span><span class="p">,</span>
+         <span class="s">"@emscripten_toolchain//:all"</span><span class="p">,</span>
+         <span class="s">"@emscripten_clang//:all"</span><span class="p">,</span>
+         <span class="s">":emscripten_cache_content"</span><span class="p">,</span>
+     <span class="p">],</span>
+ <span class="p">)</span>
 
- filegroup(
-   name = "emscripten_cache_content",
-   srcs = glob(["emscripten_cache/**/*"]),
- )
+ <span class="n">filegroup</span><span class="p">(</span>
+     <span class="n">name</span> <span class="o">=</span> <span class="s">"emscripten_cache_content"</span><span class="p">,</span>
+     <span class="n">srcs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">([</span><span class="s">"emscripten_cache/**/*"</span><span class="p">]),</span>
+ <span class="p">)</span>
 </code></pre></div>    </div>
 
     <p>Since <code class="highlighter-rouge">emscripten</code> caches standard library files, you can save time by not
@@ -914,98 +974,101 @@ and of itself is not a problem and you can easily fix this by adding the
 target folders as <code class="highlighter-rouge">-isystem</code> directories. For this, you’ll need to add
 a <a href="https://source.bazel.build/bazel/+/4eea5c62a566d21832c93e4c18ec559e75d5c1ce:tools/cpp/cc_toolchain_config_lib.bzl;l=336"><code class="highlighter-rouge">feature</code></a> to the <code class="highlighter-rouge">CcToolchainConfigInfo</code>.
 Modify <code class="highlighter-rouge">toolchain/cc_toolchain_config.bzl</code> to look like this:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>load("@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl",
-     "feature",
-     "flag_group",
-     "flag_set",
-     "tool_path")
-load("@bazel_tools//tools/build_defs/cc:action_names.bzl", "ACTION_NAMES")
 
-def _impl(ctx):
-    tool_paths = [
-        tool_path(
-            name = "gcc",
-            path = "emcc.sh",
-        ),
-        tool_path(
-            name = "ld",
-            path = "emcc.sh",
-        ),
-        tool_path(
-            name = "ar",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "cpp",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "gcov",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "nm",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "objdump",
-            path = "/bin/false",
-        ),
-        tool_path(
-            name = "strip",
-            path = "/bin/false",
-        ),
-    ]
-    toolchain_include_directories_feature = feature(
-        name = "toolchain_include_directories",
-        enabled = True,
-        flag_sets = [
-            flag_set(
-                actions = [
-                    ACTION_NAMES.assemble,
-                    ACTION_NAMES.preprocess_assemble,
-                    ACTION_NAMES.linkstamp_compile,
-                    ACTION_NAMES.c_compile,
-                    ACTION_NAMES.cpp_compile,
-                    ACTION_NAMES.cpp_header_parsing,
-                    ACTION_NAMES.cpp_module_compile,
-                    ACTION_NAMES.cpp_module_codegen,
-                    ACTION_NAMES.lto_backend,
-                    ACTION_NAMES.clif_match,
-                ],
-                flag_groups = [
-                    flag_group(
-                        flags = [
-                            "-isystem",
-                            "external/emscripten_toolchain/system/include/libcxx",
-                            "-isystem",
-                            "external/emscripten_toolchain/system/include/libc",
-                        ],
-                    ),
-                ],
-            ),
-        ],
-    )
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_tools//tools/build_defs/cc:action_names.bzl"</span><span class="p">,</span> <span class="s">"ACTION_NAMES"</span><span class="p">)</span>
+<span class="n">load</span><span class="p">(</span>
+    <span class="s">"@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl"</span><span class="p">,</span>
+    <span class="s">"feature"</span><span class="p">,</span>
+    <span class="s">"flag_group"</span><span class="p">,</span>
+    <span class="s">"flag_set"</span><span class="p">,</span>
+    <span class="s">"tool_path"</span><span class="p">,</span>
+<span class="p">)</span>
 
-    return cc_common.create_cc_toolchain_config_info(
-        ctx = ctx,
-        toolchain_identifier = "asmjs-toolchain",
-        host_system_name = "i686-unknown-linux-gnu",
-        target_system_name = "asmjs-unknown-emscripten",
-        target_cpu = "asmjs",
-        target_libc = "unknown",
-        compiler = "emscripten",
-        abi_version = "unknown",
-        abi_libc_version = "unknown",
-        tool_paths = tool_paths,
-        features = [toolchain_include_directories_feature],
-    )
+<span class="k">def</span> <span class="nf">_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="n">tool_paths</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"gcc"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"emcc.sh"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"ld"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"emcc.sh"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"ar"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"cpp"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"gcov"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"nm"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"objdump"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">tool_path</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">"strip"</span><span class="p">,</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"/bin/false"</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">toolchain_include_directories_feature</span> <span class="o">=</span> <span class="n">feature</span><span class="p">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">"toolchain_include_directories"</span><span class="p">,</span>
+        <span class="n">enabled</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="n">flag_sets</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">flag_set</span><span class="p">(</span>
+                <span class="n">actions</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">assemble</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">preprocess_assemble</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">linkstamp_compile</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">c_compile</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">cpp_compile</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">cpp_header_parsing</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">cpp_module_compile</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">cpp_module_codegen</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">lto_backend</span><span class="p">,</span>
+                    <span class="n">ACTION_NAMES</span><span class="o">.</span><span class="n">clif_match</span><span class="p">,</span>
+                <span class="p">],</span>
+                <span class="n">flag_groups</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">flag_group</span><span class="p">(</span>
+                        <span class="n">flags</span> <span class="o">=</span> <span class="p">[</span>
+                            <span class="s">"-isystem"</span><span class="p">,</span>
+                            <span class="s">"external/emscripten_toolchain/system/include/libcxx"</span><span class="p">,</span>
+                            <span class="s">"-isystem"</span><span class="p">,</span>
+                            <span class="s">"external/emscripten_toolchain/system/include/libc"</span><span class="p">,</span>
+                        <span class="p">],</span>
+                    <span class="p">),</span>
+                <span class="p">],</span>
+            <span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
 
-cc_toolchain_config = rule(
-    implementation = _impl,
-    attrs = {},
-    provides = [CcToolchainConfigInfo],
-)
+    <span class="k">return</span> <span class="n">cc_common</span><span class="o">.</span><span class="n">create_cc_toolchain_config_info</span><span class="p">(</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">,</span>
+        <span class="n">toolchain_identifier</span> <span class="o">=</span> <span class="s">"asmjs-toolchain"</span><span class="p">,</span>
+        <span class="n">host_system_name</span> <span class="o">=</span> <span class="s">"i686-unknown-linux-gnu"</span><span class="p">,</span>
+        <span class="n">target_system_name</span> <span class="o">=</span> <span class="s">"asmjs-unknown-emscripten"</span><span class="p">,</span>
+        <span class="n">target_cpu</span> <span class="o">=</span> <span class="s">"asmjs"</span><span class="p">,</span>
+        <span class="n">target_libc</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+        <span class="n">compiler</span> <span class="o">=</span> <span class="s">"emscripten"</span><span class="p">,</span>
+        <span class="n">abi_version</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+        <span class="n">abi_libc_version</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">,</span>
+        <span class="n">tool_paths</span> <span class="o">=</span> <span class="n">tool_paths</span><span class="p">,</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="n">toolchain_include_directories_feature</span><span class="p">],</span>
+    <span class="p">)</span>
+
+<span class="n">cc_toolchain_config</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
+    <span class="n">implementation</span> <span class="o">=</span> <span class="n">_impl</span><span class="p">,</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">provides</span> <span class="o">=</span> <span class="p">[</span><span class="n">CcToolchainConfigInfo</span><span class="p">],</span>
+<span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -1034,7 +1097,8 @@ completes error-free.</p>
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -1073,6 +1137,7 @@ completes error-free.</p>
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -1092,6 +1157,7 @@ completes error-free.</p>
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

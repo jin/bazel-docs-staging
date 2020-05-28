@@ -1,0 +1,1109 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Building with platforms - Bazel 3.0.0</title>
+
+    <link rel="canonical" href="/versions/3.0.0/platforms-intro.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Building with platforms"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-2">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+
+          <nav class="sidebar collapse" id="sidebar-nav">
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: 3.0.0</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/platforms-intro.html">
+                    master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/platforms-intro.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/platforms-intro.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/platforms-intro.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/platforms-intro.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.1.0/platforms-intro.html">
+                    2.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.0.0/platforms-intro.html">
+                    2.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.2.0/platforms-intro.html">
+                    1.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.1.0/platforms-intro.html">
+                    1.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.0.0/platforms-intro.html">
+                    1.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.1/platforms-intro.html">
+                    0.29.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.0/platforms-intro.html">
+                    0.29.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.28.0/platforms-intro.html">
+                    0.28.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.27.0/platforms-intro.html">
+                    0.27.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.26.0/platforms-intro.html">
+                    0.26.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.25.0/platforms-intro.html">
+                    0.25.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.24.0/platforms-intro.html">
+                    0.24.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.23.0/platforms-intro.html">
+                    0.23.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.22.0/platforms-intro.html">
+                    0.22.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.21.0/platforms-intro.html">
+                    0.21.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.20.0/platforms-intro.html">
+                    0.20.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.2/platforms-intro.html">
+                    0.19.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.1/platforms-intro.html">
+                    0.19.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.18.1/platforms-intro.html">
+                    0.18.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.2/platforms-intro.html">
+                    0.17.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.1/platforms-intro.html">
+                    0.17.1
+                </option>
+                
+            </select>
+
+            <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/3.0.0/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/3.0.0/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/3.0.0/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/3.0.0/backward-compatibility.html">Backward compatibility</a></li>
+            </ul>
+
+            <h3>Installing Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/3.0.0/install.html">Installation overview</a>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installation steps<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+
+                   <li><a href="/versions/3.0.0/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/3.0.0/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/3.0.0/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/3.0.0/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/3.0.0/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/3.0.0/completion.html">Command-line completion</a></li>
+                   <li><a href="/versions/3.0.0/ide.html">Integrating with IDEs</a></li>
+                </ul>
+              </li>
+
+              
+              <li class="sidebar-nav">
+                <a href="/versions/3.0.0/updating-bazel.html">Updating Bazel</a>
+              </li>
+              
+            </ul>
+
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/3.0.0/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/3.0.0/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/3.0.0/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/3.0.0/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/3.0.0/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/3.0.0/external.html">External dependencies</a></li>
+                  <li><a href="/versions/3.0.0/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#guides-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  Guides<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/3.0.0/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/3.0.0/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/3.0.0/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/3.0.0/windows.html">Building on Windows</a></li>
+                </ul>
+              </li>
+
+              
+                <li><a href="/versions/3.0.0/rules.html">Rules</a></li>
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/3.0.0/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/3.0.0/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/3.0.0/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/3.0.0/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/3.0.0/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/3.0.0/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/3.0.0/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/3.0.0/remote-execution-rules.html">Guidelines</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/3.0.0/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/3.0.0/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/3.0.0/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/3.0.0/remote-execution-ci.html">Remote execution and CI</a></li>
+                 </ul>
+              </li>
+
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/3.0.0/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/3.0.0/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
+                  </ul>
+              </li>
+              
+             </ul>
+
+           
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/3.0.0/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/3.0.0/glossary.html">Glossary</a></li>
+             <li><a href="/versions/3.0.0/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/3.0.0/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/3.0.0/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/3.0.0/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/3.0.0/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/3.0.0/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/3.0.0/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
+             <li><a href="/versions/3.0.0/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/3.0.0/output_directories.html">Output directory layout</a></li>
+             <li><a href="/versions/3.0.0/platforms.html">Platforms</a></li>
+             <li><a href="/versions/3.0.0/toolchains.html">Toolchains</a></li>
+           </ul>
+
+           <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/3.0.0/skylark/concepts.html">Extension overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/3.0.0/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/3.0.0/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/3.0.0/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/3.0.0/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/3.0.0/skylark/repository_rules.html">Repository rules</a></li>
+                  <li><a href="/versions/3.0.0/skylark/config.html">Configurations</a></li>
+                </ul>
+              </li>
+
+	            <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/3.0.0/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/3.0.0/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/3.0.0/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/3.0.0/skylark/deploying.html">Deploying rules</a></li>
+                  <li><a href="/versions/3.0.0/skylark/windows_tips.html">Writing rules on Windows</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/3.0.0/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/3.0.0/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/3.0.0/skylark/language.html">Starlark language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-8">
+          <div class="content">
+            <h1 id="building-with-platforms">Building with platforms</h1>
+
+<p>Bazel has sophisticated support for modeling <a href="platforms.html">platforms</a> and
+<a href="toolchains.html">toolchains</a>. Integrating this into real projects requires
+coherent cooperation between project and library owners, rule maintainers,
+and core Bazel devs.</p>
+
+<p>This page summarizes the arguments for using platforms and shows how to
+navigate these relationships for maximum value with minimum cognitive
+overhead.</p>
+
+<p><strong>In short:</strong> the core APIs are available but the rule and depot migrations required
+to make them work universally are ongoing. This means you <em>may</em> be able to use
+platforms and toolchains with your project, with some work. But you have to
+explicitly opt your project in.</p>
+
+<p>For more formal documentation, see:</p>
+
+<ul>
+  <li><a href="platforms.html">Platforms</a></li>
+  <li><a href="toolchains.html">Toolchains</a></li>
+</ul>
+
+<h2 id="background">Background</h2>
+<p><em>Platforms</em> and <em>toolchains</em> were introduced to <em>standardize</em> the need for
+ software projects to target different kinds of computers with different
+ language-appropriate tools.</p>
+
+<p>This is a relatively recent addition to Bazel. It was
+<a href="https://blog.bazel.build/2019/02/11/configurable-builds-part-1.html">inspired</a>
+by the observation that language maintainers were <em>already</em> doing this in ad hoc
+and incompatible ways. For example, C++ rules use <code class="highlighter-rouge">--cpu</code> and <code class="highlighter-rouge">--crosstool_top</code>
+to set a build’s target CPU and C++ toolchain. Neither of these correctly models a
+“platform”. Historic attempts to use them for that inevitably led to awkward and
+inaccurate build APIs. They also don’t say anything about Java  toolchains,
+which evolved their own independent interface with <code class="highlighter-rouge">--java_toolchain</code>.</p>
+
+<p>Bazel aims to excel at large, mixed-language, multi-platform projects. This
+demands more principled support for these concepts, including clear APIs that
+bind rather than diverge languages and projects. This is what the new platform
+and toolchain APIs achieve.</p>
+
+<h3 id="migration">Migration</h3>
+<p>These APIs aren’t enough for all projects to use platforms. We also have to
+retire the old APIs. This isn’t trivial because all of a project’s languages,
+toolchains, dependencies, and <code class="highlighter-rouge">select()</code>s have to support the new APIs. This
+requires an <em>ordered migration sequence</em> to keep projects working correctly.</p>
+
+<p>For example, Bazel’s <a href="/versions/master/bazel-and-cpp.html">C++</a> rules aleady
+support platforms while the <a href="/versions/master/bazel-and-android.html">Android</a>
+rules don’t. <em>Your</em> C++ project may not care about Android. But others may. So
+it’s not yet safe to globally enable platforms for all C++ builds.</p>
+
+<p>The thrust of this page describes this migration sequence and how and when your
+projects can fit in.</p>
+
+<h2 id="goal">Goal</h2>
+<p>Bazel’s platform migration is complete when all projects build with the form:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bazel build //:myproject <span class="nt">--platforms</span><span class="o">=</span>//:myplatform
+</code></pre></div></div>
+
+<p>This implies:</p>
+
+<ol>
+  <li>The rules your project uses can infer correct toolchains from
+<code class="highlighter-rouge">//:myplatform</code>.</li>
+  <li>The rules your project’s dependencies use can infer correct toolchains
+from <code class="highlighter-rouge">//:myplatform</code>.</li>
+  <li><em>Either</em> the projects depending on yours support <code class="highlighter-rouge">//:myplatform</code> <em>or</em> your
+project supports the legacy APIs (like <code class="highlighter-rouge">--crosstool_top</code>).</li>
+  <li><code class="highlighter-rouge">//:myplatform</code> references
+<a href="https://github.com/bazelbuild/platforms#motivation">common declarations</a> of
+<code class="highlighter-rouge">CPU</code>, <code class="highlighter-rouge">OS</code>, and other generic concepts that support automatic cross-project
+compatibility.</li>
+  <li>All relevant projects’
+<a href="https://docs.bazel.build/versions/master/configurable-attributes.html"><code class="highlighter-rouge">select()</code>s</a>
+understand the machine properties implied by <code class="highlighter-rouge">//:myplatform</code>.</li>
+  <li><code class="highlighter-rouge">//:myplatform</code> is defined in a clear, reusable place: in your project’s
+repo if the platform is unique to your project, otherwise somewhere all projects
+that may use this platform can find.</li>
+</ol>
+
+<p>As soon as this goal is achieved, we’ll remove the old APIs and make this <em>the</em>
+way projects select platforms and toolchains.</p>
+
+<h2 id="should-i-use-platforms">Should I use platforms?</h2>
+<p>If you just want to build or cross-compile a project, you should follow the
+project’s official documentation.</p>
+
+<p>If you’re a project, language, or toolchain maintainer, you’ll eventually want
+to support the new APIs. Whether you wait until the global migration is complete
+or opt in early depends on your specific value / cost needs:</p>
+
+<h3 id="value">Value</h3>
+<ul>
+  <li>You can <code class="highlighter-rouge">select()</code> or choose toolchains on the exact properties you care
+about instead of hard-coded flags like <code class="highlighter-rouge">--cpu</code>. For example, multiple CPUs
+can support the <a href="https://en.wikipedia.org/wiki/SSE4">same instruction set</a>.</li>
+  <li>More correct builds. If you <code class="highlighter-rouge">select()</code> with <code class="highlighter-rouge">--cpu</code> in the above example, then
+add a new CPU that supports the same instruction set, the <code class="highlighter-rouge">select()</code>
+fails to recognize the new CPU. But a <code class="highlighter-rouge">select()</code> on platforms remains accurate.</li>
+  <li>Simpler user experience. All projects understand:
+<code class="highlighter-rouge">--platforms=//:myplatform</code>. No need for multiple language-specific
+flags on the command line.</li>
+  <li>Simpler language design. All languages share a common API for defining
+toolchains, using toolchains, and selecting the right toolchain for a platform.</li>
+</ul>
+
+<h3 id="costs">Costs</h3>
+<ul>
+  <li>Dependent projects that don’t yet support platforms might not automatically work
+with yours.</li>
+  <li>Making them work may require <a href="#platform-mappings">additional temporary maintenance</a>.</li>
+  <li>Co-existence of new and legacy APIs requires more careful user guidance to
+avoid confusion.</li>
+  <li>Canonical definitions for <a href="#common-platorm-properties">common properties</a> like
+<code class="highlighter-rouge">OS</code> and <code class="highlighter-rouge">CPU</code> are still evolving and may require extra initial contributions.</li>
+  <li>Canonical definitions for language-specific toolchains are still evolving and
+may require extra initial contributions.</li>
+</ul>
+
+<h2 id="api-review">API review</h2>
+<p>A <a href="be/platform.html#platform"><code class="highlighter-rouge">platform</code></a> is a collection of
+<a href="be/platform.html#constraint_value"><code class="highlighter-rouge">constraint_value</code></a>s:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">platform</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"myplatform"</span><span class="p">,</span>
+    <span class="n">constraint_values</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"@platforms//os:linux"</span><span class="p">,</span>
+        <span class="s">"@platforms//cpu:arm"</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>A <a href="be/platform.html#constraint_value"><code class="highlighter-rouge">constraint_value</code></a> is a machine
+property. Values of the same “kind” are grouped under a common
+<a href="be/platform.html#constraint_setting"><code class="highlighter-rouge">constraint_setting</code></a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">constraint_setting</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"os"</span><span class="p">)</span>
+<span class="n">constraint_value</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"linux"</span><span class="p">,</span>
+    <span class="n">constraint_setting</span> <span class="o">=</span> <span class="s">":os"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">constraint_value</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"mac"</span><span class="p">,</span>
+    <span class="n">constraint_setting</span> <span class="o">=</span> <span class="s">":os"</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>A <a href="toolchains.html"><code class="highlighter-rouge">toolchain</code></a> is a <a href="skylark/rules.html">Starlark rule</a>. Its
+attributes declare a language’s tools (like <code class="highlighter-rouge">compiler =
+"//mytoolchain:custom_gcc"</code>). Its <a href="skylark/rules.html#providers">providers</a> pass
+this information to rules that need to build with these tools.</p>
+
+<p>Toolchains declare the <code class="highlighter-rouge">constraint_value</code>s of machines they can
+<a href="be/platform.html#toolchain.target_compatible_with">target</a>
+(<code class="highlighter-rouge">target_compatible_with = ["@platforms//os:linux"]</code>) and machines their tools can
+<a href="be/platform.html#toolchain.exec_compatible_with">run on</a>
+(<code class="highlighter-rouge">exec_compatible_with = ["@platforms//os:mac"]</code>).</p>
+
+<p>When building <code class="highlighter-rouge">$ bazel build //:myproject --platforms=//:myplatform</code>, Bazel
+automatically selects a toolchain that can run on the build machine and
+build binaries for <code class="highlighter-rouge">//:myplatform</code>. This is known as <em>toolchain resolution</em>.</p>
+
+<p>The set of available toolchains can be registered in the <code class="highlighter-rouge">WORKSPACE</code> with
+<a href="skylark/lib/globals.html#register_toolchains"><code class="highlighter-rouge">register_toolchains</code></a> or at the
+command line with <a href="command-line-reference.html#flag--extra_toolchains"><code class="highlighter-rouge">--extra_toolchains</code></a>.</p>
+
+<p>See <a href="toolchains.html">here</a> for a deeper dive.</p>
+
+<h2 id="status">Status</h2>
+<p>Current platform support varies among languages. All of Bazel’s major rules are
+moving to platforms. But this process will take time. This is for three main reasons:</p>
+
+<ol>
+  <li>
+    <p>Rule logic must be updated to get tool info from the new <a href="toolchains.html">toolchain
+API</a> (<code class="highlighter-rouge">ctx.toolchains</code>) and stop reading legacy settings like
+<code class="highlighter-rouge">--cpu</code> and <code class="highlighter-rouge">--crosstool_top</code>. This is relatively straightforward.</p>
+  </li>
+  <li>
+    <p>Toolchain maintainers must define toolchains and make them accessible to
+users (in GitHub repositories and <code class="highlighter-rouge">WORKSPACE</code> entries). This is technically
+straightforward but must be intelligently organized to maintain an easy user
+experience.</p>
+
+    <p>Platform definitions are also necessary (unless you build for the same machine
+Bazel runs on). But we generally expect projects to define their own platforms.</p>
+  </li>
+  <li>
+    <p>Existing projects must be migrated. <code class="highlighter-rouge">select()</code>s and
+<a href="skylark/config.html#user-defined-transitions">transitions</a> also have to be
+migrated. This is the biggest challenge. It’s particularly challenging for
+multi-language projects (which may fail if <em>all</em> languages can’t read
+<code class="highlighter-rouge">--platforms</code>).</p>
+  </li>
+</ol>
+
+<p>If you’re designing a new rule set, we <em>strongly</em> recommend you support
+platforms from the beginning. This automatically makes your rules compatible
+with other rules and projects, with increasing value as the platform API becomes
+more ubiquitious.</p>
+
+<p>Details:</p>
+
+<h3 id="common-platform-properties">Common platform properties</h3>
+<p>Platform properties like <code class="highlighter-rouge">OS</code> and <code class="highlighter-rouge">CPU</code> that are common across projects should
+be declared in a standard, centralized place. This encourages cross-project
+and cross-language compatibility.</p>
+
+<p>For example, if <em>MyApp</em> has a <code class="highlighter-rouge">select()</code> on <code class="highlighter-rouge">constraint_value</code>
+<code class="highlighter-rouge">@myapp//cpus:arm</code> and <em>SomeCommonLib</em> has a <code class="highlighter-rouge">select()</code> on
+<code class="highlighter-rouge">@commonlib//constraints:arm</code>, these trigger their “arm” modes with incompatible
+criteria.</p>
+
+<p>Globally common properties are declared in the
+<a href="https://github.com/bazelbuild/platforms"><code class="highlighter-rouge">@platforms</code></a> repo (so the canonical
+label for the above example is <code class="highlighter-rouge">@platforms//cpu:arm</code>). Language-common
+properties should be declared in the repos of their respective languages.</p>
+
+<h3 id="default-platforms">Default platforms</h3>
+<p>Generally, project owners should define explicit
+<a href="platforms.html#defining-constraints-and-platforms">platforms</a> to describe the
+kinds of machines they want to build for. These are then triggered with
+<code class="highlighter-rouge">--platforms</code>.</p>
+
+<p>When <code class="highlighter-rouge">--platforms</code> isn’t set, Bazel defaults to a <code class="highlighter-rouge">platform</code> representing the
+local build machine. This is auto-generated at <code class="highlighter-rouge">@local_config_platform//:host</code>
+so there’s no need to explicitly define it. It maps the local machine’s <code class="highlighter-rouge">OS</code>
+and <code class="highlighter-rouge">CPU</code> with <code class="highlighter-rouge">constraint_value</code>s declared in
+<a href="https://github.com/bazelbuild/platforms"><code class="highlighter-rouge">@platforms</code></a>.</p>
+
+<h3 id="c">C++</h3>
+<p>Bazel’s C++ rules use platforms to select toolchains when you set
+<code class="highlighter-rouge">--incompatible_enable_cc_toolchain_resolution</code>
+(<a href="https://github.com/bazelbuild/bazel/issues/7260">#7260</a>).</p>
+
+<p>This means you can configure a C++ project with</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bazel build //:my_cpp_project <span class="nt">--platforms</span><span class="o">=</span>//:myplatform
+</code></pre></div></div>
+
+<p>instead of the legacy</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bazel build //:my_cpp_project<span class="sb">`</span> <span class="nt">--cpu</span><span class="o">=</span>... <span class="nt">--crosstool_top</span><span class="o">=</span>...  <span class="nt">--compiler</span><span class="o">=</span>...
+</code></pre></div></div>
+
+<p>If your project is pure C++ and not depended on by non-C++ projects, you can use
+this mode safely as long as your <a href="#select"><code class="highlighter-rouge">select</code></a>s and
+<a href="#transitions">transitions</a> also work with platforms. See
+<a href="https://github.com/bazelbuild/bazel/issues/7260">#7260</a> and <a href="tutorial/cc-toolchain-config.html">Configuring C++
+toolchains</a> for further migration guidance.</p>
+
+<p>This mode is not enabled by default. This is because Android and iOS projects
+still configure C++ dependencies with <code class="highlighter-rouge">--cpu</code> and <code class="highlighter-rouge">--crosstool_top</code>
+(<a href="https://github.com/bazelbuild/bazel/issues/8716#issuecomment-507230303">example</a>). Enabling
+it requires adding platform support for Android and iOS.</p>
+
+<h3 id="java">Java</h3>
+<p>Bazel’s Java rules use platforms to select toolchains when you set
+<code class="highlighter-rouge">--incompatible_use_toolchain_resolution_for_java_rules</code>
+(<a href="https://github.com/bazelbuild/bazel/issues/7849">#7849</a>).</p>
+
+<p>This replaces legacy flags <code class="highlighter-rouge">--java_toolchain</code>, <code class="highlighter-rouge">--host_java_toolchain</code>,
+<code class="highlighter-rouge">--javabase</code>, and <code class="highlighter-rouge">--host_javabase</code>.</p>
+
+<p><a href="https://github.com/bazelbuild/rules_java/pull/8">PR #8</a> defines the Java-specific
+<code class="highlighter-rouge">constraint_value</code>s, toolchains, and other settings that make migration
+practical. This mode will be enabled by default after those changes are
+committed.</p>
+
+<h3 id="android">Android</h3>
+<p>Bazel’s Android rules do not yet support platforms to select Android toolchains.</p>
+
+<p>They do support setting <code class="highlighter-rouge">--platforms</code> to select NDK toolchains: see
+<a href="android-ndk.html#integration-with-platforms-and-toolchains">here</a>.</p>
+
+<p>Most importantly,
+<a href="android-ndk.html#integration-with-platforms-and-toolchains"><code class="highlighter-rouge">--fat_apk_cpu</code></a>,
+which builds multi-architecture fat APKs, does not work with platform-enabled
+C++. This is because it sets legacy flags like <code class="highlighter-rouge">--cpu</code> and <code class="highlighter-rouge">--crosstool_top</code>,
+which platform-enabled C++ rules don’t read. Until this is migrated, using
+<code class="highlighter-rouge">--fat_apk_cpu</code> with <code class="highlighter-rouge">--platforms</code> requires <a href="#platform-mappings">platform
+mappings</a>.</p>
+
+<h3 id="apple">Apple</h3>
+<p>Bazel’s Apple rules do not yet support platforms to select Apple toolchains.</p>
+
+<p>They also don’t support platform-enabled C++ dependencies because they use the
+legacy <code class="highlighter-rouge">--crosstool_top</code> to set the C++ toolchain. Until this is migrated, you
+can mix Apple projects with platorm-enabled C++ with <a href="#platform-mappings">platform
+mappings</a>
+(<a href="https://github.com/bazelbuild/bazel/issues/8716#issuecomment-516572378">example</a>).</p>
+
+<h3 id="other-languages">Other languages</h3>
+<ul>
+  <li>Bazel’s <a href="https://github.com/bazelbuild/rules_rust">Rust rules</a> fully support
+platforms.</li>
+  <li>Bazel’s <a href="https://github.com/bazelbuild/rules_go">Go rules</a> fully support
+platforms
+(<a href="https://github.com/bazelbuild/rules_go#how-do-i-cross-compile">details</a>).</li>
+</ul>
+
+<p>If you’re designing rules for a new language, we <em>strongly</em> encourage you to use
+platforms to select your language’s toolchains. See
+the <a href="toolchains.html">toolchains documentation</a> for a good walkthrough.</p>
+
+<h3 id="select"><code class="highlighter-rouge">select()</code></h3>
+<p>Projects can <a href="configurable-attributes.html"><code class="highlighter-rouge">select()</code></a> on
+<a href="be/platform.html#constraint_value"><code class="highlighter-rouge">constraint_value</code></a>s but not complete
+platforms. This is intentional: we want <code class="highlighter-rouge">select()</code>s to support as wide a variety
+of machines as possible. A library with <code class="highlighter-rouge">ARM</code>-specific sources should support
+<em>all</em> <code class="highlighter-rouge">ARM</code>-powered machines unless there’s reason to be more specific.</p>
+
+<p>To select on one or more <code class="highlighter-rouge">constraint_value</code>s, use</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config_setting</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"is_arm"</span><span class="p">,</span>
+    <span class="n">constraint_values</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"@platforms//cpu:arm"</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>This is equivalent to traditionally selecting on <code class="highlighter-rouge">--cpu</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config_setting</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"is_arm"</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"cpu"</span><span class="p">:</span> <span class="s">"arm"</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>More details <a href="configurable-attributes.html#platforms">here</a>.</p>
+
+<p><code class="highlighter-rouge">select</code>s on <code class="highlighter-rouge">--cpu</code>, <code class="highlighter-rouge">--crosstool_top</code>, etc. don’t understand <code class="highlighter-rouge">--platforms</code>. When
+migrating your project to platforms, you must either convert them to
+<code class="highlighter-rouge">constraint_values</code> or use <a href="#platform-mappings">platform mappings</a> to support
+both styles through the migration window.</p>
+
+<h3 id="transitions">Transitions</h3>
+<p><a href="skylark/config.html#user-defined-transitions">Starlark transitions</a> change
+flags down parts of your build graph. If your project uses a transition that
+sets <code class="highlighter-rouge">--cpu</code>, <code class="highlighter-rouge">--crossstool_top</code>, or other legacy flags, rules that read
+<code class="highlighter-rouge">--platforms</code> won’t see these changes.</p>
+
+<p>When migrating your project to platforms, you must either convert changes like
+<code class="highlighter-rouge">return { "//command_line_option:cpu": "arm" }</code> to <code class="highlighter-rouge">return {
+"//command_line_options:platforms": "//:my_arm_platform" }</code> or use <a href="#platform-mappings">platform
+mappings</a> to support both styles through the migration
+window.</p>
+
+<h2 id="how-to-use-platforms-today">How to use platforms today</h2>
+<p>If you just want to build or cross-compile a project, you should follow the
+project’s official documentation. It’s up to language and project maintainers to
+determine how and when to integrate with platforms, and what value that offers.</p>
+
+<p>If you’re a project, language, or toolchain maintainer and your build doesn’t
+use platforms by default, you have three options (besides waiting for the global
+migration):</p>
+
+<ol>
+  <li>
+    <p>Flip on the “use platforms” flag for your project’s languages (<a href="#status">if they have
+one</a>) and do whatever testing you need to see if the projects you care
+about work.</p>
+  </li>
+  <li>
+    <p>If the projects you care about still depend on legacy flags like <code class="highlighter-rouge">--cpu</code> and
+<code class="highlighter-rouge">--crosstool_top</code>, use these together with <code class="highlighter-rouge">--platforms</code>:</p>
+
+    <p><code class="highlighter-rouge">$ bazel build //:my_mixed_project --platforms==//:myplatform
+--cpu=... --crosstool_top=...</code></p>
+
+    <p>This has some maintenance cost (you have to manually make sure the settings
+ match). But this should work in the absense of renegade
+ <a href="#transitions">transitions</a>.</p>
+  </li>
+  <li>
+    <p>Write <a href="#platform-mappings">platform mappings</a> to support both styles by
+mapping <code class="highlighter-rouge">--cpu</code>-style settings to corresponding platforms and vice versa.</p>
+  </li>
+</ol>
+
+<h3 id="platform-mappings">Platform mappings</h3>
+<p><em>Platform mappings</em> is a temporary API that lets platform-powered and
+legacy-powered logic co-exist in the same build through the latter’s deprecation
+window.</p>
+
+<p>A platform mapping is a map of either a <code class="highlighter-rouge">platform()</code> to a
+corresponding set of legacy flags or the reverse. For example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">platforms</span><span class="p">:</span>
+  <span class="c1"># Maps "--platforms=//platforms:ios" to "--cpu=ios_x86_64 --apple_platform_type=ios".
+</span>  <span class="o">//</span><span class="n">platforms</span><span class="p">:</span><span class="n">ios</span>
+    <span class="o">--</span><span class="n">cpu</span><span class="o">=</span><span class="n">ios_x86_64</span>
+    <span class="o">--</span><span class="n">apple_platform_type</span><span class="o">=</span><span class="n">ios</span>
+
+<span class="n">flags</span><span class="p">:</span>
+  <span class="c1"># Maps "--cpu=ios_x86_64 --apple_platform_type=ios" to "--platforms=//platforms:ios".
+</span>  <span class="o">--</span><span class="n">cpu</span><span class="o">=</span><span class="n">ios_x86_64</span>
+  <span class="o">--</span><span class="n">apple_platform_type</span><span class="o">=</span><span class="n">ios</span>
+    <span class="o">//</span><span class="n">platforms</span><span class="p">:</span><span class="n">ios</span>
+
+  <span class="c1"># Maps "--cpu=darwin --apple_platform_type=macos" to "//platform:macos".
+</span>  <span class="o">--</span><span class="n">cpu</span><span class="o">=</span><span class="n">darwin</span>
+  <span class="o">--</span><span class="n">apple_platform_type</span><span class="o">=</span><span class="n">macos</span>
+    <span class="o">//</span><span class="n">platforms</span><span class="p">:</span><span class="n">macos</span>
+</code></pre></div></div>
+
+<p>Bazel uses this to guarantee all settings, both platform-based and
+legacy, are consistently applied throughout the build, including through
+<a href="#transitions">transitions</a>.</p>
+
+<p>By default Bazel reads mappings from the <code class="highlighter-rouge">platform_mappings</code> file in your
+workspace root. You can also set
+<code class="highlighter-rouge">--platform_mappings=//:my_custom_mapping</code>.</p>
+
+<p>See
+<a href="https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls/edit">here</a>
+for complete details.</p>
+
+<h2 id="questions">Questions</h2>
+<p>For general support and questions about the migration timeline, contact
+<a href="https://groups.google.com/forum/#!forum/bazel-discuss">bazel-discuss@googlegroups.com</a>
+or the owners of the appropriate rules.</p>
+
+<p>For discussions on the design and evolution of the platform/toolchain APIs,
+contact
+<a href="https://groups.google.com/forum/#!forum/bazel-dev">bazel-dev@googlegroups.com</a>.</p>
+
+<h2 id="see-also">See also</h2>
+
+<ul>
+  <li><a href="https://blog.bazel.build/2019/02/11/configurable-builds-part-1.html">Configurable Builds - Part 1</a></li>
+  <li><a href="platforms.html">Platforms</a></li>
+  <li><a href="toolchains.html">Toolchains</a></li>
+  <li><a href="https://docs.google.com/document/d/1UZaVcL08wePB41ATZHcxQV4Pu1YfA1RvvWm8FbZHuW8/">Bazel Platforms Cookbook</a></li>
+  <li><a href="https://github.com/hlopko/bazel_platforms_examples"><code class="highlighter-rouge">hlopko/bazel_platforms_examples</code></a></li>
+  <li><a href="https://github.com/gregestren/snippets/tree/master/custom_cc_toolchain_with_platforms">Example C++ custom toolchain</a></li>
+</ul>
+
+
+          </div>
+        </div>
+
+        <div class="col-md-2 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Building with platforms&body=Documentation URL: https://docs.bazel.build/versions/3.0.0/platforms-intro.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#background">Background</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#migration">Migration</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#goal">Goal</a></li>
+<li class="toc-entry toc-h2"><a href="#should-i-use-platforms">Should I use platforms?</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#value">Value</a></li>
+<li class="toc-entry toc-h3"><a href="#costs">Costs</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#api-review">API review</a></li>
+<li class="toc-entry toc-h2"><a href="#status">Status</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#common-platform-properties">Common platform properties</a></li>
+<li class="toc-entry toc-h3"><a href="#default-platforms">Default platforms</a></li>
+<li class="toc-entry toc-h3"><a href="#c">C++</a></li>
+<li class="toc-entry toc-h3"><a href="#java">Java</a></li>
+<li class="toc-entry toc-h3"><a href="#android">Android</a></li>
+<li class="toc-entry toc-h3"><a href="#apple">Apple</a></li>
+<li class="toc-entry toc-h3"><a href="#other-languages">Other languages</a></li>
+<li class="toc-entry toc-h3"><a href="#select">select()</a></li>
+<li class="toc-entry toc-h3"><a href="#transitions">Transitions</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#how-to-use-platforms-today">How to use platforms today</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#platform-mappings">Platform mappings</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#questions">Questions</a></li>
+<li class="toc-entry toc-h2"><a href="#see-also">See also</a></li>
+</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2020 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

@@ -1,0 +1,1024 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>ObjcProvider - Bazel 0.28.0</title>
+
+    <link rel="canonical" href="/versions/0.28.0/skylark/lib/ObjcProvider.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="ObjcProvider"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-2">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+
+          <nav class="sidebar collapse" id="sidebar-nav">
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: 0.28.0</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/skylark/lib/ObjcProvider.html">
+                    master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/skylark/lib/ObjcProvider.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/skylark/lib/ObjcProvider.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/skylark/lib/ObjcProvider.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/skylark/lib/ObjcProvider.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.1.0/skylark/lib/ObjcProvider.html">
+                    2.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.0.0/skylark/lib/ObjcProvider.html">
+                    2.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.2.0/skylark/lib/ObjcProvider.html">
+                    1.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.1.0/skylark/lib/ObjcProvider.html">
+                    1.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.0.0/skylark/lib/ObjcProvider.html">
+                    1.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.1/skylark/lib/ObjcProvider.html">
+                    0.29.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.0/skylark/lib/ObjcProvider.html">
+                    0.29.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.28.0/skylark/lib/ObjcProvider.html">
+                    0.28.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.27.0/skylark/lib/ObjcProvider.html">
+                    0.27.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.26.0/skylark/lib/ObjcProvider.html">
+                    0.26.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.25.0/skylark/lib/ObjcProvider.html">
+                    0.25.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.24.0/skylark/lib/ObjcProvider.html">
+                    0.24.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.23.0/skylark/lib/ObjcProvider.html">
+                    0.23.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.22.0/skylark/lib/ObjcProvider.html">
+                    0.22.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.21.0/skylark/lib/ObjcProvider.html">
+                    0.21.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.20.0/skylark/lib/ObjcProvider.html">
+                    0.20.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.2/skylark/lib/ObjcProvider.html">
+                    0.19.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.1/skylark/lib/ObjcProvider.html">
+                    0.19.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.18.1/skylark/lib/ObjcProvider.html">
+                    0.18.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.2/skylark/lib/ObjcProvider.html">
+                    0.17.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.1/skylark/lib/ObjcProvider.html">
+                    0.17.1
+                </option>
+                
+            </select>
+
+            <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/0.28.0/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/0.28.0/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/0.28.0/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/0.28.0/backward-compatibility.html">Backward compatibility</a></li>
+            </ul>
+
+            <h3>Installing Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/0.28.0/install.html">Installation overview</a>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installation steps<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+
+                   <li><a href="/versions/0.28.0/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/0.28.0/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/0.28.0/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/0.28.0/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/0.28.0/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/0.28.0/completion.html">Command-line completion</a></li>
+                   <li><a href="/versions/0.28.0/ide.html">Integrating with IDEs</a></li>
+                </ul>
+              </li>
+
+              
+            </ul>
+
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/0.28.0/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/0.28.0/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/0.28.0/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/0.28.0/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/0.28.0/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/0.28.0/external.html">External dependencies</a></li>
+                  <li><a href="/versions/0.28.0/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#guides-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  Guides<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/0.28.0/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/0.28.0/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/0.28.0/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/0.28.0/windows.html">Building on Windows</a></li>
+                </ul>
+              </li>
+
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/0.28.0/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/0.28.0/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/0.28.0/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/0.28.0/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/0.28.0/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/0.28.0/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/0.28.0/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/0.28.0/remote-execution-rules.html">Guidelines</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/0.28.0/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/0.28.0/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/0.28.0/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/0.28.0/remote-execution-ci.html">Remote execution and CI</a></li>
+                 </ul>
+              </li>
+
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/0.28.0/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/0.28.0/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
+                  </ul>
+              </li>
+              
+             </ul>
+
+           
+           <h4>Rules</h4>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.28.0/be/overview.html">Build encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/0.28.0/tutorial/android-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.28.0/bazel-and-android.html">Android resources</a></li>
+                  <li><a href="/versions/0.28.0/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/0.28.0/android-instrumentation-test.html">Android instrumentation tests</a></li>
+                  <li><a href="/versions/0.28.0/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/0.28.0/tutorial/ios-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.28.0/bazel-and-apple.html">Apple resources</a></li>
+                  <li><a href="/versions/0.28.0/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/0.28.0/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/0.28.0/tutorial/cpp.html">Tutorial</a></li>
+                  <li><a href="/versions/0.28.0/bazel-and-cpp.html">C++ resources</a></li>
+                  <li><a href="/versions/0.28.0/cpp-use-cases.html">C++ use cases</a></li>
+                  <li>
+                    <a href="/versions/0.28.0/cc-toolchain-config-reference.html">
+                      C++ Toolchain Configuration
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.28.0/tutorial/cc-toolchain-config.html">
+                      Tutorial: Configuring C++ Toolchains
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.28.0/integrating-with-rules-cc.html">
+                      Integrating with C++ rules
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/0.28.0/tutorial/java.html">Tutorial</a></li>
+                  <li><a href="/versions/0.28.0/bazel-and-java.html">Java resources</a></li>
+                  <li><a href="/versions/0.28.0/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/0.28.0/generate-workspace.html">Converting Maven dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/0.28.0/bazel-and-javascript.html">JavaScript resources</a></li>
+                  <li><a href="/versions/0.28.0/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+           
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.28.0/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/0.28.0/glossary.html">Glossary</a></li>
+             <li><a href="/versions/0.28.0/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/0.28.0/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/0.28.0/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/0.28.0/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/0.28.0/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/0.28.0/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/0.28.0/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
+             <li><a href="/versions/0.28.0/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/0.28.0/output_directories.html">Output directory layout</a></li>
+             <li><a href="/versions/0.28.0/platforms.html">Platforms</a></li>
+             <li><a href="/versions/0.28.0/toolchains.html">Toolchains</a></li>
+           </ul>
+
+           <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/0.28.0/skylark/concepts.html">Extension overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/0.28.0/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/0.28.0/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/0.28.0/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/0.28.0/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/0.28.0/skylark/repository_rules.html">Repository rules</a></li>
+                  <li><a href="/versions/0.28.0/skylark/config.html">Configurations</a></li>
+                </ul>
+              </li>
+
+	            <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/0.28.0/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/0.28.0/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/0.28.0/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/0.28.0/skylark/deploying.html">Deploying rules</a></li>
+                  <li><a href="/versions/0.28.0/skylark/windows_tips.html">Writing rules on Windows</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/0.28.0/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/0.28.0/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/0.28.0/skylark/language.html">Starlark language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-8">
+          <div class="content">
+            <h1 id="modules.ObjcProvider">ObjcProvider</h1>
+
+A provider for compilation and linking of objc.
+
+<div class="toc">
+  <h2>Members</h2>
+  <ul>
+          <li><a href="#define">define</a></li>
+              <li><a href="#direct_headers">direct_headers</a></li>
+              <li><a href="#direct_module_maps">direct_module_maps</a></li>
+              <li><a href="#direct_sources">direct_sources</a></li>
+              <li><a href="#dynamic_framework_dir">dynamic_framework_dir</a></li>
+              <li><a href="#dynamic_framework_file">dynamic_framework_file</a></li>
+              <li><a href="#dynamic_framework_names">dynamic_framework_names</a></li>
+              <li><a href="#dynamic_framework_paths">dynamic_framework_paths</a></li>
+              <li><a href="#exported_debug_artifacts">exported_debug_artifacts</a></li>
+              <li><a href="#force_load_library">force_load_library</a></li>
+              <li><a href="#framework_dir">framework_dir</a></li>
+              <li><a href="#framework_search_path_only">framework_search_path_only</a></li>
+              <li><a href="#header">header</a></li>
+              <li><a href="#imported_library">imported_library</a></li>
+              <li><a href="#include">include</a></li>
+              <li><a href="#include_system">include_system</a></li>
+              <li><a href="#iquote">iquote</a></li>
+              <li><a href="#j2objc_library">j2objc_library</a></li>
+              <li><a href="#jre_library">jre_library</a></li>
+              <li><a href="#library">library</a></li>
+              <li><a href="#link_inputs">link_inputs</a></li>
+              <li><a href="#linked_binary">linked_binary</a></li>
+              <li><a href="#linkmap_file">linkmap_file</a></li>
+              <li><a href="#linkopt">linkopt</a></li>
+              <li><a href="#merge_zip">merge_zip</a></li>
+              <li><a href="#module_map">module_map</a></li>
+              <li><a href="#multi_arch_dynamic_libraries">multi_arch_dynamic_libraries</a></li>
+              <li><a href="#multi_arch_linked_archives">multi_arch_linked_archives</a></li>
+              <li><a href="#multi_arch_linked_binaries">multi_arch_linked_binaries</a></li>
+              <li><a href="#sdk_dylib">sdk_dylib</a></li>
+              <li><a href="#sdk_framework">sdk_framework</a></li>
+              <li><a href="#source">source</a></li>
+              <li><a href="#static_framework_file">static_framework_file</a></li>
+              <li><a href="#static_framework_names">static_framework_names</a></li>
+              <li><a href="#static_framework_paths">static_framework_paths</a></li>
+              <li><a href="#umbrella_header">umbrella_header</a></li>
+              <li><a href="#weak_sdk_framework">weak_sdk_framework</a></li>
+        </ul>
+</div>
+
+      <h2 id="define">define</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.define</pre></p>
+
+    A set of strings from 'defines' attributes. These are to be passed as '-D' flags to all invocations of the compiler for this target and all depending targets.
+
+
+        <h2 id="direct_headers">direct_headers</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> ObjcProvider.direct_headers</pre></p>
+
+    Header files from this target directly (no transitive headers). These may be either public or private headers.
+
+
+        <h2 id="direct_module_maps">direct_module_maps</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> ObjcProvider.direct_module_maps</pre></p>
+
+    Module map files from this target directly (no transitive module maps). Used to enforce proper use of private header files and for Swift compilation.
+
+
+        <h2 id="direct_sources">direct_sources</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> ObjcProvider.direct_sources</pre></p>
+
+    All direct source files from this target (no transitive files).
+
+
+        <h2 id="dynamic_framework_dir">dynamic_framework_dir</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.dynamic_framework_dir</pre></p>
+
+    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_objc_framework_cleanup</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Exec paths of .framework directories corresponding to dynamic frameworks to link.
+
+
+        <h2 id="dynamic_framework_file">dynamic_framework_file</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.dynamic_framework_file</pre></p>
+
+    The library files in .framework directories belonging to a dynamically linked framework.
+
+
+        <h2 id="dynamic_framework_names">dynamic_framework_names</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.dynamic_framework_names</pre></p>
+
+    <b>Experimental</b>. This API is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--incompatible_objc_framework_cleanup</code> <br>Returns all names of dynamic frameworks in this provider.
+
+
+        <h2 id="dynamic_framework_paths">dynamic_framework_paths</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.dynamic_framework_paths</pre></p>
+
+    <b>Experimental</b>. This API is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--incompatible_objc_framework_cleanup</code> <br>Returns all framework paths to dynamic frameworks in this provider.
+
+
+        <h2 id="exported_debug_artifacts">exported_debug_artifacts</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.exported_debug_artifacts</pre></p>
+
+    Debug files that should be exported by the top-level target.
+
+
+        <h2 id="force_load_library">force_load_library</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.force_load_library</pre></p>
+
+    Libraries to load with -force_load.
+
+
+        <h2 id="framework_dir">framework_dir</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.framework_dir</pre></p>
+
+    <b>Deprecated</b>. This API is deprecated and will be removed soon. Please do not depend on it. It is <i>disabled</i> with <code>--incompatible_objc_framework_cleanup</code>. Use this flag to verify your code is compatible with its imminent removal. <br>Returns all unique static framework directories (directories ending in '.framework') for all static framework files in this provider.
+
+
+        <h2 id="framework_search_path_only">framework_search_path_only</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.framework_search_path_only</pre></p>
+
+    Exec paths of .framework directories corresponding to frameworks to include in search paths, but not to link.
+
+
+        <h2 id="header">header</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.header</pre></p>
+
+    All header files. These may be either public or private headers.
+
+
+        <h2 id="imported_library">imported_library</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.imported_library</pre></p>
+
+    Imported precompiled static libraries (.a files) to be linked into the binary.
+
+
+        <h2 id="include">include</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.include</pre></p>
+
+    Include search paths specified with '-I' on the command line. Also known as header search paths (and distinct from <em>user</em> header search paths).
+
+
+        <h2 id="include_system">include_system</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.include_system</pre></p>
+
+    System include search paths (typically specified with -isystem).
+
+
+        <h2 id="iquote">iquote</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.iquote</pre></p>
+
+    User header search paths (typically specified with -iquote).
+
+
+        <h2 id="j2objc_library">j2objc_library</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.j2objc_library</pre></p>
+
+    Static libraries that are built from J2ObjC-translated Java code.
+
+
+        <h2 id="jre_library">jre_library</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.jre_library</pre></p>
+
+    J2ObjC JRE emulation libraries and their dependencies.
+
+
+        <h2 id="library">library</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.library</pre></p>
+
+    Library (.a) files compiled by dependencies of the current target.
+
+
+        <h2 id="link_inputs">link_inputs</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.link_inputs</pre></p>
+
+    Link time artifacts from dependencies that do not fall into any other category such as libraries or archives. This catch-all provides a way to add arbitrary data (e.g. Swift AST files) to the linker. The rule that adds these is also responsible to add the necessary linker flags to 'linkopt'.
+
+
+        <h2 id="linked_binary">linked_binary</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.linked_binary</pre></p>
+
+    Single-architecture linked binaries to be combined for the final multi-architecture binary.
+
+
+        <h2 id="linkmap_file">linkmap_file</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.linkmap_file</pre></p>
+
+    Single-architecture link map for a binary.
+
+
+        <h2 id="linkopt">linkopt</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.linkopt</pre></p>
+
+    Linking options.
+
+
+        <h2 id="merge_zip">merge_zip</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.merge_zip</pre></p>
+
+    Merge zips to include in the bundle. The entries of these zip files are included in the final bundle with the same path. The entries in the merge zips should not include the bundle root path (e.g. 'Foo.app').
+
+
+        <h2 id="module_map">module_map</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.module_map</pre></p>
+
+    Clang module maps, used to enforce proper use of private header files.
+
+
+        <h2 id="multi_arch_dynamic_libraries">multi_arch_dynamic_libraries</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.multi_arch_dynamic_libraries</pre></p>
+
+    Combined-architecture dynamic libraries to include in the final bundle.
+
+
+        <h2 id="multi_arch_linked_archives">multi_arch_linked_archives</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.multi_arch_linked_archives</pre></p>
+
+    Combined-architecture archives to include in the final bundle.
+
+
+        <h2 id="multi_arch_linked_binaries">multi_arch_linked_binaries</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.multi_arch_linked_binaries</pre></p>
+
+    Combined-architecture binaries to include in the final bundle.
+
+
+        <h2 id="sdk_dylib">sdk_dylib</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.sdk_dylib</pre></p>
+
+    Names of SDK .dylib libraries to link with. For instance, 'libz' or 'libarchive'.
+
+
+        <h2 id="sdk_framework">sdk_framework</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.sdk_framework</pre></p>
+
+    Names of SDK frameworks to link with (e.g. 'AddressBook', 'QuartzCore').
+
+
+        <h2 id="source">source</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.source</pre></p>
+
+    All transitive source files.
+
+
+        <h2 id="static_framework_file">static_framework_file</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.static_framework_file</pre></p>
+
+    The library files in .framework directories that should be statically linked.
+
+
+        <h2 id="static_framework_names">static_framework_names</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.static_framework_names</pre></p>
+
+    <b>Experimental</b>. This API is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--incompatible_objc_framework_cleanup</code> <br>Returns all names of static frameworks in this provider.
+
+
+        <h2 id="static_framework_paths">static_framework_paths</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.static_framework_paths</pre></p>
+
+    <b>Experimental</b>. This API is experimental and may change at any time. Please do not depend on it. It may be enabled on an experimental basis by setting <code>--incompatible_objc_framework_cleanup</code> <br>Returns all framework paths to static frameworks in this provider.
+
+
+        <h2 id="umbrella_header">umbrella_header</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.umbrella_header</pre></p>
+
+    Clang umbrella header. Public headers are #included in umbrella headers to be compatible with J2ObjC segmented headers.
+
+
+        <h2 id="weak_sdk_framework">weak_sdk_framework</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ObjcProvider.weak_sdk_framework</pre></p>
+
+    Names of SDK frameworks to weakly link with. For instance, 'MediaAccessibility'. In difference to regularly linked SDK frameworks, symbols from weakly linked frameworks do not cause an error if they are not present at runtime.
+
+
+
+
+          </div>
+        </div>
+
+        <div class="col-md-2 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: ObjcProvider&body=Documentation URL: https://docs.bazel.build/versions/0.28.0/skylark/lib/ObjcProvider.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#members">Members</a></li>
+<li class="toc-entry toc-h2"><a href="#define">define</a></li>
+<li class="toc-entry toc-h2"><a href="#direct_headers">direct_headers</a></li>
+<li class="toc-entry toc-h2"><a href="#direct_module_maps">direct_module_maps</a></li>
+<li class="toc-entry toc-h2"><a href="#direct_sources">direct_sources</a></li>
+<li class="toc-entry toc-h2"><a href="#dynamic_framework_dir">dynamic_framework_dir</a></li>
+<li class="toc-entry toc-h2"><a href="#dynamic_framework_file">dynamic_framework_file</a></li>
+<li class="toc-entry toc-h2"><a href="#dynamic_framework_names">dynamic_framework_names</a></li>
+<li class="toc-entry toc-h2"><a href="#dynamic_framework_paths">dynamic_framework_paths</a></li>
+<li class="toc-entry toc-h2"><a href="#exported_debug_artifacts">exported_debug_artifacts</a></li>
+<li class="toc-entry toc-h2"><a href="#force_load_library">force_load_library</a></li>
+<li class="toc-entry toc-h2"><a href="#framework_dir">framework_dir</a></li>
+<li class="toc-entry toc-h2"><a href="#framework_search_path_only">framework_search_path_only</a></li>
+<li class="toc-entry toc-h2"><a href="#header">header</a></li>
+<li class="toc-entry toc-h2"><a href="#imported_library">imported_library</a></li>
+<li class="toc-entry toc-h2"><a href="#include">include</a></li>
+<li class="toc-entry toc-h2"><a href="#include_system">include_system</a></li>
+<li class="toc-entry toc-h2"><a href="#iquote">iquote</a></li>
+<li class="toc-entry toc-h2"><a href="#j2objc_library">j2objc_library</a></li>
+<li class="toc-entry toc-h2"><a href="#jre_library">jre_library</a></li>
+<li class="toc-entry toc-h2"><a href="#library">library</a></li>
+<li class="toc-entry toc-h2"><a href="#link_inputs">link_inputs</a></li>
+<li class="toc-entry toc-h2"><a href="#linked_binary">linked_binary</a></li>
+<li class="toc-entry toc-h2"><a href="#linkmap_file">linkmap_file</a></li>
+<li class="toc-entry toc-h2"><a href="#linkopt">linkopt</a></li>
+<li class="toc-entry toc-h2"><a href="#merge_zip">merge_zip</a></li>
+<li class="toc-entry toc-h2"><a href="#module_map">module_map</a></li>
+<li class="toc-entry toc-h2"><a href="#multi_arch_dynamic_libraries">multi_arch_dynamic_libraries</a></li>
+<li class="toc-entry toc-h2"><a href="#multi_arch_linked_archives">multi_arch_linked_archives</a></li>
+<li class="toc-entry toc-h2"><a href="#multi_arch_linked_binaries">multi_arch_linked_binaries</a></li>
+<li class="toc-entry toc-h2"><a href="#sdk_dylib">sdk_dylib</a></li>
+<li class="toc-entry toc-h2"><a href="#sdk_framework">sdk_framework</a></li>
+<li class="toc-entry toc-h2"><a href="#source">source</a></li>
+<li class="toc-entry toc-h2"><a href="#static_framework_file">static_framework_file</a></li>
+<li class="toc-entry toc-h2"><a href="#static_framework_names">static_framework_names</a></li>
+<li class="toc-entry toc-h2"><a href="#static_framework_paths">static_framework_paths</a></li>
+<li class="toc-entry toc-h2"><a href="#umbrella_header">umbrella_header</a></li>
+<li class="toc-entry toc-h2"><a href="#weak_sdk_framework">weak_sdk_framework</a></li>
+</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2020 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Only show Bazel version in title if it's a release -->
-    <title>Starlark Build Configurations - Bazel </title>
+    <title>Configurations - Bazel </title>
 
     <link rel="canonical" href="/versions/master/skylark/config.html">
 
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
     <!-- metadata -->
-    <meta name="og:title" content="Starlark Build Configurations"/>
+    <meta name="og:title" content="Configurations"/>
     <meta name="og:image" content="/images/bazel-og-image.png"/>
 
     <!-- google search console verification -->
@@ -107,6 +107,26 @@
                 <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/master/skylark/config.html">
                     master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/skylark/config.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/skylark/config.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/skylark/config.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/skylark/config.html">
+                    2.2.0
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,54 +429,41 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
 
         <div class="col-md-8">
           <div class="content">
-            <h1 id="starlark-build-configurations">Starlark Build Configurations</h1>
+            <h1 id="configurations">Configurations</h1>
 
-<ul>
-  <li><a href="#overview">Overview</a></li>
-  <li><a href="#current-status">Current Status</a></li>
-  <li><a href="#user-defined-build-settings">User-defined Build Settings</a></li>
-  <li><a href="#build-settings-and-select">Build Settings and Select</a></li>
-  <li><a href="#user-defined-transitions">User-defined Transitions</a></li>
-  <li><a href="#integration-with-platforms-and-toolchains">Integration With Platforms and Toolchains</a></li>
-  <li><a href="#also-see">Also See</a></li>
-</ul>
-
-<h2 id="overview">Overview</h2>
-
-<p>Starlark build configuration is Bazel’s API for customizing how your project
-builds.</p>
+<p>Starlark configuration is Bazel’s API for customizing how your project builds.</p>
 
 <p>This makes it possible to:</p>
 
@@ -438,24 +483,15 @@ with a specified SDK)</li>
 
 <!-- [TOC] -->
 
-<h2 id="current-status">Current Status</h2>
+<h2 id="current-status">Current status</h2>
 
-<p>As of Q4’19, everything documented here works but
-may have memory and performance consequences as we work on scaling concerns.
-Related issues:</p>
+<p>Ongoing bug/feature work can be found in the <a href="https://bazel.build/roadmaps/configuration.html">Bazel
+configurability roadmap</a>.</p>
 
-<ul>
-  <li><a href="https://github.com/bazelbuild/bazel/issues/5574">#5574</a> - Starlark support
-for custom configuration transitions</li>
-  <li><a href="https://github.com/bazelbuild/bazel/issues/5575">#5575</a> - Starlark support
-for multi-arch (“fat”) binaries</li>
-  <li><a href="https://github.com/bazelbuild/bazel/issues/5577">#5577</a> - Starlark support
-for custom build flags</li>
-  <li><a href="https://github.com/bazelbuild/bazel/issues/5578">#5578</a> - Configuration
-doesn’t block native to Skylark rules migration</li>
-</ul>
+<p>This feature may have <a href="#memory-and-performance-considerations">memory and performance impacts</a> and we are
+still working on ways to <a href="https://github.com/bazelbuild/bazel/issues/10613">measure and mitigate</a> those impacts.</p>
 
-<h2 id="user-defined-build-settings">User-defined Build Settings</h2>
+<h2 id="user-defined-build-settings">User-defined build settings</h2>
 <p>A build setting is a single piece of
 <a href="rules.html#configurations">configuration</a>
 information. Think of a configuration as a key/value map. Setting <code class="highlighter-rouge">--cpu=ppc</code>
@@ -472,9 +508,9 @@ register changes). They also can be set via the command line
 (if they’re designated as <code class="highlighter-rouge">flags</code>, see more below), but can also be
 set via <a href="#user-defined-transitions">user-defined transitions</a>.</p>
 
-<h3 id="defining-build-settings">Defining Build Settings</h3>
+<h3 id="defining-build-settings">Defining build settings</h3>
 
-<h4 id="the-build_setting-rule-parameter">The <code class="highlighter-rouge">build_setting</code> <code class="highlighter-rouge">rule()</code> Parameter</h4>
+<h4 id="the-build_setting-rule-parameter">The <code class="highlighter-rouge">build_setting</code> <code class="highlighter-rouge">rule()</code> parameter</h4>
 
 <p>Build settings are rules like any other rule and are differentiated using the
 Starlark <code class="highlighter-rouge">rule()</code> function’s <code class="highlighter-rouge">build_setting</code>
@@ -564,12 +600,30 @@ declared by the <code class="highlighter-rouge">build_setting</code> param.</p>
 <span class="p">)</span>
 </code></pre></div></div>
 
-<p>A collection of the most common build setting rules can be found in
-<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/rules/common_settings.bzl">skylib</a>.</p>
+<h3 id="predefined-settings">Predefined settings</h3>
 
-<h3 id="using-build-settings">Using Build Settings</h3>
+<p>The
+<a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a>
+library includes a set of predefined settings you can instantiate without having
+to write custom Starlark.</p>
 
-<h4 id="depending-on-build-settings">Depending on Build Settings</h4>
+<p>For example, to define a setting that accepts a limited set of string values:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># example/BUILD
+</span><span class="n">load</span><span class="p">(</span><span class="s">"@bazel_skylib//rules:common_settings.bzl"</span><span class="p">,</span> <span class="s">"string_flag"</span><span class="p">)</span>
+<span class="n">string_flag</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">"myflag"</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">],</span>
+    <span class="n">build_setting_default</span> <span class="o">=</span> <span class="s">"a"</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>For a complete list, see
+<a href="https://github.com/bazelbuild/bazel-skylib/blob/master/rules/common_settings.bzl">Common build setting rules</a>.</p>
+
+<h3 id="using-build-settings">Using build settings</h3>
+
+<h4 id="depending-on-build-settings">Depending on build settings</h4>
 <p>If a target would like to read a piece of configuration information, it can
 directly depend on the build setting via a regular attribute dependency.</p>
 
@@ -650,7 +704,7 @@ need to use their entire target path each time i.e.:</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bazel build //my/target <span class="nt">--</span>//third_party/bazel/src/main:cpu<span class="o">=</span>k8 <span class="nt">--no</span>//my/project:boolean_flag
 </code></pre></div></div>
 
-<h3 id="label-typed-build-settings">Label-typed Build Settings</h3>
+<h3 id="label-typed-build-settings">Label-typed build settings</h3>
 
 <p>Unlike other build settings, label-typed settings cannot be defined using the
 <code class="highlighter-rouge">build_setting</code> rule parameter. Instead, bazel has two built-in rules:
@@ -667,7 +721,7 @@ the <a href="lib/globals.html#configuration_field"><code class="highlighter-roug
  API.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># example/rules.bzl
-</span><span class="n">MyProvider</span> <span class="o">=</span> <span class="n">provider</span><span class="p">(</span><span class="n">field</span> <span class="o">=</span> <span class="p">[</span><span class="s">"my_field"</span><span class="p">])</span>
+</span><span class="n">MyProvider</span> <span class="o">=</span> <span class="n">provider</span><span class="p">(</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">"my_field"</span><span class="p">])</span>
 
 <span class="k">def</span> <span class="nf">_dep_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">MyProvider</span><span class="p">(</span><span class="n">my_field</span> <span class="o">=</span> <span class="s">"yeehaw"</span><span class="p">)</span>
@@ -677,7 +731,7 @@ the <a href="lib/globals.html#configuration_field"><code class="highlighter-roug
 <span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">_parent_impl</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">my_field_provider</span><span class="p">[</span><span class="n">MyProvider</span><span class="p">]</span> <span class="o">==</span> <span class="s">"cowabunga"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">my_field_provider</span><span class="p">[</span><span class="n">MyProvider</span><span class="p">]</span><span class="o">.</span><span class="n">my_field</span> <span class="o">==</span> <span class="s">"cowabunga"</span><span class="p">:</span>
         <span class="o">...</span>
 
 <span class="n">parent_rule</span> <span class="o">=</span> <span class="n">rule</span><span class="p">(</span>
@@ -702,7 +756,7 @@ the <a href="lib/globals.html#configuration_field"><code class="highlighter-roug
 
 <p>TODO(bazel-team): Expand supported build setting types.</p>
 
-<h2 id="build-settings-and-select">Build Settings and Select</h2>
+<h3 id="build-settings-and-select">Build settings and <code class="highlighter-rouge">select()</code></h3>
 
 <p>Users can configure attributes on build settings by using
  <a href="../be/functions.html#select"><code class="highlighter-rouge">select()</code></a>. Build setting targets can be passed to the <code class="highlighter-rouge">flag_values</code> attribute of
@@ -717,14 +771,32 @@ the <a href="lib/globals.html#configuration_field"><code class="highlighter-roug
 <span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="user-defined-transitions">User-defined Transitions</h2>
+<h2 id="user-defined-transitions">User-defined transitions</h2>
 
 <p>A configuration
 <a href="lib/transition.html#transition">transition</a>
 is how we change configuration of
 configured targets in the build graph.</p>
 
-<h3 id="defining-transitions-in-starlark">Defining Transitions in Starlark</h3>
+<blockquote>
+  <p>IMPORTANT: In order to use Starlark transitions, you need to attach a
+special attribute to the rule to which the transition is attached:</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"_whitelist_function_transition"</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span>
+     <span class="n">default</span> <span class="o">=</span> <span class="s">"@bazel_tools//tools/whitelists/function_transition_whitelist"</span>
+ <span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>By adding transitions you can pretty easily explode the size of
+your build graph. This sets a whitelist on the packages in which you can
+create targets of this rule. The default value in the codeblock above
+whitelists everything. But if you’d like to restrict who is using your rule,
+you can set that attribute to point to your own custom whitelist.
+Contact bazel-discuss@googlegroups.com if you’d like advice or assistance
+understanding how transitions can affect on your build performance.</p>
+</blockquote>
+
+<h3 id="defining">Defining</h3>
 
 <p>Transitions define configuration changes between rules. For example, a request
 like “compile my dependency for a different CPU than its parent” is handled by a
@@ -782,7 +854,7 @@ parameter of the transition function. This is true even if a build setting is
 not actually changed over the course of the transition - its original value must
 be explicitly passed through in the returned dictionary.</p>
 
-<h4 id="defining-12-transitions">Defining 1:2+ Transitions</h4>
+<h3 id="defining-12-transitions">Defining 1:2+ transitions</h3>
 <p><a href="#outgoing-edge-transitions">Outgoing edge transition</a> can map a single input
 configuration to two or more output configurations. These are defined in
 Starlark by returning a list of dictionaries in the transition implementation
@@ -803,13 +875,18 @@ function.</p>
 <span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="attaching-transitions">Attaching Transitions</h3>
+<h3 id="attaching-transitions">Attaching transitions</h3>
 <p>Transitions can be attached in two places: incoming edges and outgoing edges.
 Effectively this means rules can transition their own configuration (incoming
 edge transition) and transition their dependencies’ configurations (outgoing
 edge transition).</p>
 
-<h4 id="incoming-edge-transitions">Incoming Edge Transitions</h4>
+<p>NOTE: There is currently no way to attach Starlark transitions to native rules.
+If you need to do this, contact
+bazel-discuss@googlegroups.com
+and we can help you try to figure out a workaround.</p>
+
+<h3 id="incoming-edge-transitions">Incoming edge transitions</h3>
 <p>Incoming edge transitions are activated by attaching a <code class="highlighter-rouge">transition</code> object
 (created by <code class="highlighter-rouge">transition()</code>) to <code class="highlighter-rouge">rule()</code>’s <code class="highlighter-rouge">cfg</code> parameter:</p>
 
@@ -823,7 +900,7 @@ edge transition).</p>
 
 <p>Incoming edge transitions must be 1:1 transitions.</p>
 
-<h3 id="outgoing-edge-transitions">Outgoing Edge Transitions</h3>
+<h3 id="outgoing-edge-transitions">Outgoing edge transitions</h3>
 <p>Outgoing edge transitions are activated by attaching a <code class="highlighter-rouge">transition</code> object
 (created by <code class="highlighter-rouge">transition()</code>) to an attribute’s <code class="highlighter-rouge">cfg</code> parameter:</p>
 
@@ -836,8 +913,11 @@ edge transition).</p>
 </code></pre></div></div>
 <p>Outgoing edge transitions can be 1:1 or 1:2+.</p>
 
-<h3 id="transitions-on-native-options">Transitions on Native Options</h3>
-<p>WARNING: This feature will be deprecated soon. Use at your own risk.</p>
+<h3 id="transitions-on-native-options">Transitions on native options</h3>
+<p>WARNING: Long term, we plan to reimplement all native options as build settings.
+When that happens, this syntax will be deprecated. Currently other issues are
+blocking that migration but be aware you may have to migrate your transitions
+at some point in the future.</p>
 
 <p>Starlark transitions can also declare reads and writes on native options via
 a special prefix to the option name.</p>
@@ -853,7 +933,11 @@ a special prefix to the option name.</p>
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"//command_line_option:cpu"</span><span class="p">]</span>
 </code></pre></div></div>
 
-<h3 id="accessing-attributes-with-transitions">Accessing Attributes with Transitions</h3>
+<p>NOTE: Transitioning on –define using “//command_line_option:define” is not
+supported - create a custom <a href="#users-defined-build-settings">build setting</a> to
+cover this functionality.</p>
+
+<h3 id="accessing-attributes-with-transitions">Accessing attributes with transitions</h3>
 <p>When <a href="#outgoing-edge-transitions">attaching a transition to an outgoing edge</a>
 (regardless of whether the transition is a 1:1 or 1:2+ transition) access to
 values of that attribute in the rule implementation changes. Access through
@@ -890,18 +974,72 @@ this list is unspecified.</p>
 <p>Access to the value of a single branch of a 1:2+
 <a href="https://github.com/bazelbuild/bazel/issues/8633">has not been implemented yet</a>.</p>
 
-<h2 id="integration-with-platforms-and-toolchains">Integration with Platforms and Toolchains</h2>
+<h2 id="integration-with-platforms-and-toolchains">Integration with platforms and toolchains</h2>
 <p>Many native flags today, like <code class="highlighter-rouge">--cpu</code> and <code class="highlighter-rouge">--crosstool_top</code> are related to
 toolchain resolution. In the future, explicit transitions on these types of
 flags will likely be replaced by transitioning on the
 <a href="../platforms.html">target platform</a></p>
 
-<h2 id="also-see">Also See:</h2>
+<h2 id="also-see">Also see</h2>
 
 <ul>
   <li><a href="https://docs.google.com/document/d/1vc8v-kXjvgZOdQdnxPTaV0rrLxtP2XwnD2tAZlYJOqw/edit?usp=sharing">Starlark Build Configuration</a></li>
   <li><a href="https://bazel.build/roadmaps/configuration.html">Bazel Configurability Roadmap</a></li>
 </ul>
+
+<h2 id="memory-and-performance-considerations">Memory and performance considerations</h2>
+
+<p>Adding transitions, and therefore new configurations, to your build comes at a
+cost: larger build graphs, less comprehensible build graphs, and slower
+builds. It’s worth considering these costs when considering
+using transitions in your build rules. Below is an example of how a transition
+might create exponential growth of your build graph.</p>
+
+<h3 id="badly-behaved-builds-a-case-study">Badly behaved builds: a case study</h3>
+<p>Say you have the following target structure:</p>
+
+<p><img src="scalability-graph.png" width="600px" alt="a graph showing a top level target, //pkg:app, which depends on two targets, //pkg:1_0 and //pkg:1_1. Both these targets depend on two targets, //pkg:2_0 and //pkg:2_1. Both these targets depend on two targets, //pkg:3_0 and //pkg:3_1. This continues on until //pkg:n_0 and //pkg:n_1, which both depend on a single target, //pkg:dep." /></p>
+
+<p>Building <code class="highlighter-rouge">//pkg:app</code> requires \(2n+2\) targets:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">//pkg:app</code></li>
+  <li><code class="highlighter-rouge">//pkg:dep</code></li>
+  <li><code class="highlighter-rouge">//pkg:i_0</code> and <code class="highlighter-rouge">//pkg:i_1</code> for \(i\) in \([1..n]\)</li>
+</ul>
+
+<p>Imagine you <a href="#user-defined-build-settings">implement</a>) a flag
+<code class="highlighter-rouge">--//foo:owner=&lt;STRING&gt;</code> and <code class="highlighter-rouge">//pkg:i_b</code> applies</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>depConfig = myConfig + depConfig.owner="$(myConfig.owner)$(b)"
+</code></pre></div></div>
+
+<p>In other words, <code class="highlighter-rouge">//pkg:i_b</code> appends <code class="highlighter-rouge">b</code> to the old value of <code class="highlighter-rouge">--owner</code> for all
+its deps.</p>
+
+<p>This produces the following <a href="glossary.html#configured-target">configured targets</a>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//pkg:app                              //foo:owner=""
+//pkg:1_0                              //foo:owner=""
+//pkg:1_1                              //foo:owner=""
+//pkg:2_0 (via //pkg:1_0)              //foo:owner="0"
+//pkg:2_0 (via //pkg:1_1)              //foo:owner="1"
+//pkg:2_1 (via //pkg:1_0)              //foo:owner="0"
+//pkg:2_1 (via //pkg:1_1)              //foo:owner="1"
+//pkg:3_0 (via //pkg:1_0 → //pkg:2_0)  //foo:owner="00"
+//pkg:3_0 (via //pkg:1_0 → //pkg:2_1)  //foo:owner="01"
+//pkg:3_0 (via //pkg:1_1 → //pkg:2_0)  //foo:owner="10"
+//pkg:3_0 (via //pkg:1_1 → //pkg:2_1)  //foo:owner="11"
+...
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">//pkg:dep</code> produces \(2^n\) configured targets: <code class="highlighter-rouge">config.owner=</code>
+“\(b_0b_1…b_n\)” for all \(b_i\) in \({0,1}\).</p>
+
+<p>This makes the build graph exponentially larger than the target graph, with
+corresponding memory and performance consequences.</p>
+
+<p>TODO: Add strategies for measurement and mitigation of these issues.</p>
 
           </div>
         </div>
@@ -909,7 +1047,7 @@ flags will likely be replaced by transitioning on the
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Starlark Build Configurations&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/config.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Configurations&body=Documentation URL: https://docs.bazel.build/versions/master/skylark/config.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -923,7 +1061,8 @@ flags will likely be replaced by transitioning on the
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -939,27 +1078,34 @@ flags will likely be replaced by transitioning on the
                 </script>
 
                 <ul class="page-toc">
-<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
-<li class="toc-entry toc-h2"><a href="#current-status">Current Status</a></li>
-<li class="toc-entry toc-h2"><a href="#user-defined-build-settings">User-defined Build Settings</a>
+<li class="toc-entry toc-h2"><a href="#current-status">Current status</a></li>
+<li class="toc-entry toc-h2"><a href="#user-defined-build-settings">User-defined build settings</a>
 <ul class="page-toc-sublist">
-<li class="toc-entry toc-h3"><a href="#defining-build-settings">Defining Build Settings</a></li>
-<li class="toc-entry toc-h3"><a href="#using-build-settings">Using Build Settings</a></li>
-<li class="toc-entry toc-h3"><a href="#label-typed-build-settings">Label-typed Build Settings</a></li>
+<li class="toc-entry toc-h3"><a href="#defining-build-settings">Defining build settings</a></li>
+<li class="toc-entry toc-h3"><a href="#predefined-settings">Predefined settings</a></li>
+<li class="toc-entry toc-h3"><a href="#using-build-settings">Using build settings</a></li>
+<li class="toc-entry toc-h3"><a href="#label-typed-build-settings">Label-typed build settings</a></li>
+<li class="toc-entry toc-h3"><a href="#build-settings-and-select">Build settings and select()</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#build-settings-and-select">Build Settings and Select</a></li>
-<li class="toc-entry toc-h2"><a href="#user-defined-transitions">User-defined Transitions</a>
+<li class="toc-entry toc-h2"><a href="#user-defined-transitions">User-defined transitions</a>
 <ul class="page-toc-sublist">
-<li class="toc-entry toc-h3"><a href="#defining-transitions-in-starlark">Defining Transitions in Starlark</a></li>
-<li class="toc-entry toc-h3"><a href="#attaching-transitions">Attaching Transitions</a></li>
-<li class="toc-entry toc-h3"><a href="#outgoing-edge-transitions">Outgoing Edge Transitions</a></li>
-<li class="toc-entry toc-h3"><a href="#transitions-on-native-options">Transitions on Native Options</a></li>
-<li class="toc-entry toc-h3"><a href="#accessing-attributes-with-transitions">Accessing Attributes with Transitions</a></li>
+<li class="toc-entry toc-h3"><a href="#defining">Defining</a></li>
+<li class="toc-entry toc-h3"><a href="#defining-12-transitions">Defining 1:2+ transitions</a></li>
+<li class="toc-entry toc-h3"><a href="#attaching-transitions">Attaching transitions</a></li>
+<li class="toc-entry toc-h3"><a href="#incoming-edge-transitions">Incoming edge transitions</a></li>
+<li class="toc-entry toc-h3"><a href="#outgoing-edge-transitions">Outgoing edge transitions</a></li>
+<li class="toc-entry toc-h3"><a href="#transitions-on-native-options">Transitions on native options</a></li>
+<li class="toc-entry toc-h3"><a href="#accessing-attributes-with-transitions">Accessing attributes with transitions</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#integration-with-platforms-and-toolchains">Integration with Platforms and Toolchains</a></li>
-<li class="toc-entry toc-h2"><a href="#also-see">Also See:</a></li>
+<li class="toc-entry toc-h2"><a href="#integration-with-platforms-and-toolchains">Integration with platforms and toolchains</a></li>
+<li class="toc-entry toc-h2"><a href="#also-see">Also see</a></li>
+<li class="toc-entry toc-h2"><a href="#memory-and-performance-considerations">Memory and performance considerations</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#badly-behaved-builds-a-case-study">Badly behaved builds: a case study</a></li>
+</ul>
+</li>
 </ul>
             </div>
         </div>
@@ -980,6 +1126,7 @@ flags will likely be replaced by transitioning on the
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -999,6 +1146,7 @@ flags will likely be replaced by transitioning on the
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>

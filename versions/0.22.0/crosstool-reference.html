@@ -1,0 +1,1841 @@
+<!-- /versions/master/foo/bar -> ["master", "foo", "bar"] -->
+<!-- /versions/0.12.3/baz.md -> ["0.12.3", "baz.md"] -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Only show Bazel version in title if it's a release -->
+    <title>Understanding CROSSTOOL - Bazel 0.22.0</title>
+
+    <link rel="canonical" href="/versions/0.22.0/crosstool-reference.html">
+
+    <!-- Webfont -->
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    <!-- metadata -->
+    <meta name="og:title" content="Understanding CROSSTOOL"/>
+    <meta name="og:image" content="/images/bazel-og-image.png"/>
+
+    <!-- google search console verification -->
+    <meta name="google-site-verification" content="ftWLOiP2hnDW4Cw3LUGEaXU83RVIpiyxwaXFFhoakzs" />
+  </head>
+
+  <body>
+        <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.bazel.build/">
+            <img class="navbar-logo" src="/images/bazel-navbar.svg">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="/search.html" id="cse-search-box">
+            <div class="form-group">
+              <input type="hidden" name="cx" value="009927877080525621790:2pxlpaexqpc">
+              <input type="hidden" name="cof" value="FORID:10">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="search" name="q" id="q" class="form-control input-sm" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/">Documentation</a>
+            </li>
+            <li>
+              <a href="https://www.bazel.build/contributing.html">Contribute</a>
+            </li>
+            <li>
+              <a href="https://blog.bazel.build">Blog</a>
+            </li>
+            <li><a href="https://twitter.com/bazelbuild" class="nav-icon"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/bazel" class="nav-icon"><i class="fa fa-stack-overflow"></i></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container vpad">
+      <div class="row">
+        <div class="col-md-2">
+          <a class="btn btn-default btn-lg btn-block sidebar-toggle"
+              data-toggle="collapse" href="#sidebar-nav" aria-expanded="false"
+              aria-controls="sidebar-nav">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Navigation
+          </a>
+
+          <nav class="sidebar collapse" id="sidebar-nav">
+            <select onchange="location.href=this.value">
+                <option value="" selected disabled hidden>Version: 0.22.0</option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/master/crosstool-reference.html">
+                    master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/crosstool-reference.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/crosstool-reference.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/crosstool-reference.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/crosstool-reference.html">
+                    2.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.1.0/crosstool-reference.html">
+                    2.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.0.0/crosstool-reference.html">
+                    2.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.2.0/crosstool-reference.html">
+                    1.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.1.0/crosstool-reference.html">
+                    1.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/1.0.0/crosstool-reference.html">
+                    1.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.1/crosstool-reference.html">
+                    0.29.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.29.0/crosstool-reference.html">
+                    0.29.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.28.0/crosstool-reference.html">
+                    0.28.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.27.0/crosstool-reference.html">
+                    0.27.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.26.0/crosstool-reference.html">
+                    0.26.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.25.0/crosstool-reference.html">
+                    0.25.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.24.0/crosstool-reference.html">
+                    0.24.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.23.0/crosstool-reference.html">
+                    0.23.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.22.0/crosstool-reference.html">
+                    0.22.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.21.0/crosstool-reference.html">
+                    0.21.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.20.0/crosstool-reference.html">
+                    0.20.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.2/crosstool-reference.html">
+                    0.19.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.19.1/crosstool-reference.html">
+                    0.19.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.18.1/crosstool-reference.html">
+                    0.18.1
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.2/crosstool-reference.html">
+                    0.17.2
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/0.17.1/crosstool-reference.html">
+                    0.17.1
+                </option>
+                
+            </select>
+
+            <h3>Home</h3>
+            <ul class="sidebar-nav">
+              <li><a href="/versions/0.22.0/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/0.22.0/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/0.22.0/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/0.22.0/backward-compatibility.html">Backward compatibility</a></li>
+            </ul>
+
+            <h3>Installing Bazel</h3>
+            <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/0.22.0/install.html">Installation overview</a>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#installing-menu" aria-expanded="false"
+                    aria-controls="installing-menu">
+                  Installation steps<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
+
+                   <li><a href="/versions/0.22.0/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/0.22.0/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/0.22.0/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/0.22.0/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/0.22.0/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/0.22.0/completion.html">Command-line completion</a></li>
+                   <li><a href="/versions/0.22.0/ide.html">Integrating with IDEs</a></li>
+                </ul>
+              </li>
+
+              
+            </ul>
+
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/0.22.0/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/0.22.0/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/0.22.0/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/0.22.0/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#using-menu" aria-expanded="false"
+                    aria-controls="using-menu">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
+                  <li><a href="/versions/0.22.0/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/0.22.0/external.html">External dependencies</a></li>
+                  <li><a href="/versions/0.22.0/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#guides-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  Guides<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/0.22.0/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/0.22.0/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/0.22.0/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/0.22.0/windows.html">Building on Windows</a></li>
+                </ul>
+              </li>
+
+              
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#query-menu" aria-expanded="false"
+                    aria-controls="query-menu">
+                  Queries<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
+                  <li><a href="/versions/0.22.0/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/0.22.0/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/0.22.0/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/0.22.0/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/0.22.0/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/0.22.0/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#remote-execution-menu" aria-expanded="false"
+                    aria-controls="remote-execution-menu">
+                  Remote execution<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
+                   <li><a href="/versions/0.22.0/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/0.22.0/remote-execution-rules.html">Guidelines</a></li>
+                   <li>
+                      <a class="sidebar-nav-heading" data-toggle="collapse"
+                          href="#troubleshoot-remote-execution-menu" aria-expanded="false"
+                          aria-controls="troubleshoot-remote-execution-menu">
+                        Troubleshooting<span class="caret"></span>
+                      </a>
+                      <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
+                         <li><a href="/versions/0.22.0/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/0.22.0/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/0.22.0/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
+                      </ul>
+                  </li>
+                   <li><a href="/versions/0.22.0/remote-execution-ci.html">Remote execution and CI</a></li>
+                 </ul>
+              </li>
+
+              <li>
+                  <a class="sidebar-nav-heading" data-toggle="collapse"
+                      href="#remote-caching-menu" aria-expanded="false"
+                      aria-controls="remote-caching-menu">
+                    Remote caching<span class="caret"></span>
+                  </a>
+                  <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
+                     <li><a href="/versions/0.22.0/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/0.22.0/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
+                  </ul>
+              </li>
+              
+             </ul>
+
+           
+           <h4>Rules</h4>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.22.0/be/overview.html">Build encyclopedia</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#android-menu" aria-expanded="false"
+                    aria-controls="android-menu">
+                  Android<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="android-menu">
+                  <li><a href="/versions/0.22.0/tutorial/android-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.22.0/bazel-and-android.html">Android resources</a></li>
+                  <li><a href="/versions/0.22.0/mobile-install.html">Using mobile-install</a></li>
+                  <li><a href="/versions/0.22.0/android-instrumentation-test.html">Android instrumentation tests</a></li>
+                  <li><a href="/versions/0.22.0/android-ndk.html">Android NDK</a></li>
+                  <li><a href="https://plugins.jetbrains.com/plugin/9185-bazel">Android Studio plugin</a></li>
+                </ul>
+              </li>
+
+               <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#apple-menu" aria-expanded="false"
+                    aria-controls="apple-menu">
+                  Apple<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="apple-menu">
+                  <li><a href="/versions/0.22.0/tutorial/ios-app.html">Tutorial</a></li>
+                  <li><a href="/versions/0.22.0/bazel-and-apple.html">Apple resources</a></li>
+                  <li><a href="/versions/0.22.0/migrate-xcode.html">Migrating from Xcode</a></li>
+                  <li><a href="/versions/0.22.0/migrate-cocoapods.html">Converting CocoaPods</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#cpp-menu" aria-expanded="false"
+                    aria-controls="cpp-menu">
+                  C++<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="cpp-menu">
+                  <li><a href="/versions/0.22.0/tutorial/cpp.html">Tutorial</a></li>
+                  <li><a href="/versions/0.22.0/bazel-and-cpp.html">C++ resources</a></li>
+                  <li><a href="/versions/0.22.0/cpp-use-cases.html">C++ use cases</a></li>
+                  <li>
+                    <a href="/versions/0.22.0/cc-toolchain-config-reference.html">
+                      C++ Toolchain Configuration
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.22.0/tutorial/cc-toolchain-config.html">
+                      Tutorial: Configuring C++ Toolchains
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/versions/0.22.0/integrating-with-rules-cc.html">
+                      Integrating with C++ rules
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#java-menu" aria-expanded="false"
+                    aria-controls="java-menu">
+                  Java<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="java-menu">
+                  <li><a href="/versions/0.22.0/tutorial/java.html">Tutorial</a></li>
+                  <li><a href="/versions/0.22.0/bazel-and-java.html">Java resources</a></li>
+                  <li><a href="/versions/0.22.0/migrate-maven.html">Migrating from Maven</a></li>
+                  <li><a href="/versions/0.22.0/generate-workspace.html">Converting Maven dependencies</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#javascript-menu" aria-expanded="false"
+                    aria-controls="javascript-menu">
+                  JavaScript<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="javascript-menu">
+                  <li><a href="/versions/0.22.0/bazel-and-javascript.html">JavaScript resources</a></li>
+                  <li><a href="/versions/0.22.0/build-javascript.html">Building JavaScript</a></li>
+                </ul>
+              </li>
+
+           </ul>
+           
+
+           <h3>Reference</h3>
+           <ul class="sidebar-nav">
+             <li><a href="/versions/0.22.0/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/0.22.0/glossary.html">Glossary</a></li>
+             <li><a href="/versions/0.22.0/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/0.22.0/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/0.22.0/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/0.22.0/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/0.22.0/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/0.22.0/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/0.22.0/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
+             <li><a href="/versions/0.22.0/build-event-protocol.html">Build Event Protocol</a></li>
+             <li><a href="/versions/0.22.0/output_directories.html">Output directory layout</a></li>
+             <li><a href="/versions/0.22.0/platforms.html">Platforms</a></li>
+             <li><a href="/versions/0.22.0/toolchains.html">Toolchains</a></li>
+           </ul>
+
+           <h3>Extending Bazel</h3>
+           <ul class="sidebar-nav">
+              <li><a href="/versions/0.22.0/skylark/concepts.html">Extension overview</a></li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#starlark-concepts" aria-expanded="false"
+                    aria-controls="starlark-concepts">
+                  Concepts<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-concepts">
+                  <li><a href="/versions/0.22.0/skylark/macros.html">Macros</a></li>
+                  <li><a href="/versions/0.22.0/skylark/rules.html">Rules</a></li>
+                  <li><a href="/versions/0.22.0/skylark/depsets.html">Depsets</a></li>
+                  <li><a href="/versions/0.22.0/skylark/aspects.html">Aspects</a></li>
+                  <li><a href="/versions/0.22.0/skylark/repository_rules.html">Repository rules</a></li>
+                  <li><a href="/versions/0.22.0/skylark/config.html">Configurations</a></li>
+                </ul>
+              </li>
+
+	            <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
+                  <li><a href="/versions/0.22.0/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/0.22.0/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/0.22.0/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/0.22.0/skylark/deploying.html">Deploying rules</a></li>
+                  <li><a href="/versions/0.22.0/skylark/windows_tips.html">Writing rules on Windows</a></li>
+                </ul>
+              </li>
+
+              <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
+              <li><a href="/versions/0.22.0/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/0.22.0/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/0.22.0/skylark/language.html">Starlark language</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-md-8">
+          <div class="content">
+            <h1 id="understanding-crosstool">Understanding CROSSTOOL</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#crosstool-proto-structure" id="markdown-toc-crosstool-proto-structure"><code class="highlighter-rouge">CROSSTOOL</code> proto structure</a></li>
+  <li><a href="#toolchain-selection" id="markdown-toc-toolchain-selection">Toolchain selection</a></li>
+  <li><a href="#crosstool-features" id="markdown-toc-crosstool-features"><code class="highlighter-rouge">CROSSTOOL</code> features</a>    <ul>
+      <li><a href="#feature-relationships" id="markdown-toc-feature-relationships">Feature relationships</a></li>
+    </ul>
+  </li>
+  <li><a href="#crosstool-actions" id="markdown-toc-crosstool-actions"><code class="highlighter-rouge">CROSSTOOL</code> actions</a>    <ul>
+      <li><a href="#assembler-actions" id="markdown-toc-assembler-actions">Assembler actions</a></li>
+      <li><a href="#compiler-actions" id="markdown-toc-compiler-actions">Compiler actions</a></li>
+      <li><a href="#link-actions" id="markdown-toc-link-actions">Link actions</a></li>
+      <li><a href="#ar-actions" id="markdown-toc-ar-actions">AR actions</a></li>
+      <li><a href="#lto-actions" id="markdown-toc-lto-actions">LTO actions</a></li>
+    </ul>
+  </li>
+  <li><a href="#crosstool-action_config" id="markdown-toc-crosstool-action_config"><code class="highlighter-rouge">CROSSTOOL</code> <code class="highlighter-rouge">action_config</code></a>    <ul>
+      <li><a href="#tool-messages" id="markdown-toc-tool-messages"><code class="highlighter-rouge">tool</code> messages</a></li>
+      <li><a href="#example-usage" id="markdown-toc-example-usage">Example usage</a></li>
+      <li><a href="#flag-groups" id="markdown-toc-flag-groups">Flag groups</a></li>
+      <li><a href="#conditional-expansion" id="markdown-toc-conditional-expansion">Conditional expansion</a></li>
+    </ul>
+  </li>
+  <li><a href="#crosstool-reference" id="markdown-toc-crosstool-reference"><code class="highlighter-rouge">CROSSTOOL</code> reference</a>    <ul>
+      <li><a href="#crosstool-build-variables" id="markdown-toc-crosstool-build-variables"><code class="highlighter-rouge">CROSSTOOL</code> build variables</a></li>
+      <li><a href="#well-known-features" id="markdown-toc-well-known-features">Well-known features</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>To get hands-on with <code class="highlighter-rouge">CROSSTOOL</code>, see the
+<a href="tutorial/crosstool.html">Configuring <code class="highlighter-rouge">CROSSTOOL</code></a> tutorial.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p><code class="highlighter-rouge">CROSSTOOL</code> is a text file containing a
+<a href="https://developers.google.com/protocol-buffers/docs/overview">protocol buffer</a>
+that provides the necessary level of granularity for configuring the behavior of
+Bazel’s C++ rules. By default, Bazel automatically configures <code class="highlighter-rouge">CROSSTOOL</code> for
+your build, but you have the option to configure it manually. You reference the
+<code class="highlighter-rouge">CROSSTOOL</code> file in your <code class="highlighter-rouge">BUILD</code> file(s) using a <code class="highlighter-rouge">cc_toolchain</code> target and check
+it into source control alongside your project. You can share a single
+<code class="highlighter-rouge">CROSSTOOL</code> file across multiple projects or create separate per-project files.</p>
+
+<p>When a C++ target enters the analysis phase, Bazel selects the appropriate
+<code class="highlighter-rouge">cc_toolchain</code> target based on the BUILD file, then reads the corresponding
+toolchain definition from the <code class="highlighter-rouge">CROSSTOOL</code> file.  The <code class="highlighter-rouge">cc_toolchain</code> target
+passes information from the <code class="highlighter-rouge">CROSSTOOL</code> proto to the C++ target through a
+<code class="highlighter-rouge">CcToolchainProvider</code>.</p>
+
+<p>For example, a compile or link action, instantiated by a rule such as
+<code class="highlighter-rouge">cc_binary</code> or <code class="highlighter-rouge">cc_library</code>, needs the following information:</p>
+
+<ul>
+  <li>The compiler or linker to use</li>
+  <li>Command-line flags for the compiler/linker</li>
+  <li>Configuration flags passed through the <code class="highlighter-rouge">--copt/--linkopt</code> options</li>
+  <li>Environment variables</li>
+  <li>Artifacts needed in the sandbox in which the action executes</li>
+</ul>
+
+<p>All of the above information except the artifacts required in the sandbox is
+specified in the <code class="highlighter-rouge">CROSSTOOL</code> proto.</p>
+
+<p>The artifacts to be shipped to the sandbox are declared in the <code class="highlighter-rouge">cc_toolchain</code>
+target. For example, with the <code class="highlighter-rouge">cc_toolchain.linker_files</code> attribute you can
+specify the linker binary and toolchain libraries to ship into the sandbox.</p>
+
+<h2 id="crosstool-proto-structure"><code class="highlighter-rouge">CROSSTOOL</code> proto structure</h2>
+
+<p>The <code class="highlighter-rouge">CROSSTOOL</code> proto has the following structure:</p>
+
+<ul>
+  <li>
+    <p>Map from <code class="highlighter-rouge">--cpu</code> to toolchain (to be used when <code class="highlighter-rouge">--compiler</code> is not specified
+or when <code class="highlighter-rouge">cc_toolchain_suite.toolchains</code> omits the <code class="highlighter-rouge">cpu</code> entry)</p>
+  </li>
+  <li>Toolchain for a particular <code class="highlighter-rouge">--cpu</code> and <code class="highlighter-rouge">--compiler</code> combination (1)
+    <ul>
+      <li>Static toolchain:
+        <ul>
+          <li><code class="highlighter-rouge">compiler_flags</code></li>
+          <li><code class="highlighter-rouge">linker_flags</code></li>
+          <li><code class="highlighter-rouge">compilation_mode_flags</code></li>
+          <li><code class="highlighter-rouge">linking_mode_flags</code></li>
+        </ul>
+      </li>
+      <li>Dynamic toolchain:
+        <ul>
+          <li><code class="highlighter-rouge">features</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Toolchain for a particular  <code class="highlighter-rouge">--cpu</code> and <code class="highlighter-rouge">--compiler</code> combination (2)</p>
+  </li>
+  <li>
+    <p>Toolchain for a particular  <code class="highlighter-rouge">--cpu</code> and <code class="highlighter-rouge">--compiler</code> combination (3)</p>
+  </li>
+  <li>…</li>
+</ul>
+
+<h2 id="toolchain-selection">Toolchain selection</h2>
+
+<p>The toolchain selection logic operates as follows:</p>
+
+<ol>
+  <li>
+    <p>User specifies a <code class="highlighter-rouge">cc_toolchain_suite</code> target in the <code class="highlighter-rouge">BUILD</code> file and points
+Bazel to the target using the
+<a href="user-manual.html#flag--crosstool_top"><code class="highlighter-rouge">--crosstool_top</code> option</a>.
+The <code class="highlighter-rouge">CROSSTOOL</code> file must reside in the same directory as the
+<code class="highlighter-rouge">BUILD</code> file containing the <code class="highlighter-rouge">cc_toolchain_suite</code> target.</p>
+  </li>
+  <li>
+    <p>The <code class="highlighter-rouge">cc_toolchain_suite</code> target and the <code class="highlighter-rouge">CROSSTOOL</code>
+file reference multiple toolchains. The values of the <code class="highlighter-rouge">--cpu</code> and
+<code class="highlighter-rouge">--compiler </code>flags determine which of those toolchains is selected,
+either based only on the <code class="highlighter-rouge">--cpu</code> flag value, or based on a joint
+<code class="highlighter-rouge">--cpu | --compiler</code> value. The selection process is as follows:</p>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>If the <code class="highlighter-rouge">--compiler</code> option is specified, Bazel selects the
+    corresponding entry from the <code class="highlighter-rouge">cc_toolchain_suite.toolchains</code>
+    attribute with <code class="highlighter-rouge">--cpu | --compiler</code>. If Bazel does not find
+    a corresponding entry, it throws an error.</p>
+  </li>
+  <li>
+    <p>If the <code class="highlighter-rouge">--compiler</code> option is not specified, Bazel selects
+the corresponding entry from the <code class="highlighter-rouge">cc_toolchain_suite.toolchains</code>
+attribute with just <code class="highlighter-rouge">--cpu</code>.</p>
+
+    <p>However, if Bazel does not find a corresponding entry and the
+<code class="highlighter-rouge">--incompatible_disable_cc_toolchain_label_from_crosstool_proto</code>
+option is disabled, Bazel iterates through <code class="highlighter-rouge">default_toolchains</code>
+in the <code class="highlighter-rouge">CROSSTOOL</code> file until it finds an entry where the
+<code class="highlighter-rouge">default_toolchain.cpu</code> value matches the specified <code class="highlighter-rouge">--cpu</code>
+option value. Bazel then reads the <code class="highlighter-rouge">toolchain_identifier</code>
+value to identify the corresponding toolchain, and selects the appropriate
+entry in the <code class="highlighter-rouge">cc_toolchain_suite.toolchains</code> attribute using
+<code class="highlighter-rouge">toolchain.target_cpu | toolchain.compiler</code>.</p>
+  </li>
+  <li>
+    <p>If no flags are specified, Bazel inspects the host system and selects a
+<code class="highlighter-rouge">--cpu</code> value based on its findings. See the
+<a href="https://source.bazel.build/bazel/+/1b73bc37e184e71651eb631223dcce321ba16211:src/main/java/com/google/devtools/build/lib/analysis/config/AutoCpuConverter.java">inspection mechanism code</a>.</p>
+  </li>
+</ul>
+
+<p>Once a toolchain has been selected, corresponding <code class="highlighter-rouge">feature</code> and <code class="highlighter-rouge">action_config</code>
+messages in the <code class="highlighter-rouge">CROSSTOOL</code> file govern the configuration of the build (that is,
+items described earlier in this document). These messages allow the
+implementation of fully fledged C++ features in Bazel without modifying the
+Bazel binary. C++ rules support multiple unique actions documented in detail
+<a href="https://source.bazel.build/bazel/+/4f547a7ea86df80e4c76145ffdbb0c8b75ba3afa:tools/build_defs/cc/action_names.bzl">in the Bazel source code</a>.</p>
+
+<h2 id="crosstool-features"><code class="highlighter-rouge">CROSSTOOL</code> features</h2>
+
+<p>A feature is an entity that requires command-line flags, actions,
+constraints on the execution environment, or dependency alterations. A feature
+can be something as simple as allowing BUILD files to select configurations of
+flags, such as <code class="highlighter-rouge">treat_warnings_as_errors</code>, or interact with the C++ rules and
+include new compile actions and inputs to the compilation, such as
+<code class="highlighter-rouge">header_modules</code> or <code class="highlighter-rouge">thin_lto</code>.</p>
+
+<p>Ideally, a toolchain definition consists of a set of features, where each
+feature consists of one or more flag groups, each defining a list of flags
+that apply to specific Bazel actions.</p>
+
+<p>A feature is specified by name, which allows full decoupling of the <code class="highlighter-rouge">CROSSTOOL</code>
+configuration from Bazel releases. In other words, a Bazel release does not
+affect the behavior of <code class="highlighter-rouge">CROSSTOOL</code> configurations as long as those
+configurations do not require the use of new features.</p>
+
+<p>A feature is enabled in one of the following ways:</p>
+
+<ul>
+  <li>The feature’s <code class="highlighter-rouge">enabled</code> field in the <code class="highlighter-rouge">CROSSTOOL</code> file is set to <code class="highlighter-rouge">true</code>.</li>
+  <li>Bazel or the rule owner explicitly enable it.</li>
+  <li>The user enables it through the <code class="highlighter-rouge">--feature</code> Bazel option or <code class="highlighter-rouge">features</code> rule
+attribute.</li>
+</ul>
+
+<p>Features can have interdependencies, depend on command line flags, <code class="highlighter-rouge">BUILD</code> file
+settings, and other variables.</p>
+
+<h3 id="feature-relationships">Feature relationships</h3>
+
+<p>Dependencies are typically managed directly with Bazel, which simply enforces
+the requirements and manages conflicts intrinsic to the nature of the features
+defined in the build. The toolchain specification allows for more granular
+constraints for use directly within the <code class="highlighter-rouge">CROSSTOOL</code> file that govern feature
+support and expansion. These are:</p>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Constraint</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><pre>requires {
+    feature: 'feature-name-1'
+    feature: 'feature-name-2'
+}</pre>
+   </td>
+   <td>Feature-level. The feature is supported only if the specified required
+       features are enabled. For example, when a feature is only supported in
+       certain build modes (features <code>opt</code>, <code>dbg</code>, or
+       <code>fastbuild</code>). Multiple `requires` statements are
+       satisfied all at once if any one of them is satisfied.
+   </td>
+  </tr>
+  <tr>
+   <td><code>implies: 'feature'</code>
+   </td>
+   <td><p>Feature-level. This feature implies the specified feature. For example, a
+       module compile implies the need for module maps, which can be implemented
+       by a repeated <code>implies</code> string in the feature where each of
+       the strings names a specific feature. Enabling a feature also implicitly
+       enables all features implied by it (that is, it functions recursively).</p>
+       <p>Also provides the ability to factor common subsets of functionality out of
+       a set of features, such as the common parts of sanitizers. Implied
+       features cannot be disabled.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>provides: 'feature'</code>
+   </td>
+   <td><p>Feature-level. Indicates that this feature is one of several mutually
+       exclusive alternate features. For example, all of the sanitizers could
+       specify <code>provides: "sanitizer"</code>.</p>
+       <p>This improves error handling by listing the alternatives if the user asks
+       for two or more mutually exclusive features at once.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><pre>with_feature {
+    feature: 'feature-name-1'
+    not_feature: 'feature-name-2'
+}</pre>
+   </td>
+   <td>Flag set-level. A feature can specify multiple flag sets with multiple
+     <code>with_feature</code> statements. When <code>with_feature</code> is
+     specified, the flag set will only expand to the build command if all of the
+     feature in the specified <code>feature:</code> set are enabled, and all the
+     features specified in <code>not_feature:</code> set are disabled.
+   </td>
+  </tr>
+</table>
+
+<h2 id="crosstool-actions"><code class="highlighter-rouge">CROSSTOOL</code> actions</h2>
+
+<p><code class="highlighter-rouge">CROSSTOOL</code> actions provide the flexibility to modify the circumstances under
+which an action executes without assuming how the action will be run. An
+<code class="highlighter-rouge">action_config</code> specifies the tool binary that an action invokes, while a
+<code class="highlighter-rouge">feature</code> specifies the configuration (flags) that determine how that tool
+behaves when the action is invoked.</p>
+
+<p><a href="#crosstool-features">Features</a> reference <code class="highlighter-rouge">CROSSTOOL</code> actions to signal which
+Bazel actions they affect since <code class="highlighter-rouge">CROSSTOOL</code> actions can modify the Bazel action
+graph. The <code class="highlighter-rouge">CROSSTOOL</code> file includes actions that have flags and tools
+associated with them, such as <code class="highlighter-rouge">c++-compile</code>. Flags are assigned to each action
+by associating them with a feature.</p>
+
+<p>Each <code class="highlighter-rouge">CROSSTOOL</code> action name represents a single type of action performed by
+Bazel, such as compiling or linking. There is, however, a many-to-one
+relationship between <code class="highlighter-rouge">CROSSTOOL</code> actions and Bazel action types, where a Bazel
+action type refers to a Java class that implements an action (such as
+<code class="highlighter-rouge">CppCompileAction</code>). In particular, the “assembler actions” and “compiler
+actions” in the table below are <code class="highlighter-rouge">CppCompileAction</code>, while the link actions are
+<code class="highlighter-rouge">CppLinkAction</code>.</p>
+
+<h3 id="assembler-actions">Assembler actions</h3>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Action</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>preprocess-assemble</code>
+   </td>
+   <td>Assemble with preprocessing. Typically for <code>.S</code> files.
+   </td>
+  </tr>
+  <tr>
+   <td><code>assemble</code>
+   </td>
+   <td>Assemble without preprocessing. Typically for <code>.s</code> files.
+   </td>
+  </tr>
+</table>
+
+<h3 id="compiler-actions">Compiler actions</h3>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Action</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>cc-flags-make-variable</code>
+   </td>
+   <td>Propagates <code>CC_FLAGS</code> to genrules.
+   </td>
+  </tr>
+  <tr>
+   <td><code>c-compile</code>
+   </td>
+   <td>Compile as C.
+   </td>
+  </tr>
+  <tr>
+   <td><code>c++-compile</code>
+   </td>
+   <td>Compile as C++.
+   </td>
+  </tr>
+  <tr>
+   <td><code>c++-header-parsing</code>
+   </td>
+   <td>Run the compiler's parser on a header file to ensure that the header is
+     self-contained, as it will otherwise produce compilation errors. Applies
+     only to toolchains that support modules.
+   </td>
+  </tr>
+</table>
+
+<h3 id="link-actions">Link actions</h3>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Action</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>c++-link-dynamic-library</code>
+   </td>
+   <td>Link a shared library containing all of its dependencies.
+   </td>
+  </tr>
+  <tr>
+   <td><code>c++-link-nodeps-dynamic-library</code>
+   </td>
+   <td>Link a shared library only containing <code>cc_library</code> sources.
+   </td>
+  </tr>
+  <tr>
+   <td><code>c++-link-executable</code>
+   </td>
+   <td>Link a final ready-to-run library.
+   </td>
+  </tr>
+</table>
+
+<h3 id="ar-actions">AR actions</h3>
+
+<p>AR actions assemble object files into archive libraries (<code class="highlighter-rouge">.a</code> files) via <code class="highlighter-rouge">ar</code>
+and encode some semantics into the name.</p>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Action</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>c++-link-static-library</code>
+   </td>
+   <td>Create a static library (archive).
+   </td>
+  </tr>
+</table>
+
+<h3 id="lto-actions">LTO actions</h3>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Action</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>lto-backend</code>
+   </td>
+   <td>ThinLTO action compiling bitcodes into native objects.
+   </td>
+  </tr>
+  <tr>
+   <td><code>lto-index</code>
+   </td>
+   <td>ThinLTO action generating global index.
+   </td>
+  </tr>
+</table>
+
+<h2 id="crosstool-action_config"><code class="highlighter-rouge">CROSSTOOL</code> <code class="highlighter-rouge">action_config</code></h2>
+
+<p>A <code class="highlighter-rouge">CROSSTOOL</code> <code class="highlighter-rouge">action_config</code> is a proto message that describes a Bazel action
+by specifying the tool (binary) to invoke during the action and sets of flags,
+defined by features, that apply constraints to the action’s execution. A
+<code class="highlighter-rouge">CROSSTOOL</code> action takes the following attributes:</p>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Attribute</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>action_name</code>
+   </td>
+    <td>The Bazel action to which this <code>CROSSTOOL</code> action corresponds.
+        Bazel uses this attribute to discover per-action tool and execution
+        requirements.
+   </td>
+  </tr>
+  <tr>
+   <td><code>tool</code>
+   </td>
+   <td>The executable to invoke. This can depend on a feature. A default must be
+       provided.
+   </td>
+  </tr>
+  <tr>
+   <td><code>flag_set</code>
+   </td>
+   <td>A set of flags that applies to a group of actions. Same as for a feature.
+   </td>
+  </tr>
+  <tr>
+   <td><code>env_set</code>
+   </td>
+   <td>A set of environment constraints that applies to a group of actions. Same
+       as for a feature.
+   </td>
+  </tr>
+</table>
+
+<p>A <code class="highlighter-rouge">CROSSTOOL</code> <code class="highlighter-rouge">action_config</code> can require and imply other features and
+<code>action_config</code>s as dictated by the
+<a href="#feature-relationships">feature relationships</a> described earlier. This behavior
+is similar to that of a feature.</p>
+
+<p>The last two attributes are redundant against the corresponding attributes on
+features and are included because some Bazel actions require certain flags or
+environment variables and we want to avoid unnecessary <code class="highlighter-rouge">action_config</code>+<code class="highlighter-rouge">feature</code>
+pairs. Typically, sharing a single feature across multiple <code class="highlighter-rouge">action_config</code>s is
+preferred.</p>
+
+<p>You can not define more than one <code class="highlighter-rouge">CROSSTOOL</code> <code class="highlighter-rouge">action_config</code> with the same
+<code class="highlighter-rouge">action_name</code> within the same toolchain. This prevents ambiguity in tool paths
+and enforces the intention behind <code class="highlighter-rouge">action_config</code> - that an action’s properties
+are clearly described in a single place in the toolchain.</p>
+
+<h3 id="tool-messages"><code class="highlighter-rouge">tool</code> messages</h3>
+
+<p>A <code class="highlighter-rouge">CROSSTOOL</code> <code class="highlighter-rouge">action_config</code> can specify a set of tools via <code class="highlighter-rouge">tool</code> messages.
+A <code class="highlighter-rouge">tool</code> message consists of the following fields:</p>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Field</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><code>tool_path</code>
+   </td>
+   <td>Path to the tool in question (relative to the <code>CROSSTOOL</code>
+       file).
+   </td>
+  </tr>
+  <tr>
+   <td><code>with_feature</code>
+   </td>
+   <td>A set of features that must be enabled for this tool to apply.
+   </td>
+  </tr>
+</table>
+
+<p>For a given <code class="highlighter-rouge">CROSSTOOL</code> <code class="highlighter-rouge">action_config</code>, only a single <code class="highlighter-rouge">tool</code> message applies
+its tool path and execution requirements to the Bazel action. A tool is selected
+by sequentially parsing <code class="highlighter-rouge">tool</code> messages on an <code class="highlighter-rouge">action_config</code> until a tool with
+a <code class="highlighter-rouge">with_feature</code> set matching the feature configuration is found
+(see <a href="#feature-relationships">Feature relationships</a> earlier in this document
+for more information). We recommend that you end your tool lists with a default
+tool that corresponds to an empty feature configuration.</p>
+
+<h3 id="example-usage">Example usage</h3>
+
+<p>Features and <code class="highlighter-rouge">CROSSTOOL</code> actions can be used together to implement Bazel actions
+with diverse cross-platform semantics. For example, debug symbol generation on
+macOS requires generating symbols in the compile action, then invoking a
+specialized tool during the link action to create  compressed dsym archive, and
+then decompressing that archive to produce the application bundle and <code class="highlighter-rouge">.plist</code>
+files consumable by Xcode.</p>
+
+<p>With Bazel, this process can instead be implemented as follows, with
+<code class="highlighter-rouge">unbundle-debuginfo</code> being a Bazel action:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>toolchain {
+    action_config {
+        config_name: "c++-link-executable"
+        action_name: "c++-link-executable"
+        tool {
+          with_feature { feature: "generate-debug-symbols" }
+          tool_path: "toolchain/mac/ld-with-dsym-packaging"
+        }
+        tool {
+          tool_path: "toolchain/mac/ld"
+        }
+    }
+
+    feature {
+        name: "generate-debug-symbols"
+        flag_set {
+            action: "c-compile"
+            action: "c++-compile"
+            flag_group {
+                flag: "-g"
+            }
+        }
+        implies: "unbundle-debuginfo"
+    }
+}
+</code></pre></div></div>
+
+<p>This same feature can be implemented entirely differently for Linux, which uses
+<code class="highlighter-rouge">fission</code>, or for Windows, which produces <code class="highlighter-rouge">.pdb</code> files.  For example, the
+implementation for <code class="highlighter-rouge">fission</code>-based debug symbol generation might look as
+follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>toolchain {
+    action_config {
+        name: "c++-compile"
+        tool {
+            tool_path: "toolchain/bin/gcc"
+        }
+    }
+
+    feature {
+        name: "generate-debug-symbols"
+        requires { feature: "dbg" }
+        flag_set {
+            action: "c++-compile"
+            flag_group {
+                flag: "-gsplit-dwarf"
+            }
+        }
+        flag_set {
+            action: "c++-link-executable"
+            flag_group {
+                flag: "-Wl"
+                flag: "--gdb-index"
+            }
+        }
+      }
+    }
+}
+</code></pre></div></div>
+
+<h3 id="flag-groups">Flag groups</h3>
+
+<p><code class="highlighter-rouge">CROSSTOOL</code> allows you to bundle flags into groups that serve a specific purpose.
+You can specify a flag within the <code class="highlighter-rouge">CROSSTOOL</code> file using pre-defined variables
+within the flag value, which the compiler expands when adding the flag to the
+build command. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag_group {
+    flag: "%{output_file_path}"
+}
+</code></pre></div></div>
+
+<p>In this case, the contents of the flag will be replaced by the output file path
+of the action.</p>
+
+<p>Flag groups are expanded to the build command in the order in which they appear
+in the <code class="highlighter-rouge">CROSSTOOL</code> file, top-to-bottom, left-to-right.</p>
+
+<p>For flags that need to repeat with different values when added to the build
+command, the flag group can iterate variables of type <code class="highlighter-rouge">list</code>. For example, the
+variable <code class="highlighter-rouge">include_path</code> of type <code class="highlighter-rouge">list</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag_group {
+    iterate_over: "include_paths"
+    flag: "-I%{include_paths}"
+}
+</code></pre></div></div>
+
+<p>expands to <code class="highlighter-rouge">-I&lt;path&gt;</code> for each path element in the <code class="highlighter-rouge">include_paths</code> list. All
+flags (or <code class="highlighter-rouge">flag_group</code>s) in the body of a flag group declaration are expanded as
+a unit. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag_group {
+    iterate_over: "include_paths"
+    flag: "-I"
+    flag: "%{include_paths}"
+}
+</code></pre></div></div>
+
+<p>expands to <code class="highlighter-rouge">-I &lt;path&gt;</code> for each path element in the <code class="highlighter-rouge">include_paths</code> list.</p>
+
+<p>A variable can repeat multiple times. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag_group {
+    iterate_over: "include_paths"
+    flag: "-iprefix=%{include_paths}"
+    flag: "-isystem=%{include_paths}"
+}
+</code></pre></div></div>
+
+<p>expands to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-iprefix=&lt;inc0&gt; -isystem=&lt;inc0&gt; -iprefix=&lt;inc1&gt; -isystem=&lt;inc1&gt;
+</code></pre></div></div>
+
+<p>Variables can correspond to structures accessible using dot-notation. For
+example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag_group {
+    flag: "-l%{libraries_to_link.name}"
+}
+</code></pre></div></div>
+
+<p>Structures can be nested and may also contain sequences. To prevent name clashes
+and to be explicit, you must specify the full path through the fields. For
+example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag_group {
+    iterate_over: "libraries_to_link"
+    flag_group {
+        iterate_over: "libraries_to_link.shared_libraries"
+        flag: "-l%{libraries_to_link.shared_libraries.name}"
+    }
+}
+</code></pre></div></div>
+
+<h3 id="conditional-expansion">Conditional expansion</h3>
+
+<p>Flag groups support conditional expansion based on the presence of a particular
+variable or its field using the <code class="highlighter-rouge">expand_if_all_available</code>, <code class="highlighter-rouge">expand_if_none_available</code>,
+<code class="highlighter-rouge">expand_if_true</code>, <code class="highlighter-rouge">expand_if_false</code>, or <code class="highlighter-rouge">expand_if_equal</code> messages. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag_group {
+    iterate_over: "libraries_to_link"
+    flag_group {
+        iterate_over: "libraries_to_link.shared_libraries"
+        flag_group {
+            expand_if_all_available: "libraries_to_link.shared_libraries.is_whole_archive"
+            flag: "--whole_archive"
+        }
+        flag_group {
+            flag: "-l%{libraries_to_link.shared_libraries.name}"
+        }
+        flag_group {
+            expand_if_all_available: "libraries_to_link.shared_libraries.is_whole_archive"
+            flag: "--no_whole_archive"
+        }
+    }
+}
+</code></pre></div></div>
+
+<p><strong>Note:</strong> The <code class="highlighter-rouge">--whole_archive</code> and <code class="highlighter-rouge">--no_whole_archive</code> options are added to
+the build command only when a currently iterated library has an
+<code class="highlighter-rouge">is_whole_archive</code> field.</p>
+
+<h2 id="crosstool-reference"><code class="highlighter-rouge">CROSSTOOL</code> reference</h2>
+
+<p>This section provides a reference of build variables, features, and other
+information required to successfully configure <code class="highlighter-rouge">CROSSTOOL</code>.</p>
+
+<h3 id="crosstool-build-variables"><code class="highlighter-rouge">CROSSTOOL</code> build variables</h3>
+
+<p>The following is a reference of <code class="highlighter-rouge">CROSSTOOL</code> build variables.</p>
+
+<p><strong>Note:</strong> The <strong>Action</strong> column indicates the relevant action type, if applicable.</p>
+
+<table>
+  <tr>
+   <td><strong>Variable</strong>
+   </td>
+   <td><strong>Action</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>source_file</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Source file to compile.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>input_file</code></strong>
+   </td>
+   <td>strip</td>
+   <td>Artifact to strip.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>output_file</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Compilation output.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>output_assembly_file</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Emitted assembly file. Applies only when the
+       <code>compile</code> action emits assembly text, typically when using the
+       <code>--save_temps</code> flag. The contents are the same as for
+       <code>output_file</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>output_preprocess_file</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Preprocessed output. Applies only to compile
+       actions that only preprocess the source files, typically when using the
+     <code>--save_temps</code> flag. The contents are the same as for
+     <code>output_file</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>includes</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Sequence of files the compiler must
+       unconditionally include in the compiled source.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>include_paths</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Sequence directories in which the compiler
+       searches for headers included using <code>#include&lt;foo.h&gt;</code>
+       and <code>#include "foo.h"</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>quote_include_paths</code></strong>
+   <td>compile</td>
+   </td>
+   <td>Sequence of <code>-iquote</code> includes -
+       directories in which the compiler searches for headers included using
+       <code>#include&lt;foo.h&gt;</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>system_include_paths</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Sequence of <code>-isystem</code> includes -
+       directories in which the compiler searches for headers included using
+       <code>#include "foo.h"</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>dependency_file</code></strong>
+   </td>
+   <td>compile</td>
+   <td>The <code>.d</code> dependency file generated by the compiler.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>preprocessor_defines</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Sequence of <code>defines</code>, such as <code>--DDEBUG</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>pic</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Compiles the output as position-independent code.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>gcov_gcno_file</code></strong>
+   </td>
+   <td>compile</td>
+   <td>The <code>gcov</code> coverage file.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>per_object_debug_info_file</code></strong>
+   </td>
+   <td>compile</td>
+   <td>The per-object debug info (<code>.dwp</code>) file.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>stripotps</code></strong>
+   </td>
+   <td>strip</td>
+   <td>Sequence of <code>stripopts</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>legacy_compile_flags</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Sequence of flags from legacy
+       <code>CROSSTOOL</code> fields such as <code>compiler_flag</code>,
+       <code>optional_compiler_flag</code>, <code>cxx_flag</code>, and
+       <code>optional_cxx_flag</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>user_compile_flags</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Sequence of flags from either the
+       <code>copt</code> rule attribute or the <code>--copt</code>,
+       <code>--cxxopt</code>, and <code>--conlyopt</code> flags.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>unfiltered_compile_flags</code></strong>
+   </td>
+   <td>compile</td>
+   <td>Sequence of flags from the
+     <code>unfiltered_cxx_flag</code> legacy <code>CROSSTOOL</code> field or the
+       <code>unfiltered_compile_flags</code> feature. These are not filtered by
+       the <code>nocopts</code> rule attribute.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>sysroot</code></strong>
+   </td>
+   <td></td>
+   <td>The <code>sysroot</code>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>runtime_library_search_directories</code></strong>
+   </td>
+   <td>link</td>
+   <td>Entries in the linker runtime search path (usually
+       set with the <code>-rpath</code> flag).
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>library_search_directories</code></strong>
+   </td>
+   <td>link</td>
+   <td>Entries in the linker search path (usually set with
+       the <code>-L</code> flag).
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>libraries_to_link</code></strong>
+   </td>
+   <td>link</td>
+   <td>Flags providing files to link as inputs in the linker invocation.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>def_file_path</code></strong>
+   </td>
+   <td>link</td>
+   <td>Location of def file used on Windows with MSVC.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>linker_param_file</code></strong>
+   </td>
+   <td>link</td>
+   <td>Location of linker param file created by bazel to
+       overcome command line length limit.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>output_execpath</code></strong>
+   </td>
+   <td>link</td>
+   <td>Execpath of the output of the linker.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>generate_interface_library</code></strong>
+   </td>
+   <td>link</td>
+   <td><code>"yes"</code> or <code>"no"</code> depending on whether interface library should
+       be generated.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>interface_library_builder_path</code></strong>
+   </td>
+   <td>link</td>
+   <td>Path to the interface library builder tool.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>interface_library_input_path</code></strong>
+   </td>
+   <td>link</td>
+   <td>Input for the interface library <code>ifso</code> builder tool.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>interface_library_output_path</code></strong>
+   </td>
+   <td>link</td>
+   <td>Path where to generate interface library using the <code>ifso</code> builder tool.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>legacy_link_flags</code></strong>
+   </td>
+   <td>link</td>
+   <td>Linker flags coming from the legacy <code>CROSSTOOL</code> fields.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>user_link_flags</code></strong>
+   </td>
+   <td>link</td>
+   <td>Linker flags coming from the <code>--linkopt</code>
+       or <code>linkopts</code> attribute.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>symbol_counts_output</code></strong>
+   </td>
+   <td>link</td>
+   <td>Path to which to write symbol counts.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>linkstamp_paths</code></strong>
+   </td>
+   <td>link</td>
+   <td>A build variable giving linkstamp paths.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>force_pic</code></strong>
+   </td>
+   <td>link</td>
+   <td>Presence of this variable indicates that PIC/PIE code should
+     be generated (Bazel option `--force_pic` was passed).
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>strip_debug_symbols</code></strong>
+   </td>
+   <td>link</td>
+   <td>Presence of this variable indicates that the debug
+       symbols should be stripped.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>is_cc_test</code></strong>
+   </td>
+   <td>link</td>
+   <td>Truthy when current action is a <code>cc_test</code>
+       linking action, false otherwise.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>is_using_fission</code></strong>
+   </td>
+   <td>link</td>
+   <td>Presence of this variable indicates that files were
+       compiled with fission. Debug info is in <code>.dwo</code> files instead
+       of <code>.o</code> files and the linker needs to know this.
+   </td>
+  </tr>
+</table>
+
+<h3 id="well-known-features">Well-known features</h3>
+
+<p>The following is a reference of <code class="highlighter-rouge">CROSSTOOL</code> features and their activation
+conditions.</p>
+
+<table>
+  <col width="300" />
+  <col width="600" />
+  <tr>
+   <td><strong>Feature</strong>
+   </td>
+   <td><strong>Documentation</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>opt | dbg | fastbuild</code></strong>
+   </td>
+   <td>Enabled by default based on compilation mode.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>static_linking_mode | dynamic_linking_mode</code></strong>
+   </td>
+   <td>Enabled by default based on linking mode.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>per_object_debug_info</code></strong>
+   </td>
+    <td>Enabled if the <code>supports_fission</code> attribute is set in the
+        <code>CROSSTOOL</code> file and the current compilation mode is specified in the
+        <code>--fission</code> flag.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>supports_start_end_lib</code></strong>
+   </td>
+   <td>If enabled (and the option <code>--start_end_lib</code> is set), Bazel
+     will not link against static libraries but instead use the
+     <code>--start-lib/--end-lib</code> linker options to link against objects
+     directly. This speeds up the build since Bazel doesn't have to build
+     static libraries.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>supports_interface_shared_libraries</code></strong>
+   </td>
+   <td>If enabled (and the option <code>--interface_shared_objects</code> is
+     set), Bazel will link targets that have <code>linkstatic</code> set to
+     False (<code>cc_test</code>s by default) against interface shared
+     libraries. This makes incremental relinking faster.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>supports_dynamic_linker</code></strong>
+   </td>
+   <td>If enabled, C++ rules will know the toolchain can produce shared
+     libraries.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>static_link_cpp_runtimes</code></strong>
+   </td>
+   <td>If enabled, Bazel will link the C++ runtime statically in static linking
+     mode and dynamically in dynamic linking mode. Artifacts
+     specified in the <code>cc_toolchain.static_runtime_lib</code> or
+     <code>cc_toolchain.dynamic_runtime_lib</code> attribute (depending on the
+     linking mode) will be added to the linking actions.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><code>supports_pic</code></strong>
+   </td>
+   <td>If enabled, toolchain will know to use PIC objects for dynamic libraries.
+     The `pic` variable is present whenever PIC compilation is needed. If not enabled
+     by default, and `--force_pic` is passed, Bazel will request `supports_pic` and
+     validate that the feature is enabled. If the feature is missing, or couldn't
+      be enabled, `--force_pic` cannot be used.
+   </td>
+  </tr>
+</table>
+
+          </div>
+        </div>
+
+        <div class="col-md-2 sticky-sidebar">
+            <div class="right-sidebar">
+                <ul class="gh-links">
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Understanding CROSSTOOL&body=Documentation URL: https://docs.bazel.build/versions/0.22.0/crosstool-reference.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
+                </ul>
+                <script>
+                 var versionDocsURLRegex = /\/versions\/[\w\.]+\/(.*)/;
+                 var ghDocsBazeURL = 'https://github.com/bazelbuild/bazel/tree/master/site/docs/';
+                 var editButton = document.getElementById('gh-edit');
+                 var editButtonListItem = document.getElementById('gh-edit-list-item');
+                 // if there is an edit button and we are not in the Build Encyclopedia
+                 // or other generated files.
+                 if (editButton
+                     && window.location.pathname.match(versionDocsURLRegex)
+                     && window.location.pathname.lastIndexOf('/be/') == -1
+                     && window.location.pathname.lastIndexOf('/repo/') == -1
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
+                     var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
+                     // some pages are not using markdown :(
+                     if (docFile !== 'user-manual.html'
+                         && docFile !== 'build-ref.html'
+                         && docFile !== 'query.html'
+                         && docFile !== 'test-encyclopedia.html') {
+                         docFile = docFile.replace('html', 'md');
+                     }
+                     editButton.href = ghDocsBazeURL + docFile;
+                     editButton.style.visibility = 'visible';
+                     editButtonListItem.style.visibility = 'visible';
+                 }
+                </script>
+
+                <ul class="page-toc">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#crosstool-proto-structure">CROSSTOOL proto structure</a></li>
+<li class="toc-entry toc-h2"><a href="#toolchain-selection">Toolchain selection</a></li>
+<li class="toc-entry toc-h2"><a href="#crosstool-features">CROSSTOOL features</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#feature-relationships">Feature relationships</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#crosstool-actions">CROSSTOOL actions</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#assembler-actions">Assembler actions</a></li>
+<li class="toc-entry toc-h3"><a href="#compiler-actions">Compiler actions</a></li>
+<li class="toc-entry toc-h3"><a href="#link-actions">Link actions</a></li>
+<li class="toc-entry toc-h3"><a href="#ar-actions">AR actions</a></li>
+<li class="toc-entry toc-h3"><a href="#lto-actions">LTO actions</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#crosstool-action_config">CROSSTOOL action_config</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#tool-messages">tool messages</a></li>
+<li class="toc-entry toc-h3"><a href="#example-usage">Example usage</a></li>
+<li class="toc-entry toc-h3"><a href="#flag-groups">Flag groups</a></li>
+<li class="toc-entry toc-h3"><a href="#conditional-expansion">Conditional expansion</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#crosstool-reference">CROSSTOOL reference</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#crosstool-build-variables">CROSSTOOL build variables</a></li>
+<li class="toc-entry toc-h3"><a href="#well-known-features">Well-known features</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satisfaction Survey -->
+    <script async="" defer="" src="//www.google.com/insights/consumersurveys/async_survey?site=hihwpyy5e5kllsq62elzjrcgn4"></script>
+
+        <footer class="footer">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <p>About</p>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/bazelbuild/bazel/wiki/Bazel-Users">Who's Using Bazel?</a></li>
+        <li><a href="https://www.bazel.build/roadmap.html">Roadmap</a></li>
+        <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
+        <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
+        <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Support</p>
+      <ul class="list-unstyled">
+        <li><a href="http://stackoverflow.com/questions/tagged/bazel">Stack Overflow</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel/issues">Issue Tracker</a></li>
+        <li><a href="/">Documentation</a></li>
+        <li><a href="https://www.bazel.build/faq.html">FAQ</a></li>
+        <li><a href="https://www.bazel.build/support.html">Support Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <p>Stay Connected</p>
+      <ul class="list-unstyled">
+        <li><a href="https://twitter.com/bazelbuild">Twitter</a></li>
+        <li><a href="https://blog.bazel.build">Blog</a></li>
+        <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="text-muted">&copy; 2020 Google</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Anchor JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+    <script>
+      // Automatically add anchors and links to all header elements that don't already have them.
+      anchors.add();
+    </script>
+
+    <script>
+      var shiftWindow = function() {
+        if (location.hash.length !== 0) {
+          window.scrollBy(0, -50);
+        }
+      };
+      window.addEventListener("hashchange", shiftWindow);
+
+      var highlightCurrentSidebarNav = function() {
+        var href = location.pathname;
+        var item = $('#sidebar-nav [href$="' + href + '"]');
+        if (item) {
+          var li = item.parent();
+          li.addClass("active");
+
+          if (li.parent() && li.parent().is("ul")) {
+            do {
+              var ul = li.parent();
+              if (ul.hasClass("collapse")) {
+                ul.collapse("show");
+              }
+              li = ul.parent();
+            } while (li && li.is("li"));
+          }
+        }
+      };
+
+      $(document).ready(function() {
+        // Scroll to anchor of location hash, adjusted for fixed navbar.
+        window.setTimeout(function() {
+          shiftWindow();
+        }, 1);
+
+        // Flip the caret when submenu toggles are clicked.
+        $(".sidebar-submenu").on("show.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.addClass("dropup");
+          }
+        });
+        $(".sidebar-submenu").on("hide.bs.collapse", function() {
+          var toggle = $('[href$="#' + $(this).attr('id') + '"]');
+          if (toggle) {
+            toggle.removeClass("dropup");
+          }
+        });
+
+        // Highlight the current page on the sidebar nav.
+        highlightCurrentSidebarNav();
+      });
+    </script>
+
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61082125-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
+

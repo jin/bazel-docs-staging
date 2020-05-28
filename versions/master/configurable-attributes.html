@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Only show Bazel version in title if it's a release -->
-    <title>Configurable Build Attributes - Bazel </title>
+    <title>Configurable build attributes - Bazel </title>
 
     <link rel="canonical" href="/versions/master/configurable-attributes.html">
 
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
     <!-- metadata -->
-    <meta name="og:title" content="Configurable Build Attributes"/>
+    <meta name="og:title" content="Configurable build attributes"/>
     <meta name="og:image" content="/images/bazel-og-image.png"/>
 
     <!-- google search console verification -->
@@ -107,6 +107,26 @@
                 <!-- reconstruct absolute url for the current page for each doc version -->
                 <option value="/versions/master/configurable-attributes.html">
                     master
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.2.0/configurable-attributes.html">
+                    3.2.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.1.0/configurable-attributes.html">
+                    3.1.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/3.0.0/configurable-attributes.html">
+                    3.0.0
+                </option>
+                
+                <!-- reconstruct absolute url for the current page for each doc version -->
+                <option value="/versions/2.2.0/configurable-attributes.html">
+                    2.2.0
                 </option>
                 
                 <!-- reconstruct absolute url for the current page for each doc version -->
@@ -216,31 +236,35 @@
                 
             </select>
 
-            <h4>Home</h4>
+            <h3>Home</h3>
             <ul class="sidebar-nav">
-              <li><a href="/versions/master/bazel-overview.html">Bazel Overview</a></li>
-              <li><a href="/versions/master/bazel-vision.html">Bazel Vision</a></li>
-              <li><a href="/versions/master/getting-started.html">Getting Started</a></li>
-              <li><a href="/versions/master/backward-compatibility.html">Backward Compatibility</a></li>
+              <li><a href="/versions/master/bazel-overview.html">Bazel overview</a></li>
+              <li><a href="/versions/master/bazel-vision.html">Bazel vision</a></li>
+              <li><a href="/versions/master/getting-started.html">Getting started</a></li>
+              <li><a href="/versions/master/backward-compatibility.html">Backward compatibility</a></li>
             </ul>
 
-            <h4>Installing and Using Bazel</h4>
+            <h3>Installing Bazel</h3>
             <ul class="sidebar-nav">
+
+              <li class="sidebar-nav">
+                <a href="/versions/master/install.html">Installation overview</a>
+              </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#installing-menu" aria-expanded="false"
                     aria-controls="installing-menu">
-                  Installing Bazel<span class="caret"></span>
+                  Installation steps<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="installing-menu">
-                   <li><a href="/versions/master/install.html">Installation Overview</a></li>
-                   <li><a href="/versions/master/install-ubuntu.html">Installing on Ubuntu</a></li>
-                   <li><a href="/versions/master/install-redhat.html">Installing on Fedora/CentOS</a></li>
-                   <li><a href="/versions/master/install-os-x.html">Installing on macOS</a></li>
-                   <li><a href="/versions/master/install-windows.html">Installing on Windows</a></li>
-                   <li><a href="/versions/master/install-compile-source.html">Compiling from Source</a></li>
-                   <li><a href="/versions/master/completion.html">Command-Line Completion</a></li>
+
+                   <li><a href="/versions/master/install-ubuntu.html">Ubuntu</a></li>
+                   <li><a href="/versions/master/install-redhat.html">Fedora/CentOS</a></li>
+                   <li><a href="/versions/master/install-os-x.html">macOS</a></li>
+                   <li><a href="/versions/master/install-windows.html">Windows</a></li>
+                   <li><a href="/versions/master/install-compile-source.html">Compiling from source</a></li>
+                   <li><a href="/versions/master/completion.html">Command-line completion</a></li>
                    <li><a href="/versions/master/ide.html">Integrating with IDEs</a></li>
                 </ul>
               </li>
@@ -250,36 +274,44 @@
                 <a href="/versions/master/updating-bazel.html">Updating Bazel</a>
               </li>
               
+            </ul>
 
+            <h3>Tutorials</h3>
+            <ul class="sidebar-nav">
+                <li><a href="/versions/master/tutorial/cpp.html">C++</a></li>
+                <li><a href="/versions/master/tutorial/java.html">Java</a></li>
+                <li><a href="/versions/master/tutorial/android-app.html">Android</a></li>
+                <li><a href="/versions/master/tutorial/ios-app.html">iOS</a></li>
+            </ul>
+
+            <h3>Using Bazel</h3>
+            <ul class="sidebar-nav">
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#using-menu" aria-expanded="false"
                     aria-controls="using-menu">
-                  Using Bazel<span class="caret"></span>
+                  Concepts<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="using-menu">
-                  <li><a href="/versions/master/build-ref.html">Bazel Concepts</a></li>
-                  <li><a href="/versions/master/guide.html">User's Guide (Bazel commands)</a></li>
-                  <li><a href="/versions/master/external.html">External Dependencies</a></li>
-                  <li><a href="/versions/master/configurable-attributes.html">Configurable Attributes</a></li>
-                  <li><a href="/versions/master/best-practices.html">Best Practices</a></li>
-                  <li><a href="/versions/master/memory-saving-mode.html">Memory-saving Mode</a></li>
-                  <li><a href="/versions/master/windows.html">Using Bazel on Windows</a></li>
+                  <li><a href="/versions/master/build-ref.html">Core concepts</a></li>
+                  <li><a href="/versions/master/external.html">External dependencies</a></li>
+                  <li><a href="/versions/master/configurable-attributes.html">Configurable attributes</a></li>
+                  <li><a href="/versions/master/platforms-intro.html">Platforms and toolchains</a></li>
+                  <li><a href="/versions/master/visibility.html">Visibility</a></li>
                 </ul>
               </li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#build-files-menu" aria-expanded="false"
+                    href="#guides-menu" aria-expanded="false"
                     aria-controls="build-files-menu">
-                  BUILD files<span class="caret"></span>
+                  Guides<span class="caret"></span>
                 </a>
-                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
-                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
-                  <li><a href="/versions/master/be/common-definitions.html">Common Definitions</a></li>
-                  <li><a href="/versions/master/be/make-variables.html">"Make" Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing Variables</a></li>
-                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a Macro</a></li>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="guides-menu">
+                  <li><a href="/versions/master/guide.html">Running Bazel</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-creating-a-macro.html">Creating a macro</a></li>
+                  <li><a href="/versions/master/memory-saving-mode.html">Optimizing memory</a></li>
+                  <li><a href="/versions/master/windows.html">Building on Windows</a></li>
                 </ul>
               </li>
 
@@ -294,10 +326,22 @@
                   Queries<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="query-menu">
-                  <li><a href="/versions/master/query-how-to.html">Bazel query</a></li>
-                  <li><a href="/versions/master/cquery.html">Bazel cquery</a></li>
-                  <li><a href="/versions/master/aquery.html">Bazel aquery</a></li>
-                  <li><a href="/versions/master/query.html">Query Language</a></li>
+                  <li><a href="/versions/master/query-how-to.html">The query command</a></li>
+                  <li><a href="/versions/master/cquery.html">The cquery command</a></li>
+                  <li><a href="/versions/master/aquery.html">The aquery command</a></li>
+                  <li><a href="/versions/master/query.html">Query language</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#best-practices-menu" aria-expanded="false"
+                    aria-controls="best-practices-menu">
+                  Best practices<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="best-practices-menu">
+                  <li><a href="/versions/master/best-practices.html">General best practices</a></li>
+                  <li><a href="/versions/master/skylark/tutorial-sharing-variables.html">Sharing BUILD variables</a></li>
                 </ul>
               </li>
 
@@ -305,24 +349,24 @@
                 <a class="sidebar-nav-heading" data-toggle="collapse"
                     href="#remote-execution-menu" aria-expanded="false"
                     aria-controls="remote-execution-menu">
-                  Remote Execution<span class="caret"></span>
+                  Remote execution<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="remote-execution-menu">
-                   <li><a href="/versions/master/remote-execution.html">Remote Execution Overview</a></li>
-                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines for Remote Execution</a></li>
+                   <li><a href="/versions/master/remote-execution.html">Overview</a></li>
+                   <li><a href="/versions/master/remote-execution-rules.html">Guidelines</a></li>
                    <li>
                       <a class="sidebar-nav-heading" data-toggle="collapse"
                           href="#troubleshoot-remote-execution-menu" aria-expanded="false"
                           aria-controls="troubleshoot-remote-execution-menu">
-                        Troubleshooting Remote Execution<span class="caret"></span>
+                        Troubleshooting<span class="caret"></span>
                       </a>
                       <ul class="collapse sidebar-nav sidebar-submenu" id="troubleshoot-remote-execution-menu">
-                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting Remote Execution with Bazel Sandbox</a></li>
-                         <li><a href="/versions/master/workspace-log.html">Finding non-hermetic behavior in WORKSPACE rules</a></li>
-                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging Remote Cache Hit Rate</a></li>
+                         <li><a href="/versions/master/remote-execution-sandbox.html">Troubleshooting with Bazel sandbox</a></li>
+                         <li><a href="/versions/master/workspace-log.html">Non-hermetic WORKSPACE rules</a></li>
+                         <li><a href="/versions/master/remote-execution-caching-debug.html">Debugging remote cache hits</a></li>
                       </ul>
                   </li>
-                   <li><a href="/versions/master/remote-execution-ci.html">Configuring Bazel CI for Remote Execution Rule Testing</a></li>
+                   <li><a href="/versions/master/remote-execution-ci.html">Remote execution and CI</a></li>
                  </ul>
               </li>
 
@@ -330,35 +374,49 @@
                   <a class="sidebar-nav-heading" data-toggle="collapse"
                       href="#remote-caching-menu" aria-expanded="false"
                       aria-controls="remote-caching-menu">
-                    Remote Caching<span class="caret"></span>
+                    Remote caching<span class="caret"></span>
                   </a>
                   <ul class="collapse sidebar-nav sidebar-submenu" id="remote-caching-menu">
-                     <li><a href="/versions/master/remote-caching.html">Remote Caching Overview</a></li>
-                     <li><a href="/versions/master/remote-caching-debug.html">Debugging Remote Cache Hit Rate for Local Execution</a></li>
+                     <li><a href="/versions/master/remote-caching.html">Overview</a></li>
+                     <li><a href="/versions/master/remote-caching-debug.html">Debugging remote cache hits with local execution</a></li>
                   </ul>
               </li>
-              
-              <li><a href="/versions/master/platforms-intro.html">Building With Platforms</a></li>
               
              </ul>
 
            
 
-           <h4>Reference</h4>
+           <h3>Reference</h3>
            <ul class="sidebar-nav">
-             <li><a href="/versions/master/user-manual.html">Commands and Options</a></li>
-             <li><a href="/versions/master/skylark/build-style.html">BUILD Style Guide</a></li>
-             <li><a href="/versions/master/command-line-reference.html">Command Line Reference</a></li>
-             <li><a href="/versions/master/test-encyclopedia.html">Writing Tests</a></li>
+             <li><a href="/versions/master/user-manual.html">Commands and options</a></li>
+             <li><a href="/versions/master/glossary.html">Glossary</a></li>
+             <li><a href="/versions/master/be/overview.html">Build encyclopedia</a></li>
+             <li><a href="/versions/master/test-encyclopedia.html">Test encyclopedia</a></li>
+             <li><a href="/versions/master/command-line-reference.html">Command line reference</a></li>
+
+             <li>
+                <a class="sidebar-nav-heading" data-toggle="collapse"
+                    href="#build-files-menu" aria-expanded="false"
+                    aria-controls="build-files-menu">
+                  BUILD files<span class="caret"></span>
+                </a>
+                <ul class="collapse sidebar-nav sidebar-submenu" id="build-files-menu">
+                  <li><a href="/versions/master/be/functions.html">Functions</a></li>
+                  <li><a href="/versions/master/be/common-definitions.html">Common rule definitions</a></li>
+                  <li><a href="/versions/master/be/make-variables.html">"Make" variables</a></li>
+                  <li><a href="/versions/master/skylark/build-style.html">BUILD style guide</a></li>
+                </ul>
+             </li>
+
              <li><a href="/versions/master/build-event-protocol.html">Build Event Protocol</a></li>
-             <li><a href="/versions/master/output_directories.html">Output Directory Layout</a></li>
+             <li><a href="/versions/master/output_directories.html">Output directory layout</a></li>
              <li><a href="/versions/master/platforms.html">Platforms</a></li>
              <li><a href="/versions/master/toolchains.html">Toolchains</a></li>
            </ul>
 
-            <h4>Extending Bazel</h4>
+           <h3>Extending Bazel</h3>
            <ul class="sidebar-nav">
-              <li><a href="/versions/master/skylark/concepts.html">Extension Overview</a></li>
+              <li><a href="/versions/master/skylark/concepts.html">Extension overview</a></li>
 
               <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
@@ -371,70 +429,39 @@
                   <li><a href="/versions/master/skylark/rules.html">Rules</a></li>
                   <li><a href="/versions/master/skylark/depsets.html">Depsets</a></li>
                   <li><a href="/versions/master/skylark/aspects.html">Aspects</a></li>
-                  <li><a href="/versions/master/skylark/repository_rules.html">Repository Rules</a></li>
+                  <li><a href="/versions/master/skylark/repository_rules.html">Repository rules</a></li>
                   <li><a href="/versions/master/skylark/config.html">Configurations</a></li>
-                  <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
                 </ul>
               </li>
 
-              <li>
+	            <li>
                 <a class="sidebar-nav-heading" data-toggle="collapse"
-                    href="#starlark-practices" aria-expanded="false"
-                    aria-controls="starlark-practices">
-                  Best Practices<span class="caret"></span>
+                   href="#starlark-practices" aria-expanded="false"
+                   aria-controls="starlark-practices">
+                  Best practices<span class="caret"></span>
                 </a>
                 <ul class="collapse sidebar-nav sidebar-submenu" id="starlark-practices">
-                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl Style Guide</a></li>
-                  <li><a href="/versions/master/skylark/testing.html">Testing</a></li>
-                  <li><a href="https://skydoc.bazel.build" target="_blank">Documenting Rules</a></li>
-                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linter</a></li>
-                  <li><a href="/versions/master/skylark/performance.html">Optimizing Performance</a></li>
-                  <li><a href="/versions/master/skylark/deploying.html">Deploying Rules</a></li>
+                  <li><a href="/versions/master/skylark/bzl-style.html">.bzl style guide</a></li>
+                  <li><a href="/versions/master/skylark/testing.html">Testing extensions</a></li>
+                  <li><a href="https://github.com/bazelbuild/stardoc">Documenting rules with Stardoc</a></li>
+                  <li><a href="https://github.com/bazelbuild/buildtools/tree/master/buildifier">Linting</a></li>
+                  <li><a href="/versions/master/skylark/performance.html">Optimizing performance</a></li>
+                  <li><a href="/versions/master/skylark/deploying.html">Deploying rules</a></li>
                   <li><a href="/versions/master/skylark/windows_tips.html">Writing rules on Windows</a></li>
                 </ul>
               </li>
 
               <li><a href="https://github.com/bazelbuild/examples/tree/master/rules">Examples</a></li>
-              <li><a href="/versions/master/skylark/lib/skylark-overview.html">API Reference</a></li>
-              <li><a href="/versions/master/skylark/language.html">Starlark Language</a></li>
+              <li><a href="/versions/master/skylark/lib/skylark-overview.html">Extensions API</a></li>
+              <li><a href="/versions/master/skylark/faq.html">FAQ</a></li>
+              <li><a href="/versions/master/skylark/language.html">Starlark language</a></li>
             </ul>
           </nav>
         </div>
 
         <div class="col-md-8">
           <div class="content">
-            <h1 id="configurable-build-attributes">Configurable Build Attributes</h1>
-
-<h3 id="contents">Contents</h3>
-<ul>
-  <li><a href="#example">Example</a></li>
-  <li><a href="#configuration-conditions">Configuration Conditions</a></li>
-  <li><a href="#defaults">Defaults</a></li>
-  <li><a href="#custom-keys">Custom Keys</a></li>
-  <li><a href="#platforms">Platforms</a></li>
-  <li><a href="#short-keys">Short Keys</a></li>
-  <li><a href="#multiple-selects">Multiple Selects</a></li>
-  <li><a href="#or-chaining">OR Chaining</a>
-    <ul>
-      <li><a href="#selects-with-or">selects.with_or</a></li>
-      <li><a href="#selects-config-setting-or-group">selects.config_setting_group</a></li>
-    </ul>
-  </li>
-  <li><a href="#and-chaining">AND Chaining</a></li>
-  <li><a href="#custom-error-messages">Custom Error Messages</a></li>
-  <li><a href="#rules">Rules Compatibility</a></li>
-  <li><a href="#query">Bazel Query and Cquery</a></li>
-  <li><a href="#faq">FAQ</a>
-    <ul>
-      <li><a href="#macros-select">Why doesn’t select() work in macros?</a></li>
-      <li><a href="#boolean-select">Why does select() always return true?</a></li>
-      <li><a href="#inspectable-select">Can I read select() like a dict?</a></li>
-      <li><a href="#bind-select">Why doesn’t select() work with bind()?</a></li>
-    </ul>
-  </li>
-</ul>
-
-<p> </p>
+            <h1 id="configurable-build-attributes">Configurable build attributes</h1>
 
 <p><strong><em>Configurable attributes</em></strong>, commonly known as <a href="be/functions.html#select"><code class="highlighter-rouge">select()</code></a>, is a Bazel feature that lets users toggle the values
 of BUILD rule attributes at the command line.</p>
@@ -496,6 +523,7 @@ command line. Specficially, <code class="highlighter-rouge">deps</code> becomes:
     <td><code>[":generic_lib"]</code></td>
   </tr>
 </table>
+
 <p><code class="highlighter-rouge">select()</code> serves as a placeholder for a value that will be chosen based on
 <em>configuration conditions</em>. These conditions are labels that refer to
 <a href="be/general.html#config_setting"><code class="highlighter-rouge">config_setting</code></a> targets. By using <code class="highlighter-rouge">select()</code>
@@ -521,7 +549,7 @@ beneath them. This will affect how conditions are matched within those targets
 but not within the attribute that causes the change. That is, a <code class="highlighter-rouge">select</code> in the
 <code class="highlighter-rouge">tools</code> attribute of a <code class="highlighter-rouge">genrule</code> will work the same as a <code class="highlighter-rouge">select</code> in the <code class="highlighter-rouge">srcs</code>.</p>
 
-<h2 id="configuration-conditions">Configuration Conditions</h2>
+<h2 id="configuration-conditions">Configuration conditions</h2>
 
 <p>Each key in a configurable attribute is a label reference to a
 <a href="be/general.html#config_setting"><code class="highlighter-rouge">config_setting</code></a> target. This is just a
@@ -599,14 +627,14 @@ Conditions checked:
 <p><code class="highlighter-rouge">select()</code> can include a <a href="#custom-error-messages"><code class="highlighter-rouge">no_match_error</code></a> for custom
 failure messages.</p>
 
-<h2 id="custom-keys">Custom Keys</h2>
+<h2 id="custom-keys">Custom keys</h2>
 
 <p>Since <code class="highlighter-rouge">config_setting</code> currently only supports built-in Bazel flags, the level
 of custom conditioning it can support is limited. For example, there’s no Bazel
 flag for <code class="highlighter-rouge">IncludeSpecialProjectFeatureX</code>.</p>
 
 <p>Plans for <a href="https://docs.google.com/document/d/1vc8v-kXjvgZOdQdnxPTaV0rrLxtP2XwnD2tAZlYJOqw/edit?usp=sharing">truly custom flags</a>
-are underway. In the meantime, <a href="user-manual.html#flag--define"><code class="highlighter-rouge">--define</code></a> is
+are underway. In the meantime, <a href="command-line-reference.html#flag--define"><code class="highlighter-rouge">--define</code></a> is
 the best approach for these purposes.
 <code class="highlighter-rouge">--define</code> is a bit awkward to use and wasn’t originally designed for this
 purpose. We recommend using it sparingly until true custom flags are available.
@@ -725,7 +753,7 @@ we can simply run</p>
 <p>Platforms are still under development. See the <a href="platforms.html">documentation</a>
 and <a href="https://bazel.build/roadmaps/platforms.html">roadmap</a> for details.</p>
 
-<h2 id="short-keys">Short Keys</h2>
+<h2 id="short-keys">Short keys</h2>
 
 <p>Since configuration keys are target labels, their names can get long and
 unwieldy. This can be mitigated with local variable definitions:</p>
@@ -801,7 +829,7 @@ unwieldy. This can be mitigated with local variable definitions:</p>
 <span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="multiple-selects">Multiple Selects</h2>
+<h2 id="multiple-select-functions">Multiple <code class="highlighter-rouge">select</code> functions</h2>
 
 <p><code class="highlighter-rouge">select</code> can appear multiple times in the same attribute:</p>
 
@@ -846,7 +874,7 @@ use an intermediate target:</p>
 <p>If you just need a <code class="highlighter-rouge">select</code> to match when multiple conditions match, see <a href="#and-chaining">AND
 chaining</a>.</p>
 
-<h2 id="or-chaining">OR Chaining</h2>
+<h2 id="or-chaining">OR chaining</h2>
 
 <p>Consider the following:</p>
 
@@ -948,7 +976,7 @@ with different values.</p>
 “specialization” of the other. See <a href="be/functions.html#select">select()</a>
 documentation for details.</p>
 
-<h2 id="and-chaining">And Chaining</h2>
+<h2 id="and-chaining">And chaining</h2>
 
 <p>If you need a <code class="highlighter-rouge">select</code> path to match when multiple conditions match, use the
 <a href="https://github.com/bazelbuild/bazel-skylib">Skylib</a> macro
@@ -983,7 +1011,7 @@ documentation for details.</p>
 directly inside a <code class="highlighter-rouge">select</code>: you have to explicitly declare the
 <code class="highlighter-rouge">config_setting_group</code>.</p>
 
-<h2 id="custom-error-messages">Custom Error Messages</h2>
+<h2 id="custom-error-messages">Custom error messages</h2>
 
 <p>By default, when no condition matches, the owning target fails with the error:</p>
 
@@ -1013,7 +1041,7 @@ ERROR: Configurable attribute <span class="s2">"deps"</span> doesn<span class="s
 build with an Android or Windows toolchain
 </span></code></pre></div></div>
 
-<h2 id="rules-compatibility"><a name="rules"></a>Rules Compatibility</h2>
+<h2 id="rules-compatibility"><a name="rules"></a>Rules compatibility</h2>
 <p>Rule implementations receive the <em>resolved values</em> of configurable
 attributes. For example, given:</p>
 
@@ -1048,7 +1076,7 @@ for a macro to convert</p>
 <p>This is for two reasons.</p>
 
 <p>First, macros that need to know which path a <code class="highlighter-rouge">select</code> will choose <em>cannot work</em>
-because macros are evaluated in Bazel’s <a href="user-manual.html#loading-phase">loading phase</a>,
+because macros are evaluated in Bazel’s <a href="guide.html#loading-phase">loading phase</a>,
 which occurs before flag values are known.
 This is a core Bazel design restriction that’s unlikely to change any time soon.</p>
 
@@ -1056,8 +1084,8 @@ This is a core Bazel design restriction that’s unlikely to change any time soo
 technically feasible, lack a coherent UI. Further design is necessary to change
 this.</p>
 
-<h2 id="bazel-query-and-cquery"><a name="query"></a>Bazel Query and Cquery</h2>
-<p>Bazel <code class="highlighter-rouge">query</code> operates over Bazel’s <a href="user-manual.html#loading-phase">loading phase</a>. This means it doesn’t know what command line
+<h2 id="bazel-query-and-cquery"><a name="query"></a>Bazel query and cquery</h2>
+<p>Bazel <code class="highlighter-rouge">query</code> operates over Bazel’s <a href="guide.html#loading-phase">loading phase</a>. This means it doesn’t know what command line
 flags will be applied to a target since those flags aren’t evaluated until later
 in the build (during the <a href="user-manual.html#analysis-phase">analysis phase</a>). So
 the <a href="query.html"><code class="highlighter-rouge">query</code></a> command can’t accurately determine which path a
@@ -1104,7 +1132,7 @@ Querying the following build file…</p>
 
 <h2 id="faq">FAQ</h2>
 
-<h2 id="why-doesnt-select-work-in-macros"><a name="macros-select"></a>Why doesn’t select() work in macros?</h2>
+<h3 id="why-doesnt-select-work-in-macros"><a name="macros-select"></a>Why doesn’t select() work in macros?</h3>
 <p>select() <em>does</em> work in rules! See <a href="#rules">Rules compatibility</a> for
 details.</p>
 
@@ -1209,7 +1237,7 @@ DEBUG: /myworkspace/myproject/defs.bzl:23:3: Invoking macro sad_macro_less_sad.
 DEBUG: /myworkspace/myproject/defs.bzl:15:3: My name is sad_macro_less_sad with custom message: FIRST STRING.
 </code></pre></div></div>
 
-<h2 id="why-does-select-always-return-true"><a name="boolean-select"></a>Why does select() always return true?</h2>
+<h3 id="why-does-select-always-return-true"><a name="boolean-select"></a>Why does select() always return true?</h3>
 <p>Because <em>macros</em> (but not rules) by definition
 <a href="#macros-select">can’t evaluate select(s)</a>, any attempt to do so
 usually produces an error:</p>
@@ -1251,7 +1279,7 @@ So what they’re really evaluting is the <code class="highlighter-rouge">select
 <a href="https://docs.python.org/release/2.5.2/lib/truth.html">Pythonic</a> design
 standards, all objects aside from a very small number of exceptions
 automatically return true.</p>
-<h2 id="can-i-read-select-like-a-dict"><a name="inspectable-select"></a>Can I read select() like a dict?</h2>
+<h3 id="can-i-read-select-like-a-dict"><a name="inspectable-select"></a>Can I read select() like a dict?</h3>
 <p>Fine. Macros <a href="#macros-select">can’t</a> evaluate select(s) because
 macros are evaluated before Bazel knows what the command line flags are.</p>
 
@@ -1307,7 +1335,7 @@ def selecty_genrule<span class="o">(</span>name, select_cmd<span class="o">)</sp
     <span class="o">)</span>
 </code></pre></div></div>
 
-<h2 id="why-doesnt-select-work-with-bind"><a name="bind-select"></a>Why doesn’t select() work with bind()?</h2>
+<h3 id="why-doesnt-select-work-with-bind"><a name="bind-select"></a>Why doesn’t select() work with bind()?</h3>
 
 <p>Because <a href="be/workspace.html#bind"><code class="highlighter-rouge">bind()</code></a> is a WORKSPACE rule, not a BUILD rule.</p>
 
@@ -1349,13 +1377,56 @@ config_setting<span class="o">(</span>
 that depends on either <code class="highlighter-rouge">//:ssl</code> or <code class="highlighter-rouge">//external:ssl</code> will see the alternative
 located at <code class="highlighter-rouge">@alternative//:ssl</code>.</p>
 
+<h3 id="why-doesnt-my-select-choose-what-i-expect">Why doesn’t my select() choose what I expect?</h3>
+<p>If <code class="highlighter-rouge">//my:target</code> has a <code class="highlighter-rouge">select()</code> that doesn’t choose the condition you expect,
+you can debug with <a href="cquery.html">cquery</a> and <code class="highlighter-rouge">bazel config</code>:</p>
+
+<p>If <code class="highlighter-rouge">//my:target</code> is what you’re building, run:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bazel cquery //my:target &lt;desired build flags&gt;
+//my:target <span class="o">(</span>12e23b9a2b534a<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Alternatively, if you’re building some other target <code class="highlighter-rouge">//foo</code> that depends on
+<code class="highlighter-rouge">//my:target</code> somewhere in its subgraph, run:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bazel cquery <span class="s1">'somepath(//foo, //my:target)'</span> &lt;desired build flags&gt;
+//foo:foo   <span class="o">(</span>3ag3193fee94a2<span class="o">)</span>
+//foo:intermediate_dep <span class="o">(</span>12e23b9a2b534a<span class="o">)</span>
+//my:target <span class="o">(</span>12e23b9a2b534a<span class="o">)</span>
+</code></pre></div></div>
+
+<p>The “<code class="highlighter-rouge">(12e23b9a2b534a)</code>” that appears next to <code class="highlighter-rouge">//my:target</code> is a <em>hash</em> of the
+configuration that resolves the <code class="highlighter-rouge">select()</code>. You can inspect its values with
+<code class="highlighter-rouge">bazel config</code>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bazel config 12e23b9a2b534a
+BuildConfiguration 12e23b9a2b534a
+Fragment com.google.devtools.build.lib.analysis.config.CoreOptions <span class="o">{</span>
+  cpu: darwin
+  compilation_mode: fastbuild
+  ...
+<span class="o">}</span>
+Fragment com.google.devtools.build.lib.rules.cpp.CppOptions <span class="o">{</span>
+  linkopt: <span class="o">[</span><span class="nt">-Dfoo</span><span class="o">=</span>bar]
+  ...
+<span class="o">}</span>
+...
+</code></pre></div></div>
+
+<p>Then compare this output against the settings that match the <code class="highlighter-rouge">config_setting</code>s.</p>
+
+<p>It’s possible for <code class="highlighter-rouge">//my:target</code> to exist in multiple configurations in the same
+build. See the <a href="cquery.html">cquery docs</a> for guidance on using <code class="highlighter-rouge">somepath</code> to
+get the right one.</p>
+
           </div>
         </div>
 
         <div class="col-md-2 sticky-sidebar">
             <div class="right-sidebar">
                 <ul class="gh-links">
-                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Configurable Build Attributes&body=Documentation URL: https://docs.bazel.build/versions/master/configurable-attributes.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
+                    <li><a href="https://github.com/bazelbuild/bazel/issues/new?title=Documentation issue: Configurable build attributes&body=Documentation URL: https://docs.bazel.build/versions/master/configurable-attributes.html&labels=type: documentation"><i class="fa fa-github"></i> Create issue</a></li>
                     <li id="gh-edit-list-item" class="default-hidden" aria-hidden="true"><a id="gh-edit" class="gh-edit default-hidden"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this page</a></li>
                 </ul>
                 <script>
@@ -1369,7 +1440,8 @@ located at <code class="highlighter-rouge">@alternative//:ssl</code>.</p>
                      && window.location.pathname.match(versionDocsURLRegex)
                      && window.location.pathname.lastIndexOf('/be/') == -1
                      && window.location.pathname.lastIndexOf('/repo/') == -1
-                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1) {
+                     && window.location.pathname.lastIndexOf('/skylark/lib/') == -1
+                     && window.location.pathname.lastIndexOf('/command-line-reference.html') == -1) {
                      var docFile = window.location.pathname.match(versionDocsURLRegex)[1];
                      // some pages are not using markdown :(
                      if (docFile !== 'user-manual.html'
@@ -1385,29 +1457,32 @@ located at <code class="highlighter-rouge">@alternative//:ssl</code>.</p>
                 </script>
 
                 <ul class="page-toc">
-<li class="toc-entry toc-h3"><a href="#contents">Contents</a></li>
 <li class="toc-entry toc-h2"><a href="#example">Example</a></li>
-<li class="toc-entry toc-h2"><a href="#configuration-conditions">Configuration Conditions</a></li>
+<li class="toc-entry toc-h2"><a href="#configuration-conditions">Configuration conditions</a></li>
 <li class="toc-entry toc-h2"><a href="#defaults">Defaults</a></li>
-<li class="toc-entry toc-h2"><a href="#custom-keys">Custom Keys</a></li>
+<li class="toc-entry toc-h2"><a href="#custom-keys">Custom keys</a></li>
 <li class="toc-entry toc-h2"><a href="#platforms">Platforms</a></li>
-<li class="toc-entry toc-h2"><a href="#short-keys">Short Keys</a></li>
-<li class="toc-entry toc-h2"><a href="#multiple-selects">Multiple Selects</a></li>
-<li class="toc-entry toc-h2"><a href="#or-chaining">OR Chaining</a>
+<li class="toc-entry toc-h2"><a href="#short-keys">Short keys</a></li>
+<li class="toc-entry toc-h2"><a href="#multiple-select-functions">Multiple select functions</a></li>
+<li class="toc-entry toc-h2"><a href="#or-chaining">OR chaining</a>
 <ul class="page-toc-sublist">
 <li class="toc-entry toc-h3"><a href="#selectswith_or">selects.with_or</a></li>
 <li class="toc-entry toc-h3"><a href="#selectsconfig_setting_group">selects.config_setting_group</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#and-chaining">And Chaining</a></li>
-<li class="toc-entry toc-h2"><a href="#custom-error-messages">Custom Error Messages</a></li>
-<li class="toc-entry toc-h2"><a href="#rules-compatibility">Rules Compatibility</a></li>
-<li class="toc-entry toc-h2"><a href="#bazel-query-and-cquery">Bazel Query and Cquery</a></li>
-<li class="toc-entry toc-h2"><a href="#faq">FAQ</a></li>
-<li class="toc-entry toc-h2"><a href="#why-doesnt-select-work-in-macros">Why doesn’t select() work in macros?</a></li>
-<li class="toc-entry toc-h2"><a href="#why-does-select-always-return-true">Why does select() always return true?</a></li>
-<li class="toc-entry toc-h2"><a href="#can-i-read-select-like-a-dict">Can I read select() like a dict?</a></li>
-<li class="toc-entry toc-h2"><a href="#why-doesnt-select-work-with-bind">Why doesn’t select() work with bind()?</a></li>
+<li class="toc-entry toc-h2"><a href="#and-chaining">And chaining</a></li>
+<li class="toc-entry toc-h2"><a href="#custom-error-messages">Custom error messages</a></li>
+<li class="toc-entry toc-h2"><a href="#rules-compatibility">Rules compatibility</a></li>
+<li class="toc-entry toc-h2"><a href="#bazel-query-and-cquery">Bazel query and cquery</a></li>
+<li class="toc-entry toc-h2"><a href="#faq">FAQ</a>
+<ul class="page-toc-sublist">
+<li class="toc-entry toc-h3"><a href="#why-doesnt-select-work-in-macros">Why doesn’t select() work in macros?</a></li>
+<li class="toc-entry toc-h3"><a href="#why-does-select-always-return-true">Why does select() always return true?</a></li>
+<li class="toc-entry toc-h3"><a href="#can-i-read-select-like-a-dict">Can I read select() like a dict?</a></li>
+<li class="toc-entry toc-h3"><a href="#why-doesnt-select-work-with-bind">Why doesn’t select() work with bind()?</a></li>
+<li class="toc-entry toc-h3"><a href="#why-doesnt-my-select-choose-what-i-expect">Why doesn’t my select() choose what I expect?</a></li>
+</ul>
+</li>
 </ul>
             </div>
         </div>
@@ -1428,6 +1503,7 @@ located at <code class="highlighter-rouge">@alternative//:ssl</code>.</p>
         <li><a href="https://www.bazel.build/contributing.html">Contribute</a></li>
         <li><a href="https://www.bazel.build/governance.html">Governance Plan</a></li>
         <li><a href="https://policies.google.com/privacy">Privacy Policy</a></li>
+        <li><a href="//sitemap.xml">Sitemap</a></li>
       </ul>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -1447,6 +1523,7 @@ located at <code class="highlighter-rouge">@alternative//:ssl</code>.</p>
         <li><a href="https://blog.bazel.build">Blog</a></li>
         <li><a href="https://github.com/bazelbuild/bazel">GitHub</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/bazel-discuss">Discussion group</a></li>
+        <li><a href="https://slack.bazel.build">Slack</a></li>
       </ul>
     </div>
   </div>
